@@ -1,0 +1,48 @@
+- name: Communication:Meeting
+  description: (Optional) need to communicate via Meeting
+  color: ffccf3
+- name: Domain:Business
+  description: About a business-related idea/problem issue affected on the entire organization
+  color: c2e0c6
+- name: Domain:Infra
+  description: About an infra or a project-related idea/problem issue based on a specific repository
+  color: cb5bea
+- name: Domain:UX
+  description: About an userstory issue based on a specific repository
+  color: fbca04
+- name: ETR:1M+
+  description: Estimated Time of Resolution is about 1 Month or more
+  color: dd6eb3
+- name: ETR:1W-
+  description: Estimated Time of Resolution is 1 Week or less
+  color: 079b27
+- name: ETR:1W+
+  description: Estimated Time of Resolution is 1 Week or more but less than 1 Month
+  color: d8643a
+- name: Judge:Deprecated
+  description: Duplicated or altered to another issue or do not need to solve
+  color: edcf2a
+- name: Policy:Notice
+  description: Policies for this entire organization
+  color: d73a4a
+- name: Priority:Emergency
+  description: Priority depends on service on-going or focusing resources at that time
+  color: ed3a09
+- name: Priority:High
+  description: Priority depends on service on-going or focusing resources at that time
+  color: f900aa
+- name: Priority:Low
+  description: Priority depends on service on-going or focusing resources at that time
+  color: 21a8a8
+- name: Priority:Medium
+  description: Priority depends on service on-going or focusing resources at that time
+  color: adc0ea
+- name: Task:Bug
+  description: Something isn't working
+  color: ddba68
+- name: Task:Documentation
+  description: Improvements or additions to documentation
+  color: 738fd6
+- name: Task:Enhancement
+  description: New feature or an issue to make something better
+  color: a2eeef
