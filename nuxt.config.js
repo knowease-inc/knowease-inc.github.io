@@ -6,11 +6,14 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  router: {
+    base: '/'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - KnoweaseGithubPages',
-    title: 'KnoweaseGithubPages',
+    titleTemplate: '%s - Github Pages',
+    title: '쉬운지식',
     htmlAttrs: {
       lang: 'en',
     },
@@ -37,6 +40,8 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    // for TypeScript
+    '@nuxt/typescript-build'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
