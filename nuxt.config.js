@@ -7,12 +7,12 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/'
+    base: '/',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Github Pages',
+    titleTemplate: '%s - 소개 페이지',
     title: '쉬운지식',
     htmlAttrs: {
       lang: 'en',
@@ -41,7 +41,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     // for TypeScript
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -51,16 +51,28 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
+      theme: {
+        light: true,
+        themes: {
+          light: {
+            background: colors.grey.lighten5,
+            primary: colors.blue.darken1,
+            secondary: colors.blue.lighten1,
+            barinfo: colors.shades.white,
+            ranker: colors.blue.base,
+            rankerlower: colors.grey.darken2,
+            info: colors.grey.darken2,
+            unactivated: colors.grey.darken1,
+            success: colors.green.base,
+            warning: colors.deepOrange.accent4,
+            error: colors.red.base,
+            chart: {
+              first: colors.blue.darken1,
+              second: colors.blue.lighten1,
+              third: colors.blue.lighten3,
+              fourth: colors.blue.lighten5,
+            },
+          },
         },
       },
     },
