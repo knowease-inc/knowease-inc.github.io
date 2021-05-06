@@ -1,93 +1,62 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
+    <v-card
+      flat
+      :max-width="mainCardMaxWidth"
+      :min-height="$vuetify.breakpoint.height - 220"
+      class="d-flex justify-center align-center ma-8 pa-8"
+    >
+      <v-card flat>
+        <v-card-title class="d-flex justify-center">
+          쉬운지식 LLC
         </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation </a
-            >.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br />
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
+
+        <v-card outlined flat>
+          <v-card-actions class="d-flex justify-center">
+            <v-btn text class="ml-2 mr-4 px-0">
+              <v-img
+                src="/img/EASYXPLAIN_LOGO.png"
+                alt="EASYXPLAIN"
+                contain
+                height="46"
+                width="70"
+              ></v-img>
+            </v-btn>
+            <v-divider vertical />
+            <v-btn text to="/service/easyxplain/introduce">소개</v-btn>
+            <v-btn text to="/service/easyxplain/regulations">규정</v-btn>
+          </v-card-actions>
+        </v-card>
+
+        <v-card-actions v-if="false">
+          <founders></founders>
         </v-card-actions>
       </v-card>
-    </v-col>
+    </v-card>
   </v-row>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+<script lang="ts">
+import { Component, Provide, Vue } from 'nuxt-property-decorator'
+import Founders from '@/components/pages.introduce/Founders.vue'
 
-export default {
+@Component({
   components: {
-    Logo,
-    VuetifyLogo,
+    Founders,
   },
+  computed: {
+    mainCardMaxWidth(): number {
+      const maxWidth: number =
+        this.$vuetify.breakpoint.width < 860
+          ? this.$vuetify.breakpoint.width
+          : 860
+      return maxWidth
+    },
+  },
+})
+class PagesIndex extends Vue {
+  @Provide() isActive: boolean = false
 }
+
+export default PagesIndex
 </script>
