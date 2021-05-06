@@ -49,29 +49,26 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
     theme: {
-      theme: {
-        light: true,
-        themes: {
-          light: {
-            background: colors.grey.lighten5,
-            primary: colors.blue.darken1,
-            secondary: colors.blue.lighten1,
-            barinfo: colors.shades.white,
-            ranker: colors.blue.base,
-            rankerlower: colors.grey.darken2,
-            info: colors.grey.darken2,
-            unactivated: colors.grey.darken1,
-            success: colors.green.base,
-            warning: colors.deepOrange.accent4,
-            error: colors.red.base,
-            chart: {
-              first: colors.blue.darken1,
-              second: colors.blue.lighten1,
-              third: colors.blue.lighten3,
-              fourth: colors.blue.lighten5,
-            },
+      light: true,
+      themes: {
+        light: {
+          background: colors.grey.lighten5,
+          primary: colors.blue.darken1,
+          secondary: colors.blue.lighten1,
+          barinfo: colors.shades.white,
+          ranker: colors.blue.base,
+          rankerlower: colors.grey.darken2,
+          info: colors.grey.darken2,
+          unactivated: colors.grey.darken1,
+          success: colors.green.base,
+          warning: colors.deepOrange.accent4,
+          error: colors.red.base,
+          chart: {
+            first: colors.blue.darken1,
+            second: colors.blue.lighten1,
+            third: colors.blue.lighten3,
+            fourth: colors.blue.lighten5,
           },
         },
       },

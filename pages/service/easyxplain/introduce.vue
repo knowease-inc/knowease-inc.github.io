@@ -1,9 +1,11 @@
 <template>
-  <v-container
-    fluid
-    class="d-flex justify-center align-center mt-10 mb-15 mx-0 px-0 px-sm-3"
-  >
-    <v-card flat max-width="800" class="ma-0 pa-0" color="rgba(0, 0, 0, 0)">
+  <v-row justify="center" align="center">
+    <v-card
+      flat
+      :max-width="mainCardMaxWidth"
+      class="ma-0 pa-0"
+      color="rgba(0, 0, 0, 0)"
+    >
       <!-- ### Start : Company Mission ### -->
       <title-standard upper-title="목표"></title-standard>
       <!-- ### Mission 설명 도식화 이미지 삽입 ### -->
@@ -40,7 +42,7 @@
               &nbsp;&nbsp;2. 다른 이의 쉬운 설명에 '쉬워요'를 주세요.<br />
               &nbsp;&nbsp;3. 직접 쉬운 설명을 등록하면 쉽게 설명하는 능력을 인정받아요.<br />
               &nbsp;&nbsp;4. 찾는 전문/기술 용어가 없다면 직접 등록해주세요. 쉬운 설명이 추가됩니다.<br />
-              &nbsp;&nbsp;5. 작성 시 주의사항은 <a href='/regulations'>규정</a>을 참고해주세요."
+              &nbsp;&nbsp;5. 작성 시 주의사항은 <a href='/service/easyxplain/regulations'>규정</a>을 참고해주세요."
       ></body-standard>
       <!-- ### Start : Service History ### -->
       <title-standard upper-title="연혁"></title-standard>
@@ -54,11 +56,11 @@
       <v-card class="mx-0 mx-sm-4 mt-3 pa-3" outlined flat>
         <v-list-item three-line>
           <v-list-item-content>
-            <v-list-item-title class="body-1 mb-1">
+            <v-list-item-title class="article-body mb-1">
               <v-icon small> mdi-email </v-icon>
               &nbsp;msp770@gmail.com
             </v-list-item-title>
-            <v-list-item-title class="body-1 mb-1">
+            <v-list-item-title class="article-body mb-1">
               <v-icon small> mdi-phone </v-icon>
               &nbsp;010-8920-3726
             </v-list-item-title>
@@ -69,32 +71,43 @@
         </v-list-item>
       </v-card>
     </v-card>
-  </v-container>
+  </v-row>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Provide, Vue } from 'nuxt-property-decorator'
 import History from '@/components/pages.introduce/Timeline.vue'
 import Founders from '@/components/pages.introduce/Founders.vue'
 import TitleStandard from '@/components/pages.loopedcomponents/Title.vue'
 import BodyStandard from '@/components/pages.loopedcomponents/Body.vue'
-export default {
+
+@Component({
   components: {
     History,
     TitleStandard,
     BodyStandard,
     Founders,
   },
-  data() {
-    return {
-      isActive: false,
-    }
-  },
   head() {
     return {
-      title: '서비스 소개',
+      title: 'EASYXPLAIN 소개',
     }
   },
+  computed: {
+    mainCardMaxWidth(): number {
+      const maxWidth: number =
+        this.$vuetify.breakpoint.width < 860
+          ? this.$vuetify.breakpoint.width
+          : 860
+      return maxWidth
+    },
+  },
+})
+class ServiceEasyxplainIntroduce extends Vue {
+  @Provide() isActive: boolean = false
 }
+
+export default ServiceEasyxplainIntroduce
 </script>
 
 <style scoped>

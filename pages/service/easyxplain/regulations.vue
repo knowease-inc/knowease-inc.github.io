@@ -1,9 +1,11 @@
 <template>
-  <v-container
-    fluid
-    class="d-flex justify-center align-center mt-10 mb-15 mx-0 px-0 px-sm-3"
-  >
-    <v-card flat max-width="800" class="ma-0 pa-0" color="rgba(0, 0, 0, 0)">
+  <v-row justify="center" align="center">
+    <v-card
+      flat
+      :max-width="mainCardMaxWidth"
+      class="ma-0 pa-0"
+      color="rgba(0, 0, 0, 0)"
+    >
       <!-- ### Start : Guidelines ### -->
       <title-standard upper-title="기본 지침"></title-standard>
       <v-row :class="rowSettings">
@@ -372,27 +374,36 @@
         </v-col>
       </v-row>
     </v-card>
-  </v-container>
+  </v-row>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Provide, Vue } from 'nuxt-property-decorator'
 import TitleStandard from '@/components/pages.loopedcomponents/Title.vue'
-// import BodyStandard from '@/components/pages.loopedcomponents/Body.vue'
-export default {
+
+@Component({
   components: {
     TitleStandard,
-    // BodyStandard
-  },
-  data() {
-    return {
-      rowSettings: 'mx-0 mt-3 pa-0',
-      classSettings: 'py-5 pl-3 pl-sm-4 pr-13 pr-sm-10',
-    }
   },
   head() {
     return {
-      title: '기본 지침',
+      title: 'EASYXPLAIN 규정',
     }
   },
+  computed: {
+    mainCardMaxWidth(): number {
+      const maxWidth: number =
+        this.$vuetify.breakpoint.width < 860
+          ? this.$vuetify.breakpoint.width
+          : 860
+      return maxWidth
+    },
+  },
+})
+class ServiceEasyxplainRegulations extends Vue {
+  @Provide() rowSettings: string = 'mx-0 mt-3 pa-0'
+  @Provide() classSettings: string = 'py-5 pl-3 pl-sm-4 pr-13 pr-sm-10'
 }
+
+export default ServiceEasyxplainRegulations
 </script>

@@ -1,65 +1,25 @@
-/* Component Title */
-.component-title {
-    font-size: 1.2rem; font-weight: 500;
-    color: grey;
-}
-
-/* Titles List Card Content */
-.card-content-desktop, .card-content-mobile {
-    color: black;
-}
-.card-content-desktop {
-    font-size: 1.2rem; font-weight: 500;
-}
-
-
 /* Content Title */
 .article-title, .article-title-xs {
     font-weight: 500;
 }
 
 .article-title {
-    font-size: 1.2rem;
+    font-size: 16px !important;
 }
 
 .article-title-xs {
-    font-size: 1.3rem;
+    font-size: 14px  !important;
 }
 
 /* Content Body */
 .article-body, .article-body-inactive, .article-body-explanation {
-    font-size: 0.95rem; line-height: 1.6em;
+    font-size: 14px !important; line-height: 1.6em !important;
 }
 
 .article-body, .article-body-explanation {
     color: #212121; 
 }
 
-.article-body-explanation {
-    text-indent: 1.1em; display: inline-block;
-}
-
 .article-body-inactive {
     color: grey; 
-}
-
-/* Content Sub Information */
-.article-infos-user, .article-infos-easy, .article-infos-etc {
-    line-height: 1.6em;
-}
-
-.article-infos-user, .article-infos-easy {
-    font-size: 0.8rem;
-}
-
-.article-infos-user, .article-infos-etc {
-    color: grey;
-}
-
-.article-infos-etc {
-    font-size: 0.7rem;
-}
-
-.article-infos-easy {
-    color: #42A5F5;
 }
