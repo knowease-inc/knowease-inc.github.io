@@ -1,17 +1,24 @@
 <template>
   <v-app light>
     <v-card flat tile class="pb-15">
+      <!-- ### Start : Top bar ### -->
       <v-app-bar
-        v-if="String($route.name) !== 'index'"
         :color="appBar.color"
         dense
         flat
         absolute
       >
         <v-spacer />
-        <v-app-bar-title class="white--text">
-          <small>{{ appBar.title }}</small>
-        </v-app-bar-title>
+        <v-toolbar-items>
+          <v-btn text to="/" active-class="no-active">
+            <v-img
+              src="/img/knowease_logo_20210601.png"
+              alt="쉬운지식"
+              contain
+              height="20"
+            ></v-img>
+          </v-btn>
+        </v-toolbar-items>
         <v-spacer />
       </v-app-bar>
 
@@ -35,10 +42,16 @@ export default {
   data() {
     return {
       appBar: {
-        color: 'black',
+        color: 'white',
         title: '쉬운지식',
       },
     }
   },
 }
 </script>
+
+<style scoped>
+.v-btn--active.no-active::before {
+  opacity: 0 !important;
+}
+</style>
