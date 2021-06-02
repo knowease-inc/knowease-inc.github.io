@@ -2,12 +2,7 @@
   <v-app light>
     <v-card flat tile class="pb-15">
       <!-- ### Start : Top bar ### -->
-      <v-app-bar
-        :color="appBar.color"
-        dense
-        flat
-        absolute
-      >
+      <v-app-bar :color="appBar.color" dense flat absolute>
         <v-spacer />
         <v-toolbar-items>
           <v-btn text to="/" active-class="no-active">
