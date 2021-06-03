@@ -1,46 +1,65 @@
 <template>
-  <v-card flat>
-    <v-row justify="center">
-      <v-col v-for="(item, i) in items" :key="i" cols="12" sm="3">
-        <!-- Start: Content -->
-        <v-card
-          flat
-          tile
-          width="100%"
-          :height="cardHeight"
-          class="d-flex justify-center align-center"
-        >
-          <!-- Start: Explanation -->
-          <v-list-item v-if="i === 0" three-line>
-            <v-list-item-content>
-              <div class="d-flex justify-center align-center">
-                {{ item.cardText }}
-              </div>
-            </v-list-item-content>
-          </v-list-item>
+  <v-card :height="height" flat>
+    <v-img
+      src="https://cdn.pixabay.com/photo/2017/03/03/13/56/key-2114046_960_720.jpg"
+      :height="height"
+      class="d-flex align-center"
+    >
+      <v-container>
+        <v-row justify="start">
+          <v-card
+            outlined
+            flat
+            max-width="345"
+            :height="height - 20"
+            class="my-0 ml-5 pa-0"
+          >
+            <!-- Start: Image -->
+            <v-card-actions class="d-flex justify-center mt-4">
+              <v-btn text max-width="100" :href="content.href">
+                <v-img
+                  src="/img/EASYXPLAIN_LOGO.png"
+                  height="25"
+                  contain
+                ></v-img>
+              </v-btn>
+            </v-card-actions>
 
-          <!-- Start: Service Link -->
-          <v-card-actions v-else-if="i === 1">
-            <v-btn text class="ml-2 mr-4 px-0" :to="item.to" :href="item.href">
-              <v-img
-                src="/img/EASYXPLAIN_LOGO.png"
-                alt="EASYXPLAIN"
-                contain
-                height="25"
-                max-width="100"
-              ></v-img>
-            </v-btn>
-          </v-card-actions>
-
-          <!-- Start: Introduce & Regulations -->
-          <div v-else>
-            <v-btn text :to="item.to" :href="item.href">
-              {{ item.cardText }}
-            </v-btn>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
+            <!-- Start: Text -->
+            <v-card-title class="d-flex align-center expCard">
+              <span class="mr-2">
+                {{ content.name }}
+              </span>
+              <v-btn
+                text
+                x-small
+                :color="linkBtnColor"
+                :href="content.shortcut.href"
+              >
+                {{ content.shortcut.name }}
+              </v-btn>
+              <v-btn
+                text
+                x-small
+                :color="linkBtnColor"
+                :to="content.introduce.to"
+              >
+                {{ content.introduce.name }}
+              </v-btn>
+              <v-btn
+                text
+                x-small
+                :color="linkBtnColor"
+                :to="content.regulations.to"
+              >
+                {{ content.regulations.name }}
+              </v-btn>
+            </v-card-title>
+            <v-card-subtitle>{{ content.explanation }}</v-card-subtitle>
+          </v-card>
+        </v-row>
+      </v-container>
+    </v-img>
   </v-card>
 </template>
 
@@ -49,33 +68,33 @@ import { Component, Provide, Vue } from 'nuxt-property-decorator'
 
 @Component({})
 class PagesIndexServices extends Vue {
-  @Provide() cardHeight: Number = 150
-  @Provide() items: Array<{
-    cardText: string
-    href: string | undefined
-    to: string | undefined
-  }> = [
-    {
-      cardText: '전문/기술 용어와 각종 가이드의 가장 쉬운 설명 제공',
-      href: undefined,
-      to: undefined,
-    },
-    {
-      cardText: '바로가기',
+  @Provide() height: string = '200'
+  @Provide() linkBtnColor: string = 'primary'
+  @Provide() content: {
+    name: string
+    explanation: string
+    href: string
+    shortcut: { name: string; href: string }
+    introduce: { name: string; to: string }
+    regulations: { name: string; to: string }
+  } = {
+    name: 'EASYXPLAIN',
+    explanation:
+      '짧고 쉬운 전문/기술용어 설명과 모든 가이드를 얻거나 제공하고 쉽게 설명하는 능력을 인정 받는 플랫폼',
+    href: 'https://frontend.easyxplain.com/',
+    shortcut: {
+      name: '바로가기',
       href: 'https://frontend.easyxplain.com/',
-      to: undefined,
     },
-    {
-      cardText: '소개',
-      href: undefined,
+    introduce: {
+      name: '소개',
       to: '/service/easyxplain/introduce',
     },
-    {
-      cardText: '이용 규정',
-      href: undefined,
+    regulations: {
+      name: '규정',
       to: '/service/easyxplain/regulations',
     },
-  ]
+  }
 }
 
 export default PagesIndexServices
