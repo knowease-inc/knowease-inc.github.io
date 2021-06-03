@@ -39,7 +39,7 @@
                 함께하는 사람들
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
-                쉬운지식을 위해 고군분투하는 이들
+                쉬운 지식을 위해 고군분투하는 이들
               </div>
             </v-list-item-content>
           </v-list-item>

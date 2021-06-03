@@ -1,6 +1,8 @@
 <template>
   <v-card :height="height" flat>
+    <!--### Start: breakpoint smAndUp (800px higher) ###-->
     <v-img
+      v-if="$vuetify.breakpoint.smAndUp === true"
       src="https://cdn.pixabay.com/photo/2017/03/03/13/56/key-2114046_960_720.jpg"
       :height="height"
       class="d-flex align-center"
@@ -60,6 +62,52 @@
         </v-row>
       </v-container>
     </v-img>
+
+    <!--### Start: breakpoint xsOnly ###-->
+    <v-container v-else>
+      <v-row justify="center">
+        <v-card outlined flat max-width="345" class="my-0 ml-5 pa-0">
+          <!-- Start: Image -->
+          <v-card-actions class="d-flex justify-center mt-4">
+            <v-btn text max-width="100" :href="content.href">
+              <v-img src="/img/EASYXPLAIN_LOGO.png" height="25" contain></v-img>
+            </v-btn>
+          </v-card-actions>
+
+          <!-- Start: Text -->
+          <v-card-title class="d-flex align-center expCard">
+            <span class="mr-2">
+              {{ content.name }}
+            </span>
+            <v-btn
+              text
+              x-small
+              :color="linkBtnColor"
+              :href="content.shortcut.href"
+            >
+              {{ content.shortcut.name }}
+            </v-btn>
+            <v-btn
+              text
+              x-small
+              :color="linkBtnColor"
+              :to="content.introduce.to"
+            >
+              {{ content.introduce.name }}
+            </v-btn>
+            <v-btn
+              text
+              x-small
+              :color="linkBtnColor"
+              :to="content.regulations.to"
+            >
+              {{ content.regulations.name }}
+            </v-btn>
+          </v-card-title>
+          <v-card-subtitle>{{ content.explanation }}</v-card-subtitle>
+        </v-card>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 
@@ -104,5 +152,6 @@ export default PagesIndexServices
 .expCard {
   font-size: 16px !important;
   font-weight: 600 !important;
+  color: rgba(76, 76, 76, 1) !important;
 }
 </style>

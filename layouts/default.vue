@@ -11,6 +11,7 @@
               alt="쉬운지식"
               contain
               height="20"
+              max-width="100"
             ></v-img>
           </v-btn>
         </v-toolbar-items>

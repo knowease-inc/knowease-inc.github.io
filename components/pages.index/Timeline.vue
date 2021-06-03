@@ -1,5 +1,9 @@
 <template>
-  <v-card flat class="mt-4 mx-0 mx-sm-4">
+  <v-card
+    flat
+    :outlined="$vuetify.breakpoint.smAndDown"
+    class="mt-4 mx-0 mx-sm-4"
+  >
     <v-timeline :dense="$vuetify.breakpoint.smAndDown" class="pr-6 px-sm-8">
       <v-timeline-item
         v-for="(item, i) in content"
