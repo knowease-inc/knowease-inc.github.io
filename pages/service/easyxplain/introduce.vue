@@ -48,9 +48,6 @@
       <title-standard upper-title="연혁"></title-standard>
       <history></history>
       <v-divider light class="mb-12 mx-4"></v-divider>
-      <!-- ### Start : Founders ### -->
-      <title-standard upper-title="인원"></title-standard>
-      <founders></founders>
       <!-- ### Start : Contact ### -->
       <title-standard upper-title="연락"></title-standard>
       <v-card class="mx-0 mx-sm-4 mt-3 pa-3" outlined flat>
@@ -77,9 +74,9 @@
 <script lang="ts">
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
 import History from '@/components/pages.introduce/Timeline.vue'
-import Founders from '@/components/pages.introduce/Founders.vue'
 import TitleStandard from '@/components/pages.loopedcomponents/Title.vue'
 import BodyStandard from '@/components/pages.loopedcomponents/Body.vue'
+import Founders from '~/components/pages.index/Founders.vue'
 
 @Component({
   components: {
