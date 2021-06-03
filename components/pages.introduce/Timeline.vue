@@ -1,6 +1,6 @@
 <template>
   <v-card outlined flat class="mt-4 mx-0 mx-sm-4">
-    <v-timeline :dense="$vuetify.breakpoint.smAndDown" class="pr-6 px-sm-8">
+    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="pr-6 px-sm-8">
       <v-timeline-item
         v-for="(item, i) in content"
         :key="i"
@@ -20,7 +20,7 @@
             {{ item.title }}
           </v-card-title>
           <v-card-text
-            v-if="$vuetify.breakpoint.smAndDown"
+            v-if="$vuetify.breakpoint.xsOnly"
             class="py-0 grey--text"
           >
             {{ item.date }}
