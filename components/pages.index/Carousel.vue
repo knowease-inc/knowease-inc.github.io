@@ -129,7 +129,8 @@ export default PagesIndexCarousel
 .upperText-xsonly {
   font-weight: 600;
   font-size: 18px;
-  text-shadow: -1px 0 darkgrey, 0 1px darkgrey, 1px 0 darkgrey, 0 -1px darkgrey;
+  text-shadow: -1px 0 rgba(60, 60, 60, 1), 0 1px rgba(60, 60, 60, 1),
+    1px 0 rgba(60, 60, 60, 1), 0 -1px rgba(60, 60, 60, 1);
 }
 
 .lowerText {
@@ -138,8 +139,9 @@ export default PagesIndexCarousel
   text-shadow: -1px 0 darkgrey, 0 1px darkgrey, 1px 0 darkgrey, 0 -1px darkgrey;
 }
 .lowerText-xsonly {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
-  text-shadow: -1px 0 darkgrey, 0 1px darkgrey, 1px 0 darkgrey, 0 -1px darkgrey;
+  text-shadow: -1px 0 rgba(60, 60, 60, 1), 0 1px rgba(60, 60, 60, 1),
+    1px 0 rgba(60, 60, 60, 1), 0 -1px rgba(60, 60, 60, 1);
 }
 </style>

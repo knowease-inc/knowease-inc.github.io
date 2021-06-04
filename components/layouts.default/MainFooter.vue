@@ -11,6 +11,9 @@
             e-mail: msp770@gmail.com | Tel: 010-8920-3726
           </div>
         </div>
+        <div v-else>
+          <div class="footer-text white--text">쉬운지식 유한책임회사</div>
+        </div>
       </v-col>
     </v-footer>
   </client-only>
