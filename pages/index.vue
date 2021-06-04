@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-container class="d-flex justify-center align-center" fluid>
     <v-card
       flat
       tile
@@ -68,7 +68,7 @@
         </v-card-actions>
       </v-card>
     </v-card>
-  </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
