@@ -14,7 +14,7 @@
 
               <!-- Start: Content -->
               <v-list-item-content>
-                <v-list-item-title>
+                <v-list-item-title class="contentTitle">
                   {{ item.title }}
                 </v-list-item-title>
 
@@ -61,10 +61,16 @@ class PagesIntroduceHowToUseCards extends Vue {
     },
     {
       title: '업적 달성 및 인증',
-      detail: '다양한 업적을 달성, 인증된 설명 능력을 높입니다',
+      detail: '다양한 업적을 달성, 설명 능력이 객관적 인증됩니다',
       image: '/img/id_icon.png',
     },
   ]
 }
 export default PagesIntroduceHowToUseCards
 </script>
+
+<style scoped>
+.contentTitle {
+  font-weight: 700;
+}
+</style>
