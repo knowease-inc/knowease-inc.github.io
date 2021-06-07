@@ -45,7 +45,7 @@ class PagesIntroduceHowToUseCards extends Vue {
       image: '/img/search_icon.png',
     },
     {
-      title: "이거 '쉬워요' 알리기",
+      title: "이거 '쉬워요' 누르기",
       detail: "정말 쉽게 작성된 설명에는 '쉬워요'를 주세요!",
       image: '/img/lightbulb_icon.png',
     },

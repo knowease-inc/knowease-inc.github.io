@@ -19,6 +19,9 @@
                 EASYXPLAIN 참여 방법
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
+                '전문/기술 용어' 또는 '가이드' 내에서
+              </div>
+              <div class="d-flex justify-center align-center contentSubTitle">
                 쉬운 설명을 찾거나, 쓰거나, 알려주세요.
               </div>
             </v-list-item-content>
@@ -27,11 +30,27 @@
 
         <how-to-use-cards />
 
+        <!-- ### Start : Timeline ### -->
+        <v-card flat tile class="contentTitleCard">
+          <v-list-item two-line>
+            <v-list-item-content>
+              <div class="d-flex justify-center align-center contentTitle">
+                함께해온 길
+              </div>
+              <div class="d-flex justify-center align-center contentSubTitle">
+                쉬운 설명을 손 꼽아온 여정
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+
+        <timeline />
+
         <!-- ### Start : Flaticon attribute ### -->
-        <v-card flat tile>
+        <v-card flat tile class="mt-10">
           <v-card-text class="d-flex justify-center">
             <div>
-              Icons made by
+              Icons on this page made by
               <a href="https://www.freepik.com" title="Freepik">Freepik</a>,
               <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp"
                 >Eucalyp</a
@@ -60,13 +79,15 @@
 
 <script lang="ts">
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import IntroduceCarousel from '@/components/pages.introduce/Carousel.vue'
-import HowToUseCards from '@/components/pages.introduce/HowToUseCards.vue'
+import IntroduceCarousel from '@/components/pages.service.easyxplain.introduce/Carousel.vue'
+import HowToUseCards from '@/components/pages.service.easyxplain.introduce/HowToUseCards.vue'
+import Timeline from '~/components/pages.service.easyxplain.introduce/Timeline.vue'
 
 @Component({
   components: {
     IntroduceCarousel,
     HowToUseCards,
+    Timeline,
   },
   head() {
     return {
