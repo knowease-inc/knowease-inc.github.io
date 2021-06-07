@@ -9,7 +9,50 @@
     >
       <v-card flat tile>
         <!-- ### Start : Top Carousel ### -->
-        <introduce-carousel></introduce-carousel>
+        <introduce-carousel />
+
+        <!-- ### Start : Usage ### -->
+        <v-card flat tile class="contentTitleCard">
+          <v-list-item two-line>
+            <v-list-item-content>
+              <div class="d-flex justify-center align-center contentTitle">
+                EASYXPLAIN 참여 방법
+              </div>
+              <div class="d-flex justify-center align-center contentSubTitle">
+                쉬운 설명을 찾거나, 쓰거나, 알려주세요.
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+
+        <how-to-use-cards />
+
+        <!-- ### Start : Flaticon attribute ### -->
+        <v-card flat tile>
+          <v-card-text class="d-flex justify-center">
+            <div>
+              Icons made by
+              <a href="https://www.freepik.com" title="Freepik">Freepik</a>,
+              <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp"
+                >Eucalyp</a
+              >,
+              <a
+                href="https://www.flaticon.com/authors/payungkead"
+                title="Payungkead"
+                >Payungkead</a
+              >,
+              <a
+                href="https://www.flaticon.com/authors/pixel-perfect"
+                title="Pixel perfect"
+                >Pixel perfect</a
+              >
+              from
+              <a href="https://www.flaticon.com/" title="Flaticon"
+                >www.flaticon.com</a
+              >
+            </div>
+          </v-card-text>
+        </v-card>
       </v-card>
     </v-card>
   </v-container>
@@ -18,10 +61,12 @@
 <script lang="ts">
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
 import IntroduceCarousel from '@/components/pages.introduce/Carousel.vue'
+import HowToUseCards from '@/components/pages.introduce/HowToUseCards.vue'
 
 @Component({
   components: {
     IntroduceCarousel,
+    HowToUseCards,
   },
   head() {
     return {
@@ -60,3 +105,19 @@ class PagesServiceEasyxplainIntroduce extends Vue {
 
 export default PagesServiceEasyxplainIntroduce
 </script>
+
+<style scoped>
+.contentTitleCard {
+  margin-top: 45px;
+  margin-bottom: 5px;
+}
+.contentTitle {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.contentSubTitle {
+  font-size: 14px;
+  font-weight: 400;
+}
+</style>
