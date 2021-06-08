@@ -15,7 +15,6 @@
       >
         <v-sheet
           height="100%"
-          width="100%"
           color="rgba(0,0,0,0)"
           class="d-flex justify-start align-center pa-4"
         >
