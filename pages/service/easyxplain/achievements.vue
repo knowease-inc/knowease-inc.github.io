@@ -8,7 +8,7 @@
       class="d-flex justify-center align-center mt-2"
     >
       <v-card flat tile>
-        <!-- ### Start : Top List ### -->
+        <!-- ### Start : Top List (Main) ### -->
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
@@ -22,10 +22,11 @@
           </v-list-item>
         </v-card>
 
-        <achievements-card-list :parent-items="topItems" />
+        <achievements-card-list v-if="tempBlind" :parent-items="topItems" />
 
-        <!-- ### Start : Related Tester List ### -->
-        <v-card flat tile class="contentTitleCard">
+        <!-- ### Start : Related Tester List (Sub) ### -->
+        <v-divider v-if="tempBlind" class="mx-3 mt-3" />
+        <v-card v-if="tempBlind" flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
               <div class="d-flex justify-center align-center contentSubTitle">
@@ -39,6 +40,40 @@
         </v-card>
 
         <achievements-card-list :parent-items="testerItems" />
+
+        <!-- ### Start : Related Executives List (Sub) ### -->
+        <v-divider class="mx-3 mt-3" />
+        <v-card flat tile class="contentTitleCard">
+          <v-list-item two-line>
+            <v-list-item-content>
+              <div class="d-flex justify-center align-center contentSubTitle">
+                {{ titleOfList.executives.name }}
+              </div>
+              <div class="d-flex justify-center align-center contentText">
+                {{ titleOfList.executives.description }}
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+
+        <achievements-card-list :parent-items="executivesItems" />
+
+        <!-- ### Start : Final Update Date ### -->
+        <v-card-text class="text-center mt-10 py-1">
+          {{ lastUpdate }}
+        </v-card-text>
+
+        <!-- ### Start : Flaticon attribute ### -->
+        <v-card-text class="text-center py-1">
+          <div>
+            Icons on this page made by
+            <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+            from
+            <a href="https://www.flaticon.com/" title="Flaticon"
+              >www.flaticon.com</a
+            >
+          </div>
+        </v-card-text>
       </v-card>
     </v-card>
   </v-container>
@@ -68,7 +103,10 @@ import achievementsCardList from '@/components/pages.service.easyxplain.achievem
   },
 })
 class PagesServiceEasyxplainAchievements extends Vue {
-  // ------ 업적 구분 ------ //
+  @Provide() tempBlind: boolean = false // 미반영 업적
+  @Provide() lastUpdate: string = '마지막 추가 업데이트 : 2021.6.8'
+
+  // ------ Category of Achievements ------ //
   @Provide() titleOfList: {
     top: {
       name: string
@@ -78,39 +116,122 @@ class PagesServiceEasyxplainAchievements extends Vue {
       name: string
       description: string
     }
+    executives: {
+      name: string
+      description: string
+    }
   } = {
     top: {
       name: '업적 목록',
       description: '여러 활동을 통해 얻을 수 있는 업적',
     },
     tester: {
-      name: '테스터',
-      description: '테스트 기간 내 참여해주신 분들 대상 업적',
+      name: '테스터 관련',
+      description: '테스트 기간 내 참여해주신 분들 대상',
+    },
+    executives: {
+      name: '운영 관련',
+      description: '서비스 구축 및 운영에 참여한 분들 대상',
     },
   }
 
-  // ------ 업적 내용 ------ //
+  // ------ Content of Achievement ------ //
   @Provide() topItems: Array<{
     title: string
-    detail: string
+    description: string
     image: string
   }> = [
     {
-      title: '필요 정보 찾기',
-      detail: '전문/기술 용어의 설명 또는 쉽게 작성된 가이드를 찾아보세요',
+      title: '일타강사',
+      description: "'쉬워요' 10개 획득",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '백타강사',
+      description: "'쉬워요' 100개 획득",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '천타강사',
+      description: "'쉬워요' 1,000개 획득",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '만타강사',
+      description: "'쉬워요' 10,000개 획득",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '빛',
+      description: "최초의 '쉬워요' 부여",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '따뜻한 빛',
+      description: "'쉬워요' 10개 부여",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '작물을 키우는 빛',
+      description: "'쉬워요' 100개 부여",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '세상을 비추는 빛',
+      description: "'쉬워요' 1,000개 부여",
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '첫걸음',
+      description: '전문/기술 용어 설명 또는 가이드 내용 1개 등록',
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '갈증',
+      description: '전문/기술 용어 또는 가이드 주제 1개 등록',
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '타오르는 갈증',
+      description: '전문/기술 용어 또는 가이드 주제 10개 등록',
+      image: '/img/search_icon.png',
+    },
+    {
+      title: '불 타오르는 갈증',
+      description: '전문/기술 용어 또는 가이드 주제 100개 등록',
       image: '/img/search_icon.png',
     },
   ]
 
   @Provide() testerItems: Array<{
     title: string
-    detail: string
+    description: string
     image: string
   }> = [
     {
-      title: '필요 정보 찾기',
-      detail: '전문/기술 용어의 설명 또는 쉽게 작성된 가이드를 찾아보세요',
-      image: '/img/search_icon.png',
+      title: '알파테스터(--%)',
+      description:
+        '1차 알파 테스트 기간 중 <테스터 활동> 최소 1개 달성 또는 상위권(5/10/30%) 포함', // '(*테스터 활동 : 설명 작성/용어 등록/쉬워요 주기/설문지 작성 기준 개수 달성)'
+      image: 'img/pages.service.easyxplain.achevements/alphatester_icon.png',
+    },
+    {
+      title: '알파테스터(--%)+',
+      description:
+        '1차 알파 테스트 기간 중 <테스터 활동> 4개 달성과 상위권(5/10/30%) 포함',
+      image:
+        'img/pages.service.easyxplain.achevements/alphatester_plus_icon.png',
+    },
+  ]
+
+  @Provide() executivesItems: Array<{
+    title: string
+    description: string
+    image: string
+  }> = [
+    {
+      title: '설립자',
+      description: 'EASYXPLAIN 설립 멤버',
+      image: 'img/pages.service.easyxplain.achevements/founder_icon.png',
     },
   ]
 }
