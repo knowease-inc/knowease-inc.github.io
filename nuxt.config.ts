@@ -64,7 +64,7 @@ export default {
         property: 'og:image',
         content:
           process.env.npm_package_meta_image ||
-          'https://knowease-inc.github.io/thumbnail/knowease_og_thumbnail_20210608.png',
+          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20210608.png',
       },
       // ** For Twitter
       {
@@ -95,7 +95,7 @@ export default {
         name: 'twitter:image',
         content:
           process.env.npm_package_meta_image ||
-          'https://knowease-inc.github.io/thumbnail/knowease_og_thumbnail_20210608.png',
+          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20210608.png',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
