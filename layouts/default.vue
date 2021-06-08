@@ -59,7 +59,8 @@ import MainFooter from '@/components/layouts.default/MainFooter.vue'
       const currentRoute: string = this.$route.path
       if (
         currentRoute === '/service/easyxplain/introduce' ||
-        currentRoute === '/service/easyxplain/regulations'
+        currentRoute === '/service/easyxplain/regulations' ||
+        currentRoute === '/service/easyxplain/achievements'
       ) {
         return false
       } else {
