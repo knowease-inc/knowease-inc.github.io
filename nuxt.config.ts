@@ -15,12 +15,88 @@ export default {
     titleTemplate: '%s - 소개 페이지',
     title: '쉬운지식',
     htmlAttrs: {
-      lang: 'en',
+      prefix: 'og:http://ogp.me/ns#',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          process.env.npm_package_meta_description ||
+          '세상 모든 지식 & 정보격차 해소를 위합니다',
+      },
+      // * OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
+      // ** Basic
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: (process.env.npm_package_meta_title || '쉬운지식')
+          .toString()
+          .toUpperCase(), // temporaliy : https://stackoverflow.com/a/55068662
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content:
+          process.env.npm_package_meta_url || 'https://knowease-inc.github.io/',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: process.env.npm_package_meta_title || '쉬운지식',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          process.env.npm_package_meta_description ||
+          '세상 모든 지식 & 정보격차 해소를 위합니다',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          process.env.npm_package_meta_image ||
+          'https://knowease-inc.github.io/thumbnail/knowease_og_thumbnail_20210608.png',
+      },
+      // ** For Twitter
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary',
+      },
+      {
+        hid: 'twitter:url',
+        name: 'twitter:url',
+        content:
+          process.env.npm_package_meta_url || 'https://knowease-inc.github.io',
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: process.env.npm_package_meta_title || '쉬운지식',
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content:
+          process.env.npm_package_meta_description ||
+          '세상 모든 지식 & 정보격차 해소를 위합니다',
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content:
+          process.env.npm_package_meta_image ||
+          'https://knowease-inc.github.io/thumbnail/knowease_og_thumbnail_20210608.png',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
