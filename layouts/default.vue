@@ -57,14 +57,10 @@ import MainFooter from '@/components/layouts.default/MainFooter.vue'
   computed: {
     onKnowease() {
       const currentRoute: string = this.$route.path
-      if (
-        currentRoute === '/service/easyxplain/introduce' ||
-        currentRoute === '/service/easyxplain/regulations' ||
-        currentRoute === '/service/easyxplain/achievements'
-      ) {
-        return false
-      } else {
+      if (currentRoute === '/') {
         return true
+      } else {
+        return false
       }
     },
   },
