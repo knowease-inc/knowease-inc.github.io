@@ -118,6 +118,8 @@ export default {
     '@nuxtjs/vuetify',
     // for TypeScript
     '@nuxt/typescript-build',
+    // doc : https://google-analytics.nuxtjs.org/setup
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -149,6 +151,11 @@ export default {
         },
       },
     },
+  },
+
+  // Pass your Google Analytics ID to id field of googleAnalytics
+  googleAnalytics: {
+    id: 'UA-168397043-2',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
