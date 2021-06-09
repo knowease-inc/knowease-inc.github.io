@@ -15,13 +15,11 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="d-flex justify-center align-center contentTitle">
-                EASYXPLAIN 참여 방법
-              </div>
-              <div class="d-flex justify-center align-center contentSubTitle">
+              <div class="text-center contentTitle">EASYXPLAIN 참여 방법</div>
+              <div class="text-center contentSubTitle">
                 '전문/기술 용어' 또는 '가이드' 내에서
               </div>
-              <div class="d-flex justify-center align-center contentSubTitle">
+              <div class="text-center contentSubTitle">
                 쉬운 설명을 찾거나, 쓰거나, 알려주세요.
               </div>
             </v-list-item-content>
@@ -34,10 +32,8 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item>
             <v-list-item-content>
-              <div class="d-flex justify-center align-center contentTitle">
-                EASYXPLAIN 차별성
-              </div>
-              <div class="d-flex justify-center align-center contentSubTitle">
+              <div class="text-center contentTitle">EASYXPLAIN 차별성</div>
+              <div class="text-center contentSubTitle">
                 다른 지식데이터베이스 서비스와 다른점은?
               </div>
             </v-list-item-content>
@@ -50,10 +46,8 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="d-flex justify-center align-center contentTitle">
-                함께해 온 길
-              </div>
-              <div class="d-flex justify-center align-center contentSubTitle">
+              <div class="text-center contentTitle">함께해 온 길</div>
+              <div class="text-center contentSubTitle">
                 쉬운 설명을 손 꼽아온 여정
               </div>
             </v-list-item-content>
@@ -64,7 +58,7 @@
 
         <!-- ### Start : Flaticon attribute ### -->
         <v-card flat tile class="mt-10">
-          <v-card-text class="d-flex justify-center">
+          <v-card-text class="text-center">
             <div>
               Icons on this page made by
               <a href="https://www.freepik.com" title="Freepik">Freepik</a>,

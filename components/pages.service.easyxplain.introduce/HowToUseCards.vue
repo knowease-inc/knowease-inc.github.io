@@ -4,12 +4,10 @@
       <v-row justify="center" align="center" no-gutters>
         <v-col v-for="(item, i) in items" :key="i" cols="12" sm="4">
           <v-card flat outlined class="ma-1">
-            <v-list-item three-line class="pl-1 pr-2">
+            <v-list-item three-line>
               <!-- Start: Image -->
-              <v-list-item-avatar :size="avatarSize" class="mx-0">
-                <v-avatar tile>
-                  <v-img :src="item.image" />
-                </v-avatar>
+              <v-list-item-avatar :size="avatarSize" tile>
+                <v-img :src="item.image" />
               </v-list-item-avatar>
 
               <!-- Start: Content -->
@@ -34,7 +32,7 @@
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
 @Component({})
 class PagesIntroduceHowToUseCards extends Vue {
-  @Provide() avatarSize: string = '80px'
+  @Provide() avatarSize: string = '40px'
   @Provide() items: Array<{
     title: string
     detail: string
