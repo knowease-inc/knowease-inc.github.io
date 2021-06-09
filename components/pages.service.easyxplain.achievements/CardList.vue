@@ -10,16 +10,16 @@
           class="d-flex justify-center"
         >
           <v-card flat :max-width="maxWidthOfCard" class="ma-1">
-            <v-list-item three-line class="pl-1 pr-2">
-              <!-- Start: Content -->
-              <v-list-item-content class="pt-0">
-                <!-- Start: Image -->
-                <v-list-item-avatar :size="avatarSize" class="mx-0">
-                  <v-avatar :size="avatarSize" tile>
-                    <v-img :src="item.image" />
-                  </v-avatar>
-                </v-list-item-avatar>
+            <!-- Start: Image -->
+            <v-list-item class="d-flex justify-center">
+              <v-list-item-avatar :size="avatarSize" tile>
+                <v-img :src="item.image" />
+              </v-list-item-avatar>
+            </v-list-item>
 
+            <!-- Start: Text -->
+            <v-list-item three-line>
+              <v-list-item-content class="pt-0">
                 <v-list-item-title class="text-center contentTitle">
                   {{ item.title }}
                 </v-list-item-title>
@@ -48,7 +48,7 @@ class PagesServiceEasyxplainAchievementsCardList extends Vue {
   }>
 
   @Provide() maxWidthOfCard: string = '300'
-  @Provide() avatarSize: string = '96px'
+  @Provide() avatarSize: string = '80px'
 }
 export default PagesServiceEasyxplainAchievementsCardList
 </script>

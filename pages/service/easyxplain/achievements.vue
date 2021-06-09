@@ -12,10 +12,10 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="d-flex justify-center align-center contentTitle">
+              <div class="text-center contentTitle">
                 {{ titleOfList.top.name }}
               </div>
-              <div class="d-flex justify-center align-center contentText">
+              <div class="text-center contentText">
                 {{ titleOfList.top.description }}
               </div>
             </v-list-item-content>
@@ -29,10 +29,10 @@
         <v-card v-if="tempBlind" flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="d-flex justify-center align-center contentSubTitle">
+              <div class="text-center contentSubTitle">
                 {{ titleOfList.tester.name }}
               </div>
-              <div class="d-flex justify-center align-center contentText">
+              <div class="text-center contentText">
                 {{ titleOfList.tester.description }}
               </div>
             </v-list-item-content>
@@ -46,10 +46,10 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="d-flex justify-center align-center contentSubTitle">
+              <div class="text-center contentSubTitle">
                 {{ titleOfList.executives.name }}
               </div>
-              <div class="d-flex justify-center align-center contentText">
+              <div class="text-center contentText">
                 {{ titleOfList.executives.description }}
               </div>
             </v-list-item-content>
@@ -59,6 +59,7 @@
         <achievements-card-list :parent-items="executivesItems" />
 
         <!-- ### Start : Final Update Date ### -->
+        <v-divider class="mx-3 mt-3" />
         <v-card-text class="text-center mt-10 py-1">
           {{ lastUpdate }}
         </v-card-text>
