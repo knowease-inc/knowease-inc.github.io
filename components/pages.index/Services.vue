@@ -17,11 +17,12 @@
             class="my-0 ml-5 pa-0"
           >
             <!-- Start: Image -->
-            <v-card-actions class="d-flex justify-center mt-4">
-              <v-btn text max-width="100" :href="content.href">
+            <v-card-actions class="mt-4">
+              <v-btn text :href="content.href">
                 <v-img
                   src="/img/EASYXPLAIN_LOGO.png"
                   height="25"
+                  max-width="100"
                   contain
                 ></v-img>
               </v-btn>
@@ -66,11 +67,16 @@
     <!--### Start: breakpoint xsOnly ###-->
     <v-container v-else>
       <v-row justify="center">
-        <v-card outlined flat max-width="345" class="my-0 ml-5 pa-0">
+        <v-card outlined flat max-width="345" class="my-0 pa-0">
           <!-- Start: Image -->
           <v-card-actions class="d-flex justify-center mt-4">
-            <v-btn text max-width="100" :href="content.href">
-              <v-img src="/img/EASYXPLAIN_LOGO.png" height="25" contain></v-img>
+            <v-btn text :href="content.href">
+              <v-img
+                src="/img/EASYXPLAIN_LOGO.png"
+                height="25"
+                max-width="100px"
+                contain
+              ></v-img>
             </v-btn>
           </v-card-actions>
 
