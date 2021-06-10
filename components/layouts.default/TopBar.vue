@@ -1,6 +1,7 @@
 <template>
   <v-app-bar :color="appBar.color" dense flat absolute>
     <v-spacer />
+    <v-spacer v-if="$vuetify.breakpoint.xsOnly" />
     <!-- Start : Knowease image -->
     <v-toolbar-items v-if="onKnowease">
       <v-btn text to="/" active-class="no-active">
@@ -37,8 +38,15 @@
       <v-menu>
         <!-- Start: Menu Btn -->
         <template #activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>{{ appBar.menuIcon }}</v-icon>
+          <v-btn
+            icon
+            v-bind="attrs"
+            :small="$vuetify.breakpoint.xsOnly"
+            v-on="on"
+          >
+            <v-icon :small="$vuetify.breakpoint.xsOnly">{{
+              appBar.menuIcon
+            }}</v-icon>
           </v-btn>
         </template>
 
