@@ -128,8 +128,8 @@ export default PagesServiceEasyxplainIntroduce
 
 <style scoped>
 .contentTitleCard {
-  margin-top: 45px;
-  margin-bottom: 5px;
+  margin-top: 85px;
+  margin-bottom: 15px;
 }
 .contentTitle {
   font-size: 28px;

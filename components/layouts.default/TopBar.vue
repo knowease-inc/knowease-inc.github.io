@@ -1,7 +1,11 @@
 <template>
   <v-app-bar :color="appBar.color" dense flat absolute>
+    <!-- Start: -->
+    <v-btn icon color="white" @click.prevent="easterEgg()">
+      <v-icon :small="$vuetify.breakpoint.xsOnly">{{ appBar.menuIcon }}</v-icon>
+    </v-btn>
     <v-spacer />
-    <v-spacer v-if="$vuetify.breakpoint.xsOnly" />
+
     <!-- Start : Knowease image -->
     <v-toolbar-items v-if="onKnowease">
       <v-btn text to="/" active-class="no-active">
@@ -51,13 +55,13 @@
         </template>
 
         <!-- Start: Menu Contents -->
-        <v-list>
+        <v-list dense>
           <v-list-item
             v-for="(item, i) in menuItems"
             :key="i"
             class="d-flex justify-center text-start"
           >
-            <v-list-item-subtitle v-if="item.title">
+            <v-list-item-subtitle v-if="item.title" class="menuTitle">
               {{ item.name }}
             </v-list-item-subtitle>
             <v-btn v-else :to="item.to" small text active-class="no-active">{{
@@ -85,6 +89,12 @@ import MainFooter from '@/components/layouts.default/MainFooter.vue'
       } else {
         return false
       }
+    },
+  },
+  methods: {
+    easterEgg() {
+      const text: string = '어떻게 알고 찾았죠...?'
+      alert(text)
     },
   },
 })
@@ -141,5 +151,9 @@ export default LayoutDefaultTopBar
 <style scoped>
 .v-btn--active.no-active::before {
   opacity: 0 !important;
+}
+.menuTitle {
+  font-size: 13px;
+  color: #64b5f6 !important;
 }
 </style>
