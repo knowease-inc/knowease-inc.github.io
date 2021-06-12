@@ -65,7 +65,7 @@ class PagesServiceEasyxplainDifferentiation extends Vue {
     {
       titleFirst: 'Y',
       title: 'ours',
-      content: '설명 활동은 작성자 개인의 능력 페이지에 정리됩니다.',
+      content: '작성자 활동은 개인 페이지에 능력으로 인증됩니다.',
       subcontent:
         '설명과 같은 추상적인 능력이 객관적으로 인정받을 수 있도록 합니다.',
     },
@@ -85,7 +85,7 @@ export default PagesServiceEasyxplainDifferentiation
   color: #1e88e5;
 }
 .contentText {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
 }
 .contentSubText {

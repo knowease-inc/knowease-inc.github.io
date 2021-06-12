@@ -63,7 +63,7 @@
           </v-list-item>
         </v-card>
 
-        <v-card-actions class="pa-0">
+        <v-card-actions class="d-flex justify-center pa-0">
           <timeline />
         </v-card-actions>
       </v-card>

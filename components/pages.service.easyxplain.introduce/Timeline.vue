@@ -10,13 +10,16 @@
         color="secondary"
       >
         <template #opposite>
-          <span
-            class="headline font-weight-bold secondary--text"
-            v-text="item.date"
-          ></span>
+          <span class="timelinetitle" v-text="item.date"></span>
         </template>
         <v-card flat outlined>
-          <v-card-title class="py-1 font-weight-bold secondary--text">
+          <v-card-title
+            v-if="$vuetify.breakpoint.smAndUp"
+            class="timelinetitle py-1"
+          >
+            {{ item.title }}
+          </v-card-title>
+          <v-card-title v-else class="timelinetitle-xs py-1">
             {{ item.title }}
           </v-card-title>
           <v-card-text
@@ -25,7 +28,7 @@
           >
             {{ item.date }}
           </v-card-text>
-          <v-card-text class="py-2">
+          <v-card-text class="timelineBody py-2">
             {{ item.body }}
           </v-card-text>
         </v-card>
@@ -67,3 +70,22 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.timelinetitle,
+.timelinetitle-xs {
+  font-weight: 600;
+  color: #1e88e5;
+}
+.timelinetitle {
+  font-size: 15px;
+}
+.timelinetitle-xs {
+  font-size: 14px;
+}
+.timelineBody {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 130%;
+}
+</style>

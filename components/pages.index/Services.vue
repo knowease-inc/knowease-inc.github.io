@@ -17,7 +17,7 @@
             class="my-0 ml-5 pa-0"
           >
             <!-- Start: Image -->
-            <v-card-actions class="mt-4">
+            <v-card-actions class="d-flex justify-center mt-4">
               <v-btn text :href="content.href">
                 <v-img
                   src="/img/EASYXPLAIN_LOGO.png"
@@ -35,7 +35,7 @@
               </span>
               <v-btn
                 text
-                x-small
+                small
                 :color="linkBtnColor"
                 :href="content.shortcut.href"
               >
@@ -43,7 +43,7 @@
               </v-btn>
               <v-btn
                 text
-                x-small
+                small
                 :color="linkBtnColor"
                 :to="content.introduce.to"
               >
@@ -51,14 +51,16 @@
               </v-btn>
               <v-btn
                 text
-                x-small
+                small
                 :color="linkBtnColor"
                 :to="content.regulations.to"
               >
                 {{ content.regulations.name }}
               </v-btn>
             </v-card-title>
-            <v-card-subtitle>{{ content.explanation }}</v-card-subtitle>
+            <v-card-subtitle class="expCardSubTitle">
+              {{ content.explanation }}
+            </v-card-subtitle>
           </v-card>
         </v-row>
       </v-container>
@@ -67,14 +69,14 @@
     <!--### Start: breakpoint xsOnly ###-->
     <v-container v-else>
       <v-row justify="center">
-        <v-card outlined flat max-width="345" class="my-0 pa-0">
+        <v-card outlined flat max-width="345" class="my-0 pa-0 pb-3">
           <!-- Start: Image -->
           <v-card-actions class="d-flex justify-center mt-4">
             <v-btn text :href="content.href">
               <v-img
                 src="/img/EASYXPLAIN_LOGO.png"
                 height="25"
-                max-width="100px"
+                max-width="100"
                 contain
               ></v-img>
             </v-btn>
@@ -110,7 +112,9 @@
               {{ content.regulations.name }}
             </v-btn>
           </v-card-title>
-          <v-card-subtitle>{{ content.explanation }}</v-card-subtitle>
+          <v-card-subtitle class="expCardSubTitle">
+            {{ content.explanation }}
+          </v-card-subtitle>
         </v-card>
       </v-row>
     </v-container>
@@ -159,5 +163,10 @@ export default PagesIndexServices
   font-size: 16px !important;
   font-weight: 600 !important;
   color: rgba(76, 76, 76, 1) !important;
+}
+.expCardSubTitle {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 140%;
 }
 </style>

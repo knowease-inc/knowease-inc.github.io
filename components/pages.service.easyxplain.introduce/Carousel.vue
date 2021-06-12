@@ -111,26 +111,26 @@ export default PagesIntroduceCarousel
 .upperText {
   font-weight: 800;
   font-size: 32px;
-  text-shadow: -1px 0 rgba(70, 70, 70, 1), 0 1px rgba(70, 70, 70, 1),
-    1px 0 rgba(70, 70, 70, 1), 0 -1px rgba(70, 70, 70, 1);
+  text-shadow: -1px 0 rgba(50, 50, 50, 1), 0 1px rgba(50, 50, 50, 1),
+    1px 0 rgba(50, 50, 50, 1), 0 -1px rgba(50, 50, 50, 1);
 }
 .upperText-xsonly {
   font-weight: 600;
   font-size: 18px;
-  text-shadow: -1px 0 rgba(70, 70, 70, 1), 0 1px rgba(70, 70, 70, 1),
-    1px 0 rgba(70, 70, 70, 1), 0 -1px rgba(70, 70, 70, 1);
+  text-shadow: -1px 0 rgba(50, 50, 50, 1), 0 1px rgba(50, 50, 50, 1),
+    1px 0 rgba(50, 50, 50, 1), 0 -1px rgba(50, 50, 50, 1);
 }
 
 .lowerText {
   font-size: 16px;
   font-weight: 700;
-  text-shadow: -1px 0 rgba(70, 70, 70, 1), 0 1px rgba(70, 70, 70, 1),
-    1px 0 rgba(70, 70, 70, 1), 0 -1px rgba(70, 70, 70, 1);
+  text-shadow: -1px 0 rgba(50, 50, 50, 1), 0 1px rgba(50, 50, 50, 1),
+    1px 0 rgba(50, 50, 50, 1), 0 -1px rgba(50, 50, 50, 1);
 }
 .lowerText-xsonly {
   font-size: 14px;
   font-weight: 400;
-  text-shadow: -1px 0 rgba(70, 70, 70, 1), 0 1px rgba(70, 70, 70, 1),
-    1px 0 rgba(70, 70, 70, 1), 0 -1px rgba(70, 70, 70, 1);
+  text-shadow: -1px 0 rgba(50, 50, 50, 1), 0 1px rgba(50, 50, 50, 1),
+    1px 0 rgba(50, 50, 50, 1), 0 -1px rgba(50, 50, 50, 1);
 }
 </style>
