@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /
+User-agent: Googlebot
+User-agent: DAUM
+User-agent: Daumoa
+User-agent: Yeti
+User-agent: NaverBot
+User-agent: ZumBot
+Allow: /
+
+Sitemap: https://knowease-inc.github.io/sitemap.xml

@@ -97,6 +97,14 @@ export default {
           process.env.npm_package_meta_image ||
           'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20210608.png',
       },
+      /*
+      For Google Search Console
+      <meta name="google-site-verification" content="NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk" />
+      */
+      {
+        name: 'google-site-verification',
+        content: 'NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
