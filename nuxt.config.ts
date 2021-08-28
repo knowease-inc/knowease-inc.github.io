@@ -128,6 +128,8 @@ export default {
     '@nuxt/typescript-build',
     // doc : https://google-analytics.nuxtjs.org/setup
     '@nuxtjs/google-analytics',
+    // doc : https://www.npmjs.com/package/@nuxtjs/markdownit
+    '@nuxtjs/markdownit',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -159,6 +161,15 @@ export default {
         },
       },
     },
+  },
+
+  // [optional] markdownit options
+  // See https://github.com/markdown-it/markdown-it
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: ['markdown-it-div', 'markdown-it-attrs'],
   },
 
   // Pass your Google Analytics ID to id field of googleAnalytics
