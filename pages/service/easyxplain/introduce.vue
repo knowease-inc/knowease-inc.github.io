@@ -147,15 +147,15 @@ import VocIssueList from '~/components/pages.service.voiceofcustomer/vocIssueLis
       issuesListResult: [],
     }
   },
-  // !!!
-  // async asyncData({ $axios }) {
-  //   const issuesListResult = await $axios.$get(
-  //     'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues?state=all&labels=Communication:VoiceOfCustomer'
-  //   )
-  //   return { issuesListResult }
-  // },
 })
 class PagesServiceEasyxplainIntroduce extends Vue {}
+
+export const issueListResult = async ({ $axios }) => {
+    const issuesListResult = await $axios.$get(
+      'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues?state=all&labels=Communication:VoiceOfCustomer'
+    )
+    return issuesListResult
+}
 
 export default PagesServiceEasyxplainIntroduce
 </script>
