@@ -56,6 +56,23 @@
 
         <timeline />
 
+        <!-- ### Start : Timeline ### -->
+        <v-card flat tile class="contentTitleCard">
+          <v-list-item two-line>
+            <v-list-item-content>
+              <div class="text-center contentTitle">소통의 장</div>
+              <div class="text-center contentSubTitle">
+                언제 어디서나 여러분의 의견이 최우선입니다.
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+
+        <VocIssueInputForm />
+        <VocIssueList
+          :issuesListResultFromParent="issuesListResult"
+        />
+
         <!-- ### Start : Flaticon attribute ### -->
         <v-card flat tile class="mt-10">
           <v-card-text class="text-center">
@@ -89,6 +106,7 @@
         </v-card>
       </v-card>
     </v-card>
+
   </v-container>
 </template>
 
@@ -98,6 +116,8 @@ import IntroduceCarousel from '@/components/pages.service.easyxplain.introduce/C
 import HowToUseCards from '@/components/pages.service.easyxplain.introduce/HowToUseCards.vue'
 import Differentiation from '~/components/pages.service.easyxplain.introduce/Differentiation.vue'
 import Timeline from '~/components/pages.service.easyxplain.introduce/Timeline.vue'
+import VocIssueInputForm from '~/components/pages.service.voiceofcustomer/vocIssueInputForm.vue'
+import VocIssueList from '~/components/pages.service.voiceofcustomer/vocIssueList.vue'
 
 @Component({
   components: {
@@ -105,6 +125,8 @@ import Timeline from '~/components/pages.service.easyxplain.introduce/Timeline.v
     Differentiation,
     HowToUseCards,
     Timeline,
+    VocIssueInputForm,
+    VocIssueList,
   },
   head() {
     return {
@@ -120,6 +142,18 @@ import Timeline from '~/components/pages.service.easyxplain.introduce/Timeline.v
       return maxWidth
     },
   },
+  data() {
+    return {
+      issuesListResult: [],
+    }
+  },
+  // !!!
+  // async asyncData({ $axios }) {
+  //   const issuesListResult = await $axios.$get(
+  //     'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues?state=all&labels=Communication:VoiceOfCustomer'
+  //   )
+  //   return { issuesListResult }
+  // },
 })
 class PagesServiceEasyxplainIntroduce extends Vue {}
 
