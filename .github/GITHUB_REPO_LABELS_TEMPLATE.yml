@@ -1,5 +1,7 @@
 - name: Communication:Meeting
   description: (Optional) need to communicate via Meeting
+- name: Communication:VoiceOfCustomer
+  description: need to communicate via Customer Support Center
   color: ffccf3
 - name: Domain:Business
   description: About a business-related idea/problem issue affected on the entire organization
