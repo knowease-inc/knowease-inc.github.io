@@ -88,7 +88,7 @@ export default {
 
     async _postIssueCreation() {
       const jwt = await this.$axios.$get(
-        'https://{!!!}/jwt-creation-app-for-knowease-inc-github-io'
+        'https://asia-northeast3-knowease-inc.cloudfunctions.net/jwt-creation-app-for-knowease-inc-github-io'
       )
       // const installation_id = this.$axios.$get(
       //   'https://api.github.com/app/installations', {},
@@ -100,7 +100,7 @@ export default {
       //   }
       // )
       const accessTokens = await this.$axios.$post(
-        'https://api.github.com/app/installations/{!!!}/access_tokens',
+        'https://api.github.com/app/installations/19408771/access_tokens',
         {},
         {
           headers: {

@@ -8,7 +8,7 @@
    - Secrets API
 
 ## Endpoint
- - TBD
+ - https://asia-northeast3-knowease-inc.cloudfunctions.net/jwt-creation-app-for-knowease-inc-github-io
 
 ## Components using this API
  - `/components/pages.service.voiceofcustomer/vocIssueInputForm.vue`

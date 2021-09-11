@@ -32,7 +32,7 @@ def jwt(request):
       # JWT expiration time (10 minute maximum)
       'exp': int(time()) + (10 * 60),
       # GitHub App's identifier
-      'iss': 136342
+      'iss': 137630  # TheUserIsAlwaysRight
     }
 
     encoded_jwt = jwt.encode(payload, priv_rsakey, algorithm='RS256')
