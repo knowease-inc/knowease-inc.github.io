@@ -68,11 +68,6 @@
           </v-list-item>
         </v-card>
 
-        <VocIssueInputForm />
-        <VocIssueList
-          :issuesListResultFromParent="issuesListResult"
-        />
-
         <!-- ### Start : Flaticon attribute ### -->
         <v-card flat tile class="mt-10">
           <v-card-text class="text-center">
@@ -106,7 +101,6 @@
         </v-card>
       </v-card>
     </v-card>
-
   </v-container>
 </template>
 
@@ -116,8 +110,6 @@ import IntroduceCarousel from '@/components/pages.service.easyxplain.introduce/C
 import HowToUseCards from '@/components/pages.service.easyxplain.introduce/HowToUseCards.vue'
 import Differentiation from '~/components/pages.service.easyxplain.introduce/Differentiation.vue'
 import Timeline from '~/components/pages.service.easyxplain.introduce/Timeline.vue'
-import VocIssueInputForm from '~/components/pages.service.voiceofcustomer/vocIssueInputForm.vue'
-import VocIssueList from '~/components/pages.service.voiceofcustomer/vocIssueList.vue'
 
 @Component({
   components: {
@@ -125,8 +117,6 @@ import VocIssueList from '~/components/pages.service.voiceofcustomer/vocIssueLis
     Differentiation,
     HowToUseCards,
     Timeline,
-    VocIssueInputForm,
-    VocIssueList,
   },
   head() {
     return {
@@ -149,13 +139,6 @@ import VocIssueList from '~/components/pages.service.voiceofcustomer/vocIssueLis
   },
 })
 class PagesServiceEasyxplainIntroduce extends Vue {}
-
-export const issueListResult = async ({ $axios }) => {
-    const issuesListResult = await $axios.$get(
-      'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues?state=all&labels=Communication:VoiceOfCustomer'
-    )
-    return issuesListResult
-}
 
 export default PagesServiceEasyxplainIntroduce
 </script>

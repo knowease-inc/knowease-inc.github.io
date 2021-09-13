@@ -130,6 +130,8 @@ export default {
     '@nuxtjs/google-analytics',
     // doc : https://www.npmjs.com/package/@nuxtjs/markdownit
     '@nuxtjs/markdownit',
+    // doc : https://axios.nuxtjs.org/setup
+    '@nuxtjs/axios',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
