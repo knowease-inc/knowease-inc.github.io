@@ -56,18 +56,6 @@
 
         <timeline />
 
-        <!-- ### Start : Timeline ### -->
-        <v-card flat tile class="contentTitleCard">
-          <v-list-item two-line>
-            <v-list-item-content>
-              <div class="text-center contentTitle">소통의 장</div>
-              <div class="text-center contentSubTitle">
-                언제 어디서나 여러분의 의견이 최우선입니다.
-              </div>
-            </v-list-item-content>
-          </v-list-item>
-        </v-card>
-
         <!-- ### Start : Flaticon attribute ### -->
         <v-card flat tile class="mt-10">
           <v-card-text class="text-center">
