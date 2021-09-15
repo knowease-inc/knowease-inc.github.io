@@ -21,7 +21,7 @@
 
     <!-- Start : Easyxplain image -->
     <v-toolbar-items v-else>
-      <v-btn text active-class="no-active" @click.prevent="notReadyNotice()">
+      <v-btn text active-class="no-active" @click.prevent="toEASYXPLAIN()">
         <v-img
           :src="appBar.easyxplain.imgSrc"
           :alt="appBar.easyxplain.title"
@@ -92,9 +92,9 @@ import MainFooter from '@/components/layouts.default/MainFooter.vue'
       const text: string = '어떻게 알고 찾았죠...?'
       alert(text)
     },
-    notReadyNotice() {
-      const text: string = '본 서비스는 오픈 준비중입니다.'
-      alert(text)
+    toEASYXPLAIN() {
+      const path = 'https://ko.easyxplain.com/'
+      window.open(path)
     },
   },
 })

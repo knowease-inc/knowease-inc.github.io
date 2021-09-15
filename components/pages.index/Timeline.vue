@@ -54,6 +54,15 @@ class PagesIndexTimeline extends Vue {
     color: string
   }> = [
     {
+      title: "'EASYXLPLAIN' Beta Test",
+      date: '2021.9',
+      body:
+        'Alpha Test 피드백 기반 서비스 개선 후, 검색 엔진 최적화를 위한 SSR(Server Side Rendering) 방식 채택, 운영/관리 효율화를 위한 AWS 클라우드 서비스상 Serverless 적용 인프라가 함께 테스트 되었습니다.',
+      left: false,
+      small: true,
+      color: 'secondary',
+    },
+    {
       title: "'EASYXLPLAIN' Alpha Test",
       date: '2020.10',
       body:

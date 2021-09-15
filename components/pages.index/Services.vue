@@ -143,8 +143,8 @@ class PagesIndexServices extends Vue {
       '짧고 쉬운 전문/기술용어 설명과 모든 가이드를 얻거나 제공하고 쉽게 설명하는 능력을 인정 받는 플랫폼',
     href: undefined, // 'https://frontend.easyxplain.com/',
     shortcut: {
-      name: '(준비중)', // '바로가기',
-      href: undefined, // 'https://frontend.easyxplain.com/',
+      name: '바로가기', // '(준비중)'
+      href: 'https://ko.easyxplain.com/', // undefined,
     },
     introduce: {
       name: '소개',
