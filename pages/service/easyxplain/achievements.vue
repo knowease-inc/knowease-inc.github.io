@@ -105,7 +105,7 @@ import achievementsCardList from '@/components/pages.service.easyxplain.achievem
 })
 class PagesServiceEasyxplainAchievements extends Vue {
   @Provide() tempBlind: boolean = false // 미반영 업적
-  @Provide() lastUpdate: string = '마지막 추가 업데이트 : 2021.6.8'
+  @Provide() lastUpdate: string = '마지막 추가 업데이트 : 2021.9.15'
 
   // ------ Category of Achievements ------ //
   @Provide() titleOfList: {
@@ -210,15 +210,28 @@ class PagesServiceEasyxplainAchievements extends Vue {
     image: string
   }> = [
     {
+      title: '베타테스터(--%)',
+      description:
+        '1차 베타 테스트 기간 중 <테스터 활동> 최소 1개 달성 또는 상위권(5/10/30%) 포함', // '(*테스터 활동 : 용어 등록/설명 작성/가이드 등록/내용 작성/쉬워요 주기/설문지 작성 기준 개수 달성)'
+      image: 'img/pages.service.easyxplain.achevements/betatester_icon.png',
+    },
+    {
+      title: '베타테스터(--%)+',
+      description:
+        '1차 베타 테스트 기간 중 <테스터 활동> 모두 달성과 상위권(5/10/30%) 포함',
+      image:
+        'img/pages.service.easyxplain.achevements/betatester_plus_icon.png',
+    },
+    {
       title: '알파테스터(--%)',
       description:
-        '1차 알파 테스트 기간 중 <테스터 활동> 최소 1개 달성 또는 상위권(5/10/30%) 포함', // '(*테스터 활동 : 설명 작성/용어 등록/쉬워요 주기/설문지 작성 기준 개수 달성)'
+        '알파 테스트 기간 중 <테스터 활동> 최소 1개 달성 또는 상위권(5/10/30%) 포함', // '(*테스터 활동 : 설명 작성/용어 등록/쉬워요 주기/설문지 작성 기준 개수 달성)'
       image: 'img/pages.service.easyxplain.achevements/alphatester_icon.png',
     },
     {
       title: '알파테스터(--%)+',
       description:
-        '1차 알파 테스트 기간 중 <테스터 활동> 4개 달성과 상위권(5/10/30%) 포함',
+        '알파 테스트 기간 중 <테스터 활동> 4개 달성과 상위권(5/10/30%) 포함',
       image:
         'img/pages.service.easyxplain.achevements/alphatester_plus_icon.png',
     },
