@@ -136,12 +136,12 @@ class LayoutDefaultTopBar extends Vue {
     { title: false, name: '회사 소개', to: '/' },
     { title: true, name: 'EASYXPLAIN', to: undefined },
     { title: false, name: '서비스 소개', to: '/service/easyxplain/introduce' },
-    { title: false, name: '이용 규정', to: '/service/easyxplain/regulations' },
     {
       title: false,
       name: '사용자 업적',
       to: '/service/easyxplain/achievements',
     },
+    { title: false, name: '이용 규정', to: '/service/easyxplain/regulations' },
   ]
 }
 
