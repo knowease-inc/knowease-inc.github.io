@@ -31,24 +31,6 @@
         <!-- ### Start : Our Service ### -->
         <services></services>
 
-        <!-- ### Start : Linked In Badges ### -->
-        <v-card flat tile class="contentTitleCard">
-          <v-list-item two-line>
-            <v-list-item-content>
-              <div class="d-flex justify-center align-center contentTitle">
-                함께하는 사람들
-              </div>
-              <div class="d-flex justify-center align-center contentSubTitle">
-                쉬운 지식을 위해 고군분투하는 이들
-              </div>
-            </v-list-item-content>
-          </v-list-item>
-        </v-card>
-
-        <v-card-actions class="pa-0">
-          <founders />
-        </v-card-actions>
-
         <!-- ### Start : History ### -->
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
@@ -57,15 +39,29 @@
                 연혁
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
-                쉬운 지식을 위했던 지난 여정
+                쉬운지식을 위했던 지난 여정
               </div>
             </v-list-item-content>
           </v-list-item>
         </v-card>
 
-        <v-card-actions class="d-flex justify-center pa-0">
-          <timeline />
-        </v-card-actions>
+        <timeline />
+
+        <!-- ### Start : Linked In Badges ### -->
+        <v-card flat tile class="contentTitleCard">
+          <v-list-item two-line>
+            <v-list-item-content>
+              <div class="d-flex justify-center align-center contentTitle">
+                함께하는 사람들
+              </div>
+              <div class="d-flex justify-center align-center contentSubTitle">
+                쉬운지식을 위해 고군분투하는 이들
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+
+        <founders />
       </v-card>
     </v-card>
   </v-container>
@@ -106,12 +102,12 @@ export default PagesIndex
   margin-bottom: 25px;
 }
 .contentTitle {
-  font-size: 28px;
+  font-size: 2.4rem;
   font-weight: 800;
   margin-bottom: 10px;
 }
 .contentSubTitle {
-  font-size: 14px;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 </style>

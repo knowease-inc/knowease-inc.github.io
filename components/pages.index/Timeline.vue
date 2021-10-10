@@ -7,13 +7,11 @@
         :left="item.left"
         :right="!item.left"
         :small="item.small"
-        :color="item.color"
+        :color="item.color !== null ? item.color : 'secondary'"
+        :icon="item.icon !== null ? item.icon : null"
       >
         <template #opposite>
-          <span
-            class="headline font-weight-bold secondary--text"
-            v-text="item.date"
-          ></span>
+          <span class="timelinetitle" v-text="item.date"></span>
         </template>
         <v-card flat outlined class="mr-1 py-2">
           <v-card-title
@@ -52,24 +50,37 @@ class PagesIndexTimeline extends Vue {
     left: boolean
     small: boolean
     color: string
+    icon: null | string
   }> = [
     {
-      title: "'EASYXLPLAIN' Beta Test",
-      date: '2021.9',
-      body:
-        'Alpha Test 피드백 기반 서비스 개선 후, 검색 엔진 최적화를 위한 SSR(Server Side Rendering) 방식 채택, 운영/관리 효율화를 위한 AWS 클라우드 서비스상 Serverless 적용 인프라가 함께 테스트 되었습니다.',
-      left: false,
-      small: true,
-      color: 'secondary',
+      title: 'EASYXLPLAIN Semi Open',
+      date: '2021.11',
+      body: '서비스 오픈 상태 유지 시작',
+      left: true,
+      small: false,
+      color: 'blue darken-2',
+      icon: 'mdi-lock-open',
     },
     {
-      title: "'EASYXLPLAIN' Alpha Test",
-      date: '2020.10',
+      title: 'Beta Test',
+      date: '2021.9',
       body:
-        "'EASYXLPLAIN' 최소 작동 모델(MVP) 완성 후, 고객지향적인 기능 개발을 위해 고객 대상 최초 테스트가 이루어졌습니다.",
+        '클라우드 서비스(AWS)를 활용한 대량 이용 대비 서비스 인프라 최적화 완료 후 두 번째 공개 테스트를 했습니다.',
+      // 'Alpha Test 피드백 기반 서비스 개선 후, 검색 엔진 최적화를 위한 SSR(Server Side Rendering) 방식 채택, 운영/관리 효율화를 위한 AWS 클라우드 서비스상 Serverless 적용 인프라가 함께 테스트 되었습니다.',
       left: false,
       small: true,
       color: 'secondary',
+      icon: null,
+    },
+    {
+      title: 'EASYXLPLAIN Alpha Test',
+      date: '2020.10',
+      body:
+        'EASYXLPLAIN 최소 작동 모델(MVP) 완성 후, 고객지향적인 기능 개발을 위해 고객 대상 최초 테스트가 이루어졌습니다.',
+      left: false,
+      small: true,
+      color: 'secondary',
+      icon: null,
     },
     {
       title: '쉬운지식 유한책임회사 설립',
@@ -77,7 +88,8 @@ class PagesIndexTimeline extends Vue {
       body: '본격적인 발돋움을 위해 법인 설립을 완료하였습니다',
       left: true,
       small: false,
-      color: 'primary',
+      color: 'blue darken-2',
+      icon: 'mdi-baby',
     },
     {
       title: '창립 멤버 구성',
@@ -86,16 +98,18 @@ class PagesIndexTimeline extends Vue {
         '총 4명으로 구성된 창립 멤버로, 우수한 개발 능력을 갖춘 멤버가 합류함으로써 본격적인 서비스 개발에 착수했습니다.',
       left: true,
       small: true,
-      color: 'secondary',
+      color: 'blue darken-2',
+      icon: null,
     },
     {
-      title: "'EASYXLPLAIN' 최초 개발",
+      title: 'EASYXLPLAIN 최초 개발',
       date: '2019.4',
       body:
-        "아이디어 상태였던 'EASYXLPLAIN' 아이템을 직접 개발하기 시작했습니다.",
+        '아이디어 상태였던 EASYXLPLAIN 아이템을 직접 개발하기 시작했습니다.',
       left: false,
       small: true,
       color: 'secondary',
+      icon: null,
     },
   ]
 }
@@ -109,13 +123,13 @@ export default PagesIndexTimeline
   color: #1e88e5;
 }
 .timelinetitle {
-  font-size: 15px;
+  font-size: 1.6rem;
 }
 .timelinetitle-xs {
-  font-size: 14px;
+  font-size: 1.6rem;
 }
 .timelineBody {
-  font-size: 13px;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 130%;
 }

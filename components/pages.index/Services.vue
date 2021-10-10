@@ -35,27 +35,16 @@
               </span>
               <v-btn
                 text
-                small
                 :disabled="content.shortcut.href === undefined ? true : false"
                 :color="linkBtnColor"
                 :href="content.shortcut.href"
               >
                 {{ content.shortcut.name }}
               </v-btn>
-              <v-btn
-                text
-                small
-                :color="linkBtnColor"
-                :to="content.introduce.to"
-              >
+              <v-btn text :color="linkBtnColor" :to="content.introduce.to">
                 {{ content.introduce.name }}
               </v-btn>
-              <v-btn
-                text
-                small
-                :color="linkBtnColor"
-                :to="content.regulations.to"
-              >
+              <v-btn text :color="linkBtnColor" :to="content.regulations.to">
                 {{ content.regulations.name }}
               </v-btn>
             </v-card-title>
@@ -162,12 +151,12 @@ export default PagesIndexServices
 
 <style scoped>
 .expCard {
-  font-size: 16px !important;
+  font-size: 1.6rem !important;
   font-weight: 600 !important;
   color: rgba(76, 76, 76, 1) !important;
 }
 .expCardSubTitle {
-  font-size: 12px !important;
+  font-size: 1.4rem !important;
   font-weight: 500 !important;
   line-height: 140%;
 }

@@ -7,7 +7,8 @@
         :left="item.left"
         :right="!item.left"
         :small="item.small"
-        color="secondary"
+        :color="item.color !== null ? item.color : 'secondary'"
+        :icon="item.icon !== null ? item.icon : null"
       >
         <template #opposite>
           <span class="timelinetitle" v-text="item.date"></span>
@@ -43,10 +44,37 @@ export default {
     return {
       content: [
         {
+          title: '주요 마일스톤 (4th)',
+          date: '2022.1',
+          body: '사용자 기여도 시각 요소 증대 및 회원활동 편의 기능 업데이트',
+          left: false,
+          small: true,
+          color: 'secondary',
+        },
+        {
+          title: '주요 마일스톤 (3rd)',
+          date: '2021.10',
+          body:
+            "'재테크/금융 소비자를 위한 쉬운 지식/정보 서비스' 테마 적용 및 작성 편의 기능 업데이트",
+          left: false,
+          small: true,
+          color: 'secondary',
+        },
+        {
+          title: 'Semi Open',
+          date: '2021.11',
+          body: '서비스 오픈 상태 유지 시작',
+          left: true,
+          small: false,
+          color: 'blue darken-2',
+          icon: 'mdi-lock-open',
+        },
+        {
           title: 'Beta Test',
           date: '2021.9',
           body:
-            'Alpha Test 피드백 기반 서비스 개선 후, 검색 엔진 최적화를 위한 SSR(Server Side Rendering) 방식 채택, 운영/관리 효율화를 위한 AWS 클라우드 서비스상 Serverless 적용 인프라가 함께 테스트 되었습니다.',
+            '클라우드 서비스(AWS)를 활용한 대량 이용 대비 서비스 인프라 최적화 완료 후 두 번째 공개 테스트를 했습니다.',
+          // 'Alpha Test 피드백 기반 서비스 개선 후, 검색 엔진 최적화를 위한 SSR(Server Side Rendering) 방식 채택, 운영/관리 효율화를 위한 AWS 클라우드 서비스상 Serverless 적용 인프라가 함께 테스트 되었습니다.',
           left: false,
           small: true,
         },
@@ -65,6 +93,8 @@ export default {
             '총 4명으로 구성된 창립 멤버로, 우수한 개발 능력을 갖춘 멤버가 합류함으로써 본격적인 서비스 개발에 착수했습니다.',
           left: true,
           small: false,
+          color: 'blue darken-2',
+          icon: 'mdi-account-multiple-plus',
         },
         {
           title: '최초 개발',
@@ -86,13 +116,13 @@ export default {
   color: #1e88e5;
 }
 .timelinetitle {
-  font-size: 15px;
+  font-size: 0.9rem;
 }
 .timelinetitle-xs {
-  font-size: 14px;
+  font-size: 0.85rem;
 }
 .timelineBody {
-  font-size: 13px;
+  font-size: 0.9rem;
   font-weight: 500;
   line-height: 130%;
 }

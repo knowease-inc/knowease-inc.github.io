@@ -213,12 +213,4 @@ export default {
 .article-title-xs {
   font-weight: 500;
 }
-
-.article-title {
-  font-size: 20px;
-}
-
-.article-title-xs {
-  font-size: 17px;
-}
 </style>

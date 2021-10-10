@@ -153,7 +153,7 @@ export default LayoutDefaultTopBar
   opacity: 0 !important;
 }
 .menuTitle {
-  font-size: 13px;
+  font-size: 1.2rem;
   color: #64b5f6 !important;
 }
 </style>
