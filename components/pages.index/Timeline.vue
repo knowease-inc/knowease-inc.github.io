@@ -54,7 +54,7 @@ class PagesIndexTimeline extends Vue {
   }> = [
     {
       title: 'EASYXLPLAIN Semi Open',
-      date: '2021.11',
+      date: '2021.10',
       body: '서비스 오픈 상태 유지 시작',
       left: true,
       small: false,
