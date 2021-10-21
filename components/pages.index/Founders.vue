@@ -9,18 +9,46 @@
     ></script>
     <!-- ### Start: Profiles ### -->
     <v-card flat class="mx-0">
-      <v-row justify="center" class="ma-0 pa-0">
+      <v-row justify="center" class="mx-0 mb-5 pa-0" no-gutters>
+        <span class="subtitle-1 font-weight-medium"> Team </span>
+      </v-row>
+
+      <v-row justify="center" class="ma-0 pa-0" no-gutters>
         <v-col
           v-for="(member, i) in members"
           :key="i"
-          :class="i > 1 ? 'mt-4 pa-0' : 'mt-0 pa-0'"
+          :class="i > 2 ? 'mt-4 pa-0' : 'mt-0 pa-0'"
           cols="12"
-          sm="6"
+          sm="4"
         >
-          <div
-            class="d-flex justify-center"
-            v-html="member.linkedinBadge"
-          ></div>
+          <v-card flat outlined>
+            <div
+              class="d-flex justify-center"
+              v-html="member.linkedinBadge"
+            ></div>
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-divider class="my-5" />
+      <v-row justify="center" class="mx-0 mb-5 pa-0" no-gutters>
+        <span class="subtitle-1 font-weight-medium"> Advisor </span>
+      </v-row>
+
+      <v-row justify="start" class="ma-0 pa-0" no-gutters>
+        <v-col
+          v-for="(advisor, i) in advisors"
+          :key="i"
+          :class="i > 2 ? 'mt-4 pa-0' : 'mt-0 pa-0'"
+          cols="12"
+          sm="4"
+        >
+          <v-card flat outlined>
+            <div
+              class="d-flex justify-center"
+              v-html="advisor.linkedinBadge"
+            ></div>
+          </v-card>
         </v-col>
       </v-row>
     </v-card>
@@ -51,6 +79,12 @@ class PagesIndexFounders extends Vue {
       linkedinBadge:
         '<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="ko_KR" data-type="vertical" data-theme="light" data-vanity="ys0101"><a class="LI-simple-link" href=\'https://kr.linkedin.com/in/ys0101?trk=profile-badge\'>Yoon Su Choi</a></div>',
     },
+  ]
+
+  @Provide() advisors: Array<{
+    name: string
+    linkedinBadge: string
+  }> = [
     {
       name: '신현철',
       linkedinBadge:
