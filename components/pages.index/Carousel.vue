@@ -73,7 +73,7 @@ class PagesIndexCarousel extends Vue {
   }> = [
     {
       src:
-        'https://cdn.pixabay.com/photo/2015/03/26/09/44/cell-phone-690192_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2016/11/23/13/53/dark-1852985_960_720.jpg',
       text: {
         upper: {
           first: '쉽고 신속하게 다양한 지식에',
