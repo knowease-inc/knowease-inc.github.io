@@ -11,6 +11,20 @@
         <!-- ### Start : Top Carousel ### -->
         <introduce-carousel />
 
+        <!-- ### Start : Why Service ### -->
+        <v-card flat tile class="contentTitleCard">
+          <v-list-item>
+            <v-list-item-content>
+              <div class="text-center contentTitle">EASYXPLAIN 차별성</div>
+              <div class="text-center contentSubTitle">
+                다른 지식데이터베이스 서비스와 다른점은?
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+
+        <differentiation />
+
         <!-- ### Start : Usage ### -->
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
@@ -27,20 +41,6 @@
         </v-card>
 
         <how-to-use-cards />
-
-        <!-- ### Start : Why Service ### -->
-        <v-card flat tile class="contentTitleCard">
-          <v-list-item>
-            <v-list-item-content>
-              <div class="text-center contentTitle">EASYXPLAIN 차별성</div>
-              <div class="text-center contentSubTitle">
-                다른 지식데이터베이스 서비스와 다른점은?
-              </div>
-            </v-list-item-content>
-          </v-list-item>
-        </v-card>
-
-        <differentiation />
 
         <!-- ### Start : Timeline ### -->
         <v-card flat tile class="contentTitleCard">
