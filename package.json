@@ -6,7 +6,7 @@
   "meta_title": "쉬운지식",
   "meta_description": "세상 모든 지식 & 정보격차 해소를 위합니다",
   "meta_url": "https://knowease-inc.github.io/",
-  "meta_image": "https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20210608.png",
+  "meta_image": "https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20220104.png",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

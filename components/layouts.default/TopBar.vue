@@ -119,7 +119,7 @@ class LayoutDefaultTopBar extends Vue {
     menuIcon: 'mdi-menu',
     knowease: {
       title: '쉬운지식',
-      imgSrc: '/img/knowease_logo_20210601.png',
+      imgSrc: '/img/knowease_logo_20210104.png',
     },
     easyxplain: {
       title: 'EASYXPLAIN',
@@ -154,6 +154,6 @@ export default LayoutDefaultTopBar
 }
 .menuTitle {
   font-size: 1.2rem;
-  color: #64b5f6 !important;
+  color: #2979ff !important;
 }
 </style>
