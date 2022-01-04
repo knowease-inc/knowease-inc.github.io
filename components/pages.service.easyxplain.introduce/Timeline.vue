@@ -66,7 +66,7 @@ export default {
           body: '서비스 오픈 상태 유지 시작',
           left: true,
           small: false,
-          color: 'blue darken-2',
+          color: 'blue accent-3',
           icon: 'mdi-lock-open',
         },
         {
@@ -93,7 +93,7 @@ export default {
             '총 4명으로 구성된 창립 멤버로, 우수한 개발 능력을 갖춘 멤버가 합류함으로써 본격적인 서비스 개발에 착수했습니다.',
           left: true,
           small: false,
-          color: 'blue darken-2',
+          color: 'blue accent-3',
           icon: 'mdi-account-multiple-plus',
         },
         {
@@ -113,7 +113,7 @@ export default {
 .timelinetitle,
 .timelinetitle-xs {
   font-weight: 600;
-  color: #1e88e5;
+  color: #2979ff;
 }
 .timelinetitle {
   font-size: 0.9rem;

@@ -58,7 +58,7 @@ class PagesIndexTimeline extends Vue {
       body: '서비스 오픈 상태 유지 시작',
       left: true,
       small: false,
-      color: 'blue darken-2',
+      color: 'blue accent-3',
       icon: 'mdi-lock-open',
     },
     {
@@ -88,7 +88,7 @@ class PagesIndexTimeline extends Vue {
       body: '본격적인 발돋움을 위해 법인 설립을 완료하였습니다',
       left: true,
       small: false,
-      color: 'blue darken-2',
+      color: 'blue accent-3',
       icon: 'mdi-baby',
     },
     {
@@ -98,7 +98,7 @@ class PagesIndexTimeline extends Vue {
         '총 4명으로 구성된 창립 멤버로, 우수한 개발 능력을 갖춘 멤버가 합류함으로써 본격적인 서비스 개발에 착수했습니다.',
       left: true,
       small: true,
-      color: 'blue darken-2',
+      color: 'blue accent-3',
       icon: null,
     },
     {
@@ -120,7 +120,7 @@ export default PagesIndexTimeline
 .timelinetitle,
 .timelinetitle-xs {
   font-weight: 600;
-  color: #1e88e5;
+  color: #2979ff;
 }
 .timelinetitle {
   font-size: 1.6rem;

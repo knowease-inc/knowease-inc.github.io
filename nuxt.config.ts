@@ -64,7 +64,7 @@ export default {
         property: 'og:image',
         content:
           process.env.npm_package_meta_image ||
-          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20210608.png',
+          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20220104.png',
       },
       // ** For Twitter
       {
@@ -95,7 +95,7 @@ export default {
         name: 'twitter:image',
         content:
           process.env.npm_package_meta_image ||
-          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20210608.png',
+          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20220104.png',
       },
       /*
       For Google Search Console
@@ -144,10 +144,10 @@ export default {
       themes: {
         light: {
           background: colors.grey.lighten5,
-          primary: colors.blue.darken1,
-          secondary: colors.blue.lighten1,
+          primary: colors.blue.accent3,
+          secondary: colors.blue.accent2,
           barinfo: colors.shades.white,
-          ranker: colors.blue.base,
+          ranker: colors.blue.accent3,
           rankerlower: colors.grey.darken2,
           info: colors.grey.darken2,
           unactivated: colors.grey.darken1,

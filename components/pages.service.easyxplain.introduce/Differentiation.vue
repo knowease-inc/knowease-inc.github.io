@@ -82,7 +82,7 @@ export default PagesServiceEasyxplainDifferentiation
   font-weight: 800;
 }
 .contentTitleFirst {
-  color: #1e88e5;
+  color: #2979ff;
 }
 .contentText {
   font-size: 15px;
