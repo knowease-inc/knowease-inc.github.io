@@ -21,7 +21,7 @@
           cols="12"
           sm="4"
         >
-          <v-card flat outlined>
+          <v-card flat>
             <div
               class="d-flex justify-center"
               v-html="member.linkedinBadge"
@@ -43,7 +43,7 @@
           cols="12"
           sm="4"
         >
-          <v-card flat outlined>
+          <v-card flat>
             <div
               class="d-flex justify-center"
               v-html="advisor.linkedinBadge"
