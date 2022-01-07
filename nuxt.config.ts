@@ -105,6 +105,12 @@ export default {
         name: 'google-site-verification',
         content: 'NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk',
       },
+      /* For Naver Web Master
+      <meta name="naver-site-verification" content="b9f47832d1b3a168ae4076e70eb986dd85f0520c" /> */
+      {
+        name: 'naver-site-verification',
+        content: 'b9f47832d1b3a168ae4076e70eb986dd85f0520c',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
