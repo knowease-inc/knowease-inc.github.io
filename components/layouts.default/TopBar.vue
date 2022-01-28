@@ -21,7 +21,7 @@
 
     <!-- Start : Easyxplain image -->
     <v-toolbar-items v-else>
-      <v-btn text active-class="no-active" @click.prevent="toEASYXPLAIN()">
+      <v-btn text active-class="no-active" @click.prevent="toMeaniit()">
         <v-img
           :src="appBar.easyxplain.imgSrc"
           :alt="appBar.easyxplain.title"
@@ -92,7 +92,7 @@ import MainFooter from '@/components/layouts.default/MainFooter.vue'
       const text: string = '어떻게 알고 찾았죠...?'
       alert(text)
     },
-    toEASYXPLAIN() {
+    toMeaniit() {
       const path = 'https://ko.easyxplain.com/'
       window.open(path)
     },
@@ -122,8 +122,8 @@ class LayoutDefaultTopBar extends Vue {
       imgSrc: '/img/knowease_logo_20210104.png',
     },
     easyxplain: {
-      title: 'EASYXPLAIN',
-      imgSrc: '/img/EASYXPLAIN_LOGO.png',
+      title: '미닛',
+      imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/bar_logo_20220126.png',
     },
   }
 
@@ -134,14 +134,14 @@ class LayoutDefaultTopBar extends Vue {
   }> = [
     { title: true, name: '쉬운지식', to: undefined },
     { title: false, name: '회사 소개', to: '/' },
-    { title: true, name: 'EASYXPLAIN', to: undefined },
-    { title: false, name: '서비스 소개', to: '/service/easyxplain/introduce' },
+    { title: true, name: '미닛', to: undefined },
+    { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
     {
       title: false,
       name: '사용자 업적',
-      to: '/service/easyxplain/achievements',
+      to: '/service/meaniit/achievements',
     },
-    { title: false, name: '이용 규정', to: '/service/easyxplain/regulations' },
+    { title: false, name: '이용 규정', to: '/service/meaniit/regulations' },
   ]
 }
 

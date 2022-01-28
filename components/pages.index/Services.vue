@@ -20,7 +20,7 @@
             <v-card-actions class="d-flex justify-center mt-4">
               <v-btn text :href="content.href">
                 <v-img
-                  src="/img/EASYXPLAIN_LOGO.png"
+                  src="https://dmq1lrjfpg713.cloudfront.net/bar_logo_20220126.png"
                   height="25"
                   max-width="100"
                   contain
@@ -64,7 +64,7 @@
           <v-card-actions class="d-flex justify-center mt-4">
             <v-btn text :href="content.href">
               <v-img
-                src="/img/EASYXPLAIN_LOGO.png"
+                src="https://dmq1lrjfpg713.cloudfront.net/bar_logo_20220126.png"
                 height="25"
                 max-width="100"
                 contain
@@ -127,7 +127,7 @@ class PagesIndexServices extends Vue {
     introduce: { name: string; to: string }
     regulations: { name: string; to: string }
   } = {
-    name: 'EASYXPLAIN',
+    name: '미닛',
     explanation:
       '짧고 쉬운 전문/기술용어 설명과 모든 가이드를 얻거나 제공하고 쉽게 설명하는 능력을 인정 받는 플랫폼',
     href: undefined, // 'https://frontend.easyxplain.com/',
@@ -137,11 +137,11 @@ class PagesIndexServices extends Vue {
     },
     introduce: {
       name: '소개',
-      to: '/service/easyxplain/introduce',
+      to: '/service/meaniit/introduce',
     },
     regulations: {
       name: '규정',
-      to: '/service/easyxplain/regulations',
+      to: '/service/meaniit/regulations',
     },
   }
 }

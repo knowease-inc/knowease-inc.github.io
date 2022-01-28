@@ -53,7 +53,7 @@ class PagesIndexTimeline extends Vue {
     icon: null | string
   }> = [
     {
-      title: 'EASYXLPLAIN Semi Open',
+      title: '미닛 Semi Open',
       date: '2021.10',
       body: '서비스 오픈 상태 유지 시작',
       left: true,
@@ -62,7 +62,7 @@ class PagesIndexTimeline extends Vue {
       icon: 'mdi-lock-open',
     },
     {
-      title: 'Beta Test',
+      title: '미닛 Beta Test',
       date: '2021.9',
       body:
         '클라우드 서비스(AWS)를 활용한 대량 이용 대비 서비스 인프라 최적화 완료 후 두 번째 공개 테스트를 했습니다.',
@@ -73,10 +73,10 @@ class PagesIndexTimeline extends Vue {
       icon: null,
     },
     {
-      title: 'EASYXLPLAIN Alpha Test',
+      title: '미닛 Alpha Test',
       date: '2020.10',
       body:
-        'EASYXLPLAIN 최소 작동 모델(MVP) 완성 후, 고객지향적인 기능 개발을 위해 고객 대상 최초 테스트가 이루어졌습니다.',
+        '미닛 최소 작동 모델(MVP) 완성 후, 고객지향적인 기능 개발을 위해 고객 대상 최초 테스트가 이루어졌습니다.',
       left: false,
       small: true,
       color: 'secondary',
@@ -102,10 +102,9 @@ class PagesIndexTimeline extends Vue {
       icon: null,
     },
     {
-      title: 'EASYXLPLAIN 최초 개발',
+      title: '미닛 최초 개발',
       date: '2019.4',
-      body:
-        '아이디어 상태였던 EASYXLPLAIN 아이템을 직접 개발하기 시작했습니다.',
+      body: '아이디어 상태였던 미닛 아이템을 직접 개발하기 시작했습니다.',
       left: false,
       small: true,
       color: 'secondary',
