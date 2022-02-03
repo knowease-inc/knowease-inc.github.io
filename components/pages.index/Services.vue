@@ -20,7 +20,7 @@
             <v-card-actions class="d-flex justify-center mt-4">
               <v-btn text :href="content.href">
                 <v-img
-                  src="https://dmq1lrjfpg713.cloudfront.net/bar_logo_20220126.png"
+                  src="/img/MEANIIT_LOGO.png"
                   height="25"
                   max-width="100"
                   contain
@@ -64,7 +64,7 @@
           <v-card-actions class="d-flex justify-center mt-4">
             <v-btn text :href="content.href">
               <v-img
-                src="https://dmq1lrjfpg713.cloudfront.net/bar_logo_20220126.png"
+                src="/img/MEANIIT_LOGO.png"
                 height="25"
                 max-width="100"
                 contain

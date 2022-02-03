@@ -123,7 +123,7 @@ class LayoutDefaultTopBar extends Vue {
     },
     easyxplain: {
       title: '미닛',
-      imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/bar_logo_20220126.png',
+      imgSrc: '/img/MEANIIT_LOGO.png',
     },
   }
 
