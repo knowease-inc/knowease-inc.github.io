@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import MDOfRegulations from '@/components/pages.service.easyxplain.regulations/MDOfRegulations.vue'
+import MDOfRegulations from '@/components/pages.service.meaniit.regulations/MDOfRegulations.vue'
 
 @Component({
   components: {
@@ -35,7 +35,7 @@ import MDOfRegulations from '@/components/pages.service.easyxplain.regulations/M
   },
   head() {
     return {
-      title: 'EASYXPLAIN 규정',
+      title: '미닛 이용 규정',
     }
   },
   computed: {
@@ -53,7 +53,7 @@ class ServiceEasyxplainRegulations extends Vue {
   @Provide() classSettings: string = 'py-5 pl-3 pl-sm-4 pr-13 pr-sm-10'
   @Provide() titleOfList: { name: string; description: string } = {
     name: '이용 규정',
-    description: "'EASYXPLAIN' 서비스의 사용 규정 (2021.8.28 기준)",
+    description: "'미닛' 서비스의 사용 규정 (2021.8.28 기준)",
   }
 }
 

@@ -46,7 +46,8 @@ export default {
         {
           title: '주요 마일스톤 (4th)',
           date: '2022.1',
-          body: '사용자 기여도 시각 요소 증대 및 회원활동 편의 기능 업데이트',
+          body:
+            "사용자 기여도 시각 요소 증대 및 회원활동 편의 기능 업데이트 & 서비스명 변경 'EASYXPLAIN > 미닛'",
           left: false,
           small: true,
           color: 'secondary',

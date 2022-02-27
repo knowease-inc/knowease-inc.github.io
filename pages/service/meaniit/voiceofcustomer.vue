@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import VocIssueInputForm from '~/components/pages.service.easyxplain.voiceofcustomer/vocIssueInputForm.vue'
-import VocIssueList from '~/components/pages.service.easyxplain.voiceofcustomer/vocIssueList.vue'
+import VocIssueInputForm from '~/components/pages.service.meaniit.voiceofcustomer/vocIssueInputForm.vue'
+import VocIssueList from '~/components/pages.service.meaniit.voiceofcustomer/vocIssueList.vue'
 
 export default {
   components: {

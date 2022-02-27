@@ -82,7 +82,7 @@
 
 <script lang="ts">
 import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import achievementsCardList from '@/components/pages.service.easyxplain.achievements/CardList.vue'
+import achievementsCardList from '@/components/pages.service.meaniit.achievements/CardList.vue'
 
 @Component({
   components: {
@@ -90,7 +90,7 @@ import achievementsCardList from '@/components/pages.service.easyxplain.achievem
   },
   head() {
     return {
-      title: 'EASYXPLAIN - 업적 목록',
+      title: '미닛 - 업적 목록',
     }
   },
   computed: {
@@ -213,27 +213,25 @@ class PagesServiceEasyxplainAchievements extends Vue {
       title: '베타테스터(--%)',
       description:
         '1차 베타 테스트 기간 중 <테스터 활동> 최소 1개 달성 또는 상위권(5/10/30%) 포함', // '(*테스터 활동 : 용어 등록/설명 작성/가이드 등록/내용 작성/쉬워요 주기/설문지 작성 기준 개수 달성)'
-      image: 'img/pages.service.easyxplain.achevements/betatester_icon.png',
+      image: 'img/pages.service.meaniit.achevements/betatester_icon.png',
     },
     {
       title: '베타테스터(--%)+',
       description:
         '1차 베타 테스트 기간 중 <테스터 활동> 모두 달성과 상위권(5/10/30%) 포함',
-      image:
-        'img/pages.service.easyxplain.achevements/betatester_plus_icon.png',
+      image: 'img/pages.service.meaniit.achevements/betatester_plus_icon.png',
     },
     {
       title: '알파테스터(--%)',
       description:
         '알파 테스트 기간 중 <테스터 활동> 최소 1개 달성 또는 상위권(5/10/30%) 포함', // '(*테스터 활동 : 설명 작성/용어 등록/쉬워요 주기/설문지 작성 기준 개수 달성)'
-      image: 'img/pages.service.easyxplain.achevements/alphatester_icon.png',
+      image: 'img/pages.service.meaniit.achevements/alphatester_icon.png',
     },
     {
       title: '알파테스터(--%)+',
       description:
         '알파 테스트 기간 중 <테스터 활동> 4개 달성과 상위권(5/10/30%) 포함',
-      image:
-        'img/pages.service.easyxplain.achevements/alphatester_plus_icon.png',
+      image: 'img/pages.service.meaniit.achevements/alphatester_plus_icon.png',
     },
   ]
 
@@ -244,8 +242,8 @@ class PagesServiceEasyxplainAchievements extends Vue {
   }> = [
     {
       title: '설립자',
-      description: 'EASYXPLAIN 설립 멤버',
-      image: 'img/pages.service.easyxplain.achevements/founder_icon.png',
+      description: '미닛 설립 멤버',
+      image: 'img/pages.service.meaniit.achevements/founder_icon.png',
     },
   ]
 }

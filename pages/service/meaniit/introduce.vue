@@ -15,7 +15,7 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item>
             <v-list-item-content>
-              <div class="text-center contentTitle">EASYXPLAIN 차별성</div>
+              <div class="text-center contentTitle">차별성</div>
               <div class="text-center contentSubTitle">
                 다른 지식데이터베이스 서비스와 다른점은?
               </div>
@@ -29,7 +29,7 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="text-center contentTitle">EASYXPLAIN 참여 방법</div>
+              <div class="text-center contentTitle">참여 방법</div>
               <div class="text-center contentSubTitle">
                 '전문/기술 용어' 또는 '가이드' 내에서
               </div>
@@ -94,10 +94,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import IntroduceCarousel from '@/components/pages.service.easyxplain.introduce/Carousel.vue'
-import HowToUseCards from '@/components/pages.service.easyxplain.introduce/HowToUseCards.vue'
-import Differentiation from '~/components/pages.service.easyxplain.introduce/Differentiation.vue'
-import Timeline from '~/components/pages.service.easyxplain.introduce/Timeline.vue'
+import IntroduceCarousel from '@/components/pages.service.meaniit.introduce/Carousel.vue'
+import HowToUseCards from '@/components/pages.service.meaniit.introduce/HowToUseCards.vue'
+import Differentiation from '~/components/pages.service.meaniit.introduce/Differentiation.vue'
+import Timeline from '~/components/pages.service.meaniit.introduce/Timeline.vue'
 
 @Component({
   components: {
@@ -108,7 +108,7 @@ import Timeline from '~/components/pages.service.easyxplain.introduce/Timeline.v
   },
   head() {
     return {
-      title: 'EASYXPLAIN - 서비스 소개',
+      title: '미닛 - 서비스 소개',
     }
   },
   computed: {
