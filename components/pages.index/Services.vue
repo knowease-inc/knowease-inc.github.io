@@ -29,22 +29,30 @@
             </v-card-actions>
 
             <!-- Start: Text -->
-            <v-card-title class="d-flex align-center expCard">
-              <span class="mr-2">
-                {{ content.name }}
-              </span>
+            <v-card-title class="d-flex align-center">
               <v-btn
                 text
                 :disabled="content.shortcut.href === undefined ? true : false"
                 :color="linkBtnColor"
                 :href="content.shortcut.href"
+                :style="btnInServiceCard"
               >
                 {{ content.shortcut.name }}
               </v-btn>
-              <v-btn text :color="linkBtnColor" :to="content.introduce.to">
+              <v-btn
+                text
+                :color="linkBtnColor"
+                :to="content.introduce.to"
+                :style="btnInServiceCard"
+              >
                 {{ content.introduce.name }}
               </v-btn>
-              <v-btn text :color="linkBtnColor" :to="content.regulations.to">
+              <v-btn
+                text
+                :color="linkBtnColor"
+                :to="content.regulations.to"
+                :style="btnInServiceCard"
+              >
                 {{ content.regulations.name }}
               </v-btn>
             </v-card-title>
@@ -73,32 +81,29 @@
           </v-card-actions>
 
           <!-- Start: Text -->
-          <v-card-title class="d-flex align-center expCard">
-            <span class="mr-2">
-              {{ content.name }}
-            </span>
+          <v-card-title class="d-flex align-center">
             <v-btn
               text
-              x-small
               :disabled="content.shortcut.href === undefined ? true : false"
               :color="linkBtnColor"
               :href="content.shortcut.href"
+              :style="btnInServiceCard"
             >
               {{ content.shortcut.name }}
             </v-btn>
             <v-btn
               text
-              x-small
               :color="linkBtnColor"
               :to="content.introduce.to"
+              :style="btnInServiceCard"
             >
               {{ content.introduce.name }}
             </v-btn>
             <v-btn
               text
-              x-small
               :color="linkBtnColor"
               :to="content.regulations.to"
+              :style="btnInServiceCard"
             >
               {{ content.regulations.name }}
             </v-btn>
@@ -143,6 +148,14 @@ class PagesIndexServices extends Vue {
       name: '규정',
       to: '/service/meaniit/regulations',
     },
+  }
+
+  btnInServiceCard: {
+    minWidth: Number
+    paddingLeft: Number
+  } = {
+    minWidth: 0,
+    paddingLeft: 0,
   }
 }
 

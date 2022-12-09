@@ -55,8 +55,7 @@ class PagesIndexTimeline extends Vue {
     {
       title: '투자 유치 (엔젤 투자)',
       date: '2022.12',
-      body:
-        "투자가치 평가 약 40억 수준",
+      body: '투자가치 평가 약 40억 수준',
       left: true,
       small: false,
       color: 'blue accent-3',
@@ -65,8 +64,7 @@ class PagesIndexTimeline extends Vue {
     {
       title: 'GET-A Inc 설립 (전 쉬운지식 LLC)',
       date: '2022.10',
-      body:
-        '법인 형태 변경(모든 멤버 유지): 유한책임회사 -> 주식회사',
+      body: '법인 형태 변경(모든 멤버 유지): 유한책임회사 -> 주식회사',
       // 'Alpha Test 피드백 기반 서비스 개선 후, 검색 엔진 최적화를 위한 SSR(Server Side Rendering) 방식 채택, 운영/관리 효율화를 위한 AWS 클라우드 서비스상 Serverless 적용 인프라가 함께 테스트 되었습니다.',
       left: false,
       small: true,

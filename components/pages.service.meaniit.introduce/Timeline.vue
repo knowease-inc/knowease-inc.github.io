@@ -47,7 +47,7 @@ export default {
           title: '주요 마일스톤 (5th)',
           date: '2023.1',
           body:
-            "대용량 데이터 처리 인프라 구축 및 Wikipedia 데이터 전처리 후 삽입, 가동",
+            '대용량 데이터 처리 인프라 구축 및 Wikipedia 데이터 전처리 후 삽입, 가동',
           left: false,
           small: true,
           color: 'secondary',
@@ -55,8 +55,7 @@ export default {
         {
           title: '투자 유치 (엔젤 투자)',
           date: '2022.12',
-          body:
-            "투자가치 평가 약 40억 수준",
+          body: '투자가치 평가 약 40억 수준',
           left: true,
           small: false,
           color: 'blue accent-3',
