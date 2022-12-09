@@ -13,7 +13,7 @@
             outlined
             flat
             max-width="345"
-            :height="height - 20"
+            :height="Number(height) - 20"
             class="my-0 ml-5 pa-0"
           >
             <!-- Start: Image -->
@@ -29,22 +29,30 @@
             </v-card-actions>
 
             <!-- Start: Text -->
-            <v-card-title class="d-flex align-center expCard">
-              <span class="mr-2">
-                {{ content.name }}
-              </span>
+            <v-card-title class="d-flex align-center">
               <v-btn
                 text
                 :disabled="content.shortcut.href === undefined ? true : false"
                 :color="linkBtnColor"
                 :href="content.shortcut.href"
+                :style="btnInServiceCard"
               >
                 {{ content.shortcut.name }}
               </v-btn>
-              <v-btn text :color="linkBtnColor" :to="content.introduce.to">
+              <v-btn
+                text
+                :color="linkBtnColor"
+                :to="content.introduce.to"
+                :style="btnInServiceCard"
+              >
                 {{ content.introduce.name }}
               </v-btn>
-              <v-btn text :color="linkBtnColor" :to="content.regulations.to">
+              <v-btn
+                text
+                :color="linkBtnColor"
+                :to="content.regulations.to"
+                :style="btnInServiceCard"
+              >
                 {{ content.regulations.name }}
               </v-btn>
             </v-card-title>
@@ -73,32 +81,29 @@
           </v-card-actions>
 
           <!-- Start: Text -->
-          <v-card-title class="d-flex align-center expCard">
-            <span class="mr-2">
-              {{ content.name }}
-            </span>
+          <v-card-title class="d-flex align-center">
             <v-btn
               text
-              x-small
               :disabled="content.shortcut.href === undefined ? true : false"
               :color="linkBtnColor"
               :href="content.shortcut.href"
+              :style="btnInServiceCard"
             >
               {{ content.shortcut.name }}
             </v-btn>
             <v-btn
               text
-              x-small
               :color="linkBtnColor"
               :to="content.introduce.to"
+              :style="btnInServiceCard"
             >
               {{ content.introduce.name }}
             </v-btn>
             <v-btn
               text
-              x-small
               :color="linkBtnColor"
               :to="content.regulations.to"
+              :style="btnInServiceCard"
             >
               {{ content.regulations.name }}
             </v-btn>
@@ -130,10 +135,10 @@ class PagesIndexServices extends Vue {
     name: '미닛',
     explanation:
       '짧고 쉬운 전문/기술용어 설명과 모든 가이드를 얻거나 제공하고 쉽게 설명하는 능력을 인정 받는 플랫폼',
-    href: undefined, // 'https://frontend.easyxplain.com/',
+    href: undefined,
     shortcut: {
       name: '바로가기', // '(준비중)'
-      href: 'https://ko.easyxplain.com/', // undefined,
+      href: 'https://ko.meaniit.com/', // undefined,
     },
     introduce: {
       name: '소개',
@@ -143,6 +148,14 @@ class PagesIndexServices extends Vue {
       name: '규정',
       to: '/service/meaniit/regulations',
     },
+  }
+
+  btnInServiceCard: {
+    minWidth: Number
+    paddingLeft: Number
+  } = {
+    minWidth: 0,
+    paddingLeft: 0,
   }
 }
 

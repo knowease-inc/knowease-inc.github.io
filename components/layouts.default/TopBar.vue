@@ -77,26 +77,6 @@ import MainFooter from '@/components/layouts.default/MainFooter.vue'
   components: {
     MainFooter,
   },
-  computed: {
-    onKnowease() {
-      const currentRoute: string = this.$route.path
-      if (currentRoute === '/') {
-        return true
-      } else {
-        return false
-      }
-    },
-  },
-  methods: {
-    easterEgg() {
-      const text: string = '어떻게 알고 찾았죠...?'
-      alert(text)
-    },
-    toMeaniit() {
-      const path = 'https://ko.easyxplain.com/'
-      window.open(path)
-    },
-  },
 })
 class LayoutDefaultTopBar extends Vue {
   @Provide() appBar: {
@@ -118,7 +98,7 @@ class LayoutDefaultTopBar extends Vue {
     color: 'white',
     menuIcon: 'mdi-menu',
     knowease: {
-      title: '쉬운지식',
+      title: '게타(GET-A)',
       imgSrc: '/img/knowease_logo_20210104.png',
     },
     easyxplain: {
@@ -132,7 +112,7 @@ class LayoutDefaultTopBar extends Vue {
     name: string
     to: string | undefined
   }> = [
-    { title: true, name: '쉬운지식', to: undefined },
+    { title: true, name: '게타(GET-A)', to: undefined },
     { title: false, name: '회사 소개', to: '/' },
     { title: true, name: '미닛', to: undefined },
     { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
@@ -143,6 +123,27 @@ class LayoutDefaultTopBar extends Vue {
     },
     { title: false, name: '이용 규정', to: '/service/meaniit/regulations' },
   ]
+
+  // computed
+  get onKnowease() {
+    const currentRoute: string = this.$route.path
+    if (currentRoute === '/') {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  // method
+  easterEgg() {
+    const text: string = '어떻게 알고 찾았죠...?'
+    alert(text)
+  }
+
+  toMeaniit() {
+    const path = 'https://ko.easyxplain.com/'
+    window.open(path)
+  }
 }
 
 export default LayoutDefaultTopBar

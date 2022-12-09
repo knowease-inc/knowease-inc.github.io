@@ -16,7 +16,7 @@
           <v-list-item two-line>
             <v-list-item-content>
               <div class="d-flex justify-center align-center contentTitle">
-                쉬운지식's 서비스
+                게타(GET-A)'s 서비스
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
                 지식이 쉽게 전달되고 습득될 수 있도록 만드는
@@ -39,7 +39,7 @@
                 연혁
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
-                쉬운지식을 위했던 지난 여정
+                게타(GET-A)을 위했던 지난 여정
               </div>
             </v-list-item-content>
           </v-list-item>
@@ -55,7 +55,7 @@
                 함께하는 사람들
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
-                쉬운지식을 위해 고군분투하는 이들
+                게타(GET-A)을 위해 고군분투하는 이들
               </div>
             </v-list-item-content>
           </v-list-item>
@@ -81,17 +81,18 @@ import Timeline from '~/components/pages.index/Timeline.vue'
     IndexCarousel,
     Services,
   },
-  computed: {
-    mainCardMaxWidth(): number {
-      const maxWidth: number =
-        this.$vuetify.breakpoint.width < 860
-          ? this.$vuetify.breakpoint.width
-          : 860
-      return maxWidth
-    },
-  },
 })
-class PagesIndex extends Vue {}
+class PagesIndex extends Vue {
+  // computed
+
+  get mainCardMaxWidth(): number {
+    const maxWidth: number =
+      this.$vuetify.breakpoint.width < 860
+        ? this.$vuetify.breakpoint.width
+        : 860
+    return maxWidth
+  }
+}
 
 export default PagesIndex
 </script>

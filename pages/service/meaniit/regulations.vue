@@ -38,15 +38,6 @@ import MDOfRegulations from '@/components/pages.service.meaniit.regulations/MDOf
       title: '미닛 이용 규정',
     }
   },
-  computed: {
-    mainCardMaxWidth(): number {
-      const maxWidth: number =
-        this.$vuetify.breakpoint.width < 860
-          ? this.$vuetify.breakpoint.width
-          : 860
-      return maxWidth
-    },
-  },
 })
 class ServiceEasyxplainRegulations extends Vue {
   @Provide() rowSettings: string = 'mx-0 mt-3 pa-0'
@@ -54,6 +45,15 @@ class ServiceEasyxplainRegulations extends Vue {
   @Provide() titleOfList: { name: string; description: string } = {
     name: '이용 규정',
     description: "'미닛' 서비스의 사용 규정 (2021.8.28 기준)",
+  }
+
+  // computed
+  get mainCardMaxWidth(): number {
+    const maxWidth: number =
+      this.$vuetify.breakpoint.width < 860
+        ? this.$vuetify.breakpoint.width
+        : 860
+    return maxWidth
   }
 }
 

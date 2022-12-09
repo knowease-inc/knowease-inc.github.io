@@ -1,16 +1,18 @@
 <template>
   <div>
     <!-- ### Start: LinkedIn Embeding Code ### -->
-    <script
+    <component
+      :is="'script'"
       type="text/javascript"
       src="https://platform.linkedin.com/badges/js/profile.js"
       async
       defer
-    ></script>
+    >
+    </component>
     <!-- ### Start: Profiles ### -->
     <v-card flat class="mx-0">
       <v-row justify="center" class="mx-0 mb-5 pa-0" no-gutters>
-        <span class="subtitle-1 font-weight-medium"> Team </span>
+        <span class="article-title font-weight-medium"> Team </span>
       </v-row>
 
       <v-row justify="center" class="ma-0 pa-0" no-gutters>
@@ -32,7 +34,7 @@
 
       <v-divider class="my-5" />
       <v-row justify="center" class="mx-0 mb-5 pa-0" no-gutters>
-        <span class="subtitle-1 font-weight-medium"> Advisor </span>
+        <span class="article-title font-weight-medium"> Advisor </span>
       </v-row>
 
       <v-row justify="start" class="ma-0 pa-0" no-gutters>
