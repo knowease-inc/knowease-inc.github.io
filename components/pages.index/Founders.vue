@@ -1,12 +1,14 @@
 <template>
   <div>
     <!-- ### Start: LinkedIn Embeding Code ### -->
-    <script
+    <component
+      :is="'script'"
       type="text/javascript"
       src="https://platform.linkedin.com/badges/js/profile.js"
       async
       defer
-    ></script>
+    >
+    </component>
     <!-- ### Start: Profiles ### -->
     <v-card flat class="mx-0">
       <v-row justify="center" class="mx-0 mb-5 pa-0" no-gutters>

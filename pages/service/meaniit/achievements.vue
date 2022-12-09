@@ -93,15 +93,6 @@ import achievementsCardList from '@/components/pages.service.meaniit.achievement
       title: '미닛 - 업적 목록',
     }
   },
-  computed: {
-    mainCardMaxWidth(): number {
-      const maxWidth: number =
-        this.$vuetify.breakpoint.width < 860
-          ? this.$vuetify.breakpoint.width
-          : 860
-      return maxWidth
-    },
-  },
 })
 class PagesServiceEasyxplainAchievements extends Vue {
   @Provide() tempBlind: boolean = false // 미반영 업적
@@ -246,6 +237,15 @@ class PagesServiceEasyxplainAchievements extends Vue {
       image: 'img/pages.service.meaniit.achevements/founder_icon.png',
     },
   ]
+
+  // computed
+  get mainCardMaxWidth(): number {
+    const maxWidth: number =
+      this.$vuetify.breakpoint.width < 860
+        ? this.$vuetify.breakpoint.width
+        : 860
+    return maxWidth
+  }
 }
 
 export default PagesServiceEasyxplainAchievements

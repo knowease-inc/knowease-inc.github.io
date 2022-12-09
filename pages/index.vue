@@ -81,17 +81,18 @@ import Timeline from '~/components/pages.index/Timeline.vue'
     IndexCarousel,
     Services,
   },
-  computed: {
-    mainCardMaxWidth(): number {
-      const maxWidth: number =
-        this.$vuetify.breakpoint.width < 860
-          ? this.$vuetify.breakpoint.width
-          : 860
-      return maxWidth
-    },
-  },
 })
-class PagesIndex extends Vue {}
+class PagesIndex extends Vue {
+  // computed
+
+  get mainCardMaxWidth(): number {
+    const maxWidth: number =
+      this.$vuetify.breakpoint.width < 860
+        ? this.$vuetify.breakpoint.width
+        : 860
+    return maxWidth
+  }
+}
 
 export default PagesIndex
 </script>
