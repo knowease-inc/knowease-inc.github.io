@@ -83,7 +83,7 @@ class PagesIndexTimeline extends Vue {
       icon: null,
     },
     {
-      title: '쉬운지식 유한책임회사 설립',
+      title: '쉬운지식 LLC 설립',
       date: '2020.7',
       body: '본격적인 발돋움을 위해 법인 설립을 완료하였습니다',
       left: true,

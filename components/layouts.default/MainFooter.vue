@@ -4,15 +4,15 @@
       <v-col cols="12" class="text-center pa-1">
         <div v-if="$vuetify.breakpoint.smAndUp">
           <div class="footer-text white--text">
-            쉬운지식 유한책임회사 | 대표자: 박성묵 | 주소: 경기도 성남시 분당구
-            성남대로43번길 10, 3층 309호 E-7(구미동, 하나EZ타워)
+            (주)게타 | 대표자: 박성묵 | 주소: 경기도 성남시 분당구
+            성남대로43번길 10, 3층 309호(구미동, 하나EZ타워)
           </div>
           <div class="footer-text white--text">
             e-mail: msp770@gmail.com | Tel: 010-8920-3726
           </div>
         </div>
         <div v-else>
-          <div class="footer-text white--text">쉬운지식 유한책임회사</div>
+          <div class="footer-text white--text">(주)게타</div>
         </div>
       </v-col>
     </v-footer>

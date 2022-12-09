@@ -13,7 +13,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - 소개 페이지',
-    title: '쉬운지식',
+    title: '게타(GET-A)',
     htmlAttrs: {
       prefix: 'og:http://ogp.me/ns#',
     },
@@ -32,7 +32,7 @@ export default {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: (process.env.npm_package_meta_title || '쉬운지식')
+        content: (process.env.npm_package_meta_title || '게타(GET-A)')
           .toString()
           .toUpperCase(), // temporaliy : https://stackoverflow.com/a/55068662
       },
@@ -50,7 +50,7 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: process.env.npm_package_meta_title || '쉬운지식',
+        content: process.env.npm_package_meta_title || '게타(GET-A)',
       },
       {
         hid: 'og:description',
@@ -81,7 +81,7 @@ export default {
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: process.env.npm_package_meta_title || '쉬운지식',
+        content: process.env.npm_package_meta_title || '게타(GET-A)',
       },
       {
         hid: 'twitter:description',

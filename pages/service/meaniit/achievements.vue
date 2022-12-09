@@ -242,7 +242,7 @@ class PagesServiceEasyxplainAchievements extends Vue {
   }> = [
     {
       title: '설립자',
-      description: '미닛 설립 멤버',
+      description: '(주)게타 설립 멤버',
       image: 'img/pages.service.meaniit.achevements/founder_icon.png',
     },
   ]
