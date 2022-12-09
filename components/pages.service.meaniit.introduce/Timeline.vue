@@ -2,35 +2,35 @@
   <v-card :outlined="$vuetify.breakpoint.xsOnly" flat class="mt-4 mx-0 mx-sm-4">
     <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="pr-6 px-sm-8">
       <v-timeline-item
-        v-for="(item, i) in content"
+        v-for="(content, i) in contents"
         :key="i"
-        :left="item.left"
-        :right="!item.left"
-        :small="item.small"
-        :color="item.color !== null ? item.color : 'secondary'"
-        :icon="item.icon !== null ? item.icon : null"
+        :left="content.left"
+        :right="!content.left"
+        :small="content.small"
+        :color="content.color !== null ? content.color : 'secondary'"
+        :icon="content.icon !== null ? content.icon : null"
       >
         <template #opposite>
-          <span class="timelinetitle" v-text="item.date"></span>
+          <span class="timelinetitle" v-text="content.date"></span>
         </template>
         <v-card flat outlined>
           <v-card-title
             v-if="$vuetify.breakpoint.smAndUp"
             class="timelinetitle py-1"
           >
-            {{ item.title }}
+            {{ content.title }}
           </v-card-title>
           <v-card-title v-else class="timelinetitle-xs py-1">
-            {{ item.title }}
+            {{ content.title }}
           </v-card-title>
           <v-card-text
             v-if="$vuetify.breakpoint.xsOnly"
             class="py-0 grey--text"
           >
-            {{ item.date }}
+            {{ content.date }}
           </v-card-text>
           <v-card-text class="timelineBody py-2">
-            {{ item.body }}
+            {{ content.body }}
           </v-card-text>
         </v-card>
       </v-timeline-item>
@@ -42,7 +42,26 @@
 export default {
   data() {
     return {
-      content: [
+      contents: [
+        {
+          title: '주요 마일스톤 (5th)',
+          date: '2023.1',
+          body:
+            "대용량 데이터 처리 인프라 구축 및 Wikipedia 데이터 전처리 후 삽입, 가동",
+          left: false,
+          small: true,
+          color: 'secondary',
+        },
+        {
+          title: '투자 유치 (엔젤 투자)',
+          date: '2022.12',
+          body:
+            "투자가치 평가 약 40억 수준",
+          left: true,
+          small: false,
+          color: 'blue accent-3',
+          icon: 'mdi-currency-usd',
+        },
         {
           title: '주요 마일스톤 (4th)',
           date: '2022.1',
