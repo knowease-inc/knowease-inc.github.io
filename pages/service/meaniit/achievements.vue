@@ -250,24 +250,3 @@ class PagesServiceEasyxplainAchievements extends Vue {
 
 export default PagesServiceEasyxplainAchievements
 </script>
-
-<style scoped>
-.contentTitleCard {
-  margin-top: 45px;
-  margin-bottom: 5px;
-}
-.contentTitle {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-.contentSubTitle {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.contentText {
-  font-size: 14px;
-  font-weight: 400;
-}
-</style>

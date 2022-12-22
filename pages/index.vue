@@ -96,19 +96,3 @@ class PagesIndex extends Vue {
 
 export default PagesIndex
 </script>
-
-<style scoped>
-.contentTitleCard {
-  margin-top: 95px;
-  margin-bottom: 25px;
-}
-.contentTitle {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-.contentSubTitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-</style>

@@ -111,38 +111,24 @@ import Timeline from '~/components/pages.service.meaniit.introduce/Timeline.vue'
       title: '미닛 - 서비스 소개',
     }
   },
-  computed: {
-    mainCardMaxWidth(): number {
-      const maxWidth: number =
-        this.$vuetify.breakpoint.width < 860
-          ? this.$vuetify.breakpoint.width
-          : 860
-      return maxWidth
-    },
-  },
   data() {
     return {
       issuesListResult: [],
     }
   },
 })
-class PagesServiceEasyxplainIntroduce extends Vue {}
+class PagesServiceEasyxplainIntroduce extends Vue {
+
+  /* computed */
+  get mainCardMaxWidth(): number {
+    const maxWidth: number =
+      this.$vuetify.breakpoint.width < 860
+        ? this.$vuetify.breakpoint.width
+        : 860
+    return maxWidth
+  }
+
+}
 
 export default PagesServiceEasyxplainIntroduce
 </script>
-
-<style scoped>
-.contentTitleCard {
-  margin-top: 85px;
-  margin-bottom: 15px;
-}
-.contentTitle {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-.contentSubTitle {
-  font-size: 14px;
-  font-weight: 400;
-}
-</style>
