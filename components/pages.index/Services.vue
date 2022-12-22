@@ -161,16 +161,3 @@ class PagesIndexServices extends Vue {
 
 export default PagesIndexServices
 </script>
-
-<style scoped>
-.expCard {
-  font-size: 1.6rem !important;
-  font-weight: 600 !important;
-  color: rgba(76, 76, 76, 1) !important;
-}
-.expCardSubTitle {
-  font-size: 1.4rem !important;
-  font-weight: 500 !important;
-  line-height: 140%;
-}
-</style>

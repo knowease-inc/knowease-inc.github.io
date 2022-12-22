@@ -127,22 +127,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.timelinetitle,
-.timelinetitle-xs {
-  font-weight: 600;
-  color: #2979ff;
-}
-.timelinetitle {
-  font-size: 0.9rem;
-}
-.timelinetitle-xs {
-  font-size: 0.85rem;
-}
-.timelineBody {
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 130%;
-}
-</style>

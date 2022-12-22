@@ -133,22 +133,3 @@ class PagesIndexTimeline extends Vue {
 }
 export default PagesIndexTimeline
 </script>
-
-<style scoped>
-.timelinetitle,
-.timelinetitle-xs {
-  font-weight: 600;
-  color: #2979ff;
-}
-.timelinetitle {
-  font-size: 1.6rem;
-}
-.timelinetitle-xs {
-  font-size: 1.6rem;
-}
-.timelineBody {
-  font-size: 1.4rem;
-  font-weight: 500;
-  line-height: 130%;
-}
-</style>
