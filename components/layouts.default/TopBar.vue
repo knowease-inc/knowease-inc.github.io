@@ -114,6 +114,7 @@ class LayoutDefaultTopBar extends Vue {
   }> = [
     { title: true, name: '게타(GET-A)', to: undefined },
     { title: false, name: '회사 소개', to: '/' },
+    { title: false, name: '채용 공고', to: '/recruit' },
     { title: true, name: '미닛', to: undefined },
     { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
     {
@@ -127,7 +128,11 @@ class LayoutDefaultTopBar extends Vue {
   // computed
   get onKnowease() {
     const currentRoute: string = this.$route.path
-    return currentRoute === '/' || currentRoute === '/recruit'
+    return (
+      currentRoute === '/' ||
+      currentRoute === '/recruit' ||
+      currentRoute === '/recruit/'
+    )
   }
 
   // method

@@ -1,5 +1,5 @@
 <template>
-  <v-card flat tile>
+  <v-card flat tile class="mt-sm-8 mt-4">
     <v-container fluid class="pt-0">
       <v-row justify="center" align="center" no-gutters>
         <!-- Start: Recruit Infos -->
