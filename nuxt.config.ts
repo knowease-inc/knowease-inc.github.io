@@ -12,7 +12,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - 소개 페이지',
+    titleTemplate: '%s',
     title: '게타(GET-A)',
     htmlAttrs: {
       prefix: 'og:http://ogp.me/ns#',

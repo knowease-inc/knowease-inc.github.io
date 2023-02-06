@@ -127,11 +127,7 @@ class LayoutDefaultTopBar extends Vue {
   // computed
   get onKnowease() {
     const currentRoute: string = this.$route.path
-    if (currentRoute === '/') {
-      return true
-    } else {
-      return false
-    }
+    return currentRoute === '/' || currentRoute === '/recruit'
   }
 
   // method
