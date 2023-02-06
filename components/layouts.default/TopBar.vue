@@ -137,7 +137,7 @@ class LayoutDefaultTopBar extends Vue {
   }
 
   toMeaniit() {
-    const path = 'https://ko.easyxplain.com/'
+    const path = 'https://ko.meaniit.com/'
     window.open(path)
   }
 }
