@@ -118,7 +118,6 @@ import Timeline from '~/components/pages.service.meaniit.introduce/Timeline.vue'
   },
 })
 class PagesServiceEasyxplainIntroduce extends Vue {
-
   /* computed */
   get mainCardMaxWidth(): number {
     const maxWidth: number =
@@ -127,7 +126,6 @@ class PagesServiceEasyxplainIntroduce extends Vue {
         : 860
     return maxWidth
   }
-
 }
 
 export default PagesServiceEasyxplainIntroduce

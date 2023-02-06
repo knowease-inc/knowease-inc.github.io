@@ -127,11 +127,7 @@ class LayoutDefaultTopBar extends Vue {
   // computed
   get onKnowease() {
     const currentRoute: string = this.$route.path
-    if (currentRoute === '/') {
-      return true
-    } else {
-      return false
-    }
+    return currentRoute === '/' || currentRoute === '/recruit'
   }
 
   // method
@@ -141,7 +137,7 @@ class LayoutDefaultTopBar extends Vue {
   }
 
   toMeaniit() {
-    const path = 'https://ko.easyxplain.com/'
+    const path = 'https://ko.meaniit.com/'
     window.open(path)
   }
 }
