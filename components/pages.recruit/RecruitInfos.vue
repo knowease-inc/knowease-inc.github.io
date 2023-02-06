@@ -19,11 +19,22 @@
             </v-card-title>
 
             <!-- Detail Infos -->
-            <div v-for="(content, j) in item.subtitle" :key="j" class="mb-10">
+            <div
+              v-for="(content, j) in item.subtitle"
+              id="detail_infos"
+              :key="j"
+              class="mb-10"
+            >
               <v-card-subtitle class="text-h5 text-sm-h4 font-weight-bold">
                 {{ content.title }}
               </v-card-subtitle>
-              <v-card-card v-for="(detail, k) in content.contents" :key="k">
+              <v-card
+                v-for="(detail, k) in content.contents"
+                :key="k"
+                flat
+                tile
+                class="px-sm-6 px-2"
+              >
                 <v-card-text class="text-body-1 text-sm-h5 font-weight-bold">
                   {{ detail.title }}
                 </v-card-text>
@@ -36,8 +47,24 @@
                     {{ text }}
                   </li>
                 </ul>
-              </v-card-card>
+              </v-card>
             </div>
+
+            <!-- Register button -->
+            <v-card-actions id="button_line" class="d-flex justify-center">
+              <v-btn
+                id="button_to_register_form"
+                :href="item.registerBtn.url"
+                target="_blank"
+                :color="item.registerBtn.color"
+                dark
+                x-large
+                elevation="0"
+                class="font-weight-black"
+              >
+                {{ item.registerBtn.name }}
+              </v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
         <!-- End: Recruit Infos -->
@@ -57,6 +84,11 @@ class PagesRecruitRecruitInfos extends Vue {
       title: string
       contents: Array<{ title: string; content: Array<string> }>
     }>
+    registerBtn: {
+      url: string
+      name: string
+      color: string
+    }
   }>
 }
 export default PagesRecruitRecruitInfos

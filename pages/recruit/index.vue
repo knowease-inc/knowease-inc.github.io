@@ -26,7 +26,7 @@ import RecruitInfos from '@/components/pages.recruit/RecruitInfos.vue'
 class PagesRecruit extends Vue {
   public head() {
     return {
-      title: '채용 공고 - 미닛',
+      title: '채용 공고 - (주)게타',
     }
   }
 
@@ -37,9 +37,14 @@ class PagesRecruit extends Vue {
       title: string
       contents: Array<{ title: string; content: Array<string> }>
     }>
+    registerBtn: {
+      url: string
+      name: string
+      color: string
+    }
   }> = [
     {
-      title: '웹 개발자(프론트엔드) 채용중(~2.20)',
+      title: '웹 개발자(프론트엔드) 경력직 채용중',
       subtitle: [
         {
           title: '직무 소개',
@@ -91,7 +96,6 @@ class PagesRecruit extends Vue {
                 'HTML/CSS 활용 가능하신 분',
                 'Github를 활용한 개발 및 협업이 가능하신 분',
                 '영문 검색을 통해 개발 레퍼런스 확인, 적용 및 문제해결이 뛰어나신 분',
-                '웹 사이트 퍼포먼스 측정 및 이를 통한 최적화 경험이 있으신 분',
               ],
             },
             {
@@ -99,10 +103,11 @@ class PagesRecruit extends Vue {
               content: [
                 'WYSIWYG editor 개발 경험이 있으신 분',
                 'Vue.js, Nuxt.js 활용한 서버 사이드 렌더링(SSR) 개발 경험이 있으신 분',
-                '구글 대상의 검색 엔진 최적화(SEO)를 진행한 경험이 있으신 분',
+                '검색 엔진 최적화(SEO)를 진행한 경험이 있으신 분',
                 '반응형 웹(Responsive Web) 개발 경험이 있으신 분',
-                'TypeScript와 같은 정적 타이핑 툴 경험이 있으신 분',
                 'AWS를 활용한 웹 어플리케이션 개발 경험이 있으신 분',
+                '웹 사이트 퍼포먼스 측정 및 이를 통한 최적화 경험이 있으신 분',
+                'TypeScript와 같은 정적 타이핑 툴 경험이 있으신 분',
                 '성장 의지, 자기계발 욕구, 유연한 커뮤니케이션 역량을 객관적으로 제시할 수 있는 분',
               ],
             },
@@ -134,16 +139,21 @@ class PagesRecruit extends Vue {
             {
               title: '채용 과정',
               content: [
-                '서류(사전 과제 평가 포함) > 온라인 면접 > 적합성 면접 > 최종합격',
                 '지원서 제출 기간 : 2023.2.6(월) ~ 2.20(월)',
+                '서류(사전 과제 평가 포함) > 온라인 면접 > 적합성 면접 > 최종합격',
                 '개별 과제 : 지원서 제출 후 48시간 내 지원자에 개발 과제 송부',
                 '과제 시 주의사항 : 지원자에 과제 송부 후 과제 제출 기한이 확정되므로 과제 수신 확인에 유의',
-                '서류 합격 결과 발표 : 2023.3.6(금), 발표와 함께 이후 일정 공지',
+                '서류 & 과제 합격 결과 발표 : 2023.3.6(금), 발표와 함께 이후 일정 공지',
               ],
             },
           ],
         },
       ],
+      registerBtn: {
+        url: 'https://forms.gle/x6h1SU2qpeHNwTSh9', // Google Form
+        name: '지원하기',
+        color: '#2979FF',
+      },
     },
   ]
 
