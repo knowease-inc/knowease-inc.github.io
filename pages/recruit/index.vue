@@ -57,6 +57,7 @@ class PagesRecruit extends Vue {
               content: [
                 '웹 개발자 (프론트엔드), 정규직',
                 '경력 : 2년 이상 또는 이에 준하는 실력을 갖춘 분',
+                '채용 인원 : 1 명',
               ],
             },
             {
