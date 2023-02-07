@@ -33,6 +33,7 @@ class PagesRecruit extends Vue {
   /* data */
   WebdeveloperFrontend: Array<{
     title: string
+    description: string
     subtitle: Array<{
       title: string
       contents: Array<{ title: string; content: Array<string> }>
@@ -45,6 +46,8 @@ class PagesRecruit extends Vue {
   }> = [
     {
       title: '웹 개발자(프론트엔드) 경력직 채용중',
+      description:
+        '- 업무, 협력 역량만 봐요! 출/퇴근 어려움, 경력 단절...? 무관!',
       subtitle: [
         {
           title: '직무 소개',
@@ -122,7 +125,7 @@ class PagesRecruit extends Vue {
             },
             {
               title: '추가',
-              content: ['재택 근무'],
+              content: ['100% 재택 근무', '유연 근무 (코어 근무시간 외)'],
             },
           ],
         },

@@ -18,6 +18,12 @@
               {{ item.title }}
             </v-card-title>
 
+            <v-card-subtitle
+              class="text-sm-h5 grey--text text--lighten-1 font-weight-black my-sm-1"
+            >
+              {{ item.description }}
+            </v-card-subtitle>
+
             <!-- Detail Infos -->
             <div
               v-for="(content, j) in item.subtitle"
@@ -80,6 +86,7 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 class PagesRecruitRecruitInfos extends Vue {
   @Prop({ type: Array, default: '' }) parentItems!: Array<{
     title: string
+    description: string
     subtitle: Array<{
       title: string
       contents: Array<{ title: string; content: Array<string> }>
