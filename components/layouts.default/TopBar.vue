@@ -119,6 +119,11 @@ class LayoutDefaultTopBar extends Vue {
     { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
     {
       title: false,
+      name: '프로그램 소개',
+      to: '/service/meaniit/extension-meaniit',
+    },
+    {
+      title: false,
       name: '사용자 업적',
       to: '/service/meaniit/achievements',
     },
