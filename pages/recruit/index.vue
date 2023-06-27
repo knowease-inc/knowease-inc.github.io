@@ -45,7 +45,7 @@ class PagesRecruit extends Vue {
     }
   }> = [
     {
-      title: '웹 개발자(프론트엔드) 경력직 채용중',
+      title: '웹 개발자(프론트엔드) 경력직 채용마감',
       description:
         '- 업무, 협력 역량만 봐요! 출/퇴근 어려움, 경력 단절...? 무관!',
       subtitle: [
