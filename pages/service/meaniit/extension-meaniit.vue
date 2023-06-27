@@ -158,7 +158,7 @@
         <!-- Start: Content -->
         <v-card
           :color="use.card.color"
-          :height="use.card.height"
+          :max-height="use.card.height"
           class="ma-0 px-6 rounded-0"
           flat
         >
@@ -271,33 +271,33 @@ export default {
         description: '어떻게 사용하면 될까요? 최대로 활용하는 방법은?',
         card: {
           color: undefined,
-          height: 500,
+          height: 1200,
         },
         steps: [
           {
             image:
               '/img/pages.service.meaniit.extension-meaniit/usage_step1.png',
             number: 1,
-            text: '(설치 후) 유튜브(YouTube) 홈페이지를 연다',
+            text: '(설치 후) 유튜브(YouTube) 홈페이지를 열어요',
           },
           {
             image:
               '/img/pages.service.meaniit.extension-meaniit/usage_step2.png',
             number: 2,
             text:
-              '설명 보조가 필요한 영상을 클릭한 다음, 빈곳에서 우클릭을 한다',
+              '그냥 보기 부담(?)되는 영상을 클릭한 다음, 빈 곳에서 우클릭을 합니다',
           },
           {
             image:
               '/img/pages.service.meaniit.extension-meaniit/usage_step3.png',
             number: 3,
-            text: '[유튜브 보조설명AI] 메뉴를 누르고 잠시(약 4초) 기다린다',
+            text: '[유튜브 보조설명AI] 메뉴를 누르고 잠시(약 4초) 기다려요',
           },
           {
             image:
               '/img/pages.service.meaniit.extension-meaniit/usage_step4.png',
             number: 4,
-            text: '페이지 이동 후 로딩이 시작되었다면, 다른 일을 하고 있는다',
+            text: '페이지 이동 후 로딩이 시작되었다면 다른 일을 하고 있어도 되요',
           },
           {
             image:
