@@ -95,12 +95,7 @@
     <!-- End: 1. 서비스 소개 및 다운로드 -->
 
     <!-- Start: 2. 설치법 -->
-    <v-row
-      :id="introduce.btn.targetID.install"
-      justify="center"
-      no-gutters
-      class="py-12 mb-12"
-    >
+    <v-row justify="center" no-gutters class="py-12 mb-12">
       <v-col :cols="totalCols">
         <!-- Start: Title -->
         <v-row no-gutters>
@@ -109,9 +104,11 @@
               <v-card-subtitle class="pb-0 mb-1">{{
                 installation.description
               }}</v-card-subtitle>
-              <v-card-title class="pt-1 mb-2 component-titles">{{
-                installation.title
-              }}</v-card-title>
+              <v-card-title
+                :id="introduce.btn.targetID.install"
+                class="pt-1 mb-2 component-titles"
+                >{{ installation.title }}</v-card-title
+              >
             </v-card>
           </v-col>
         </v-row>
@@ -163,12 +160,7 @@
       class="ma-0 px-6 py-12 rounded-0"
       flat
     >
-      <v-row
-        :id="introduce.btn.targetID.usage"
-        justify="center"
-        align="center"
-        no-gutters
-      >
+      <v-row justify="center" align="center" no-gutters>
         <v-col :cols="totalCols">
           <!-- Start: Title -->
           <v-row no-gutters>
@@ -177,9 +169,11 @@
                 <v-card-subtitle class="pb-0 mb-1">{{
                   use.description
                 }}</v-card-subtitle>
-                <v-card-title class="pt-1 mb-2 component-titles">{{
-                  use.title
-                }}</v-card-title>
+                <v-card-title
+                  :id="introduce.btn.targetID.usage"
+                  class="pt-1 mb-2 component-titles"
+                  >{{ use.title }}</v-card-title
+                >
               </v-card>
             </v-col>
           </v-row>
@@ -441,8 +435,9 @@ export default {
 
     scrollTo(id) {
       const element = document.getElementById(id)
+      const y = element.getBoundingClientRect().top + window.pageYOffset
       window.scrollTo({
-        top: element.offsetTop,
+        top: y,
         behavior: 'smooth', // Optional: smooth scroll
       })
     },
