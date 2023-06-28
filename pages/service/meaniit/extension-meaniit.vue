@@ -72,9 +72,11 @@
         <v-col
           v-for="(item, index) in introduce.funcs"
           :key="index"
-          cols="2"
-          lg="2"
-          md="3"
+          cols="12"
+          xl="2"
+          lg="3"
+          md="4"
+          sm="6"
         >
           <v-card
             class="d-flex flex-column align-center justify-center py-6 px-4"
@@ -129,7 +131,7 @@
             >
               <v-card flat>
                 <v-row no-gutters>
-                  <v-col cols="5">
+                  <v-col cols="12" md="5">
                     <v-img
                       class="bordered-image"
                       :src="item.image"
@@ -138,7 +140,7 @@
                       @click="openImageInNewTab(item.image)"
                     />
                   </v-col>
-                  <v-col cols="7">
+                  <v-col cols="12" md="7">
                     <v-card-title>{{ item.number }}.</v-card-title>
                     <v-card-text class="ml-2 body-1">
                       <span v-html="item.text" />
@@ -194,7 +196,7 @@
               >
                 <v-card flat :color="use.card.color">
                   <v-row no-gutters>
-                    <v-col cols="5">
+                    <v-col cols="12" md="5">
                       <v-img
                         class="bordered-image"
                         :src="item.image"
@@ -203,7 +205,7 @@
                         @click="openImageInNewTab(item.image)"
                       />
                     </v-col>
-                    <v-col cols="7">
+                    <v-col cols="12" md="7">
                       <v-card-title>{{ item.number }}.</v-card-title>
                       <v-card-text class="ml-2 body-1">
                         <span v-html="item.text" />
@@ -422,7 +424,13 @@ export default {
 
   computed: {
     totalCols() {
-      const cols = 6
+      const cols = this.$vuetify.breakpoint.xlOnly
+        ? 6
+        : this.$vuetify.breakpoint.lgOnly
+        ? 8
+        : this.$vuetify.breakpoint.mdOnly
+        ? 10
+        : 12 // smAndDown (sm + xs)
       return cols
     },
   },
