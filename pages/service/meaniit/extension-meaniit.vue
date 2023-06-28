@@ -72,9 +72,11 @@
         <v-col
           v-for="(item, index) in introduce.funcs"
           :key="index"
-          cols="2"
-          lg="2"
-          md="3"
+          cols="12"
+          xl="2"
+          lg="3"
+          md="4"
+          sm="6"
         >
           <v-card
             class="d-flex flex-column align-center justify-center py-6 px-4"
@@ -129,7 +131,7 @@
             >
               <v-card flat>
                 <v-row no-gutters>
-                  <v-col cols="5">
+                  <v-col cols="12" md="5">
                     <v-img
                       class="bordered-image"
                       :src="item.image"
@@ -138,7 +140,7 @@
                       @click="openImageInNewTab(item.image)"
                     />
                   </v-col>
-                  <v-col cols="7">
+                  <v-col cols="12" md="7">
                     <v-card-title>{{ item.number }}.</v-card-title>
                     <v-card-text class="ml-2 body-1">
                       <span v-html="item.text" />
@@ -194,7 +196,7 @@
               >
                 <v-card flat :color="use.card.color">
                   <v-row no-gutters>
-                    <v-col cols="5">
+                    <v-col cols="12" md="5">
                       <v-img
                         class="bordered-image"
                         :src="item.image"
@@ -203,7 +205,7 @@
                         @click="openImageInNewTab(item.image)"
                       />
                     </v-col>
-                    <v-col cols="7">
+                    <v-col cols="12" md="7">
                       <v-card-title>{{ item.number }}.</v-card-title>
                       <v-card-text class="ml-2 body-1">
                         <span v-html="item.text" />
@@ -366,12 +368,12 @@ export default {
 
   head() {
     const description =
-      '좋은 정보/지식을 다루는 영상 보긴 봐야겠는데 어렵고 길 때, 용어 설명과 자료 정리를 보조해요'
+      '해외 자료거나 어렵고 길거나! 좋은 정보/지식을 다루는 영상 그래도 이해하고 싶다면? 용어 설명과 자료 정리를 보조해줘요'
     const ogDescription = description
     const ogImgURL = 'https://dmq1lrjfpg713.cloudfront.net/og_20220126.png'
 
     return {
-      title: `${this.serviceName}, 유튜브 내용을 쉬운 해설과 함께 - Chrome 확장프로그램`,
+      title: `YouTube, 전문 정보를 쉬운 해설과 함께 - Chrome 확장프로그램, ${this.serviceName}`,
       meta: [
         /*
          ** OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
@@ -422,7 +424,13 @@ export default {
 
   computed: {
     totalCols() {
-      const cols = 6
+      const cols = this.$vuetify.breakpoint.xlOnly
+        ? 6
+        : this.$vuetify.breakpoint.lgOnly
+        ? 8
+        : this.$vuetify.breakpoint.mdOnly
+        ? 10
+        : 12 // smAndDown (sm + xs)
       return cols
     },
   },
