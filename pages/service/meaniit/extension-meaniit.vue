@@ -226,8 +226,13 @@
       justify="center"
       align="center"
       class="scroll-ending-text my-12 py-12"
+      :class="
+        $vuetify.breakpoint.smAndUp
+          ? 'scroll-ending-text my-12 py-12'
+          : 'scroll-ending-text-small my-12 py-12'
+      "
     >
-      <p class="scroll-ending-text text-center">
+      <p class="text-center">
         <span v-html="ending.text[0]" />
         <span
           class="text-in-scroll-ending white--text"
@@ -488,6 +493,10 @@ export default {
 .scroll-ending-text {
   font-weight: bold;
   font-size: 24px;
+}
+.scroll-ending-text-small {
+  font-weight: bold;
+  font-size: 13px;
 }
 .text-in-scroll-ending {
   background-color: #2979ff;
