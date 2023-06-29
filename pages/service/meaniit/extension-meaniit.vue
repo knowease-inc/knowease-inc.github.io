@@ -318,7 +318,7 @@ export default {
         description: '어떻게 사용하면 될까요? 최대로 활용하는 방법은?',
         card: {
           color: '#E6E9F0',
-          height: 1200,
+          height: undefined,
         },
         steps: [
           {
