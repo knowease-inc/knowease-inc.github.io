@@ -152,7 +152,7 @@ class PagesRecruit extends Vue {
         },
       ],
       registerBtn: {
-        url: 'https://forms.gle/x6h1SU2qpeHNwTSh9', // Google Form
+        url: 'https://forms.gle/1q1eSFMb9LBtEqai7', // Google Form
         name: '지원하기',
         color: '#2979FF',
       },
