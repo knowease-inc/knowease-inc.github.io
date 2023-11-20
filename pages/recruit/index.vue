@@ -125,7 +125,10 @@ class PagesRecruit extends Vue {
             },
             {
               title: '추가',
-              content: ['100% 재택 근무', '유연 근무 (코어 근무시간 외 / 코어 근무시간 조절 가능)'],
+              content: [
+                '100% 재택 근무',
+                '유연 근무 (코어 근무시간 외 / 코어 근무시간 조절 가능)',
+              ],
             },
           ],
         },
@@ -134,9 +137,7 @@ class PagesRecruit extends Vue {
           contents: [
             {
               title: '고용 관련',
-              content: [
-                '형태 : 계약직(6개월)',
-              ],
+              content: ['형태 : 계약직(6개월)'],
             },
             {
               title: '채용 과정',
