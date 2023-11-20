@@ -316,7 +316,7 @@ export default {
             number: 1,
             text:
               '<a href="https://chrome.google.com/webstore/detail/%EB%AF%B8%EB%8B%9B/fnkdlnkmiekkedkpolbkffdfljjinoee?hl=ko" target=\'_blank\'>' +
-              '[확장프로그램 설치]</a> 버튼을 눌러요'
+              '[확장프로그램 설치]</a> 버튼을 눌러요',
           },
           {
             image: '/img/pages.service.meaniit.extension-meaniit/step2.png',
@@ -324,7 +324,7 @@ export default {
             text:
               'Chrome 웹 스토어에서 [다운로드] 버튼을 누르면<br>잠시후 설치 완료!' +
               '<br><small style="color: red;">* Chrome 브라우저에서만 모든 기능이 정상적으로 동작해요</small>' +
-              '<br><small style="color: red;">** Chrome 브라우저 최신 버전 유지를 권장드려요 (오래된 버전에서는 동작하지 않을 수 있음)</small>'
+              '<br><small style="color: red;">** Chrome 브라우저 최신 버전 유지를 권장드려요 (오래된 버전에서는 동작하지 않을 수 있음)</small>',
           },
         ],
       },
@@ -354,7 +354,8 @@ export default {
             image:
               '/img/pages.service.meaniit.extension-meaniit/usage_step3.png',
             number: 3,
-            text: 'Chrome 브라우저 알림이 뜨고<br>잠시(약 4초) 기다려요' +
+            text:
+              'Chrome 브라우저 알림이 뜨고<br>잠시(약 4초) 기다려요' +
               '<br><small style="color: red;">* 이 사이에 사용자분께서 직접 다른 탭을 여는 경우, 정상적으로 동작하지 않을 수 있어요</small>',
           },
           {
