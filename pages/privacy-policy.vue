@@ -5,21 +5,54 @@
       :max-width="mainCardMaxWidth"
       class="mt-sm-0 mx-sm-12 pt-10 pt-sm-0 px-4 pa-sm-10"
     >
-      <!-- ### Start : Top List (Main) ### -->
-      <v-card-title>{{ title }}</v-card-title>
-      <v-card v-for="(ctt, idx) in contents" :key="idx" class="mb-4" outlined elevation="0">
-        <v-card-title>
+      <!-- Start : 총칙 -->
+      <v-card-title class="text-h4 font-weight-bold">{{ title }}</v-card-title>
+      <v-card
+        v-for="(ctt, idx) in contents"
+        :key="idx"
+        class="mb-4 mx-sm-4 px-sm-4"
+        outlined
+        elevation="0"
+        :style="{
+          borderRadius: '0.75rem',
+        }"
+      >
+        <v-card-title class="text-h6">
           {{ `제${idx+1}조(${ctt.title})` }}
         </v-card-title>
-        <v-card-text>
-          <div v-for="(txt, tidx) in ctt.contents" :key="tidx">
+        <v-card-text class="text-body-1">
+          <div
+            v-for="(txt, tidx) in countSequentialTypesForNumber(countSequentialTypes(ctt.contents))"
+            :key="tidx"
+          >
             <p v-if="txt.type === 'plain'">{{ txt.text }}</p>
-            <p v-else-if="txt.type === 'number'">{{ `${tidx+1}. ${txt.text}` }}</p>
-            <p v-else-if="txt.type === 'inner-number'">{{ `${tidx+1}. ${txt.text}` }}</p>
-            <p v-else>{{ `${tidx+1}. ${txt.text}` }}</p>
+            <p v-else-if="txt.type === 'number'" class="pl-4">
+                {{ `${txt.numberIndexCount}. ${txt.text}` }}
+            </p>
+            <p v-else-if="txt.type === 'inner-number'" class="pl-8">
+                {{ `${numberToKorean(txt.count)}. ${txt.text}` }}
+            </p>
+            <p v-else>{{ `※ ${txt.text}` }}</p>
           </div>
         </v-card-text>
       </v-card>
+      <!-- End : 총칙 -->
+
+      <!-- Start: Appendix -->
+      <v-card-title class="text-h4 font-weight-bold">{{ appendixTitle }}</v-card-title>
+      <v-card
+        class="mb-4 mx-sm-4 px-sm-4"
+        outlined
+        elevation="0"
+        :style="{
+          borderRadius: '0.75rem',
+        }"
+      >
+        <v-card-text class="text-body-1">
+          {{ appendix[0] }}
+        </v-card-text>
+      </v-card>
+      <!-- End: Appendix -->
     </v-card>
   </v-row>
 </template>
@@ -261,11 +294,6 @@ export default {
             {
               type: 'number',
               text:
-                "(주)토스페이먼츠에게 유료 서비스 이용 대금결제를 위하여 회원 탈퇴 시 혹은 위탁 계약 종료 시까지 개인정보처리를 위탁함",
-            },
-            {
-              type: 'number',
-              text:
                 "(주)다우기술에게 SMS, LMS, 알림톡 발송을 위하여 이용 목적 달성 시까지 개인정보처리를 위탁함",
             },
           ],
@@ -426,12 +454,12 @@ export default {
             {
               type: 'inner-number',
               text:
-                "가. 회사가 재화 등의 거래관계를 통하여 수신자로부터 직접 연락처를 수집한 경우, 거래가 종료된 날로부터 6개월 이내에 회사가 처리하고 수신자와 거래한 것과 동종의 재화 등에 대한 영리목적의 광고성 정보를 전송하려는 경우",
+                "회사가 재화 등의 거래관계를 통하여 수신자로부터 직접 연락처를 수집한 경우, 거래가 종료된 날로부터 6개월 이내에 회사가 처리하고 수신자와 거래한 것과 동종의 재화 등에 대한 영리목적의 광고성 정보를 전송하려는 경우",
             },
             {
               type: 'inner-number',
               text:
-                "나. 「방문판매 등에 관한 법률」에 따른 전화권유판매자가 육성으로 수신자에게 개인정보의 수집출처를 고지하고 전화권유를 하는 경우",
+                "「방문판매 등에 관한 법률」에 따른 전화권유판매자가 육성으로 수신자에게 개인정보의 수집출처를 고지하고 전화권유를 하는 경우",
             },
             {
               type: 'number',
@@ -451,12 +479,12 @@ export default {
             {
               type: 'inner-number',
               text:
-                "가. 회사명 및 연락처",
+                "회사명 및 연락처",
             },
             {
               type: 'inner-number',
               text:
-                "나. 수신 거부 또는 수신 동의의 철회 의사표시에 관한 사항의 표시",
+                "수신 거부 또는 수신 동의의 철회 의사표시에 관한 사항의 표시",
             },
             {
               type: 'number',
@@ -466,27 +494,27 @@ export default {
             {
               type: 'inner-number',
               text:
-                "가. 광고성 정보 수신자의 수신거부 또는 수신동의의 철회를 회피·방해하는 조치",
+                "광고성 정보 수신자의 수신거부 또는 수신동의의 철회를 회피·방해하는 조치",
             },
             {
               type: 'inner-number',
               text:
-                "나. 숫자·부호 또는 문자를 조합하여 전화번호·전자우편주소 등 수신자의 연락처를 자동으로 만들어 내는 조치",
+                "숫자·부호 또는 문자를 조합하여 전화번호·전자우편주소 등 수신자의 연락처를 자동으로 만들어 내는 조치",
             },
             {
               type: 'inner-number',
               text:
-                "다. 영리목적의 광고성 정보를 전송할 목적으로 전화번호 또는 전자우편주소를 자동으로 등록하는 조치",
+                "영리목적의 광고성 정보를 전송할 목적으로 전화번호 또는 전자우편주소를 자동으로 등록하는 조치",
             },
             {
               type: 'inner-number',
               text:
-                "라. 광고성 정보 전송자의 신원이나 광고 전송 출처를 감추기 위한 각종 조치",
+                "광고성 정보 전송자의 신원이나 광고 전송 출처를 감추기 위한 각종 조치",
             },
             {
               type: 'inner-number',
               text:
-                "마. 영리목적의 광고성 정보를 전송할 목적으로 수신자를 기망하여 회신을 유도하는 각종 조치",
+                "영리목적의 광고성 정보를 전송할 목적으로 수신자를 기망하여 회신을 유도하는 각종 조치",
             },
           ],
         },
@@ -661,22 +689,22 @@ export default {
             {
               type: 'inner-number',
               text:
-                "가. 이전되는 개인정보 항목",
+                "이전되는 개인정보 항목",
             },
             {
               type: 'inner-number',
               text:
-                "나. 개인정보가 이전되는 국가, 이전일시 및 이전방법",
+                "개인정보가 이전되는 국가, 이전일시 및 이전방법",
             },
             {
               type: 'inner-number',
               text:
-                "다. 개인정보를 이전받는 자의 성명(법인인 경우 그 명칭 및 정보관리 책임자의 연락처를 말한다)",
+                "개인정보를 이전받는 자의 성명(법인인 경우 그 명칭 및 정보관리 책임자의 연락처를 말한다)",
             },
             {
               type: 'inner-number',
               text:
-                "라. 개인정보를 이전받는 자의 개인정보 이용목적 및 보유ㆍ이용 기간",
+                "개인정보를 이전받는 자의 개인정보 이용목적 및 보유ㆍ이용 기간",
             },
             {
               type: 'number',
@@ -761,22 +789,23 @@ export default {
             {
               type: 'inner-number',
               text:
-                "가. 성명: 박성묵",
+                "성명: 박성묵",
             },
             {
               type: 'inner-number',
               text:
-                "나. 전화번호: 010-8920-3726",
+                "전화번호: 010-8920-3726",
             },
             {
               type: 'inner-number',
               text:
-                "다. 이메일: knowease.inc@gmail.com",
+                "이메일: knowease.inc@gmail.com",
             },
           ],
         },
       ],
 
+      appendixTitle: '부칙',
       appendix: [
         "제1조 본 방침은 2023.11.20부터 시행됩니다.",
       ],
@@ -790,6 +819,56 @@ export default {
           ? this.$vuetify.breakpoint.width
           : 860
       return maxWidth
+    },
+  },
+
+  methods: {
+    countSequentialTypes(dataArray) {
+        let count = 1
+        let previousType = null
+    
+        const result = dataArray.map((item, index) => {
+            if (index === 0) {
+                previousType = item.type
+                return { ...item, count }
+            }
+    
+            if (item.type === previousType) {
+                count++
+            } else {
+                count = 1
+                previousType = item.type
+            }
+    
+            return { ...item, count }
+        })
+    
+        return result
+    },
+
+    countSequentialTypesForNumber(dataArray) {
+        let count = 1
+    
+        const result = dataArray.map((item, index) => {
+            if (item.type === 'number') {
+                let returnObj = { ...item, numberIndexCount: count }
+                count++
+                return returnObj
+            } else {
+                return { ...item }
+            }
+        })
+    
+        return result
+    },
+
+    numberToKorean(number) {
+        const koreanCharacters = ['가', '나', '다', '라', '마']
+        if (number >= 1 && number <= 5) {
+            return koreanCharacters[number - 1]
+        } else {
+            return '잘못된 입력';
+        }
     },
   },
 }
