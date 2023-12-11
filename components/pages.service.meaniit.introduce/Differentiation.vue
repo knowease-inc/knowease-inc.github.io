@@ -53,21 +53,21 @@ class PagesServiceEasyxplainDifferentiation extends Vue {
     {
       titleFirst: 'S',
       title: 'hort',
-      content: '내용 길이가 짧게 제한됩니다.',
-      subcontent: '누가 요약 좀? 그 누구와 요약이 여기 있습니다.',
+      content: '사용 과정은 짧은 것이 기본입니다.',
+      subcontent: '\'필요할 수 있는 기능\'은 필요한 경우가 아니면 복잡함일 뿐이죠.',
     },
     {
-      titleFirst: 'S',
-      title: 'imple',
-      content: '한 용어/주제의 다양한 설명을 한 장에 보여줍니다.',
-      subcontent: '들어왔다 나갔다 다음거 누르고 그럴 필요없어요.',
+      titleFirst: 'A',
+      title: 'ccessible',
+      content: '\'모두\'가 쉽게 접근할 수 있는지 고려합니다.',
+      subcontent: '그게 좋잖아요.',
     },
     {
       titleFirst: 'Y',
       title: 'ours',
-      content: '작성자 활동은 개인 페이지에 능력으로 인증됩니다.',
+      content: '사용자가 제공해준 것을 잊지 않습니다.',
       subcontent:
-        '설명과 같은 추상적인 능력이 객관적으로 인정받을 수 있도록 합니다.',
+        '사용자가 준 데이터라면, 그 보답도 있어야죠.',
     },
   ]
 }

@@ -16,13 +16,13 @@
           <v-list-item two-line>
             <v-list-item-content>
               <div class="d-flex justify-center align-center contentTitle">
-                게타(GET-A)'s 서비스
+                <small>(주)</small>게타's 서비스
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
-                지식이 쉽게 전달되고 습득될 수 있도록 만드는
+                정보, 지식이 쉽고 빠르게 전달 및 소통 되도록 만드는
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
-                모든 서비스를 고민하고 그것들에 도전하고 있습니다.
+                모든 기술을 고민하고 그것들에 도전하고 있습니다.
               </div>
             </v-list-item-content>
           </v-list-item>

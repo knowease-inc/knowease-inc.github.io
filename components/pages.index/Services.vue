@@ -20,7 +20,7 @@
             <v-card-actions class="d-flex justify-center mt-4">
               <v-btn text :href="content.href">
                 <v-img
-                  src="/img/MEANIIT_LOGO.png"
+                  src="https://dmq1lrjfpg713.cloudfront.net/img/logo.png"
                   height="25"
                   max-width="100"
                   contain
@@ -72,7 +72,7 @@
           <v-card-actions class="d-flex justify-center mt-4">
             <v-btn text :href="content.href">
               <v-img
-                src="/img/MEANIIT_LOGO.png"
+                src="https://dmq1lrjfpg713.cloudfront.net/img/logo.png"
                 height="25"
                 max-width="100"
                 contain
@@ -134,11 +134,11 @@ class PagesIndexServices extends Vue {
   } = {
     name: '미닛',
     explanation:
-      '짧고 쉬운 전문/기술용어 설명과 모든 가이드를 얻거나 제공하고 쉽게 설명하는 능력을 인정 받는 플랫폼',
+      '자료조사부터 보고서 초안 작성, 완성까지 함께하는 GPT 기반 인공지능(AI, Artificial Intelligence) 서비스',
     href: undefined,
     shortcut: {
-      name: '바로가기', // '(준비중)'
-      href: 'https://ko.meaniit.com/', // undefined,
+      name: '(준비중)', // '바로가기'
+      href: undefined, // 'https://ko.meaniit.com/researcher',
     },
     introduce: {
       name: '소개',

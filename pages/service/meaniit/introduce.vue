@@ -15,9 +15,9 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item>
             <v-list-item-content>
-              <div class="text-center contentTitle">차별성</div>
+              <div class="text-center contentTitle">{{ differTitle }}</div>
               <div class="text-center contentSubTitle">
-                다른 지식데이터베이스 서비스와 다른점은?
+                {{ differSubTitle }}
               </div>
             </v-list-item-content>
           </v-list-item>
@@ -29,12 +29,13 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="text-center contentTitle">참여 방법</div>
-              <div class="text-center contentSubTitle">
-                '전문/기술 용어' 또는 '가이드' 내에서
-              </div>
-              <div class="text-center contentSubTitle">
-                쉬운 설명을 찾거나, 쓰거나, 알려주세요.
+              <div class="text-center contentTitle">사용 방법</div>
+              <div
+                v-for="(htxt, hidx) in howUse"
+                :key="hidx"
+                class="text-center contentSubTitle"
+              >
+                {{ htxt }}
               </div>
             </v-list-item-content>
           </v-list-item>
@@ -46,9 +47,9 @@
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
-              <div class="text-center contentTitle">함께해 온 길</div>
+              <div class="text-center contentTitle">{{ timelineTitle }}</div>
               <div class="text-center contentSubTitle">
-                쉬운 설명을 손 꼽아온 여정
+                {{ timelineSubTitle }}
               </div>
             </v-list-item-content>
           </v-list-item>
@@ -92,41 +93,45 @@
   </v-container>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script>
 import IntroduceCarousel from '@/components/pages.service.meaniit.introduce/Carousel.vue'
 import HowToUseCards from '@/components/pages.service.meaniit.introduce/HowToUseCards.vue'
 import Differentiation from '~/components/pages.service.meaniit.introduce/Differentiation.vue'
 import Timeline from '~/components/pages.service.meaniit.introduce/Timeline.vue'
 
-@Component({
+export default {
   components: {
     IntroduceCarousel,
-    Differentiation,
     HowToUseCards,
+    Differentiation,
     Timeline,
-  },
-  head() {
-    return {
-      title: '미닛 - 서비스 소개',
-    }
   },
   data() {
     return {
-      issuesListResult: [],
+      differTitle: '차별성',
+      differSubTitle: '다른 보고서 자동화 서비스와 다른점은?',
+
+      howUse: [
+        '어떤 자료를 모으고, 어떤 주제로 글을 쓸지',
+        '정해주기만 하면 보고서가 메일로 와요',
+      ],
+
+      timelineTitle: '함께해 온 길',
+      timelineSubTitle: '정보기술 통한 정보 격차 해소 여정',
     }
   },
-})
-class PagesServiceEasyxplainIntroduce extends Vue {
-  /* computed */
-  get mainCardMaxWidth(): number {
-    const maxWidth: number =
-      this.$vuetify.breakpoint.width < 860
+  head() {
+    return {
+      title: '자료조사AI(미닛) - 서비스 소개',
+      description: '스스로 자료조사부터 보고서 초안 작성, 첨삭 받아 추가 조사 및 수정까지 하는 AI로 업무 효율을 극대화하세요',
+    }
+  },
+  computed: {
+    mainCardMaxWidth() {
+      return this.$vuetify.breakpoint.width < 860
         ? this.$vuetify.breakpoint.width
         : 860
-    return maxWidth
-  }
+    },
+  },
 }
-
-export default PagesServiceEasyxplainIntroduce
 </script>

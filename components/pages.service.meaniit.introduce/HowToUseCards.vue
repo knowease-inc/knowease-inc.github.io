@@ -28,46 +28,46 @@
   </v-card>
 </template>
 
-<script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
-@Component({})
-class PagesIntroduceHowToUseCards extends Vue {
-  @Provide() avatarSize: string = '40px'
-  @Provide() items: Array<{
-    title: string
-    detail: string
-    image: string
-  }> = [
-    {
-      title: '필요 정보 찾기',
-      detail: '전문/기술 용어의 설명 또는 쉽게 작성된 가이드를 찾아보세요',
-      image:
-        '/img/pages.service.meaniit.introduce.HowToUseCards/search_icon.png',
-    },
-    {
-      title: "이거 '쉬워요' 누르기",
-      detail: "정말 쉽게 작성된 설명에는 '쉬워요'를 주세요!",
-      image:
-        '/img/pages.service.meaniit.introduce.HowToUseCards/lightbulb_icon.png',
-    },
-    {
-      title: '쉬운 설명 작성',
-      detail: '가이드 또는 전문/기술 용어 설명을 직접 쉽게 써주세요',
-      image: '/img/pages.service.meaniit.introduce.HowToUseCards/chat_icon.png',
-    },
-    {
-      title: '가이드 주제/용어 등록',
-      detail: '찾는 전문/기술 용어, 가이드 주제가 없다면 등록해주세요',
-      image: '/img/pages.service.meaniit.introduce.HowToUseCards/add_icon.png',
-    },
-    {
-      title: '업적 달성 및 인증',
-      detail: '다양한 업적을 달성, 설명 능력이 객관적 인증됩니다',
-      image: '/img/pages.service.meaniit.introduce.HowToUseCards/id_icon.png',
-    },
-  ]
+<script>
+export default {
+  data() {
+    return {
+      avatarSize: '40px',
+      items: [
+        {
+          title: '검색어 입력',
+          detail: '입력한 검색어를 토대로 관련 주제, 추가 키워드를 얻어요',
+          image:
+            '/img/pages.service.meaniit.introduce.HowToUseCards/search_icon.png',
+        },
+        {
+          title: '기간 설정',
+          detail: '지금으로부터 언제까지의 자료를 바탕으로 분석을 시작할지 정해요',
+          image:
+            '/img/pages.service.meaniit.introduce.HowToUseCards/lightbulb_icon.png',
+        },
+        {
+          title: '핵심 주제 입력',
+          detail: '조사한 자료로부터 해당 주제를 중심으로 글을 써요',
+          image:
+            '/img/pages.service.meaniit.introduce.HowToUseCards/chat_icon.png',
+        },
+        {
+          title: '이메일 입력',
+          detail: '보고서 작성 완료 시, 입력한 이메일로 결과가 전송되요',
+          image:
+            '/img/pages.service.meaniit.introduce.HowToUseCards/add_icon.png',
+        },
+        {
+          title: '보고서 첨삭(AI)',
+          detail: '추가 조사 및 작성/수정 요청, 또는 직접 수정이 가능해요',
+          image:
+            '/img/pages.service.meaniit.introduce.HowToUseCards/id_icon.png',
+        },
+      ],
+    }
+  },
 }
-export default PagesIntroduceHowToUseCards
 </script>
 
 <style scoped>

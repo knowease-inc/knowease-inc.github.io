@@ -21,7 +21,7 @@
                   introduce.text.first
                 }}</span>
                 <span
-                  class="title-in-intoroduce-box primary--text mx-1 headline"
+                  class="title-in-intoroduce-box #313de3--text mx-1 headline"
                   >{{ serviceName }}</span
                 >
                 <br />
