@@ -150,8 +150,8 @@ export default {
       themes: {
         light: {
           background: colors.grey.lighten5,
-          primary: colors.blue.accent3,
-          secondary: colors.blue.accent2,
+          primary: '#313de3',
+          secondary: '#c5dbff',
           barinfo: colors.shades.white,
           ranker: colors.blue.accent3,
           rankerlower: colors.grey.darken2,

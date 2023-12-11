@@ -62,7 +62,7 @@
         <v-card-actions class="justify-end pt-0">
           <v-btn
             :disabled="!valid"
-            color="primary"
+            color="#313de3"
             outlined
             class="mr-4"
             @click="_summit"

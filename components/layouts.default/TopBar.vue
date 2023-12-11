@@ -98,12 +98,12 @@ class LayoutDefaultTopBar extends Vue {
     color: 'white',
     menuIcon: 'mdi-menu',
     knowease: {
-      title: '게타(GET-A)',
-      imgSrc: '/img/knowease_logo_20210104.png',
+      title: '(주)게타(GET-A Inc.)',
+      imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/img/logoImg.png',
     },
     easyxplain: {
-      title: '미닛',
-      imgSrc: '/img/MEANIIT_LOGO.png',
+      title: '미닛(MEANIIT)',
+      imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/img/logo.png',
     },
   }
 

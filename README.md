@@ -1,5 +1,5 @@
 # knowease-inc.github.io
-> Knowease-inc의 github pages
+> GET-A Inc.의 github pages
 
 # 제작
 ## 프로젝트 환경 및 도구
@@ -156,3 +156,13 @@ $ yarn deploy
 * [TypeScript/Nuxt 공식](https://typescript.nuxtjs.org/)
 * [TypeScript로 Nuxt 개발하기](https://jhyeok.com/nuxt-with-typescript/)
 * [Nuxt에서 TypeScript로 개발하기(git)](https://github.com/ChoDragon9/create-nuxt-ts)
+
+## 기타 정보
+### Colors
+1. Main1: `#313de3`
+2. Main2: `#c5dbff`
+3. Sub1: `#092356`
+4. Sub2: `#45CA67`
+5. Point: `#F84E3B`
+6. Content Area: `#FFFFFF`
+7. Background: `#F0EFED`
