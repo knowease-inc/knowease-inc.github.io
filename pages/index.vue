@@ -8,15 +8,12 @@
       class="d-flex justify-center align-center mt-2"
     >
       <v-card flat tile>
-        <!-- ### Start : Top Carousel ### -->
-        <index-carousel></index-carousel>
-
         <!-- ### Start : Service Link ### -->
         <v-card flat tile class="contentTitleCard">
           <v-list-item two-line>
             <v-list-item-content>
               <div class="d-flex justify-center align-center contentTitle">
-                <small>(주)</small>게타's 서비스
+                게타's 서비스
               </div>
               <div class="d-flex justify-center align-center contentSubTitle">
                 정보, 지식이 쉽고 빠르게 전달 및 소통 되도록 만드는
@@ -69,7 +66,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import IndexCarousel from '@/components/pages.index/Carousel.vue'
 import Services from '@/components/pages.index/Services.vue'
 import Founders from '~/components/pages.index/Founders.vue'
 import Timeline from '~/components/pages.index/Timeline.vue'
@@ -78,7 +74,6 @@ import Timeline from '~/components/pages.index/Timeline.vue'
   components: {
     Founders,
     Timeline,
-    IndexCarousel,
     Services,
   },
 })
@@ -96,3 +91,9 @@ class PagesIndex extends Vue {
 
 export default PagesIndex
 </script>
+
+<style scoped>
+.contentTitle {
+  color: #2979ff;
+}
+</style>

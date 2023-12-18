@@ -1,13 +1,13 @@
 <template>
-  <v-app-bar :color="appBar.color" dense flat absolute>
+  <v-app-bar :color="appBar.color" dense flat absolute class="side-blank">
     <!-- Start: -->
-    <v-btn icon color="white" @click.prevent="easterEgg()">
+    <v-btn v-if="false" icon color="white" @click.prevent="easterEgg()">
       <v-icon :small="$vuetify.breakpoint.xsOnly">{{ appBar.menuIcon }}</v-icon>
     </v-btn>
     <v-spacer />
 
     <!-- Start : Knowease image -->
-    <v-toolbar-items v-if="onKnowease">
+    <v-toolbar-items v-if="onKnowease" class="pl-9">
       <v-btn text to="/" active-class="no-active">
         <v-img
           :src="appBar.knowease.imgSrc"
@@ -15,7 +15,7 @@
           :height="appBar.height"
           :max-width="appBar.maxWidth"
           contain
-        ></v-img>
+        />
       </v-btn>
     </v-toolbar-items>
 
@@ -28,7 +28,7 @@
           :height="appBar.height"
           :max-width="appBar.maxWidth"
           contain
-        ></v-img>
+        />
       </v-btn>
     </v-toolbar-items>
     <v-spacer />
@@ -40,13 +40,14 @@
         <template #activator="{ on, attrs }">
           <v-btn
             icon
-            v-bind="attrs"
+            color="white"
             :small="$vuetify.breakpoint.xsOnly"
+            v-bind="attrs"
             v-on="on"
           >
-            <v-icon :small="$vuetify.breakpoint.xsOnly">{{
-              appBar.menuIcon
-            }}</v-icon>
+            <v-icon :small="$vuetify.breakpoint.xsOnly">
+              {{ appBar.menuIcon }}
+            </v-icon>
           </v-btn>
         </template>
 
@@ -60,9 +61,9 @@
             <v-list-item-subtitle v-if="item.title" class="menuTitle">
               {{ item.name }}
             </v-list-item-subtitle>
-            <v-btn v-else :to="item.to" small text active-class="no-active">{{
-              item.name
-            }}</v-btn>
+            <v-btn v-else :to="item.to" small text active-class="no-active">
+              {{ item.name }}
+            </v-btn>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -95,11 +96,11 @@ class LayoutDefaultTopBar extends Vue {
   } = {
     height: '20',
     maxWidth: '100',
-    color: 'white',
+    color: 'transparent',
     menuIcon: 'mdi-menu',
     knowease: {
       title: '(주)게타(GET-A Inc.)',
-      imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/img/logoImg.png',
+      imgSrc: '/img/GET_A_LOGO.png',
     },
     easyxplain: {
       title: '미닛(MEANIIT)',
@@ -162,5 +163,8 @@ export default LayoutDefaultTopBar
 .menuTitle {
   font-size: 10px !important;
   color: #2979ff !important;
+}
+.side-blank {
+  padding: 0 250px;
 }
 </style>
