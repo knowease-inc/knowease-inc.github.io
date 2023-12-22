@@ -1,5 +1,12 @@
 <template>
-  <v-app-bar :color="appBar.color" dense flat absolute class="side-blank">
+  <v-app-bar
+    :color="isRootRoute ? appBar.color : '#3746fb'"
+    dense
+    flat
+    absolute
+    :class="$vuetify.breakpoint.xsOnly ? '' : 'side-blank'"
+    :style="{ borderBottom: isRootRoute ? '' : '0.5px solid white' }"
+  >
     <!-- Start: -->
     <v-btn v-if="false" icon color="white" @click.prevent="easterEgg()">
       <v-icon :small="$vuetify.breakpoint.xsOnly">{{ appBar.menuIcon }}</v-icon>
@@ -23,11 +30,12 @@
     <v-toolbar-items v-else>
       <v-btn text active-class="no-active" @click.prevent="toMeaniit()">
         <v-img
-          :src="appBar.easyxplain.imgSrc"
-          :alt="appBar.easyxplain.title"
+          :src="appBar.knowease.imgSrc"
+          :alt="appBar.knowease.title"
           :height="appBar.height"
           :max-width="appBar.maxWidth"
           contain
+          class="to-white"
         />
       </v-btn>
     </v-toolbar-items>
@@ -89,10 +97,10 @@ class LayoutDefaultTopBar extends Vue {
       title: string
       imgSrc: string
     }
-    easyxplain: {
-      title: string
-      imgSrc: string
-    }
+    // easyxplain: {
+    //   title: string
+    //   imgSrc: string
+    // }
   } = {
     height: '20',
     maxWidth: '100',
@@ -102,10 +110,10 @@ class LayoutDefaultTopBar extends Vue {
       title: '(주)게타(GET-A Inc.)',
       imgSrc: '/img/GET_A_LOGO.png',
     },
-    easyxplain: {
-      title: '미닛(MEANIIT)',
-      imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/img/logo.png',
-    },
+    // easyxplain: {
+    //   title: '미닛(MEANIIT)',
+    //   imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/img/logo.png',
+    // },
   }
 
   @Provide() menuItems: Array<{
@@ -141,6 +149,11 @@ class LayoutDefaultTopBar extends Vue {
     )
   }
 
+  get isRootRoute() {
+    const currentRoute: string | undefined | null = this.$route.name
+    return currentRoute === 'index'
+  }
+
   // method
   easterEgg() {
     const text: string = '어떻게 알고 찾았죠...?'
@@ -166,5 +179,8 @@ export default LayoutDefaultTopBar
 }
 .side-blank {
   padding: 0 250px;
+}
+.to-white {
+  filter: brightness(0) invert(1);
 }
 </style>
