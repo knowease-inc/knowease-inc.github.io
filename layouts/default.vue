@@ -2,9 +2,13 @@
   <v-app light>
     <v-card flat tile class="pb-15">
       <!-- ### Start : Top bar ### -->
-      <Carousel>
-        <top-bar />
-      </Carousel>
+      <div>
+        <Carousel v-if="checkForIndexPath()">
+          <top-bar />
+        </Carousel>
+
+        <top-bar v-if="!checkForIndexPath()" />
+      </div>
 
       <!-- ### Start : Main Contents ### -->
       <v-sheet class="my-15">
@@ -17,20 +21,27 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script>
 import TopBar from '@/components/layouts.default/TopBar.vue'
 import MainFooter from '@/components/layouts.default/MainFooter.vue'
 import Carousel from '~/components/layouts.default/Carousel.vue'
 
-@Component({
+export default {
   components: {
     TopBar,
     MainFooter,
     Carousel,
   },
-})
-class LayoutDefault extends Vue {}
 
-export default LayoutDefault
+  watch: {
+    $route: 'checkForIndexPath',
+  },
+
+  methods: {
+    checkForIndexPath() {
+      const { name } = this.$route
+      return name === 'index'
+    },
+  },
+}
 </script>
