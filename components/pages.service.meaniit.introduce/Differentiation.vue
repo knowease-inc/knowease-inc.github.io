@@ -1,6 +1,6 @@
 <template>
   <v-row no-gutters>
-    <v-col v-for="(item, index) in items" :key="index" cols="6">
+    <v-col v-for="(item, index) in items" :key="index" cols="12" sm="6">
       <v-card justify="center" flat class="my-1 d-flex flex-column">
         <v-card-text class="pa-0">
           <div class="contentTitle contentTitleFirst mb-2">
@@ -10,7 +10,7 @@
 
         <v-divider class="mr-2" />
 
-        <v-card-text class="px-1">
+        <v-card-text class="px-1 py-2 py-sm-4">
           <div class="contentText">
             {{ item.content }}
           </div>

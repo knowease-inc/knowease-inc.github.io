@@ -1,11 +1,11 @@
 <template>
-  <v-card
-    flat
-    :outlined="$vuetify.breakpoint.xsOnly"
-    class="mt-sm-4 mx-0 mr-sm-4 pt-10 pb-sm-5"
-  >
+  <v-card flat class="mt-sm-4 mx-0 mr-sm-4 pt-10 pb-sm-5">
     <v-card-text class="px-0">
-      <div class="history-line"></div>
+      <div
+        :class="
+          $vuetify.breakpoint.smAndUp ? 'history-line' : 'history-line-xs'
+        "
+      ></div>
 
       <!-- History Contents: smAndUp -->
       <v-col
@@ -68,10 +68,7 @@
                   v-for="(date, index) in splitDate(item.date)"
                   :key="date + index"
                 >
-                  <div
-                    :class="index ? 'month-xs mt-1' : 'year-xs mb-1'"
-                    class="main-color"
-                  >
+                  <div :class="index ? 'month-xs mt-1' : 'year-xs mb-1'">
                     {{ index ? setTwoNumber(date) : date }}
                   </div>
                 </div>
@@ -275,6 +272,10 @@ export default {
 
 .history-line {
   border-top: 0.5px solid lightgray;
+}
+
+.history-line-xs {
+  border-top: 1px solid #3746fb;
 }
 
 .date-circle {

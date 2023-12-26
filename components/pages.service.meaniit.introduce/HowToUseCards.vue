@@ -1,17 +1,33 @@
 <template>
-  <v-row justify="end" no-gutters style="margin-left: -220px">
+  <v-row
+    justify="end"
+    no-gutters
+    :style="{ marginLeft: $vuetify.breakpoint.smAndUp ? '-220px' : '' }"
+    class="my-sm-0 my-4"
+  >
     <v-col
       v-for="(item, i) in items"
       :key="i"
       cols="12"
       sm="4"
-      :offset="i === 0 && 4"
+      :offset="i === 0 ? 4 : 0"
     >
-      <v-card flat outlined class="ma-2 px-3 pt-2 rounded-xl overflow-hidden">
-        <v-list-item three-line>
+      <v-card
+        flat
+        outlined
+        class="ma-sm-2 pa-2 mt-3 overflow-hidden d-flex flex-sm-column flex-row"
+        :class="
+          $vuetify.breakpoint.smAndUp ? 'rounded-xl' : 'rounded-0 border-none'
+        "
+      >
+        <v-list-item
+          three-line
+          class="order-sm-0"
+          :class="{ 'order-1 text-right': $vuetify.breakpoint.xsOnly && i % 2 }"
+        >
           <!-- Start: Content -->
           <v-list-item-content>
-            <v-list-item-title class="contentTitle">
+            <v-list-item-title class="content-title">
               {{ item.title }}
             </v-list-item-title>
 
@@ -22,8 +38,16 @@
         </v-list-item>
 
         <!-- Start: Image -->
-        <v-list-item-avatar :size="avatarSize" tile class="mb-n3">
-          <v-img :src="item.image" />
+        <v-list-item-avatar
+          :size="$vuetify.breakpoint.smAndUp ? avatarSize : avatarSizeXS"
+          tile
+          :class="{
+            'mb-n3': $vuetify.breakpoint.smAndUp,
+            'order-0': !($vuetify.breakpoint.xsOnly && i % 2),
+          }"
+          class="order-sm-1"
+        >
+          <v-img :src="item.image" contain />
         </v-list-item-avatar>
       </v-card>
     </v-col>
@@ -35,6 +59,7 @@ export default {
   data() {
     return {
       avatarSize: '110',
+      avatarSizeXS: '100',
       items: [
         {
           title: '검색어 입력',
@@ -69,7 +94,11 @@ export default {
 </script>
 
 <style scoped>
-.contentTitle {
+.content-title {
   font-weight: 600;
+}
+
+.border-none {
+  border: none;
 }
 </style>

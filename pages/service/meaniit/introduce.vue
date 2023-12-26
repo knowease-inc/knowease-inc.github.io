@@ -2,20 +2,20 @@
   <v-container class="d-flex flex-column" fluid>
     <!-- ### Start : Top ### -->
     <v-row style="background-color: #3746fb" justify="center">
-      <v-col cols="7">
+      <v-col cols="12" sm="7">
         <top-intro />
       </v-col>
     </v-row>
 
     <!-- ### Start : Why Service ### -->
-    <v-row class="differ-padding">
+    <v-row :class="{ 'differ-padding': $vuetify.breakpoint.smAndUp }">
       <v-col class="d-flex flex-column align-center">
         <v-card flat tile class="contentTitleCard">
           <p class="content-title">{{ differTitle }}</p>
-          <div class="content-subtitle d-flex" v-html="differSubTitle"></div>
+          <div class="content-subtitle d-sm-flex" v-html="differSubTitle"></div>
         </v-card>
 
-        <v-col cols="7">
+        <v-col cols="10" sm="7">
           <differentiation />
         </v-col>
       </v-col>
@@ -25,21 +25,26 @@
     <v-row
       style="background-color: #e6e9f0"
       justify="center"
-      class="pb-15 pt-7"
+      class="pb-sm-15 pt-sm-7"
     >
-      <v-col cols="7" class="d-flex">
-        <v-col cols="4" class="pt-5">
+      <v-col cols="12" sm="7" class="d-sm-flex">
+        <v-col
+          cols="12"
+          sm="4"
+          class="pt-5"
+          :class="$vuetify.breakpoint.smAndUp ? 'text-start' : 'text-center'"
+        >
           <div
             v-for="(htxt, hidx) in howUse"
             :key="hidx"
-            class="text-start contentSubTitle"
+            class="contentSubTitle"
           >
             {{ htxt }}
           </div>
-          <div class="text-start contentTitle mt-3">사용 방법</div>
+          <div class="contentTitle mt-3">사용 방법</div>
         </v-col>
 
-        <v-col cols="8" class="">
+        <v-col cols="12" sm="8" class="pa-sm-3 pa-0">
           <how-to-use-cards />
         </v-col>
       </v-col>
@@ -146,7 +151,7 @@ export default {
     return {
       differTitle: '차별성',
       differSubTitle:
-        '다른 보고서 자동화 서비스와 <div class="font-weight-bold ml-2">다른점</div>은?',
+        '다른 보고서 자동화 서비스와 <div><span class="font-weight-bold ml-2">다른점</span>은?</div>',
 
       howUse: [
         '어떤 자료를 모으고, 어떤 주제로 글을 쓸지',
