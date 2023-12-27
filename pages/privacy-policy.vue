@@ -816,7 +816,7 @@ export default {
     countSequentialTypesForNumber(dataArray) {
       let count = 1
 
-      const result = dataArray.map((item, index) => {
+      const result = dataArray.map((item) => {
         if (item.type === 'number') {
           const returnObj = { ...item, numberIndexCount: count }
           count++
