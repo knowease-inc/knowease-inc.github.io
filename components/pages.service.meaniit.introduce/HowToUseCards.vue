@@ -42,7 +42,8 @@ export default {
         },
         {
           title: '기간 설정',
-          detail: '지금으로부터 언제까지의 자료를 바탕으로 분석을 시작할지 정해요',
+          detail:
+            '지금으로부터 언제까지의 자료를 바탕으로 분석을 시작할지 정해요',
           image:
             '/img/pages.service.meaniit.introduce.HowToUseCards/lightbulb_icon.png',
         },

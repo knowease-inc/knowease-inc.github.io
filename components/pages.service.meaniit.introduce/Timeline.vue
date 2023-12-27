@@ -44,9 +44,10 @@ export default {
     return {
       contents: [
         {
-          title: "주요 마일스톤 (3rd)",
+          title: '주요 마일스톤 (3rd)',
           date: '2023.12',
-          body: '\'자료조사AI(가칭)\' 내부 테스트: 자료조사 ~ 보고서 작성 특화 구조 구축 및 GPT 기반 문서 작성 연구 결과 테스트',
+          body:
+            "'자료조사AI(가칭)' 내부 테스트: 자료조사 ~ 보고서 작성 특화 구조 구축 및 GPT 기반 문서 작성 연구 결과 테스트",
           left: false,
           small: true,
           color: 'secondary',
@@ -74,8 +75,7 @@ export default {
         {
           title: '주요 마일스톤 (1st)',
           date: '2023.4',
-          body:
-            '사용자 참여 지식 데이터베이스 Semi Open 테스트',
+          body: '사용자 참여 지식 데이터베이스 Semi Open 테스트',
           left: false,
           small: true,
           color: 'secondary',

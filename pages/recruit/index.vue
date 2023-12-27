@@ -45,7 +45,7 @@ class PagesRecruit extends Vue {
     }
   }> = [
     {
-      title: '웹 서비스(백엔드) 경력직 채용 (2023)',
+      title: '웹 서비스(백엔드) 경력직 채용 ',
       description:
         '- 업무, 협력 역량만 봐요! 출/퇴근 어려움, 경력 단절...? 무관!',
       subtitle: [
@@ -55,7 +55,7 @@ class PagesRecruit extends Vue {
             {
               title: '기초 정보',
               content: [
-                '웹 서비스 (백엔드), 계약직',
+                '웹 서비스(백엔드), 계약직',
                 '경력 : 2년 이상 또는 이에 준하는 실력을 갖춘 분',
                 '채용 인원 : 1 명',
               ],
@@ -63,14 +63,15 @@ class PagesRecruit extends Vue {
             {
               title: '업무 소개',
               content: [
-                '사용자들이 전문/기술 용어, 가이드/매뉴얼에 대한 설명 중 이해하기 쉬운 것을 빠르게 찾을 수 있도록 쉬운 정도를 기준으로 상위 설명에 등재되는 참여형 사전 서비스의 백엔드를 개발합니다. 비즈니스 요구 사항을 만족하는 백엔드 API를 설계, 개발, 테스트 및 배포하게 되며, 이미 완성되어 있는 코드의 개선 및 리팩토링, API 변경사항에 대한 문서 작성 및 관리를 담당합니다.',
-                '주요 기능 및 서비스를 위하여 GPT, 자연어 처리(NLP), 데이터 분석 기술을 바탕으로 개발된 다양한 API 개선을 담당합니다.',
+                '자료조사 및 보고서 작성 인공지능(AI) 서비스의 기능을 개발합니다. 비즈니스 요구 사항을 만족하는 기능 및 백엔드 API를 설계, 개발, 테스트 및 배포하게 되며, 이미 완성되어 있는 코드의 개선 및 리팩토링, API 변경사항에 대한 문서 작성 및 관리를 담당합니다.',
+                '주요 기능 및 서비스를 위하여 GPT, 자연어 처리(NLP), 데이터 분석 기술을 바탕으로 개발된 다양한 기능 및 API 개선을 맡습니다.',
               ],
             },
             {
               title: '담당 업무',
               content: [
                 'Python을 사용한 서버 사이드 로직 개발',
+                'GPT(Prompt Engineering), NLP, 데이터 분석 기술 활용한 기능 개발',
                 'RESTful API 설계 및 개발',
                 'AWS 환경에서 서비스 배포 및 유지보수',
                 '프론트엔드 개발자와 협업하여 사용자 요구사항에 맞게 개발',
@@ -79,10 +80,10 @@ class PagesRecruit extends Vue {
             {
               title: '현재 백엔드 개발 스택 참고',
               content: [
-                'Flask, Python',
+                'FastAPI (일부 Flask), Python',
                 'Git, Github',
                 'Serverless Framework',
-                'AWS (Lambda, API Gateway, S3)',
+                'AWS (ECS, Lambda, API Gateway, S3 등)',
                 '[프론트엔드] Nuxt.js, Vue.js, JavaScript, [DB] MySQL',
               ],
             },
@@ -104,10 +105,10 @@ class PagesRecruit extends Vue {
             {
               title: '우대',
               content: [
-                'Pandas, Spark 활용 데이터 핸들링이 가능하신 분',
-                'GPT에 대한 이해 및 활용 경험이 있으신 분',
+                'GPT, Prompt Engineering에 대한 이해 및 활용 경험이 있으신 분',
                 'NLP에 대한 이해 및 활용 경험이 있으신 분',
-                'Flask 통한 백엔드 개발 경험이 있으신 분',
+                'FastAPI 통한 백엔드 개발 경험이 있으신 분',
+                'Pandas, PySpark 활용 데이터 핸들링이 가능하신 분',
                 'AWS 환경에서의 서비스 배포 및 운영 경험이 있으신 분',
                 'AWS 통한 CI/CD 파이프라인 구축 및 운영 경험이 있으신 분',
                 '자율적으로 일하면서 문제를 해결할 수 있는 능력이 높으신 분',
@@ -127,7 +128,8 @@ class PagesRecruit extends Vue {
               title: '추가',
               content: [
                 '100% 재택 근무',
-                '유연 근무 (코어 근무시간 외 / 코어 근무시간 조절 가능)',
+                '유연 근무 (코어 근무시간 외)',
+                '월차 제공',
               ],
             },
           ],
@@ -137,23 +139,24 @@ class PagesRecruit extends Vue {
           contents: [
             {
               title: '고용 관련',
-              content: ['형태 : 계약직(6개월)'],
+              content: [
+                '형태 : 계약직(6개월)',
+                '계약 기간 중 평가에 따라 계약 기간 연장 또는 채용이 취소될 수 있습니다',
+              ],
             },
             {
               title: '채용 과정',
               content: [
-                '지원서 제출 기간 : 채용 완료 시까지',
-                '서류(사전 과제 평가 포함) > 온라인 면접 > 적합성 면접 > 최종합격',
-                '개별 과제 : 지원서 제출 후 48시간 내 지원자에 개발 과제(7일 기한) 송부',
-                '과제 시 주의사항 : 지원자에 과제 송부 후 과제 제출 기한이 확정되므로 과제 수신 확인에 유의',
-                '서류 & 과제 합격 결과 발표 : 과제 완료 후 7일 이내',
+                '서류 > 적합성 면접 > 최종합격',
+                '서류(지원서) 제출 기간 : 채용 완료 시까지',
+                '서류 합격 결과 발표 : 서류 접수 후 5일(영업일) 이내, 합격 안내와 함께 이후 일정 공지',
               ],
             },
           ],
         },
       ],
       registerBtn: {
-        url: 'https://forms.gle/1q1eSFMb9LBtEqai7', // Google Form
+        url: 'https://forms.gle/ot9JNcXYoh2Qxwex9', // Google Form
         name: '지원하기',
         color: '#2979FF',
       },
