@@ -105,12 +105,19 @@ export default {
     Timeline,
   },
 
+  data() {
+    return {
+      carouselIndex: 0,
+    }
+  },
+
   /* SEO */
   head() {
     const headTitle = '(주)게타'
     const description = '세상 모든 지식 & 정보격차 해소를 위합니다'
     const ogDescription = description
-    const ogImgURL = 'https://dmq1lrjfpg713.cloudfront.net/og_company_20231227.png'
+    const ogImgURL =
+      'https://dmq1lrjfpg713.cloudfront.net/og_company_20231227.png'
 
     return {
       title: headTitle,
@@ -159,12 +166,6 @@ export default {
           content: description,
         },
       ],
-    }
-  },
-
-  data() {
-    return {
-      carouselIndex: 0,
     }
   },
 

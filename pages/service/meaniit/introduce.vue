@@ -165,7 +165,8 @@ export default {
   },
   head() {
     const headTitle = '미닛 - 인공지능 자료조사'
-    const description = '자료조사부터 보고서 초안 작성까지 스스로, 첨삭 받아 추가 조사 및 수정까지 하는 AI로 업무 효율을 극대화하세요'
+    const description =
+      '자료조사부터 보고서 초안 작성까지 스스로, 첨삭 받아 추가 조사 및 수정까지 하는 AI로 업무 효율을 극대화하세요'
     const ogDescription = description
     const ogImgURL = 'https://dmq1lrjfpg713.cloudfront.net/og_20231209.png'
 
