@@ -123,7 +123,8 @@ export default {
   head() {
     return {
       title: '자료조사AI(미닛) - 서비스 소개',
-      description: '스스로 자료조사부터 보고서 초안 작성, 첨삭 받아 추가 조사 및 수정까지 하는 AI로 업무 효율을 극대화하세요',
+      description:
+        '스스로 자료조사부터 보고서 초안 작성, 첨삭 받아 추가 조사 및 수정까지 하는 AI로 업무 효율을 극대화하세요',
     }
   },
   computed: {
