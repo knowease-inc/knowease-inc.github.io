@@ -1,40 +1,91 @@
 <template>
-  <v-card :outlined="$vuetify.breakpoint.xsOnly" flat class="mt-4 mx-0 mx-sm-4">
-    <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="pr-6 px-sm-8">
-      <v-timeline-item
-        v-for="(content, i) in contents"
-        :key="i"
-        :left="content.left"
-        :right="!content.left"
-        :small="content.small"
-        :color="content.color !== null ? content.color : 'secondary'"
-        :icon="content.icon !== null ? content.icon : null"
+  <v-card flat class="mt-sm-4 mx-0 mr-sm-4 pt-10 pb-sm-5">
+    <v-card-text class="px-0">
+      <div
+        :class="
+          $vuetify.breakpoint.smAndUp ? 'history-line' : 'history-line-xs'
+        "
+      ></div>
+
+      <!-- History Contents: smAndUp -->
+      <v-col
+        v-if="$vuetify.breakpoint.smAndUp"
+        id="carouselContainer"
+        cols="9"
+        offset="2"
+        class="d-flex mt-n14 overflow-hidden"
       >
-        <template #opposite>
-          <span class="timelinetitle" v-text="content.date"></span>
-        </template>
-        <v-card flat outlined>
-          <v-card-title
-            v-if="$vuetify.breakpoint.smAndUp"
-            class="timelinetitle py-1"
+        <v-col
+          v-for="(item, i) in contents"
+          :key="i"
+          :style="{ transform: `translateX(${-carouselStartIndex * 100}%)` }"
+          cols="3"
+        >
+          <div v-show="i >= carouselStartIndex" class="d-flex flex-column">
+            <v-col class="date-circle circle-sm">
+              <div
+                v-for="(date, index) in splitDate(item.date)"
+                :key="date + index"
+              >
+                <div :class="index ? 'month' : 'year'" class="text--white">
+                  {{ index ? setTwoNumber(date) : date }}
+                </div>
+              </div>
+            </v-col>
+            <v-col class="pr-0 pl-5">
+              <div
+                class="text-body-2 font-weight-bold text-nowrap mb-1 main-color"
+              >
+                {{ item.title }}
+              </div>
+              <div class="text-caption text-line-height">
+                {{ item.body }}
+              </div>
+            </v-col>
+          </div>
+        </v-col>
+      </v-col>
+
+      <!-- History Contents: xsOnly -->
+      <v-row v-if="$vuetify.breakpoint.xsOnly" class="mt-n16" justify="center">
+        <v-col cols="12" class="d-flex flex-nowrap overflow-hidden">
+          <v-col
+            v-for="(item, i) in contents"
+            :key="i"
+            cols="12"
+            class="text-center px-0 pt-0"
+            :style="{
+              transform: `translateX(${-carouselStartIndex * 100}%)`,
+            }"
           >
-            {{ content.title }}
-          </v-card-title>
-          <v-card-title v-else class="timelinetitle-xs py-1">
-            {{ content.title }}
-          </v-card-title>
-          <v-card-text
-            v-if="$vuetify.breakpoint.xsOnly"
-            class="py-0 grey--text"
-          >
-            {{ content.date }}
-          </v-card-text>
-          <v-card-text class="timelineBody py-2">
-            {{ content.body }}
-          </v-card-text>
-        </v-card>
-      </v-timeline-item>
-    </v-timeline>
+            <div
+              v-show="checkToRenderIndex(i)"
+              class="d-flex flex-column align-center"
+              cols="12"
+            >
+              <v-col class="date-circle circle-xs" cols="7">
+                <div
+                  v-for="(date, index) in splitDate(item.date)"
+                  :key="date + index"
+                >
+                  <div :class="index ? 'month-xs mt-1' : 'year-xs mb-1'">
+                    {{ index ? setTwoNumber(date) : date }}
+                  </div>
+                </div>
+              </v-col>
+              <v-col>
+                <div class="text-body-1 font-weight-bold mb-1">
+                  {{ item.title }}
+                </div>
+                <div class="text-body-2 text-line-height">
+                  {{ item.body }}
+                </div>
+              </v-col>
+            </div>
+          </v-col>
+        </v-col>
+      </v-row>
+    </v-card-text>
   </v-card>
 </template>
 
@@ -128,7 +179,129 @@ export default {
           icon: 'mdi-account-multiple-plus',
         },
       ],
+      carouselStartIndex: 0,
     }
+  },
+
+  created() {
+    this.$parent.$on('carousel-action', this.handleCarouselAction)
+  },
+
+  methods: {
+    splitDate(date) {
+      return date.split('.')
+    },
+
+    setTwoNumber(num) {
+      return num < 10 ? '0' + num : num
+    },
+
+    handleCarouselAction(direction) {
+      if (direction === 'left') {
+        this.calculateIndexToLeft()
+      } else if (direction === 'right') {
+        this.calculateIndexToRight()
+      }
+
+      this.$emit('update-carousel-index', this.carouselStartIndex)
+    },
+
+    calculateIndexToRight() {
+      const itemsLength = this.contents.length
+      const isSmAndUpCondition =
+        this.$vuetify.breakpoint.smAndUp &&
+        this.carouselStartIndex === itemsLength - 4
+      const isXsCondition =
+        this.$vuetify.breakpoint.xsOnly &&
+        this.carouselStartIndex === itemsLength - 1
+
+      if (isSmAndUpCondition || isXsCondition) {
+        return
+      }
+
+      this.carouselStartIndex = (this.carouselStartIndex + 1) % itemsLength
+    },
+
+    calculateIndexToLeft() {
+      if (this.carouselStartIndex === 0) return
+
+      const itemsLength = this.contents.length
+
+      this.carouselStartIndex =
+        (this.carouselStartIndex - 1 + itemsLength) % itemsLength
+    },
+
+    checkToRenderIndex(index) {
+      return this.carouselStartIndex === index
+    },
   },
 }
 </script>
+
+<style scoped>
+.month {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.year {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.month-xs {
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.year-xs {
+  font-weight: 500;
+  font-size: 20px;
+}
+.main-color {
+  color: #3746fb;
+}
+
+.text-line-height {
+  line-height: 1.2;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.history-line {
+  border-top: 0.5px solid lightgray;
+}
+
+.history-line-xs {
+  border-top: 1px solid #3746fb;
+}
+
+.date-circle {
+  background-color: #3746fb;
+  border-radius: 50%;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#carouselContainer {
+  transition: transform 0.2s;
+}
+
+.circle-sm {
+  width: 65px;
+  height: 65px;
+}
+.circle-xs {
+  min-width: 110px;
+  min-height: 110px;
+
+  max-width: 110px;
+  max-height: 110px;
+}
+</style>
