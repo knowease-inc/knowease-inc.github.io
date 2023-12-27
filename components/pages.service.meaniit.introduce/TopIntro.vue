@@ -11,7 +11,7 @@
         "
       >
         <div class="d-flex">
-          가장 쉬운 설명은
+          쉬운 조사 보고서는
           <div
             style="background-color: white"
             class="rounded-lg d-flex align-center ml-sm-3 ml-2 px-2"
@@ -22,7 +22,7 @@
             />
           </div>
         </div>
-        <span class="font-weight-black">미닛의 서비스를 소개</span>합니다
+        <span class="font-weight-black">자료조사 AI를 소개</span>합니다
       </v-col>
       <v-col cols="4" offset-sm="2" class="pb-0">
         <v-img
