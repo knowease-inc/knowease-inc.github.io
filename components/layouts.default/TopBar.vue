@@ -113,7 +113,6 @@ export default {
           name: '사용자 업적',
           to: '/service/meaniit/achievements',
         },
-        { title: false, name: '이용 규정', to: '/service/meaniit/regulations' },
       ],
     }
   },

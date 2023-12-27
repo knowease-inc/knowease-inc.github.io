@@ -42,17 +42,6 @@
         >
           {{ content.introduce.name }}
         </v-btn>
-        <v-btn
-          :color="linkBtnColor"
-          :to="content.regulations.to"
-          :style="btnInServiceCard"
-          outlined
-          rounded
-          small
-          class="px-4"
-        >
-          {{ content.regulations.name }}
-        </v-btn>
       </v-card-actions>
 
       <v-card-title
@@ -80,19 +69,6 @@
           class="px-7"
         >
           {{ content.introduce.name }}
-        </v-btn>
-
-        <v-spacer />
-
-        <v-btn
-          outlined
-          rounded
-          :color="linkBtnColor"
-          :to="content.regulations.to"
-          :style="btnInServiceCard"
-          class="px-9"
-        >
-          {{ content.regulations.name }}
         </v-btn>
       </v-card-title>
     </v-card>
@@ -131,10 +107,6 @@ export default {
         introduce: {
           name: '서비스 소개',
           to: '/service/meaniit/introduce',
-        },
-        regulations: {
-          name: '이용규정',
-          to: '/service/meaniit/regulations',
         },
       },
       btnInServiceCard: {
