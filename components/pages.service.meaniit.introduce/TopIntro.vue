@@ -60,7 +60,9 @@
         cols="12"
         sm="6"
         class="pr-1 pl-sm-3 pl-1 py-sm-3 py-0"
-        style="box-shadow: 0px 5px 10px #eef4fe"
+        :style="{
+          boxShadow: $vuetify.breakpoint.xsOnly ? '0px 5px 10px #eef4fe' : '',
+        }"
       >
         <v-card
           :flat="$vuetify.breakpoint.xsOnly"

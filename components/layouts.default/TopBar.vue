@@ -43,7 +43,7 @@
 
     <!-- ### Start : Site Menu ### -->
     <v-toolbar-items>
-      <v-menu>
+      <v-menu z-index="10">
         <!-- Start: Menu Btn -->
         <template #activator="{ on, attrs }">
           <v-btn
@@ -79,96 +79,74 @@
   </v-app-bar>
 </template>
 
-<script lang="ts">
-import { Component, Provide, Vue } from 'nuxt-property-decorator'
-import MainFooter from '@/components/layouts.default/MainFooter.vue'
-@Component({
-  components: {
-    MainFooter,
-  },
-})
-class LayoutDefaultTopBar extends Vue {
-  @Provide() appBar: {
-    height: string
-    maxWidth: string
-    color: string
-    menuIcon: string
-    knowease: {
-      title: string
-      imgSrc: string
+<script>
+export default {
+  data() {
+    return {
+      appBar: {
+        height: '20',
+        maxWidth: '100',
+        color: 'transparent',
+        menuIcon: 'mdi-menu',
+        knowease: {
+          title: '(주)게타(GET-A Inc.)',
+          imgSrc: '/img/GET_A_LOGO.png',
+        },
+        // easyxplain: {
+        //   title: '미닛(MEANIIT)',
+        //   imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/img/logo.png',
+        // },
+      },
+      menuItems: [
+        { title: true, name: '게타(GET-A)', to: undefined },
+        { title: false, name: '회사 소개', to: '/' },
+        { title: false, name: '채용 공고', to: '/recruit' },
+        { title: true, name: '미닛', to: undefined },
+        { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
+        {
+          title: false,
+          name: '프로그램 소개',
+          to: '/service/meaniit/extension-meaniit',
+        },
+        {
+          title: false,
+          name: '사용자 업적',
+          to: '/service/meaniit/achievements',
+        },
+        { title: false, name: '이용 규정', to: '/service/meaniit/regulations' },
+      ],
     }
-    // easyxplain: {
-    //   title: string
-    //   imgSrc: string
-    // }
-  } = {
-    height: '20',
-    maxWidth: '100',
-    color: 'transparent',
-    menuIcon: 'mdi-menu',
-    knowease: {
-      title: '(주)게타(GET-A Inc.)',
-      imgSrc: '/img/GET_A_LOGO.png',
+  },
+
+  computed: {
+    onKnowease() {
+      const currentRoute = this.$route.path
+      return (
+        currentRoute === '/' ||
+        currentRoute === '/recruit' ||
+        currentRoute === '/recruit/'
+      )
     },
-    // easyxplain: {
-    //   title: '미닛(MEANIIT)',
-    //   imgSrc: 'https://dmq1lrjfpg713.cloudfront.net/img/logo.png',
-    // },
-  }
 
-  @Provide() menuItems: Array<{
-    title: boolean
-    name: string
-    to: string | undefined
-  }> = [
-    { title: true, name: '게타(GET-A)', to: undefined },
-    { title: false, name: '회사 소개', to: '/' },
-    { title: false, name: '채용 공고', to: '/recruit' },
-    { title: true, name: '미닛', to: undefined },
-    { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
-    {
-      title: false,
-      name: '프로그램 소개',
-      to: '/service/meaniit/extension-meaniit',
+    isRootRoute() {
+      const currentRoute = this.$route.name
+      return currentRoute === 'index'
     },
-    {
-      title: false,
-      name: '사용자 업적',
-      to: '/service/meaniit/achievements',
+  },
+
+  methods: {
+    easterEgg() {
+      const text = '어떻게 알고 찾았죠...?'
+      alert(text)
     },
-    { title: false, name: '이용 규정', to: '/service/meaniit/regulations' },
-  ]
 
-  // computed
-  get onKnowease() {
-    const currentRoute: string = this.$route.path
-    return (
-      currentRoute === '/' ||
-      currentRoute === '/recruit' ||
-      currentRoute === '/recruit/'
-    )
-  }
-
-  get isRootRoute() {
-    const currentRoute: string | undefined | null = this.$route.name
-    return currentRoute === 'index'
-  }
-
-  // method
-  easterEgg() {
-    const text: string = '어떻게 알고 찾았죠...?'
-    alert(text)
-  }
-
-  toMeaniit() {
-    const path = 'https://ko.meaniit.com/'
-    window.open(path)
-  }
+    toMeaniit() {
+      const path = 'https://ko.meaniit.com/'
+      window.open(path)
+    },
+  },
 }
-
-export default LayoutDefaultTopBar
 </script>
-
 <style scoped>
 .v-btn--active.no-active::before {
   opacity: 0 !important;
