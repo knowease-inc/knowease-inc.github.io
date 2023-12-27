@@ -108,12 +108,6 @@ export default {
           name: '프로그램 소개',
           to: '/service/meaniit/extension-meaniit',
         },
-        {
-          title: false,
-          name: '사용자 업적',
-          to: '/service/meaniit/achievements',
-        },
-        { title: false, name: '이용 규정', to: '/service/meaniit/regulations' },
       ],
     }
   },
