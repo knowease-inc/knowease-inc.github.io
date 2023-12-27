@@ -104,9 +104,68 @@ export default {
     Founders,
     Timeline,
   },
+
   data() {
     return {
       carouselIndex: 0,
+    }
+  },
+
+  /* SEO */
+  head() {
+    const headTitle = '(주)게타'
+    const description = '세상 모든 지식 & 정보격차 해소를 위합니다'
+    const ogDescription = description
+    const ogImgURL =
+      'https://dmq1lrjfpg713.cloudfront.net/og_company_20231227.png'
+
+    return {
+      title: headTitle,
+      meta: [
+        /*
+         ** OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
+         ** Basic
+         */
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: headTitle,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: ogDescription,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: ogImgURL,
+        },
+        /* OpenGraph for twitter */
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: headTitle,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: ogDescription,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: ogImgURL,
+        },
+        /*
+         ** Etc.
+         */
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+      ],
     }
   },
 

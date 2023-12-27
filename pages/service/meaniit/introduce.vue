@@ -164,10 +164,59 @@ export default {
     }
   },
   head() {
+    const headTitle = '미닛 - 인공지능 자료조사'
+    const description =
+      '자료조사부터 보고서 초안 작성까지 스스로, 첨삭 받아 추가 조사 및 수정까지 하는 AI로 업무 효율을 극대화하세요'
+    const ogDescription = description
+    const ogImgURL = 'https://dmq1lrjfpg713.cloudfront.net/og_20231209.png'
+
     return {
-      title: '자료조사AI(미닛) - 서비스 소개',
-      description:
-        '스스로 자료조사부터 보고서 초안 작성, 첨삭 받아 추가 조사 및 수정까지 하는 AI로 업무 효율을 극대화하세요',
+      title: headTitle,
+      meta: [
+        /*
+         ** OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
+         ** Basic
+         */
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: headTitle,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: ogDescription,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: ogImgURL,
+        },
+        /* OpenGraph for twitter */
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: headTitle,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: ogDescription,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: ogImgURL,
+        },
+        /*
+         ** Etc.
+         */
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+      ],
     }
   },
   computed: {
