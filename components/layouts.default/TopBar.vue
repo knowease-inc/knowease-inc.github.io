@@ -28,7 +28,7 @@
 
     <!-- Start : Easyxplain image -->
     <v-toolbar-items v-else>
-      <v-btn text active-class="no-active" @click.prevent="toMeaniit()">
+      <v-btn text active-class="no-active" to="/">
         <v-img
           :src="appBar.knowease.imgSrc"
           :alt="appBar.knowease.title"
@@ -132,11 +132,6 @@ export default {
     easterEgg() {
       const text = '어떻게 알고 찾았죠...?'
       alert(text)
-    },
-
-    toMeaniit() {
-      const path = 'https://ko.meaniit.com/'
-      window.open(path)
     },
   },
 }
