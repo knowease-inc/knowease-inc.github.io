@@ -13,28 +13,24 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s',
-    title: '게타(GET-A)',
+    title: process.env.npm_package_meta_title,
     htmlAttrs: {
       prefix: 'og:http://ogp.me/ns#',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          process.env.npm_package_meta_description ||
-          '세상 모든 지식 & 정보격차 해소를 위합니다',
-      },
       // * OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
       // ** Basic
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: (process.env.npm_package_meta_title || '게타(GET-A)')
-          .toString()
-          .toUpperCase(), // temporaliy : https://stackoverflow.com/a/55068662
+        content: process.env.npm_package_meta_title?.toString().toUpperCase(), // temporaliy : https://stackoverflow.com/a/55068662
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_meta_description,
       },
       {
         hid: 'og:type',
@@ -44,27 +40,22 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content:
-          process.env.npm_package_meta_url || 'https://knowease-inc.github.io/',
+        content: process.env.npm_package_meta_url,
       },
       {
         hid: 'og:title',
         property: 'og:title',
-        content: process.env.npm_package_meta_title || '게타(GET-A)',
+        content: process.env.npm_package_meta_title,
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content:
-          process.env.npm_package_meta_description ||
-          '세상 모든 지식 & 정보격차 해소를 위합니다',
+        content: process.env.npm_package_meta_description,
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content:
-          process.env.npm_package_meta_image ||
-          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20220104.png',
+        content: process.env.npm_package_meta_image,
       },
       // ** For Twitter
       {
@@ -75,27 +66,22 @@ export default {
       {
         hid: 'twitter:url',
         name: 'twitter:url',
-        content:
-          process.env.npm_package_meta_url || 'https://knowease-inc.github.io',
+        content: process.env.npm_package_meta_url,
       },
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: process.env.npm_package_meta_title || '게타(GET-A)',
+        content: process.env.npm_package_meta_title,
       },
       {
         hid: 'twitter:description',
         name: 'twitter:description',
-        content:
-          process.env.npm_package_meta_description ||
-          '세상 모든 지식 & 정보격차 해소를 위합니다',
+        content: process.env.npm_package_meta_description,
       },
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content:
-          process.env.npm_package_meta_image ||
-          'https://knowease-inc.github.io/img/thumbnail/knowease_og_thumbnail_20220104.png',
+        content: process.env.npm_package_meta_image,
       },
       /*
       For Google Search Console
