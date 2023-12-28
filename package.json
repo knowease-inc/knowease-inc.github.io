@@ -1,8 +1,12 @@
 {
   "name": "knowease",
   "author": "게타(GET-A) 창립멤버",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "private": true,
+  "meta_title": "(주)게타 공식 - 모든 정보를 쉽게 만듭니다",
+  "meta_description": "자료조사부터 보고서 작성, 보고까지 서포트하는 인공지능 서비스",
+  "meta_url": "https://knowease-inc.github.io/",
+  "meta_image": "https://dmq1lrjfpg713.cloudfront.net/og_20231209.png",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
