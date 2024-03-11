@@ -14,18 +14,16 @@
       <span class="text-body-1 font-weight-medium"> Team </span>
     </v-row>
 
-    <v-row
-      class="ma-0 pa-0"
-      justify-sm="space-between"
-      justify="center"
-      no-gutters
-    >
+    <v-row class="ma-0 pa-0" justify-sm="start" justify="center" no-gutters>
       <v-col
         v-for="(
           { name, headline, avatar, companyAndSchoolInfo, link }, i
         ) in members"
         :key="i"
-        cols="auto"
+        cols="12"
+        sm="5"
+        md="4"
+        lg="3"
         class="mt-0 pa-0"
       >
         <v-card
@@ -73,16 +71,16 @@
           <div
             v-if="$vuetify.breakpoint.xsOnly"
             style="height: 100%"
-            class="profile-left pl-2 mt-2"
+            class="profile-left pl-8 mt-2"
           >
-            <div class="ml-2">
+            <div class="ml-7">
               <v-avatar size="70">
                 <img :src="avatar" :alt="name" />
               </v-avatar>
             </div>
             <div class="text-body-1 font-weight-bold pl-6 my-1">{{ name }}</div>
             <div
-              class="text-body-2 profile-headline-color pr-0 ml-9 pl-9 line-chang-xs text-left"
+              class="text-body-2 profile-headline-color pr-0 pl-8 line-change-xs text-center"
               style="line-height: 1.2"
             >
               {{ headline }}
@@ -94,7 +92,7 @@
             class="profile-right mt-n3"
           >
             <v-card-text
-              class="text-right pt-2 text-body-2 gray--text line-change-xs pr-0 mr-n9"
+              class="text-right text-body-2 gray--text line-change-xs pr-0 mr-n7 pl-6"
               style="line-height: 1.6"
             >
               {{ companyAndSchoolInfo }}
@@ -206,19 +204,28 @@ export default {
             'https://kr.linkedin.com/in/%EC%84%B1%EB%AC%B5-%EB%B0%95-34a0a2135?trk=public-profile-badge-profile-badge-view-profile-cta',
         },
         {
-          name: '이세영',
-          avatar: 'https://static.licdn.com/sc/h/244xhbkr7g40x6bsu4gi6q4ry',
-          headline: 'GET-A / 프론트엔드',
-          companyAndSchoolInfo: "'미닛' 서비스 개발 전략",
-          link:
-            'https://kr.linkedin.com/in/%EC%84%B8%EC%98%81-%EC%9D%B4-00a55825a?trk=profile-badge',
-        },
-        {
           name: '구본승',
           avatar: 'https://static.licdn.com/sc/h/244xhbkr7g40x6bsu4gi6q4ry',
           headline: 'GET-A Investor / 전략',
           companyAndSchoolInfo: "(주)게타 '미닛' 서비스 전략 설정 및 시장 조사",
           link: '',
+        },
+        {
+          name: '이세영',
+          avatar:
+            'https://media.licdn.com/dms/image/D4E03AQGtAmUFlJ7PRg/profile-displayphoto-shrink_800_800/0/1671090034757?e=1715817600&v=beta&t=3I97flB4rFY0etxvBanawbvDMmHL3hph2J81LYEOg4s',
+          headline: 'GET-A / 프론트엔드',
+          companyAndSchoolInfo: " '미닛' 서비스 개발 전략",
+          link:
+            'https://kr.linkedin.com/in/%EC%84%B8%EC%98%81-%EC%9D%B4-00a55825a?trk=profile-badge',
+        },
+        {
+          name: '오지나',
+          avatar:
+            'https://media.licdn.com/dms/image/D5603AQEquY1xJzsGNg/profile-displayphoto-shrink_800_800/0/1709842659907?e=1715817600&v=beta&t=gPckLfYc717ooTKf3rCSyOy5XIJ1cNhOmGhGsFUgHkc',
+          headline: 'GET-A / 백엔드',
+          companyAndSchoolInfo: " '미닛' 서비스 개발 전략",
+          link: 'https://kr.linkedin.com/in/jina5?trk=profile-badge',
         },
       ],
 
@@ -284,7 +291,7 @@ export default {
 
   position: absolute;
   top: -8px;
-  left: -20%;
+  left: -22%;
 
   display: flex;
   align-items: center;
@@ -296,7 +303,7 @@ export default {
   height: 200px;
   width: 220px;
   position: absolute;
-  right: 0;
+  right: -0.5rem;
 
   display: flex;
   flex-direction: column;
@@ -320,7 +327,7 @@ export default {
 }
 
 .line-change-xs {
-  width: 130px;
+  width: 10rem;
   word-break: keep-all;
 }
 </style>
