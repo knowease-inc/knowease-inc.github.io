@@ -45,7 +45,7 @@ class PagesRecruit extends Vue {
     }
   }> = [
     {
-      title: '웹 서비스(백엔드) 경력직 채용 ',
+      title: '[마감] 웹 서비스(백엔드) 경력직 채용',
       description:
         '- 업무, 협력 역량만 봐요! 출/퇴근 어려움, 경력 단절...? 무관!',
       subtitle: [
