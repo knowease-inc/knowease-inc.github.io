@@ -69,7 +69,14 @@
             <v-list-item-subtitle v-if="item.title" class="menuTitle">
               {{ item.name }}
             </v-list-item-subtitle>
-            <v-btn v-else :to="item.to" small text active-class="no-active">
+            <v-btn
+              v-else
+              :href="item.to"
+              :target="item.to.startsWith('http') ? '_blank' : '_self'"
+              small
+              text
+              active-class="no-active"
+            >
               {{ item.name }}
             </v-btn>
           </v-list-item>
@@ -105,8 +112,8 @@ export default {
         { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
         {
           title: false,
-          name: '프로그램 소개',
-          to: '/service/meaniit/extension-meaniit',
+          name: '미닛 서비스 바로가기',
+          to: 'https://ko.meaniit.com',
         },
       ],
     }
