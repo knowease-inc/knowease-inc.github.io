@@ -1,50 +1,54 @@
-- name: Communication:Meeting
-  description: (Optional) need to communicate via Meeting
-- name: Communication:VoiceOfCustomer
-  description: need to communicate via Customer Support Center
+- name: ":date: Communication:Meeting"
+  description: Need to communicate via Meeting (Optional)
   color: ffccf3
-- name: Domain:Business
+- name: ":seedling: Communication:FailureKnowledge"
+  description: Learning Cases from any failed experience (Optional)
+  color: ffccf3
+- name: ":mega: Communication:VoiceOfCustomer"
+  description: Directly linked to Voice Of Customer (Optional)
+  color: ffccf3
+- name: ":briefcase: Domain:Business"
   description: About a business-related idea/problem issue affected on the entire organization
   color: c2e0c6
-- name: Domain:Infra
+- name: ":desktop_computer: Domain:Infra"
   description: About an infra or a project-related idea/problem issue based on a specific repository
-  color: cb5bea
-- name: Domain:UX
+  color: c2e0c6
+- name: ":iphone: Domain:UX"
   description: About an userstory issue based on a specific repository
-  color: fbca04
-- name: ETR:1M+
+  color: c2e0c6
+- name: ":turtle: ETR:1M+"
   description: Estimated Time of Resolution is about 1 Month or more
-  color: dd6eb3
-- name: ETR:1W-
+  color: 079b27
+- name: ":airplane: ETR:1W-"
   description: Estimated Time of Resolution is 1 Week or less
   color: 079b27
-- name: ETR:1W+
+- name: ":blue_car: ETR:1W+"
   description: Estimated Time of Resolution is 1 Week or more but less than 1 Month
-  color: d8643a
-- name: Judge:Deprecated
+  color: 079b27
+- name: ":shrug: Judge:Deprecated"
   description: Duplicated or altered to another issue or do not need to solve
   color: edcf2a
-- name: Policy:Notice
+- name: ":exclamation: Judge:Policy"
   description: Policies for this entire organization
-  color: d73a4a
-- name: Priority:Emergency
-  description: Priority depends on service on-going or focusing resources at that time
-  color: ed3a09
-- name: Priority:High
+  color: edcf2a
+- name: ":red_square: Priority:Emergency"
   description: Priority depends on service on-going or focusing resources at that time
   color: f900aa
-- name: Priority:Low
+- name: ":orange_square: Priority:High"
   description: Priority depends on service on-going or focusing resources at that time
-  color: 21a8a8
-- name: Priority:Medium
+  color: f900aa
+- name: ":brown_square: Priority:Low"
   description: Priority depends on service on-going or focusing resources at that time
-  color: adc0ea
-- name: Task:Bug
+  color: f900aa
+- name: ":blue_square: Priority:Medium"
+  description: Priority depends on service on-going or focusing resources at that time
+  color: f900aa
+- name: ":lady_beetle: Task:Bug"
   description: Something isn't working
-  color: ddba68
-- name: Task:Documentation
+  color: 063FBB
+- name: ":memo: Task:Documentation"
   description: Improvements or additions to documentation
-  color: 738fd6
-- name: Task:Enhancement
+  color: 063FBB
+- name: ":rocket: Task:Enhancement"
   description: New feature or an issue to make something better
-  color: a2eeef
+  color: 063FBB

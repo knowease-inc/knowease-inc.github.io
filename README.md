@@ -1,13 +1,6 @@
 # knowease-inc.github.io
 > GET-A Inc.의 github pages
 
-# 제작
-## 프로젝트 환경 및 도구
-### Git
-* .github 폴더 삽입 및 내용 파일 생성 후
-```
-git config commit.template .github/GIT_COMMIT_TEMPLATE
-```
 ## 기초 세팅
 > ref: https://ko.nuxtjs.org/docs/2.x/deployment/github-pages/
 1. nuxt project 시작
@@ -51,27 +44,9 @@ git config commit.template .github/GIT_COMMIT_TEMPLATE
    npm run deploy
    ```
 
-## Build Setup
-### 기초
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-
-# deploy
-$ yarn deploy
-```
 ### TypeScript for Nuxt 세팅
 * Nuxt 2.9 이후 외부모듈로 공식 지원 (코어 분리)
+
 #### 기본
    1. 필요 모듈 설치
       ```bash
@@ -166,3 +141,17 @@ $ yarn deploy
 5. Point: `#F84E3B`
 6. Content Area: `#FFFFFF`
 7. Background: `#F0EFED`
+
+# template-for-new-repo
+
+## 프로젝트 환경 및 도구
+
+| 항목 | 내용 | 세부내용 |
+| -- | -- | -- |
+| 소스코드 관리 | **원칙** |1. `git`, **Github Flow 전략**을 사용한다.(`issue-1`의 형식으로 브랜치명 생성 및 개발후 PR생성)<br/>2. Git **commit message 템플릿**을 이용한다.<br/>3. Git author를 Github 계정과 동일하게 설정한다. |
+|  | Git commit message 템플릿 적용 | `git config commit.template .github/GIT_COMMIT_TEMPLATE` |
+|  | Github 계정(이메일)을 Git author로 적용 | `git config --global user.email you@example.com` |
+|  | Git commit editor를 vscode로 적용(임의) | `git config --global core.editor 'code --wait'` |
+| 문서작성 및 커뮤니케이션 | **원칙** |1. 사내 모든 문서는 `org:knowease-inc` 에서 **검색 가능**하게 한다.<br/>2. 모든 해결해야할 업무 혹은 아이디어는, `org:knowease-inc`내 적절한 리포지토리 내 **Issue로 생성**한다.<br/>3. 커뮤니케이션은 **Issue 내 커멘트 및 멘션을 이용하여 소통**한다. |
+| | 텍스트, 표, 코드 스니펫 작성 |[**Github Markdown**](https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) |
+| | 다이어그램, 차트, 그래프 작성 | [**Github Mermaid**](https://docs.github.com/ko/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)|
