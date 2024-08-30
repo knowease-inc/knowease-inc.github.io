@@ -1,0 +1,17 @@
+name: Validate Branch Naming Convention
+
+on:
+  push:
+
+jobs:
+  Validation:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Validation
+      run: |
+        branch_name="${GITHUB_REF#refs/heads/}"
+        regex_pattern="^(issue\-[0-9]+)|(main)$"
+        if [[ ! $branch_name =~ $regex_pattern ]]; then
+          echo "ERROR: The branch name '$branch_name' does not follow the naming convention. Please use a name matching the pattern: $regex_pattern"
+          exit 1
+        fi
