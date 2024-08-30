@@ -2,7 +2,7 @@
 > GET-A Inc.의 github pages
 
 ## 기초 세팅
-> ref: https://ko.nuxtjs.org/docs/2.x/deployment/github-pages/
+> ref: https://v2.nuxt.com/docs/get-started/installation
 1. nuxt project 시작
    ```bash
    $ yarn create nuxt-app <project name>
