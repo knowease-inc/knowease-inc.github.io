@@ -212,8 +212,7 @@ export default {
         },
         {
           name: '이세영',
-          avatar:
-            'https://media.licdn.com/dms/image/D4E03AQGtAmUFlJ7PRg/profile-displayphoto-shrink_800_800/0/1671090034757?e=1724889600&v=beta&t=03v2KWDSL_sb-1Sq8TeDIUP4guc64sTdJMCOviTwvMQ',
+          avatar: '/img/linkedin/linkedin_seyoung.jpeg',
           headline: 'GET-A / 프론트엔드',
           companyAndSchoolInfo: " '미닛' 서비스 개발 전략",
           link:
@@ -221,8 +220,7 @@ export default {
         },
         {
           name: '오지나',
-          avatar:
-            'https://media.licdn.com/dms/image/D5603AQEquY1xJzsGNg/profile-displayphoto-shrink_400_400/0/1709842659907?e=1724889600&v=beta&t=c9DxqaOyJxpt3Sl0eb0TpMnwGxTrgz1AM5Pqs1tdfcU',
+          avatar: '/img/linkedin/linkedin_jina.jpeg',
           headline: 'GET-A / 백엔드',
           companyAndSchoolInfo: " '미닛' 서비스 개발 전략",
           link: 'https://kr.linkedin.com/in/jina5?trk=profile-badge',
