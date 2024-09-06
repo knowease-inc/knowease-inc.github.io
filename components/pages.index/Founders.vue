@@ -36,7 +36,7 @@
           <div v-if="$vuetify.breakpoint.smAndUp" class="profile-top">
             <div class="mt-10 pb-4">
               <v-avatar size="60">
-                <img :src="avatar" :alt="name" />
+                <img :src="avatar" :alt="name" class="profile-img" />
               </v-avatar>
             </div>
             <div class="text-body-2 font-weight-bold">{{ name }}</div>
@@ -327,5 +327,10 @@ export default {
 .line-change-xs {
   width: 10rem;
   word-break: keep-all;
+}
+
+.profile-img {
+  min-width: 50px;
+  min-height: 50px;
 }
 </style>
