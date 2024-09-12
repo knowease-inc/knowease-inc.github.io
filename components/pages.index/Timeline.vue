@@ -100,7 +100,7 @@ export default {
           title: '파일럿 프로그램 진행',
           date: '2024.4',
           body:
-            '증권업 마케팅 부문, 화장품 제조업 상품기획 실무용 트렌드 브리핑 작성 AI 테스트 참여 제공 및 서비스 개선 실시',
+            '상장/대기업 실무자 대상 맞춤형 트렌드 브리핑 작성 AI 테스트 참여 제공 및 AI 개선 실시',
           left: false,
           small: true,
           color: 'primary',
