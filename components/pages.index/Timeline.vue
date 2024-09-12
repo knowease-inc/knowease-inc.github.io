@@ -97,6 +97,16 @@ export default {
     return {
       contents: [
         {
+          title: '파일럿 프로그램 진행',
+          date: '2024.4',
+          body:
+            '증권업 마케팅 부문, 화장품 제조업 상품기획 실무용 트렌드 브리핑 작성 AI 테스트 참여 제공 및 서비스 개선 실시',
+          left: false,
+          small: true,
+          color: 'primary',
+          icon: null,
+        },
+        {
           title: "'자료조사AI(가칭)' 내부 테스트",
           date: '2023.12',
           body: 'AI 발전에 따른, 빠른 정보 습득 및 쉬운 정리 GPT 기능 서비스화',
