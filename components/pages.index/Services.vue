@@ -5,7 +5,7 @@
   >
     <v-card max-width="345" class="my-sm-auto my-0 mr-sm-9 pa-0 pb-3" flat>
       <v-card-title class="font-weight-bold mb-sm-1 mb-2 pt-0">
-        미닛
+        {{ content.name }}
       </v-card-title>
 
       <v-card-subtitle
@@ -22,6 +22,8 @@
       >
         <v-btn
           :disabled="content.shortcut.href === undefined ? true : false"
+          :dark="content.shortcut.href === undefined ? false : true"
+          :elevation="0"
           :color="linkBtnColor"
           :href="content.shortcut.href"
           :style="btnInServiceCard"
@@ -50,6 +52,8 @@
       >
         <v-btn
           :disabled="content.shortcut.href === undefined ? true : false"
+          :dark="content.shortcut.href === undefined ? false : true"
+          :elevation="0"
           :color="linkBtnColor"
           :href="content.shortcut.href"
           :style="btnInServiceCard"
@@ -96,13 +100,13 @@ export default {
     return {
       linkBtnColor: '#2979ff',
       content: {
-        name: '미닛',
+        name: 'Meaniit',
         explanation:
-          '자료조사부터 보고서 초안 작성, 완성까지 함께하는 GPT 기반 인공지능(AI, Artificial Intelligence) 서비스',
+          '자료조사부터 보고서 초안 작성, 완성까지 함께하는 AI 솔루션 서비스',
         href: undefined,
         shortcut: {
-          name: '(준비중)', // '바로가기'
-          href: undefined, // 'https://ko.meaniit.com/researcher',
+          name: '바로가기',
+          href: 'https://ko.meaniit.com/',
         },
         introduce: {
           name: '서비스 소개',
