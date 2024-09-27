@@ -18,6 +18,21 @@
       </v-col>
     </v-row>
 
+    <!-- ### Start : Partners ### -->
+    <v-row justify="center" class="pt-16">
+      <v-col class="d-flex flex-column align-center">
+        <p class="content-title">고객사</p>
+        <div class="content-subtitle">
+          <div>
+            <span class="font-weight-bold"> 게타(GET-A)의 고객사</span>
+          </div>
+        </div>
+        <v-col cols="11" sm="8">
+          <partners />
+        </v-col>
+      </v-col>
+    </v-row>
+
     <!-- ### Start : History ### -->
     <v-row
       justify="center"
@@ -97,12 +112,14 @@
 import Services from '@/components/pages.index/Services.vue'
 import Founders from '~/components/pages.index/Founders.vue'
 import Timeline from '~/components/pages.index/Timeline.vue'
+import Partners from '~/components/pages.index/Partners.vue'
 
 export default {
   components: {
     Services,
     Founders,
     Timeline,
+    Partners,
   },
 
   data() {
