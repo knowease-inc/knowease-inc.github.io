@@ -99,15 +99,15 @@
     <v-col cols="12" sm="3">
       <v-card
         :height="setSecondaryCardHeight"
-        class="d-flex flex-column align-sm-center align-start justify-center rounded-xl my-sm-7 pt-7 px-4 px-sm-1"
+        class="d-flex flex-column align-start justify-center rounded-xl my-sm-7 pt-7 px-3"
       >
-        <v-card-title class="font-weight-bold mb-2 pt-0 px-2">
+        <v-card-title class="font-weight-bold mb-2 pt-0 pl-4">
           {{ contentSecond.name }}
         </v-card-title>
 
         <v-card-subtitle
           class="expCardSubTitle"
-          :class="$vuetify.breakpoint.smAndUp ? '' : 'text-body-2 pl-2'"
+          :class="$vuetify.breakpoint.smAndUp ? '' : 'text-body-2 '"
           :style="{ lineHeight: $vuetify.breakpoint.smAndUp ? '1.4' : '' }"
         >
           {{ contentSecond.explanation }}
@@ -115,7 +115,7 @@
 
         <v-card-actions
           v-if="$vuetify.breakpoint.smAndUp"
-          class="d-flex align-center"
+          class="d-flex align-center ml-1"
         >
           <v-btn
             :color="linkBtnColor"
@@ -170,7 +170,8 @@ export default {
       },
       contentSecond: {
         name: '교육 서비스',
-        explanation: 'AI, DX(Digital Transformation) 교육 직접 제공',
+        explanation:
+          '알기 쉬운 AI, 디지털 전환(DX, Digital Transformation) 온·오프라인 교육, 세미나, 컨설팅 제공',
         introduce: {
           name: 'Contact',
           to: '',
