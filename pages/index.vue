@@ -12,7 +12,7 @@
         </div>
 
         <!-- ### Start : Our Service ### -->
-        <v-col cols="11" sm="9" md="7">
+        <v-col cols="12" sm="9" md="8">
           <services />
         </v-col>
       </v-col>
