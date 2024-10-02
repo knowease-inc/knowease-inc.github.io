@@ -1,25 +1,22 @@
 <template>
-  <div>
-    <v-row class="mx-0 mb-3 pa-0 mt-3" no-gutters>
-      <span class="text-body-1 font-weight-medium"> Our Partners </span>
-    </v-row>
-
-    <v-row justify="center" justify-sm="center" justify-md="space-between">
-      <v-col
-        v-for="{ name, ci, link } in partners"
-        :key="link"
-        cols="4"
-        sm="4"
-        md="2"
-        lg="2"
-        class="text-center"
-      >
-        <a :href="link" target="_blank">
-          <img :src="ci" :alt="name" height="25" :width="setSize" />
-        </a>
-      </v-col>
-    </v-row>
-  </div>
+  <v-row justify="center" class="mt-sm-4">
+    <v-col
+      v-for="{ name, ci, link } in partners"
+      :key="link"
+      cols="4"
+      sm="4"
+      class="text-center"
+    >
+      <a :href="link" target="_blank">
+        <img
+          :src="ci"
+          :alt="name"
+          :height="setSize.height"
+          :width="setSize.width"
+        />
+      </a>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -63,7 +60,9 @@ export default {
 
   computed: {
     setSize() {
-      return this.$vuetify.breakpoint.xsOnly ? '90' : '110'
+      return this.$vuetify.breakpoint.xsOnly
+        ? { width: '90', height: '30' }
+        : { width: '150', height: '40' }
     },
   },
 }
