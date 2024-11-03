@@ -54,5 +54,8 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-eslint2": "^4.4.0",
     "vuetify": "^3.6.3"
+  },
+  "resolutions": {
+    "chokidar": "^3"
   }
 }

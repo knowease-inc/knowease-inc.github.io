@@ -9,12 +9,6 @@ export default defineNuxtConfig({
     base: '/',
   },
 
-  nitro: {
-    preset: 'aws-lambda', // for "handler: '.output/server/index.handler'" in serverless.yml
-
-    serveStatic: true,
-  },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   app: {
     head: {
