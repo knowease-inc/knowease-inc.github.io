@@ -3,45 +3,30 @@
     <v-card flat tile class="pb-15">
       <!-- ### Start : Top bar ### -->
       <div>
-        <Carousel v-if="checkForIndexPath()">
-          <top-bar />
+        <Carousel v-if="isIndexPath">
+          <TopBar />
         </Carousel>
 
-        <top-bar v-if="!checkForIndexPath()" />
+        <TopBar v-else />
       </div>
 
       <!-- ### Start : Main Contents ### -->
       <v-sheet class="my-15">
-        <nuxt class="pa-0" />
+        <slot class="pa-0" />
       </v-sheet>
 
       <!-- ### Start : Main Footer ### -->
-      <main-footer></main-footer>
+      <MainFooter />
     </v-card>
   </v-app>
 </template>
 
-<script>
+<script setup>
 import TopBar from '@/components/layouts.default/TopBar.vue'
 import MainFooter from '@/components/layouts.default/MainFooter.vue'
-import Carousel from '~/components/layouts.default/Carousel.vue'
+import Carousel from '@/components/layouts.default/Carousel.vue'
 
-export default {
-  components: {
-    TopBar,
-    MainFooter,
-    Carousel,
-  },
+const route = useRoute()
 
-  watch: {
-    $route: 'checkForIndexPath',
-  },
-
-  methods: {
-    checkForIndexPath() {
-      const { name } = this.$route
-      return name === 'index'
-    },
-  },
-}
+const isIndexPath = computed(() => route.name === 'index')
 </script>

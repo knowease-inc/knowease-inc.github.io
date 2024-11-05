@@ -3,7 +3,7 @@
     <v-carousel
       v-model="currentIndex"
       hide-delimiters
-      :show-arrows="$vuetify.breakpoint.xsOnly ? true : false"
+      :show-arrows="xs ? true : false"
       :height="setCarouselHeight"
     >
       <!-- App Bar -->
@@ -14,7 +14,8 @@
         :key="i"
         :reverse-transition="effect.reverse"
         :transition="effect.transition"
-        :style="setBackgroundImg(item.src)"
+        :src="item.src"
+        cover
       >
         <!-- Text Contents -->
         <v-sheet
@@ -23,14 +24,14 @@
           class="d-flex justify-center align-end pa-4"
         >
           <v-list-item
-            two-line
+            lines="two"
             class="pb-5"
-            :class="$vuetify.breakpoint.xsOnly ? 'pl-0' : 'side-blank'"
+            :class="xs ? 'pl-0' : 'side-blank'"
           >
-            <v-list-item-content>
+            <v-list-item-title class="font-color">
               <p :class="upperTextClass" class="my-4" v-html="upperText"></p>
               <p :class="lowerTextClass" v-html="item.text.lower"></p>
-            </v-list-item-content>
+            </v-list-item-title>
           </v-list-item>
         </v-sheet>
       </v-carousel-item>
@@ -46,9 +47,7 @@
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon size="50">
-            {{ 'mdi-chevron-left' }}
-          </v-icon>
+          <v-icon size="50" :icon="mdiChevronLeft" />
         </v-btn>
       </template>
       <template #next="{ on, attrs }">
@@ -61,66 +60,55 @@
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon size="50">
-            {{ 'mdi-chevron-right' }}
-          </v-icon>
+          <v-icon size="50" :icon="mdiChevronRight" />
         </v-btn>
       </template>
     </v-carousel>
   </v-card>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      effect: {
-        reverse: undefined, // 예: "fade-transition",
-        transition: undefined, // 예: "fade-transition",
-      },
-      items: [
-        {
-          src: '/img/intro_top_bg.png',
-          text: {
-            upper:
-              '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
-            upperXsOnly:
-              '쉽고 신속하게 <span class="font-weight-black">다양한 정보, 지식을 <br /> 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
-            lower:
-              '모든 분야에서 정보 습득 장벽을 낮춰<br />정보 격차로 인한 문제를 줄입니다',
-          },
-        },
-      ],
-      currentIndex: 0,
-    }
-  },
+<script setup>
+import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
-  computed: {
-    setCarouselHeight() {
-      return this.$vuetify.breakpoint.xsOnly ? '350' : '500'
-    },
-    upperText() {
-      const { upperXsOnly, upper } = this.items[0].text
-      return this.$vuetify.breakpoint.xsOnly ? upperXsOnly : upper
-    },
-    upperTextClass() {
-      return this.$vuetify.breakpoint.xsOnly ? 'upperText-xsonly' : 'upperText'
-    },
-    lowerTextClass() {
-      return this.$vuetify.breakpoint.xsOnly ? 'lowerText-xsonly' : 'lowerText'
-    },
-  },
+const { xs } = useDisplay()
 
-  methods: {
-    setBackgroundImg(imageSrc) {
-      return {
-        backgroundImage: `url(${imageSrc})`,
-        backgroundSize: 'cover',
-        backgroundPositionX: 'center',
-      }
+const effect = ref({
+  reverse: undefined, // 예: "fade-transition",
+  transition: undefined, // 예: "fade-transition",
+})
+
+const items = [
+  {
+    src: '/img/intro_top_bg.png',
+    text: {
+      upper:
+        '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
+      upperXsOnly:
+        '쉽고 신속하게 <span class="font-weight-black">다양한 정보, 지식을 <br /> 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
+      lower:
+        '모든 분야에서 정보 습득 장벽을 낮춰<br />정보 격차로 인한 문제를 줄입니다',
     },
   },
-}
+]
+
+const currentIndex = ref(0)
+
+const setCarouselHeight = computed(() => {
+  return xs.value ? '350' : '500'
+})
+
+const upperText = computed(() => {
+  const { upperXsOnly, upper } = items[0].text
+  return xs.value ? upperXsOnly : upper
+})
+
+const upperTextClass = computed(() => {
+  return xs.value ? 'upperText-xsonly' : 'upperText'
+})
+
+const lowerTextClass = computed(() => {
+  return xs.value ? 'lowerText-xsonly' : 'lowerText'
+})
 </script>
 
 <style scoped>
@@ -128,6 +116,7 @@ export default {
   line-height: 1.4;
   font-size: 32px;
 }
+
 .upperText-xsonly {
   line-height: 1.4;
   font-weight: 500;
@@ -140,10 +129,15 @@ export default {
 
   font-weight: 400;
 }
+
 .lowerText-xsonly {
   line-height: 1.4;
   font-size: 14px;
   font-weight: 400;
+}
+
+.font-color {
+  color: white;
 }
 
 .side-blank {
