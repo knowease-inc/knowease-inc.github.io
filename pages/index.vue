@@ -4,7 +4,7 @@
     <v-row justify="center">
       <v-col class="d-flex flex-column align-center">
         <p class="content-title">게타's 서비스</p>
-        <div v-if="$vuetify.breakpoint.smAndUp" class="content-subtitle">
+        <div v-if="smAndUp" class="content-subtitle">
           <div class="font-weight-bold">
             정보, 지식이 쉽고 빠르게 전달 및 소통 되도록 만드는
           </div>
@@ -13,7 +13,7 @@
 
         <!-- ### Start : Our Service ### -->
         <v-col cols="12" sm="9" md="8">
-          <services />
+          <Services />
         </v-col>
       </v-col>
     </v-row>
@@ -23,7 +23,7 @@
       <v-col class="d-flex flex-column align-center">
         <p class="content-title">고객사</p>
         <v-col cols="11" sm="8">
-          <partners />
+          <Partners />
         </v-col>
       </v-col>
     </v-row>
@@ -48,40 +48,38 @@
             <span class="font-weight-black">지난 여정</span>
           </v-col>
 
-          <v-col
-            v-if="$vuetify.breakpoint.smAndUp"
-            cols="auto"
-            offset="4"
-            class="py-0"
-          >
+          <v-col v-if="smAndUp" cols="auto" offset="4" class="py-0">
             <v-btn
               :disabled="carouselIndex === 0"
-              icon
-              small
+              size="small"
+              color="white"
+              :icon="mdiChevronLeft"
+              variant="text"
               @click="triggerCarouselAction('left')"
-            >
-              <v-icon size="32" color="white">{{ 'mdi-chevron-left' }}</v-icon>
-            </v-btn>
-            <v-btn icon small @click="triggerCarouselAction('right')">
-              <v-icon size="32" color="white">{{ 'mdi-chevron-right' }}</v-icon>
-            </v-btn>
+            />
+            <v-btn
+              size="small"
+              color="white"
+              :icon="mdiChevronRight"
+              variant="text"
+              @click="triggerCarouselAction('right')"
+            />
           </v-col>
         </v-col>
       </v-col>
 
-      <timeline @update-carousel-index="updateCarouselIndex" />
+      <TimelineIndex @update-carousel-index="updateCarouselIndex" />
 
-      <v-col v-if="$vuetify.breakpoint.xsOnly" cols="auto" class="mb-8">
+      <v-col v-if="xs" cols="auto" class="mb-8">
         <v-btn
           :disabled="carouselIndex === 0"
-          icon
+          :icon="mdiChevronLeft"
           @click="triggerCarouselAction('left')"
-        >
-          <v-icon size="60" color="white">{{ 'mdi-chevron-left' }}</v-icon>
-        </v-btn>
-        <v-btn icon @click="triggerCarouselAction('right')">
-          <v-icon size="60" color="white">{{ 'mdi-chevron-right' }}</v-icon>
-        </v-btn>
+        />
+        <v-btn
+          :icon="mdiChevronRight"
+          @click="triggerCarouselAction('right')"
+        />
       </v-col>
     </v-row>
 
@@ -91,104 +89,96 @@
         <p class="content-title">함께하는 사람들</p>
         <div class="content-subtitle">
           <div>
-            게타(GET-A)을 위해 <br v-if="$vuetify.breakpoint.xsOnly" />
+            게타(GET-A)을 위해 <br v-if="xs" />
             <span class="font-weight-bold"> 고군분투하는 이들</span>
           </div>
         </div>
         <v-col cols="11" sm="8">
-          <founders />
+          <Founders />
         </v-col>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script>
+<script setup>
 import Services from '@/components/pages.index/Services.vue'
-import Founders from '~/components/pages.index/Founders.vue'
-import Timeline from '~/components/pages.index/Timeline.vue'
-import Partners from '~/components/pages.index/Partners.vue'
+import Founders from '@/components/pages.index/Founders.vue'
+import TimelineIndex from '@/components/pages.index/Timeline.vue'
+import Partners from '@/components/pages.index/Partners.vue'
 
-export default {
-  components: {
-    Services,
-    Founders,
-    Timeline,
-    Partners,
-  },
+import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
-  data() {
-    return {
-      carouselIndex: 0,
-    }
-  },
+const { xs, smAndUp } = useDisplay()
 
-  /* SEO */
-  // head() {
-  //   const headTitle = '(주)게타'
-  //   const description = '세상 모든 지식 & 정보격차 해소를 위합니다'
-  //   const ogDescription = description
-  //   const ogImgURL =
-  //     'https://dmq1lrjfpg713.cloudfront.net/og_company_20231227.png'
-  //   return {
-  //     title: headTitle,
-  //     meta: [
-  //       /*
-  //        ** OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
-  //        ** Basic
-  //        */
-  //       {
-  //         hid: 'og:title',
-  //         property: 'og:title',
-  //         content: headTitle,
-  //       },
-  //       {
-  //         hid: 'og:description',
-  //         property: 'og:description',
-  //         content: ogDescription,
-  //       },
-  //       {
-  //         hid: 'og:image',
-  //         property: 'og:image',
-  //         content: ogImgURL,
-  //       },
-  //       /* OpenGraph for twitter */
-  //       {
-  //         hid: 'twitter:title',
-  //         name: 'twitter:title',
-  //         content: headTitle,
-  //       },
-  //       {
-  //         hid: 'twitter:description',
-  //         name: 'twitter:description',
-  //         content: ogDescription,
-  //       },
-  //       {
-  //         hid: 'twitter:image',
-  //         name: 'twitter:image',
-  //         content: ogImgURL,
-  //       },
-  //       /*
-  //        ** Etc.
-  //        */
-  //       {
-  //         hid: 'description',
-  //         name: 'description',
-  //         content: description,
-  //       },
-  //     ],
-  //   }
-  // },
+const emit = defineEmits(['carousel-action'])
 
-  methods: {
-    triggerCarouselAction(direction) {
-      this.$emit('carousel-action', direction)
-    },
-    updateCarouselIndex(newIndex) {
-      this.carouselIndex = newIndex
-    },
-  },
+const carouselIndex = ref(0)
+
+const triggerCarouselAction = (direction) => {
+  emit('carousel-action', direction)
 }
+
+const updateCarouselIndex = (newIndex) => {
+  carouselIndex.value = newIndex
+}
+
+/* SEO */
+// head() {
+//   const headTitle = '(주)게타'
+//   const description = '세상 모든 지식 & 정보격차 해소를 위합니다'
+//   const ogDescription = description
+//   const ogImgURL =
+//     'https://dmq1lrjfpg713.cloudfront.net/og_company_20231227.png'
+//   return {
+//     title: headTitle,
+//     meta: [
+//       /*
+//        ** OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
+//        ** Basic
+//        */
+//       {
+//         hid: 'og:title',
+//         property: 'og:title',
+//         content: headTitle,
+//       },
+//       {
+//         hid: 'og:description',
+//         property: 'og:description',
+//         content: ogDescription,
+//       },
+//       {
+//         hid: 'og:image',
+//         property: 'og:image',
+//         content: ogImgURL,
+//       },
+//       /* OpenGraph for twitter */
+//       {
+//         hid: 'twitter:title',
+//         name: 'twitter:title',
+//         content: headTitle,
+//       },
+//       {
+//         hid: 'twitter:description',
+//         name: 'twitter:description',
+//         content: ogDescription,
+//       },
+//       {
+//         hid: 'twitter:image',
+//         name: 'twitter:image',
+//         content: ogImgURL,
+//       },
+//       /*
+//        ** Etc.
+//        */
+//       {
+//         hid: 'description',
+//         name: 'description',
+//         content: description,
+//       },
+//     ],
+//   }
+// },
 </script>
 
 <style scoped>

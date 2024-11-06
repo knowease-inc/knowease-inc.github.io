@@ -12,25 +12,22 @@
 
           <v-card-subtitle
             class="expCardSubTitle"
-            :class="$vuetify.breakpoint.smAndUp ? '' : 'text-body-2'"
-            :style="{ lineHeight: $vuetify.breakpoint.smAndUp ? '1.4' : '' }"
+            :class="smAndUp ? '' : 'text-body-2'"
+            :style="{ lineHeight: smAndUp ? '1.4' : '' }"
           >
             {{ content.explanation }}
           </v-card-subtitle>
 
-          <v-card-actions
-            v-if="$vuetify.breakpoint.smAndUp"
-            class="d-flex align-center"
-          >
+          <v-card-actions v-if="smAndUp" class="d-flex align-center">
             <v-btn
               :disabled="!content.shortcut.href"
-              :dark="!!content.shortcut.href"
               :elevation="0"
               :color="linkBtnColor"
               :href="content.shortcut.href"
               :style="btnInServiceCard"
+              variant="elevated"
               rounded
-              small
+              size="small"
               class="px-4"
             >
               {{ content.shortcut.name }}
@@ -39,19 +36,16 @@
               :color="linkBtnColor"
               :to="content.introduce.to"
               :style="btnInServiceCard"
-              outlined
+              variant="outlined"
               rounded
-              small
+              size="small"
               class="px-4"
             >
               {{ content.introduce.name }}
             </v-btn>
           </v-card-actions>
 
-          <v-card-actions
-            v-if="$vuetify.breakpoint.xsOnly"
-            class="d-flex flex-column"
-          >
+          <v-card-actions v-if="xs" class="d-flex flex-column">
             <v-btn
               :disabled="!content.shortcut.href"
               :dark="!!content.shortcut.href"
@@ -59,20 +53,21 @@
               :color="linkBtnColor"
               :href="content.shortcut.href"
               :style="btnInServiceCard"
-              block
+              variant="elevated"
               rounded
               class="mb-2"
+              style="width: 100%"
             >
               {{ content.shortcut.name }}
             </v-btn>
             <v-btn
-              outlined
               :color="linkBtnColor"
               :to="content.introduce.to"
               :style="btnInServiceCard"
-              block
+              variant="outlined"
               rounded
               class="px-7 ml-n1"
+              style="width: 100%"
             >
               {{ content.introduce.name }}
             </v-btn>
@@ -82,13 +77,13 @@
         <!-- Start: Image -->
         <v-img
           src="/img/mobile_img.png"
-          max-width="200"
+          width="200"
           class="mt-3 position-relative"
         >
           <v-img
             src="https://dmq1lrjfpg713.cloudfront.net/img/logo.png"
             height="30"
-            max-width="100"
+            width="100"
             contain
             class="inside-logo-img"
           />
@@ -107,16 +102,13 @@
 
         <v-card-subtitle
           class="expCardSubTitle"
-          :class="$vuetify.breakpoint.smAndUp ? '' : 'text-body-2 '"
-          :style="{ lineHeight: $vuetify.breakpoint.smAndUp ? '1.4' : '' }"
+          :class="smAndUp ? '' : 'text-body-2 '"
+          :style="{ lineHeight: smAndUp ? '1.4' : '' }"
         >
           {{ contentSecond.explanation }}
         </v-card-subtitle>
 
-        <v-card-actions
-          v-if="$vuetify.breakpoint.smAndUp"
-          class="d-flex align-center ml-1"
-        >
+        <v-card-actions v-if="smAndUp" class="d-flex align-center ml-1">
           <v-btn
             :color="linkBtnColor"
             :to="contentSecond.introduce.to"
@@ -127,11 +119,11 @@
             class="px-4"
             :disabled="!contentSecond.introduce.to"
           >
-            {{ contentSecond.introduce.name }}
+            d {{ contentSecond.introduce.name }}
           </v-btn>
         </v-card-actions>
 
-        <v-card-actions v-if="$vuetify.breakpoint.xsOnly" class="full-width">
+        <v-card-actions v-if="xs" class="full-width">
           <v-btn
             outlined
             :color="linkBtnColor"
@@ -150,48 +142,39 @@
   </v-row>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      linkBtnColor: '#2979ff',
-      content: {
-        name: 'Meaniit',
-        explanation:
-          '자료조사부터 보고서 초안 작성, 완성까지 함께하는 AI 솔루션 서비스',
-        shortcut: {
-          name: '바로가기',
-          href: 'https://ko.meaniit.com/',
-        },
-        introduce: {
-          name: '서비스 소개',
-          to: '/service/meaniit/introduce',
-        },
-      },
-      contentSecond: {
-        name: '교육 서비스',
-        explanation:
-          '알기 쉬운 AI, 디지털 전환(DX, Digital Transformation) 온·오프라인 교육, 세미나, 컨설팅 제공',
-        introduce: {
-          name: 'Contact',
-          to: '',
-        },
-      },
-      btnInServiceCard: {
-        minWidth: 0,
-        paddingLeft: 0,
-      },
-    }
+<script setup>
+const { xs, smAndUp } = useDisplay()
+
+const linkBtnColor = '#2979ff'
+const content = {
+  name: 'Meaniit',
+  explanation:
+    '자료조사부터 보고서 초안 작성, 완성까지 함께하는 AI 솔루션 서비스',
+  shortcut: {
+    name: '바로가기',
+    href: 'https://ko.meaniit.com/',
   },
-  computed: {
-    setContainerHeight() {
-      return this.$vuetify.breakpoint.xsOnly ? '450' : '245'
-    },
-    setSecondaryCardHeight() {
-      return this.$vuetify.breakpoint.xsOnly ? '200' : '245'
-    },
+  introduce: {
+    name: '서비스 소개',
+    to: '/service/meaniit/introduce',
   },
 }
+const contentSecond = {
+  name: '교육 서비스',
+  explanation:
+    '알기 쉬운 AI, 디지털 전환(DX, Digital Transformation) 온·오프라인 교육, 세미나, 컨설팅 제공',
+  introduce: {
+    name: 'Contact',
+    to: '',
+  },
+}
+const btnInServiceCard = {
+  minWidth: 0,
+  paddingLeft: 0,
+}
+
+const setContainerHeight = computed(() => (xs.value ? '450' : '245'))
+const setSecondaryCardHeight = computed(() => (xs.value ? '200' : '245'))
 </script>
 
 <style scoped>
