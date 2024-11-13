@@ -11,11 +11,17 @@
     </component>
 
     <!-- ### Start: Profiles ### -->
-    <v-row class="mx-0 mb-3 pa-0" no-gutters>
-      <span class="text-body-1 font-weight-medium"> Team </span>
+    <v-row justify="center" class="mx-0 mb-3 pa-0" no-gutters>
+      <v-col
+        cols="10"
+        class="font-weight-medium text-grey"
+        style="font-size: 1.4rem"
+      >
+        Team
+      </v-col>
     </v-row>
 
-    <v-row class="ma-0 pa-0" justify-sm="start" justify="center" no-gutters>
+    <v-row class="ma-0 pa-0">
       <v-col
         v-for="(
           { name, headline, avatar, companyAndSchoolInfo, link }, i
@@ -23,37 +29,26 @@
         :key="i"
         cols="12"
         sm="5"
-        md="4"
-        lg="3"
-        class="mt-0 pa-0"
+        offset="1"
+        class="ga-4"
       >
         <v-card
-          :height="smAndUp ? '280' : '200'"
-          :width="smAndUp ? '220' : '250'"
-          class="overflow-hidden rounded-xl position-relative mb-5"
-          variant="flat"
-          elevation="2"
+          class="d-flex justify-space-evenly align-center rounded-xl px-sm-8 px-5"
+          :height="smAndUp ? '220' : '200'"
+          :width="smAndUp ? '420' : '250'"
         >
-          <div v-if="smAndUp" class="profile-top">
-            <div class="mt-10 pb-4">
-              <v-avatar size="60">
-                <img :src="avatar" :alt="name" class="profile-img" />
-              </v-avatar>
-            </div>
-            <div class="text-body-2 font-weight-bold">{{ name }}</div>
-            <div
-              class="text-caption profile-headline-color line-change text-center"
-              style="line-height: 1.2"
-            >
+          <v-avatar size="140">
+            <v-img :src="avatar" :alt="name" />
+          </v-avatar>
+
+          <div class="flex flex-column ml-3 mt-n8">
+            <div class="text-body-1 font-weight-bold">{{ name }}</div>
+            <div class="headline-color mb-2">
               {{ headline }}
             </div>
-          </div>
-          <div v-if="smAndUp" class="profile-bottom">
-            <v-card-text
-              class="text-center mt-4 text-body-2 gray--text line-change"
-            >
+            <div class="text-body-1 gray--text mb-2">
               {{ companyAndSchoolInfo }}
-            </v-card-text>
+            </div>
 
             <v-btn
               rounded
@@ -62,46 +57,7 @@
               size="small"
               color="#2979ff"
               :href="link"
-              style="bottom: 10%"
-              :disabled="!link"
-            >
-              View profile
-            </v-btn>
-          </div>
-
-          <div v-if="xs" style="height: 100%" class="profile-left mt-2">
-            <div>
-              <v-avatar size="70">
-                <v-img :src="avatar" :alt="name" />
-              </v-avatar>
-            </div>
-            <div class="text-body-2 font-weight-bold my-1">
-              {{ name }}
-            </div>
-            <div
-              class="text-body-2 profile-headline-color pr-0 pl-4 line-change-xs text-center"
-              style="line-height: 1.2"
-            >
-              {{ headline }}
-            </div>
-          </div>
-          <div v-if="xs" style="height: 60%" class="profile-right mt-8">
-            <v-card-text
-              class="text-right text-body-2 gray--text line-change-xs pr-0 mr-n6"
-              style="line-height: 1.6"
-            >
-              {{ companyAndSchoolInfo }}
-            </v-card-text>
-
-            <v-btn
-              rounded
-              variant="outlined"
-              position="absolute"
-              size="x-small"
-              color="#2979ff"
-              :href="link"
-              style="bottom: 0%; right: 10%"
-              :disabled="!link"
+              class="mt-4"
             >
               View profile
             </v-btn>
@@ -110,34 +66,42 @@
       </v-col>
     </v-row>
 
-    <v-row class="mx-0 mb-3 pa-0 mt-9" no-gutters>
-      <span class="text-body-1 font-weight-medium"> Advisor </span>
+    <v-row justify="center" class="mx-0 my-4 pt-8 pa-0" no-gutters>
+      <v-col
+        cols="10"
+        class="font-weight-medium text-grey"
+        style="font-size: 1.4rem"
+      >
+        Advisor
+      </v-col>
     </v-row>
 
-    <v-row class="ma-0 pa-0" no-gutters>
+    <v-row justify="space-between" class="ma-0 pa-0">
       <v-col
         v-for="(
           { name, headline, avatar, companyAndSchoolInfo, link }, i
         ) in advisors"
         :key="i"
-        class="mt-0 pa-0 mr-6"
+        cols="12"
+        sm="5"
+        offset="1"
+        class="ga-4"
       >
         <v-card
           class="d-flex align-start rounded-xl px-sm-16 px-5 py-sm-6 py-8"
-          :height="smAndUp ? '150' : '200'"
-          :width="smAndUp ? '450' : '250'"
+          :height="smAndUp ? '220' : '200'"
+          :width="smAndUp ? '420' : '250'"
         >
-          <div>
-            <v-avatar size="60">
-              <img :src="avatar" :alt="name" />
-            </v-avatar>
-          </div>
+          <v-avatar size="140">
+            <v-img :src="avatar" :alt="name" />
+          </v-avatar>
+
           <div class="flex flex-column ml-3">
-            <div class="text-body-2 font-weight-bold">{{ name }}</div>
-            <div class="text-caption advisor-headline-color mb-2">
+            <div class="text-body-1 font-weight-bold">{{ name }}</div>
+            <div class="headline-color mb-2">
               {{ headline }}
             </div>
-            <div class="text-body-2 gray--text mb-2">
+            <div class="text-body-1 gray--text mb-2">
               {{ companyAndSchoolInfo }}
             </div>
 
@@ -148,18 +112,22 @@
               size="small"
               color="#2979ff"
               :href="link"
+              class="mt-4"
             >
               View profile
             </v-btn>
           </div>
         </v-card>
       </v-col>
-      <v-col
-        v-if="smAndUp"
-        style="height: 150px; overflow-y: hidden"
-        class="rounded-xl"
-      >
-        <v-img src="/img/meeting_img.png" height="250" width="460" />
+
+      <v-col v-if="smAndUp" sm="5">
+        <v-card
+          class="pa-0"
+          :height="smAndUp ? '220' : '200'"
+          :width="smAndUp ? '420' : '250'"
+        >
+          <v-img src="/img/meeting_img.png" cover class="rounded-xl" />
+        </v-card>
       </v-col>
     </v-row>
   </div>
@@ -233,76 +201,8 @@ const advisors = [
   text-transform: none;
 }
 
-.position-relative {
-  position: relative;
-}
-
-.profile-top {
-  background-color: #2979ff;
-  color: white;
-  height: 200px;
-  width: 300px;
-  border-radius: 50%;
-
-  position: absolute;
-  top: -16%;
-  left: -18%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.profile-bottom {
-  height: 140px;
-  width: 220px;
-  position: absolute;
-  bottom: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.profile-left {
-  background-color: #2979ff;
-  color: white;
-  height: 220px;
-  width: 180px;
-  border-radius: 30% / 70%;
-
-  position: absolute;
-  top: -8px;
-  left: -10%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.profile-right {
-  height: 200px;
-  width: 220px;
-  position: absolute;
-  right: -0.8rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: right;
-}
-
-.advisor-headline-color {
+.headline-color {
   color: #a6a6a6;
-}
-
-.profile-headline-color {
-  color: #accbff;
 }
 
 .line-change {

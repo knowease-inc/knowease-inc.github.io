@@ -5,7 +5,7 @@
       :key="link"
       cols="4"
       sm="4"
-      class="text-center"
+      class="text-center my-4"
     >
       <a :href="link" target="_blank">
         <img
@@ -58,7 +58,7 @@ const partners = [
 const setSize = computed(() => {
   return xs.value
     ? { width: '90', height: '30' }
-    : { width: '150', height: '40' }
+    : { width: '180', height: '60' }
 })
 </script>
 

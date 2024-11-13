@@ -3,69 +3,74 @@
     :color="isRootRoute ? appBar.color : '#3746fb'"
     density="comfortable"
     flat
-    absolute
-    :class="xs ? '' : 'side-blank'"
-    :style="{ borderBottom: isRootRoute ? '' : '0.5px solid white' }"
+    location="top"
+    :style="{
+      borderBottom: isRootRoute ? '0.5px solid lightgrey' : '0.5px solid white',
+    }"
   >
-    <!-- Start: -->
-    <v-btn v-if="false" icon color="white" @click.prevent="easterEgg()">
-      <v-icon :small="xs">{{ appBar.menuIcon }}</v-icon>
-    </v-btn>
-    <v-spacer />
+    <v-row no-gutters>
+      <v-col cols="8" offset="2" class="px-0">
+        <v-toolbar-items>
+          <v-btn v-if="onKnowease" text to="/" color="transparent">
+            <v-img
+              :src="appBar.knowease.imgSrc"
+              :alt="appBar.knowease.title"
+              :height="appBar.height"
+              :width="appBar.maxWidth"
+              contain
+              :class="onKnowease ? '' : 'to-white'"
+            />
+          </v-btn>
+          <v-btn v-else text to="/" active-color="no-active">
+            <v-img
+              :src="appBar.knowease.imgSrc"
+              :alt="appBar.knowease.title"
+              :height="appBar.height"
+              :width="appBar.maxWidth"
+              contain
+              class="to-white"
+            />
+          </v-btn>
 
-    <!-- Start : Knowease image -->
-    <v-toolbar-items v-if="onKnowease" class="pl-9">
-      <v-btn text to="/" color="transparent">
-        <v-img
-          :src="appBar.knowease.imgSrc"
-          :alt="appBar.knowease.title"
-          :height="appBar.height"
-          :width="appBar.maxWidth"
-          contain
-          :class="onKnowease ? '' : 'to-white'"
-        />
-      </v-btn>
-    </v-toolbar-items>
+          <v-spacer></v-spacer>
 
-    <v-spacer />
+          <v-menu z-index="10">
+            <!-- Start: Menu Btn -->
+            <template #activator="{ props }">
+              <v-btn
+                :icon="appBar.menuIcon"
+                color="#3746fb"
+                :size="xs ? 'small' : 'default'"
+                v-bind="props"
+              />
+            </template>
 
-    <!-- ### Start : Site Menu ### -->
-    <v-toolbar-items>
-      <v-menu z-index="10">
-        <!-- Start: Menu Btn -->
-        <template #activator="{ props }">
-          <v-btn
-            :icon="appBar.menuIcon"
-            color="white"
-            :size="xs ? 'small' : 'default'"
-            v-bind="props"
-          />
-        </template>
-
-        <!-- Start: Menu Contents -->
-        <v-list density="compact">
-          <v-list-item
-            v-for="(item, i) in menuItems"
-            :key="i"
-            class="d-flex justify-center text-start"
-          >
-            <v-list-item-subtitle v-if="item.title" class="menuTitle">
-              {{ item.name }}
-            </v-list-item-subtitle>
-            <v-btn
-              v-else
-              :href="item.to"
-              :target="item.to.startsWith('http') ? '_blank' : '_self'"
-              size="small"
-              variant="text"
-              selected-class="no-active"
-            >
-              {{ item.name }}
-            </v-btn>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </v-toolbar-items>
+            <!-- Start: Menu Contents -->
+            <v-list density="compact">
+              <v-list-item
+                v-for="(item, i) in menuItems"
+                :key="i"
+                class="d-flex justify-center text-start"
+              >
+                <v-list-item-subtitle v-if="item.title" class="menuTitle">
+                  {{ item.name }}
+                </v-list-item-subtitle>
+                <v-btn
+                  v-else
+                  :href="item.to"
+                  :target="item.to.startsWith('http') ? '_blank' : '_self'"
+                  size="small"
+                  variant="text"
+                  selected-class="no-active"
+                >
+                  {{ item.name }}
+                </v-btn>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-toolbar-items>
+      </v-col>
+    </v-row>
   </v-app-bar>
 </template>
 
@@ -78,7 +83,7 @@ const route = useRoute()
 const appBar = {
   height: '20',
   maxWidth: '100',
-  color: 'transparent',
+  color: 'white',
   menuIcon: mdiMenu,
   knowease: {
     title: '(주)게타(GET-A Inc.)',
@@ -118,11 +123,6 @@ const isRootRoute = computed(() => {
 
   return currentRoute === 'index'
 })
-
-const easterEgg = () => {
-  const text = '어떻게 알고 찾았죠...?'
-  alert(text)
-}
 </script>
 
 <style scoped>
@@ -132,9 +132,6 @@ const easterEgg = () => {
 .menuTitle {
   font-size: 10px !important;
   color: #2979ff !important;
-}
-.side-blank {
-  padding: 0 250px;
 }
 .to-white {
   filter: brightness(0) invert(1);

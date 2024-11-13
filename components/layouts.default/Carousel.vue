@@ -1,14 +1,11 @@
 <template>
-  <v-card flat tile>
+  <v-card flat tile width="100%">
     <v-carousel
       v-model="currentIndex"
       hide-delimiters
       :show-arrows="xs ? true : false"
-      :height="setCarouselHeight"
+      height="105vh"
     >
-      <!-- App Bar -->
-      <slot></slot>
-
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
@@ -21,47 +18,52 @@
         <v-sheet
           height="100%"
           color="rgba(0,0,0,0)"
-          class="d-flex justify-center align-end pa-4"
+          class="d-flex justify-center align-center pa-4"
         >
-          <v-list-item
-            lines="two"
-            class="pb-5"
-            :class="xs ? 'pl-0' : 'side-blank'"
-          >
-            <v-list-item-title class="font-color">
-              <p :class="upperTextClass" class="my-4" v-html="upperText"></p>
-              <p :class="lowerTextClass" v-html="item.text.lower"></p>
-            </v-list-item-title>
-          </v-list-item>
+          <v-col cols="7">
+            <v-list-item
+              lines="two"
+              class="pt-12 font-color"
+              :class="xs ? 'pl-0' : 'side-blank'"
+            >
+              <p
+                :class="upperTextClass"
+                class="my-4"
+                v-html="upperText"
+                style="font-size: 3rem"
+              />
+              <p
+                :class="lowerTextClass"
+                v-html="item.text.lower"
+                style="font-size: 1.2rem"
+              />
+            </v-list-item>
+          </v-col>
         </v-sheet>
       </v-carousel-item>
 
       <!-- Arrow -->
-      <template #prev="{ on, attrs }">
+      <template #prev="{ props }">
         <v-btn
           color="white"
           disabled
           absolute
-          icon
+          :icon="mdiChevronLeft"
           class="prev-arrow"
-          v-bind="attrs"
-          v-on="on"
-        >
-          <v-icon size="50" :icon="mdiChevronLeft" />
-        </v-btn>
+          size="large"
+          @click="props.onClick"
+        />
       </template>
-      <template #next="{ on, attrs }">
+      <template #next="{ props }">
         <v-btn
           color="white"
           elevation="2"
           absolute
-          icon
+          :icon="mdiChevronRight"
           class="next-arrow"
-          v-bind="attrs"
-          v-on="on"
-        >
-          <v-icon size="50" :icon="mdiChevronRight" />
-        </v-btn>
+          size="large"
+          @click="props.onClick"
+        />
       </template>
     </v-carousel>
   </v-card>
