@@ -1,7 +1,44 @@
 <template>
-  <v-card flat class="mt-sm-4 mx-0 mr-sm-4 pt-10 pb-sm-5">
+  <!-- Start: Carousel buttons -->
+  <v-row justify="center">
+    <v-col cols="12">
+      <p class="content-title">{{ timelineTitle }}</p>
+    </v-col>
+
+    <v-col cols="12" class="content-subtitle font-weight-bold pa-0">
+      {{ timelineSubTitle }}
+    </v-col>
+
+    <v-col
+      cols="auto"
+      :offset="smAndUp ? 6 : ''"
+      :class="smAndUp ? 'pb-8 pl-16' : 'mb-8'"
+    >
+      <v-btn
+        :disabled="carouselStartIndex === 0"
+        variant="text"
+        @click="handleCarouselAction('left')"
+      >
+        <v-icon :icon="mdiChevronLeft" size="60" />
+      </v-btn>
+      <v-btn
+        :disabled="carouselStartIndex === contents.length - 3"
+        variant="text"
+        @click="handleCarouselAction('right')"
+      >
+        <v-icon :icon="mdiChevronRight" size="60" />
+      </v-btn>
+    </v-col>
+  </v-row>
+
+  <!-- Start: History Contents -->
+  <v-card
+    flat
+    :variant="xs ? 'outlined' : ''"
+    class="mt-sm-4 mx-0 pt-16 pb-sm-5"
+  >
     <v-card-text class="px-0">
-      <div :class="smAndUp ? 'history-line' : 'history-line-xs'"></div>
+      <div class="history-line"></div>
 
       <!-- History Contents: smAndUp -->
       <v-col
@@ -9,13 +46,13 @@
         id="carouselContainer"
         cols="9"
         offset="2"
-        class="d-flex mt-n14 overflow-hidden"
+        class="d-flex mt-n16 overflow-hidden"
       >
         <v-col
           v-for="(item, i) in contents"
           :key="i"
           :style="{ transform: `translateX(${-carouselStartIndex * 100}%)` }"
-          cols="3"
+          cols="4"
         >
           <div v-show="i >= carouselStartIndex" class="d-flex flex-column">
             <v-col class="date-circle circle-sm">
@@ -23,18 +60,16 @@
                 v-for="(date, index) in splitDate(item.date)"
                 :key="date + index"
               >
-                <div :class="index ? 'month' : 'year'" class="text--white">
+                <div :class="index ? 'month' : 'year'" class="text-white">
                   {{ index ? setTwoNumber(date) : date }}
                 </div>
               </div>
             </v-col>
-            <v-col class="pr-0 pl-5">
-              <div
-                class="text-body-2 font-weight-bold text-nowrap mb-1 main-color"
-              >
+            <v-col class="px-4">
+              <div class="history-title text-nowrap my-4">
                 {{ item.title }}
               </div>
-              <div class="text-caption text-line-height">
+              <div class="history-body text-line-height">
                 {{ item.body }}
               </div>
             </v-col>
@@ -42,7 +77,7 @@
         </v-col>
       </v-col>
 
-      <!-- History Contents: xsOnly -->
+      <!-- History Contents: xs -->
       <v-row v-if="xs" class="mt-n16" justify="center">
         <v-col cols="12" class="d-flex flex-nowrap overflow-hidden">
           <v-col
@@ -86,9 +121,9 @@
 </template>
 
 <script setup>
-const { xs, smAndUp } = useDisplay()
+import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
-const emit = defineEmits(['carousel-action', 'update-carousel-index'])
+const { xs, smAndUp } = useDisplay()
 
 const contents = [
   {
@@ -181,62 +216,55 @@ const contents = [
 ]
 const carouselStartIndex = ref(0)
 
+const timelineTitle = '함께해 온 길'
+const timelineSubTitle = '정보기술 통한 정보 격차 해소 여정'
+
 const splitDate = (date) => date.split('.')
 const setTwoNumber = (num) => (num < 10 ? '0' + num : num)
 
-// carousel action 핸들러
+// Start: Carousel Action Handlers
 const handleCarouselAction = (direction) => {
   if (direction === 'left') {
     calculateIndexToLeft()
   } else if (direction === 'right') {
     calculateIndexToRight()
   }
-
-  emit('update-carousel-index', carouselStartIndex.value)
 }
 
 const calculateIndexToRight = () => {
   const itemsLength = contents.length
-  const isSmAndUpCondition =
-    smAndUp.value && carouselStartIndex.value === itemsLength - 4
-  const isXsCondition =
-    xsOnly.value && carouselStartIndex.value === itemsLength - 1
+  const maxIndex = smAndUp.value ? itemsLength - 3 : itemsLength - 1
 
-  if (isSmAndUpCondition || isXsCondition) return
-
-  carouselStartIndex.value = (carouselStartIndex.value + 1) % itemsLength
+  if (carouselStartIndex.value < maxIndex) {
+    carouselStartIndex.value += 1
+  }
 }
 
 const calculateIndexToLeft = () => {
-  if (carouselStartIndex.value === 0) return
-
-  const itemsLength = contents.length
-
-  carouselStartIndex.value =
-    (carouselStartIndex.value - 1 + itemsLength) % itemsLength
+  if (carouselStartIndex.value > 0) {
+    carouselStartIndex.value -= 1
+  }
 }
+// End: Carousel Action Handlers
 
 const checkToRenderIndex = (index) => carouselStartIndex.value === index
-
-// 이벤트 리스너 추가 및 제거
-onMounted(() => {
-  window.addEventListener('carousel-action', handleCarouselAction)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('carousel-action', handleCarouselAction)
-})
 </script>
 
 <style scoped>
-.month {
-  font-weight: 600;
-  font-size: 20px;
+.month,
+.history-title {
+  font-weight: 900;
+  font-size: 1.4rem;
 }
 
-.year {
-  font-weight: 500;
-  font-size: 12px;
+.year,
+.history-body {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.history-body {
+  color: #6b7684;
 }
 
 .month-xs {
@@ -248,9 +276,10 @@ onBeforeUnmount(() => {
   font-weight: 500;
   font-size: 20px;
 }
-.main-color {
+
+/* .main-color {
   color: #3746fb;
-}
+} */
 
 .text-line-height {
   line-height: 1.2;
@@ -261,7 +290,7 @@ onBeforeUnmount(() => {
 }
 
 .history-line {
-  border-top: 0.5px solid lightgray;
+  border-top: 0.5px solid #3746fb;
 }
 
 .history-line-xs {
@@ -284,14 +313,29 @@ onBeforeUnmount(() => {
 }
 
 .circle-sm {
-  width: 65px;
-  height: 65px;
+  min-width: 90px;
+  min-height: 90px;
+
+  max-width: 90px;
+  max-height: 90px;
 }
+
 .circle-xs {
   min-width: 110px;
   min-height: 110px;
 
   max-width: 110px;
   max-height: 110px;
+}
+
+.content-title {
+  color: #00c930;
+  font-weight: 700;
+  text-align: center;
+}
+
+.content-subtitle {
+  font-size: 24px;
+  text-align: center;
 }
 </style>

@@ -1,84 +1,50 @@
 <template>
-  <div :class="{ 'position-relative': smAndUp }">
-    <v-row justify="space-between">
-      <v-col
-        cols="8"
-        sm="6"
-        align-self="center"
-        class="white--text pb-0 pl-sm-3 pl-6 mt-12 mt-sm-0"
-        :class="smAndUp ? 'main-font-size' : 'main-font-size-xs'"
-      >
+  <v-row align="center" no-gutters style="height: 100vh; font-size: 4rem">
+    <v-col cols="10" class="d-flex align-center justify-center">
+      <v-col cols="9" class="mr-n9" style="z-index: 100">
         <div class="d-flex">
-          쉬운 조사 보고서는
-          <div
+          쉬운 조사 보고서
+          <v-sheet
             style="background-color: white"
-            class="rounded-lg d-flex align-center ml-sm-3 ml-2 px-2"
+            class="rounded-lg d-flex align-center ml-sm-4 ml-2 pa-4"
+            width="180"
+            height="80"
           >
-            <v-img :src="imgs.logo" :width="smAndUp ? '90' : '60'" />
-          </div>
+            <v-img
+              :src="imgs.logo"
+              :width="smAndUp ? '50' : '60'"
+              class="bounce"
+            />
+          </v-sheet>
         </div>
-        <span class="font-weight-black">자료조사 AI를 소개</span>합니다
+        <div>
+          <span class="font-weight-black">자료조사 AI를 소개</span>합니다
+        </div>
+
+        <v-col
+          cols="12"
+          style="font-size: 1.4rem; color: #6b7684"
+          class="font-weight-bold"
+        >
+          <p class="my-8" v-html="items.text.first"></p>
+          <p class="my-8" v-html="items.text.second"></p>
+        </v-col>
+        <v-btn color="#3746fb" size="large" href="https://ko.meaniit.com">
+          서비스 바로가기
+        </v-btn>
       </v-col>
-      <v-col cols="4" offset-sm="2" class="pb-0">
-        <v-img
-          :src="imgs.topIntro"
-          width="200"
-          :min-width="xs ? '140' : '200'"
-          :aspect-ratio="4 / 5"
-          class="ml-sm-0 ml-n10"
-          :class="{ 'opacity-img': xs }"
+
+      <v-col cols="4" class="ml-n6">
+        <video
+          :src="imgs.video"
+          autoplay
+          loop
+          muted
+          style="max-width: 220%; max-height: 220%"
         />
       </v-col>
-    </v-row>
-
-    <v-row :class="{ 'position-absolute': smAndUp }">
-      <v-col cols="12" sm="6" class="pl-1 pr-sm-3 pr-0 py-sm-3 py-0">
-        <v-card
-          :height="smAndUp ? 180 : 220"
-          :flat="xs"
-          class="d-flex flex-column align-center"
-          :class="smAndUp ? 'rounded-xl' : 'rounded-0 py-3'"
-        >
-          <v-card-subtitle>
-            <v-img :src="imgs.duplication" width="50" />
-          </v-card-subtitle>
-
-          <v-card-text>
-            <p
-              class="my-4 text-center text--primary"
-              v-html="items.text.first"
-            ></p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="6"
-        class="pr-1 pl-sm-3 pl-1 py-sm-3 py-0"
-        :style="{
-          boxShadow: xs ? '0px 5px 10px #eef4fe' : '',
-        }"
-      >
-        <v-card
-          :flat="xs"
-          :height="smAndUp ? 180 : 220"
-          class="d-flex flex-column align-center"
-          :class="smAndUp ? 'rounded-xl' : 'rounded-0 py-3'"
-        >
-          <v-card-subtitle>
-            <v-img :src="imgs.badge" width="45" />
-          </v-card-subtitle>
-
-          <v-card-text>
-            <p
-              class="my-4 text-center text--primary"
-              v-html="items.text.second"
-            ></p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>
@@ -89,6 +55,7 @@ const imgs = {
   logo: 'https://dmq1lrjfpg713.cloudfront.net/img/logo.png',
   duplication: '/img/duplication.png',
   badge: '/img/badge.png',
+  video: '/img/anaysis.mp4',
 }
 
 const items = {
@@ -118,5 +85,24 @@ const items = {
 
 .opacity-img {
   opacity: 30%;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-7px);
+  }
+}
+.bounce {
+  animation: bounce 1s ease 1;
 }
 </style>

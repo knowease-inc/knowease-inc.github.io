@@ -1,27 +1,32 @@
 /* Content Title */
-.article-title, .article-title-xs {
-    font-weight: 500;
+.article-title,
+.article-title-xs {
+  font-weight: 500;
 }
 
 .article-title {
-    font-size: 12px !important;
+  font-size: 12px !important;
 }
 
 .article-title-xs {
-    font-size: 10px  !important;
+  font-size: 10px !important;
 }
 
 /* Content Body */
-.article-body, .article-body-inactive, .article-body-explanation {
-    font-size: 11px !important; line-height: 16px !important;
+.article-body,
+.article-body-inactive,
+.article-body-explanation {
+  font-size: 11px !important;
+  line-height: 16px !important;
 }
 
-.article-body, .article-body-explanation {
-    color: #212121; 
+.article-body,
+.article-body-explanation {
+  color: #212121;
 }
 
 .article-body-inactive {
-    color: grey; 
+  color: grey;
 }
 
 /* Content Title */
@@ -55,7 +60,7 @@
 }
 
 .expCardSubTitle {
-  font-size: 12px !important;
+  font-size: 1.5rem !important;
   font-weight: 500 !important;
   line-height: 140%;
 }
@@ -76,4 +81,15 @@
   font-size: 12px !important;
   font-weight: 500 !important;
   line-height: 130% !important;
+}
+
+.content-title {
+  color: #2979ff;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.content-subtitle {
+  font-size: 1.4rem;
+  text-align: center;
 }

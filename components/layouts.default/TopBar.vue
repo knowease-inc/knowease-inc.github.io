@@ -39,7 +39,7 @@
             <template #activator="{ props }">
               <v-btn
                 :icon="appBar.menuIcon"
-                color="#3746fb"
+                :color="onKnowease ? '#3746fb' : ''"
                 :size="xs ? 'small' : 'default'"
                 v-bind="props"
               />

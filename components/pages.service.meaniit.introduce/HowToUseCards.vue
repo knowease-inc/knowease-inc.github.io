@@ -1,49 +1,44 @@
 <template>
-  <v-row
-    justify="end"
-    no-gutters
-    :style="{ marginLeft: smAndUp ? '-220px' : '' }"
-    class="my-sm-0 my-4"
-  >
+  <v-row justify="center" class="ga-8">
+    <v-col cols="10">
+      <div
+        v-for="(htxt, hidx) in howUse"
+        :key="hidx"
+        class="content-title text-white text-center"
+      >
+        {{ htxt }}
+      </div>
+    </v-col>
+
     <v-col
       v-for="(item, i) in items"
       :key="i"
       cols="12"
-      sm="4"
-      :offset="i === 0 ? 4 : 0"
+      class="d-flex justify-center"
     >
       <v-card
-        variant="outlined"
-        class="ma-sm-2 mt-3 overflow-hidden d-flex flex-sm-column flex-row border-none"
+        flat
         :class="smAndUp ? 'rounded-xl' : 'rounded-0'"
+        width="93%"
+        height="300"
+        class="d-flex justify-space-between pa-8"
       >
-        <v-list :items="items" lines="three" item-props>
-          <v-list-item
-            class="order-sm-0 pb-0"
-            :class="{ 'order-1 text-right': xs && i % 2 }"
-          >
-            <v-list-item-title class="content-title py-4">
-              {{ item.title }}
-            </v-list-item-title>
+        <v-col cols="8" class="pt-8">
+          <v-card-title class="card-title py-4">
+            {{ item.title }}
+          </v-card-title>
 
-            <v-list-item-subtitle>
-              {{ item.detail }}
-            </v-list-item-subtitle>
+          <v-card-subtitle class="contentSubText">
+            {{ item.detail }}
+          </v-card-subtitle>
+        </v-col>
 
-            <!-- Start: Image -->
-            <v-avatar
-              :size="smAndUp ? avatarSize : avatarSizeXS"
-              :class="{
-                'mb-n3': smAndUp,
-                'order-0': !(xs && i % 2),
-              }"
-              class="order-sm-1 mt-4"
-              tile
-            >
-              <v-img :src="item.image" contain />
-            </v-avatar>
-          </v-list-item>
-        </v-list>
+        <v-col cols="4">
+          <v-img
+            :src="item.image"
+            contain
+            :width="smAndUp ? avatarSize : avatarSizeXS"
+        /></v-col>
       </v-card>
     </v-col>
   </v-row>
@@ -52,7 +47,7 @@
 <script setup>
 const { xs, smAndUp } = useDisplay()
 
-const avatarSize = '110'
+const avatarSize = '250'
 const avatarSizeXS = '100'
 const items = [
   {
@@ -81,14 +76,30 @@ const items = [
     image: '/img/achieve.png',
   },
 ]
+
+const howUse = [
+  '어떤 자료를 모으고, 어떤 주제로 글을 쓸지',
+  '정해주기만 하면 보고서가 메일로 와요',
+]
 </script>
 
 <style scoped>
-.content-title {
-  font-weight: 600;
+.card-title {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .border-none {
   border: none;
+}
+
+.content-title {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.contentSubText {
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 </style>
