@@ -138,7 +138,7 @@ const WebdeveloperFrontend = [
     registerBtn: {
       url: 'https://forms.gle/ot9JNcXYoh2Qxwex9', // Google Form
       name: '지원하기',
-      color: '#2979FF',
+      color: '#3746fb',
     },
   },
 ]

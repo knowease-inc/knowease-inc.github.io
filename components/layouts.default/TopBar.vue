@@ -131,7 +131,7 @@ const isRootRoute = computed(() => {
 }
 .menuTitle {
   font-size: 10px !important;
-  color: #2979ff !important;
+  color: #3746fb !important;
 }
 .to-white {
   filter: brightness(0) invert(1);

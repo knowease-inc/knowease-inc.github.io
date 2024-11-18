@@ -154,7 +154,7 @@
 <script setup>
 const { xs, smAndUp } = useDisplay()
 
-const linkBtnColor = '#2979ff'
+const linkBtnColor = '#3746fb'
 const content = {
   name: 'Meaniit',
   explanation:

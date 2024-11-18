@@ -20,7 +20,7 @@
     <v-row
       justify="center"
       align="center"
-      style="background-color: #2979ff; height: 250vh"
+      style="background-color: #3746fb; height: 250vh"
     >
       <v-col cols="10" sm="10">
         <HowToUseCards />

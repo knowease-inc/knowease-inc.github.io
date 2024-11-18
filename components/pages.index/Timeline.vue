@@ -29,7 +29,7 @@
   <v-card
     flat
     :variant="xs ? 'outlined' : ''"
-    color="#2979ff"
+    color="#3746fb"
     class="mt-sm-4 mx-0 pt-16 pb-sm-5"
   >
     <v-card-text class="px-0">
@@ -247,7 +247,7 @@ const checkToRenderIndex = (index) => carouselStartIndex.value === index
   font-size: 20px;
 }
 .main-color {
-  color: #2979ff;
+  color: #3746fb;
 }
 
 .text-line-height {

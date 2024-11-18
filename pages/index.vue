@@ -31,7 +31,7 @@
     <v-row
       justify="center"
       align="center"
-      style="background-color: #2979ff; height: 100vh"
+      style="background-color: #3746fb; height: 100vh"
       class="mt-16 d-flex"
     >
       <v-col cols="12" sm="9" class="content-subtitle pa-0 text-white">
@@ -80,7 +80,7 @@ const { xs, smAndUp } = useDisplay()
 
 <style scoped>
 .content-title {
-  color: #2979ff;
+  color: #3746fb;
   font-weight: 700;
   font-size: 1.6rem;
 }

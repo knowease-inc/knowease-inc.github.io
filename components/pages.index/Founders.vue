@@ -55,7 +55,7 @@
               variant="outlined"
               position="absolute"
               size="small"
-              color="#2979ff"
+              color="#3746fb"
               :href="link"
               class="mt-4"
             >
@@ -110,7 +110,7 @@
               variant="outlined"
               position="absolute"
               size="small"
-              color="#2979ff"
+              color="#3746fb"
               :href="link"
               class="mt-4"
             >
