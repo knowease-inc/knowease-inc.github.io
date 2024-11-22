@@ -27,13 +27,6 @@
       </v-col>
     </v-row>
 
-    <!-- ### Start : Timeline ### -->
-    <v-row justify="center" align="center" style="height: 80vh">
-      <v-col cols="12">
-        <IntroduceTimeline />
-      </v-col>
-    </v-row>
-
     <!-- ### Start : Flaticon attribute ### -->
     <v-row justify="center">
       <v-col cols="8">
@@ -82,7 +75,6 @@
 import TopIntro from '~/components/pages.service.meaniit.introduce/TopIntro.vue'
 import HowToUseCards from '~/components/pages.service.meaniit.introduce/HowToUseCards.vue'
 import Differentiation from '~/components/pages.service.meaniit.introduce/Differentiation.vue'
-import IntroduceTimeline from '~/components/pages.service.meaniit.introduce/Timeline.vue'
 
 const { xs, smAndUp } = useDisplay()
 

@@ -1,5 +1,5 @@
 <template>
-  <v-card flat tile width="100%">
+  <v-card flat tile width="100%" style="background-color: black">
     <v-carousel
       v-model="currentIndex"
       hide-delimiters
@@ -12,7 +12,6 @@
         :reverse-transition="effect.reverse"
         :transition="effect.transition"
         :src="item.src"
-        cover
       >
         <!-- Text Contents -->
         <v-sheet
@@ -30,12 +29,13 @@
                 :class="upperTextClass"
                 class="my-4"
                 v-html="upperText"
-                style="font-size: 3rem"
+                style="font-size: 4rem"
               />
               <p
                 :class="lowerTextClass"
+                class="pt-4"
                 v-html="item.text.lower"
-                style="font-size: 1.2rem"
+                style="font-size: 1.4rem"
               />
             </v-list-item>
           </v-col>
@@ -81,7 +81,7 @@ const effect = ref({
 
 const items = [
   {
-    src: '/img/intro_top_bg.png',
+    src: 'img/temp/main1.jpg',
     text: {
       upper:
         '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
@@ -140,6 +140,7 @@ const lowerTextClass = computed(() => {
 
 .font-color {
   color: white;
+  text-shadow: 3px 3px 4px rgba(34, 34, 34, 0.8);
 }
 
 .side-blank {
@@ -154,7 +155,7 @@ const lowerTextClass = computed(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .v-sheet * {
   z-index: 10;

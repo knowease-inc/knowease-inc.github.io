@@ -5,7 +5,15 @@
     </v-row>
 
     <!-- ### Start : Service Link ### -->
-    <v-row justify="center" style="background-color: rgba(2, 32, 71, 0.05)">
+    <v-row
+      justify="center"
+      style="
+        background-color: rgba(2, 32, 71, 0.05);
+        height: 180vh;
+        font-size: 1.8rem;
+      "
+      class="py-16"
+    >
       <v-col class="d-flex flex-column align-center pt-16">
         <p class="content-title">게타's 서비스</p>
 
@@ -17,7 +25,7 @@
     </v-row>
 
     <!-- ### Start : Partners ### -->
-    <v-row class="d-flex justify-center" style="height: 80vh">
+    <v-row class="d-flex justify-center align-center" style="height: 80vh">
       <v-col class="d-flex flex-column align-center">
         <p class="content-title py-16">고객사</p>
 
@@ -78,15 +86,4 @@ import Carousel from '@/components/layouts.default/Carousel.vue'
 const { xs, smAndUp } = useDisplay()
 </script>
 
-<style scoped>
-.content-title {
-  color: #3746fb;
-  font-weight: 700;
-  font-size: 1.6rem;
-}
-
-.content-subtitle {
-  font-size: 1.4rem;
-  text-align: center;
-}
-</style>
+<style scoped></style>

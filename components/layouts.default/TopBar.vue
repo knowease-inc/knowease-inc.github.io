@@ -1,74 +1,55 @@
 <template>
   <v-app-bar
-    :color="isRootRoute ? appBar.color : '#3746fb'"
-    density="comfortable"
+    :class="{ 'transparent-bar': isTransparent }"
+    :color="isRootRoute ? appBar.color : ''"
     flat
     location="top"
     :style="{
-      borderBottom: isRootRoute ? '0.5px solid lightgrey' : '0.5px solid white',
+      borderBottom: isRootRoute ? '0.5px solid grey' : '1px solid lightgrey',
     }"
   >
-    <v-row no-gutters>
-      <v-col cols="8" offset="2" class="px-0">
-        <v-toolbar-items>
-          <v-btn v-if="onKnowease" text to="/" color="transparent">
-            <v-img
-              :src="appBar.knowease.imgSrc"
-              :alt="appBar.knowease.title"
-              :height="appBar.height"
-              :width="appBar.maxWidth"
-              contain
-              :class="onKnowease ? '' : 'to-white'"
-            />
+    <v-row justify="center">
+      <v-col cols="9" class="d-flex justify-space-between">
+        <!-- Favicon & Logo -->
+        <v-btn
+          text
+          to="/"
+          :color="onKnowease ? 'transparent' : ''"
+          class="px-0"
+        >
+          <v-img
+            src="/img/temp/favicon.png"
+            alt="favicon"
+            height="35"
+            width="35"
+            cover
+            style="filter: contrast(200%) brightness(100%) saturate(140%)"
+          />
+
+          <v-img
+            :src="appBar.knowease.imgSrc"
+            :alt="appBar.knowease.title"
+            :height="appBar.height"
+            :width="appBar.maxWidth"
+            contain
+          />
+        </v-btn>
+
+        <!-- App Bar Contents -->
+        <div>
+          <v-btn
+            v-for="(item, i) in menuItems"
+            :key="i"
+            :href="item.to"
+            :target="item.to.startsWith('http') ? '_blank' : '_self'"
+            size="large"
+            variant="text"
+            :color="isRootRoute ? 'white' : ''"
+            selected-class="no-active"
+          >
+            {{ item.name }}
           </v-btn>
-          <v-btn v-else text to="/" active-color="no-active">
-            <v-img
-              :src="appBar.knowease.imgSrc"
-              :alt="appBar.knowease.title"
-              :height="appBar.height"
-              :width="appBar.maxWidth"
-              contain
-              class="to-white"
-            />
-          </v-btn>
-
-          <v-spacer></v-spacer>
-
-          <v-menu z-index="10">
-            <!-- Start: Menu Btn -->
-            <template #activator="{ props }">
-              <v-btn
-                :icon="appBar.menuIcon"
-                :color="onKnowease ? '#3746fb' : ''"
-                :size="xs ? 'small' : 'default'"
-                v-bind="props"
-              />
-            </template>
-
-            <!-- Start: Menu Contents -->
-            <v-list density="compact">
-              <v-list-item
-                v-for="(item, i) in menuItems"
-                :key="i"
-                class="d-flex justify-center text-start"
-              >
-                <v-list-item-subtitle v-if="item.title" class="menuTitle">
-                  {{ item.name }}
-                </v-list-item-subtitle>
-                <v-btn
-                  v-else
-                  :href="item.to"
-                  :target="item.to.startsWith('http') ? '_blank' : '_self'"
-                  size="small"
-                  variant="text"
-                  selected-class="no-active"
-                >
-                  {{ item.name }}
-                </v-btn>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </v-toolbar-items>
+        </div>
       </v-col>
     </v-row>
   </v-app-bar>
@@ -83,7 +64,7 @@ const route = useRoute()
 const appBar = {
   height: '20',
   maxWidth: '100',
-  color: 'white',
+  color: 'rgba(0, 0, 0, 0.7)',
   menuIcon: mdiMenu,
   knowease: {
     title: '(주)게타(GET-A Inc.)',
@@ -96,14 +77,10 @@ const appBar = {
 }
 
 const menuItems = [
-  { title: true, name: '게타(GET-A)', to: undefined },
-  { title: false, name: '회사 소개', to: '/' },
-  // { title: false, name: '채용 공고', to: '/recruit' },
-  { title: true, name: '미닛', to: undefined },
-  { title: false, name: '서비스 소개', to: '/service/meaniit/introduce' },
+  { name: '회사 소개', to: '/' },
+  { name: '서비스 소개', to: '/service/meaniit/introduce' },
   {
-    title: false,
-    name: '미닛 서비스 바로가기',
+    name: '서비스 바로가기',
     to: 'https://ko.meaniit.com',
   },
 ]
@@ -123,6 +100,10 @@ const isRootRoute = computed(() => {
 
   return currentRoute === 'index'
 })
+
+const isTransparent = computed(
+  () => appBar.color === 'transparent' && isRootRoute.value,
+)
 </script>
 
 <style scoped>
