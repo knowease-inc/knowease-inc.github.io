@@ -22,7 +22,7 @@
           <v-col cols="7">
             <v-list-item
               lines="two"
-              class="pt-12 font-color"
+              class="pt-12 font-color parent-text-float"
               :class="xs ? 'pl-0' : 'side-blank'"
             >
               <p
@@ -169,5 +169,20 @@ const lowerTextClass = computed(() => {
 .next-arrow {
   right: 250px;
   bottom: -180px;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.parent-text-float {
+  animation: fadeInUp 1s ease-out;
 }
 </style>

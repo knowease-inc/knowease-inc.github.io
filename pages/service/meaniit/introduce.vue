@@ -2,16 +2,14 @@
   <v-container class="d-flex flex-column" fluid>
     <!-- ### Start : Top ### -->
     <v-row justify="center">
-      <v-col cols="12" sm="9">
+      <v-col cols="12" sm="8">
         <TopIntro />
       </v-col>
     </v-row>
 
-    <!-- <ImageSlide /> -->
-
     <!-- ### Start : Why Service ### -->
-    <v-row justify="center" style="background-color: #e6e9f0; height: 120vh">
-      <v-col class="d-flex align-center" cols="10" sm="10">
+    <v-row justify="center" class="custom-background">
+      <v-col class="d-flex align-center" cols="10" sm="8">
         <Differentiation />
       </v-col>
     </v-row>
@@ -22,7 +20,7 @@
       align="center"
       style="background-color: #3746fb; height: 250vh"
     >
-      <v-col cols="10" sm="10">
+      <v-col cols="10" sm="8">
         <HowToUseCards />
       </v-col>
     </v-row>
@@ -30,7 +28,7 @@
     <!-- ### Start : Flaticon attribute ### -->
     <v-row justify="center">
       <v-col cols="8">
-        <v-card flat tile class="mt-10">
+        <v-card flat tile class="my-10">
           <v-card-text class="text-center">
             <div>
               Icons on this page made by
@@ -122,5 +120,17 @@ useHead({
 <style scoped>
 .differ-padding {
   padding: 100px 0 30px 0;
+}
+
+.custom-background {
+  background-color: #e6e9f0;
+  height: 120vh;
+
+  /* 이미지 관련 */
+  position: relative;
+  background-image: url('/img/intro_top.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 32%;
 }
 </style>

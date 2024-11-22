@@ -7,9 +7,8 @@
       <div>모든 기술을 고민하고 그것들에 도전하고 있습니다.</div>
     </div>
 
-    <!-- Start: 동영상 버전 -->
-    <!-- 동영상 버전 첫번째 카드 -->
-    <v-col cols="12" sm="7">
+    <!-- 첫번째 카드 -->
+    <v-col cols="12" sm="5">
       <v-card
         :height="setContainerHeight"
         flat
@@ -80,7 +79,7 @@
           <!-- Start: Image -->
           <div class="video-container">
             <video
-              src="/img/temp/report.mp4"
+              :src="videos.meaniit"
               autoplay
               loop
               muted
@@ -91,7 +90,7 @@
       </v-card>
     </v-col>
 
-    <!-- 동영상 버전 두번째 카드 -->
+    <!-- 두번째 카드 -->
     <v-col cols="12" sm="5">
       <v-card
         :height="setSecondaryCardHeight"
@@ -103,7 +102,7 @@
             {{ contentSecond.name }}
           </v-card-title>
 
-          <v-card-subtitle class="service-exp" style="font-size: 1.45rem">
+          <v-card-subtitle class="service-exp">
             {{ contentSecond.explanation }}
           </v-card-subtitle>
 
@@ -123,13 +122,7 @@
 
           <!-- Start: Image -->
           <div class="video-container">
-            <video
-              src="/img/temp/teaching.mp4"
-              autoplay
-              loop
-              muted
-              class="edu-video"
-            />
+            <video :src="videos.edu" autoplay loop muted class="edu-video" />
           </div>
         </v-card>
 
@@ -149,132 +142,6 @@
         </v-card-actions>
       </v-card>
     </v-col>
-    <!-- End: 동영상 -->
-
-    <!-- Start: 이미지 버전 -->
-    <!-- 이미지 버전 첫번째 카드 -->
-    <v-col cols="12" sm="7">
-      <v-card
-        :height="setContainerHeight"
-        image="/img/temp/report.jpeg"
-        flat
-        class="d-flex my-sm-7 rounded-xl"
-      >
-        <v-card
-          class="my-sm-auto my-0 pa-4 text-white"
-          flat
-          style="background-color: rgba(0, 0, 0, 0.4)"
-          height="100%"
-        >
-          <v-card-title
-            class="font-weight-black content-title service-text"
-            style="font-size: 3rem"
-          >
-            {{ content.name }}
-          </v-card-title>
-
-          <v-card-subtitle
-            class="font-weight-black service-exp service-text"
-            opacity="80"
-          >
-            {{ content.explanation }}
-          </v-card-subtitle>
-
-          <v-card-actions class="pt-8 pl-4 px-4">
-            <v-spacer />
-
-            <div class="d-flex flex-column">
-              <v-btn
-                :disabled="!content.shortcut.href"
-                :elevation="0"
-                :color="linkBtnColor"
-                :href="content.shortcut.href"
-                :style="btnInServiceCard"
-                rounded
-                variant="elevated"
-                class="px-4 font-weight-bold my-4"
-                size="large"
-              >
-                {{ content.shortcut.name }} <v-icon :icon="mdiArrowRightThin" />
-              </v-btn>
-              <v-btn
-                :to="content.introduce.to"
-                :style="btnInServiceCard"
-                variant="outlined"
-                rounded
-                :color="linkBtnColor"
-                style="border: 2px solid #3746fb; background-color: white"
-                class="px-4 font-weight-bold"
-                size="large"
-              >
-                {{ content.introduce.name }}
-                <v-icon :icon="mdiArrowRightThin" />
-              </v-btn>
-            </div>
-          </v-card-actions>
-        </v-card>
-      </v-card>
-    </v-col>
-
-    <!-- 이미지 버전 두번째 카드 -->
-    <v-col cols="12" sm="5">
-      <v-card
-        :height="setSecondaryCardHeight"
-        image="/img/temp/edu2.jpg"
-        flat
-        class="d-flex my-sm-7 rounded-xl"
-      >
-        <v-card
-          class="my-sm-auto my-0 pa-4 text-white"
-          flat
-          style="background-color: rgba(0, 0, 0, 0.3)"
-          height="100%"
-        >
-          <v-card-title
-            class="font-weight-black content-title"
-            style="font-size: 2.8rem"
-          >
-            {{ contentSecond.name }}
-          </v-card-title>
-
-          <v-card-subtitle class="font-weight-bold service-exp" opacity="80">
-            {{ contentSecond.explanation }}
-          </v-card-subtitle>
-
-          <v-card-actions v-if="smAndUp" class="pt-4 pl-4">
-            <v-spacer />
-
-            <v-btn
-              color="grey"
-              :to="contentSecond.introduce.to"
-              :style="btnInServiceCard"
-              variant="elevated"
-              rounded
-              class="px-4 text-black"
-              :disabled="!contentSecond.introduce.to"
-            >
-              {{ contentSecond.introduce.name }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-
-        <v-card-actions v-if="xs" class="full-width">
-          <v-btn
-            outlined
-            :color="linkBtnColor"
-            :to="contentSecond.introduce.to"
-            :style="btnInServiceCard"
-            block
-            rounded
-            class="px-7 ml-n1"
-            :disabled="!contentSecond.introduce.to"
-          >
-            {{ contentSecond.introduce.name }}
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-    <!-- End: 이미지 -->
   </v-row>
 </template>
 
@@ -310,7 +177,10 @@ const btnInServiceCard = {
   minWidth: 0,
   paddingLeft: 0,
 }
-
+const videos = {
+  meaniit: '/img/temp/report.mp4',
+  edu: '/img/temp/teaching.mp4',
+}
 const setContainerHeight = computed(() => (xs.value ? '450' : '500'))
 const setSecondaryCardHeight = computed(() => (xs.value ? '200' : '500'))
 </script>
@@ -331,11 +201,11 @@ const setSecondaryCardHeight = computed(() => (xs.value ? '200' : '500'))
 
 .content-title {
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .service-exp {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   white-space: normal;
 }
 

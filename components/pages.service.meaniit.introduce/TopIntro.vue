@@ -2,7 +2,7 @@
   <v-row align="center" no-gutters style="height: 100vh; font-size: 4rem">
     <v-col cols="10" class="d-flex align-center justify-center">
       <v-col cols="9" class="mr-n9" style="z-index: 100">
-        <div class="d-flex">
+        <div class="d-flex bounce">
           쉬운 조사 보고서
           <v-sheet
             style="background-color: white"
@@ -17,7 +17,7 @@
             />
           </v-sheet>
         </div>
-        <div>
+        <div class="bounce">
           <span class="font-weight-black">자료조사 AI를 소개</span>합니다
         </div>
 

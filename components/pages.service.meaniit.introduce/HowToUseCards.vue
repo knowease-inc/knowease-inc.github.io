@@ -21,7 +21,7 @@
         :class="smAndUp ? 'rounded-xl' : 'rounded-0'"
         width="93%"
         height="300"
-        class="d-flex justify-space-between pa-8"
+        class="d-flex justify-space-between pa-8 pr-0"
       >
         <v-col cols="8" class="pt-8">
           <v-card-title class="card-title py-4">
@@ -37,7 +37,7 @@
           <v-img
             :src="item.image"
             contain
-            :width="smAndUp ? avatarSize : avatarSizeXS"
+            :width="smAndUp ? imgSize : imgSizeXS"
         /></v-col>
       </v-card>
     </v-col>
@@ -47,8 +47,8 @@
 <script setup>
 const { xs, smAndUp } = useDisplay()
 
-const avatarSize = '250'
-const avatarSizeXS = '100'
+const imgSize = '500'
+const imgSizeXS = '100'
 const items = [
   {
     title: '검색어 입력',

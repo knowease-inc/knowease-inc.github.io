@@ -9,7 +9,7 @@
       justify="center"
       style="
         background-color: rgba(2, 32, 71, 0.05);
-        height: 180vh;
+        height: 100vh;
         font-size: 1.8rem;
       "
       class="py-16"
@@ -18,7 +18,7 @@
         <p class="content-title">게타's 서비스</p>
 
         <!-- ### Start : Our Service ### -->
-        <v-col cols="12" sm="9">
+        <v-col cols="12" sm="8">
           <Services />
         </v-col>
       </v-col>
@@ -29,7 +29,7 @@
       <v-col class="d-flex flex-column align-center">
         <p class="content-title py-16">고객사</p>
 
-        <v-col cols="11" sm="9" class="py-16">
+        <v-col cols="11" sm="8" class="py-16">
           <Partners />
         </v-col>
       </v-col>
@@ -42,7 +42,7 @@
       style="background-color: #3746fb; height: 100vh"
       class="mt-16 d-flex"
     >
-      <v-col cols="12" sm="9" class="content-subtitle pa-0 text-white">
+      <v-col cols="12" sm="8" class="content-subtitle pa-0 text-white">
         <p class="content-title text-white py-4">연혁</p>
         <p style="font-size: 1.8rem">
           게타(GET-A)을 위했던 <span class="font-weight-black">지난 여정</span>
@@ -68,7 +68,7 @@
             <span class="font-weight-bold"> 고군분투하는 이들</span>
           </div>
         </div>
-        <v-col cols="11" sm="9">
+        <v-col cols="11" sm="8">
           <Founders />
         </v-col>
       </v-col>
