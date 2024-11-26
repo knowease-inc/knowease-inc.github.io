@@ -7,14 +7,15 @@
     :style="{
       borderBottom: isRootRoute ? '0.5px solid grey' : '1px solid lightgrey',
     }"
+    absolute
   >
     <v-row justify="center">
-      <v-col cols="9" class="d-flex justify-space-between">
+      <v-col cols="10" sm="9" class="d-flex justify-space-between align-center">
         <!-- Favicon & Logo -->
         <v-btn
           text
           to="/"
-          :color="onKnowease ? 'transparent' : ''"
+          :color="isRootRoute ? 'transparent' : ''"
           class="px-0"
         >
           <v-img
@@ -35,8 +36,8 @@
           />
         </v-btn>
 
-        <!-- App Bar Contents -->
-        <div>
+        <!-- Menu Btn -->
+        <div v-if="smAndUp">
           <v-btn
             v-for="(item, i) in menuItems"
             :key="i"
@@ -50,13 +51,55 @@
             {{ item.name }}
           </v-btn>
         </div>
+
+        <!-- Start: Menu Btn -->
+        <v-menu
+          v-if="xs"
+          activator="parent"
+          location="bottom"
+          transition="slide-y-transition"
+          v-model="isMenuOpen"
+        >
+          <template v-slot:activator="{ props }">
+            <v-app-bar-nav-icon
+              v-bind="props"
+              :color="isRootRoute ? 'white' : '#3746fb'"
+              :icon="isMenuOpen ? mdiClose : mdiMenu"
+            />
+          </template>
+
+          <!-- Start: Menu Contents -->
+          <v-card
+            class="mx-n5 px-4 mt-n1"
+            :color="isRootRoute ? 'black' : '#3746fb'"
+            tile
+          >
+            <v-list
+              :style="{
+                'background-color': isRootRoute ? 'black' : '#3746fb',
+              }"
+              style="color: white"
+              width="100%"
+            >
+              <v-list-item
+                v-for="(item, i) in menuItems"
+                :key="i"
+                :href="item.to"
+                :target="item.to.startsWith('http') ? '_blank' : '_self'"
+                link
+              >
+                <v-list-item-title>{{ item.name }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-card>
+        </v-menu>
       </v-col>
     </v-row>
   </v-app-bar>
 </template>
 
 <script setup>
-import { mdiMenu } from '@mdi/js'
+import { mdiMenu, mdiClose } from '@mdi/js'
 
 const { xs, smAndUp } = useDisplay()
 const route = useRoute()
@@ -84,16 +127,17 @@ const menuItems = [
     to: 'https://ko.meaniit.com',
   },
 ]
+const isMenuOpen = ref(false)
 
-const onKnowease = computed(() => {
-  const currentRoute = route.path
+// const isRootRoute = computed(() => {
+//   const currentRoute = route.path
 
-  return (
-    currentRoute === '/' ||
-    currentRoute === '/recruit' ||
-    currentRoute === '/recruit/'
-  )
-})
+//   return (
+//     currentRoute === '/' ||
+//     currentRoute === '/recruit' ||
+//     currentRoute === '/recruit/'
+//   )
+// })
 
 const isRootRoute = computed(() => {
   const currentRoute = route.name

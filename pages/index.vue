@@ -7,12 +7,8 @@
     <!-- ### Start : Service Link ### -->
     <v-row
       justify="center"
-      style="
-        background-color: rgba(2, 32, 71, 0.05);
-        height: 100vh;
-        font-size: 1.8rem;
-      "
-      class="py-16"
+      style="background-color: rgba(2, 32, 71, 0.05); font-size: 1.8rem"
+      class="py-8 py-sm-16"
     >
       <v-col class="d-flex flex-column align-center pt-16">
         <p class="content-title">게타's 서비스</p>
@@ -42,7 +38,7 @@
       style="background-color: #3746fb; height: 100vh"
       class="mt-16 d-flex"
     >
-      <v-col cols="12" sm="8" class="content-subtitle pa-0 text-white">
+      <v-col cols="8" sm="8" class="content-subtitle pa-0 text-white">
         <p class="content-title text-white py-4">연혁</p>
         <p style="font-size: 1.8rem">
           게타(GET-A)을 위했던 <span class="font-weight-black">지난 여정</span>
@@ -58,11 +54,15 @@
     <v-row
       justify="center"
       class="pt-16"
-      style="height: 180vh; background-color: rgba(2, 32, 71, 0.05)"
+      style="background-color: rgba(2, 32, 71, 0.05)"
+      :style="{ height: smAndUp ? '180vh' : '' }"
     >
       <v-col class="d-flex flex-column align-center pb-0">
         <p class="content-title">함께하는 사람들</p>
-        <div class="content-subtitle my-4" style="font-size: 1.8rem">
+        <div
+          class="content-subtitle my-4"
+          :style="{ 'font-size': smAndUp ? '1.8rem' : '1.4rem' }"
+        >
           <div>
             게타(GET-A)을 위해 <br v-if="xs" />
             <span class="font-weight-bold"> 고군분투하는 이들</span>

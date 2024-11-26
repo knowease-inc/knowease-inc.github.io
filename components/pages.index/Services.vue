@@ -1,11 +1,16 @@
 <template>
   <v-row align="center" justify="center">
-    <div class="text-center pt-12 text-h4" style="line-height: 1.8">
+    <v-col
+      cols="11"
+      sm="12"
+      class="text-center pt-12 text-sm-h4 text-h5"
+      style="line-height: 1.8"
+    >
       <div class="font-weight-black">
         정보, 지식이 쉽고 빠르게 전달 및 소통 되도록 만드는
       </div>
       <div>모든 기술을 고민하고 그것들에 도전하고 있습니다.</div>
-    </div>
+    </v-col>
 
     <!-- 첫번째 카드 -->
     <v-col cols="12" sm="5">
@@ -23,54 +28,35 @@
             {{ content.explanation }}
           </v-card-subtitle>
 
-          <v-card-actions v-if="smAndUp" class="pt-4 pl-4">
+          <v-card-actions
+            :class="[smAndUp ? 'pt-sm-4  pl-4' : 'd-flex flex-column']"
+          >
             <v-btn
               :disabled="!content.shortcut.href"
               :elevation="0"
               :color="linkBtnColor"
               :href="content.shortcut.href"
-              :style="btnInServiceCard"
+              :style="{
+                ...btnInServiceCard,
+                ...(smAndUp ? {} : { width: '100%' }),
+              }"
               variant="elevated"
               rounded
-              class="px-4"
+              :class="[smAndUp ? 'px-4 ' : 'mb-2']"
             >
               {{ content.shortcut.name }}
             </v-btn>
-            <v-btn
-              :color="linkBtnColor"
-              :to="content.introduce.to"
-              :style="btnInServiceCard"
-              variant="outlined"
-              rounded
-              class="px-4"
-            >
-              {{ content.introduce.name }}
-            </v-btn>
-          </v-card-actions>
 
-          <v-card-actions v-if="xs" class="d-flex flex-column">
-            <v-btn
-              :disabled="!content.shortcut.href"
-              :dark="!!content.shortcut.href"
-              :elevation="0"
-              :color="linkBtnColor"
-              :href="content.shortcut.href"
-              :style="btnInServiceCard"
-              variant="elevated"
-              rounded
-              class="mb-2"
-              style="width: 100%"
-            >
-              {{ content.shortcut.name }}
-            </v-btn>
             <v-btn
               :color="linkBtnColor"
               :to="content.introduce.to"
-              :style="btnInServiceCard"
+              :style="{
+                ...btnInServiceCard,
+                ...(smAndUp ? {} : { width: '100%' }),
+              }"
               variant="outlined"
               rounded
-              class="px-7 ml-n1"
-              style="width: 100%"
+              :class="[smAndUp ? 'px-4' : 'px-7 ml-n1']"
             >
               {{ content.introduce.name }}
             </v-btn>
@@ -83,7 +69,7 @@
               autoplay
               loop
               muted
-              class="meaniit-video"
+              :class="smAndUp ? 'meaniit-video' : 'meaniit-video-xs'"
             />
           </div>
         </v-card>
@@ -93,7 +79,7 @@
     <!-- 두번째 카드 -->
     <v-col cols="12" sm="5">
       <v-card
-        :height="setSecondaryCardHeight"
+        :height="setContainerHeight"
         flat
         class="px-sm-5 my-sm-7 rounded-xl pt-7 px-1"
       >
@@ -106,14 +92,18 @@
             {{ contentSecond.explanation }}
           </v-card-subtitle>
 
-          <v-card-actions v-if="smAndUp" class="pt-4 pl-4">
+          <v-card-actions :class="[smAndUp ? 'pt-4 pl-4' : 'full-width']">
             <v-btn
+              variant="outlined"
               :color="linkBtnColor"
               :to="contentSecond.introduce.to"
-              :style="btnInServiceCard"
-              variant="outlined"
+              :style="{
+                ...btnInServiceCard,
+                ...(xs.value ? { width: '100%' } : {}),
+              }"
+              :block="!smAndUp"
               rounded
-              class="px-4"
+              :class="[smAndUp ? 'px-4' : 'px-7 ml-n1']"
               :disabled="!contentSecond.introduce.to"
             >
               {{ contentSecond.introduce.name }}
@@ -122,24 +112,15 @@
 
           <!-- Start: Image -->
           <div class="video-container">
-            <video :src="videos.edu" autoplay loop muted class="edu-video" />
+            <video
+              :src="videos.edu"
+              autoplay
+              loop
+              muted
+              :class="smAndUp ? 'edu-video' : 'edu-video-xs'"
+            />
           </div>
         </v-card>
-
-        <v-card-actions v-if="xs" class="full-width">
-          <v-btn
-            outlined
-            :color="linkBtnColor"
-            :to="contentSecond.introduce.to"
-            :style="btnInServiceCard"
-            block
-            rounded
-            class="px-7 ml-n1"
-            :disabled="!contentSecond.introduce.to"
-          >
-            {{ contentSecond.introduce.name }}
-          </v-btn>
-        </v-card-actions>
       </v-card>
     </v-col>
   </v-row>
@@ -181,8 +162,7 @@ const videos = {
   meaniit: '/img/temp/report.mp4',
   edu: '/img/temp/teaching.mp4',
 }
-const setContainerHeight = computed(() => (xs.value ? '450' : '500'))
-const setSecondaryCardHeight = computed(() => (xs.value ? '200' : '500'))
+const setContainerHeight = computed(() => (xs.value ? '500' : '500'))
 </script>
 
 <style scoped>
@@ -220,8 +200,16 @@ const setSecondaryCardHeight = computed(() => (xs.value ? '200' : '500'))
   height: 295px;
 }
 
+.meaniit-video-xs {
+  height: 200px;
+}
+
 .edu-video {
   height: 270px;
+}
+
+.edu-video-xs {
+  height: 200px;
 }
 
 .service-text {

@@ -102,11 +102,11 @@
                   </div>
                 </div>
               </v-col>
-              <v-col class="white--text">
-                <div class="text-body-1 font-weight-bold mb-1">
+              <v-col cols="10" class="text-white">
+                <div class="font-weight-bold my-4" style="font-size: 1.4rem">
                   {{ item.title }}
                 </div>
-                <div class="text-body-2 text-line-height">
+                <div class="text-body-1 text-line-height">
                   {{ item.body }}
                 </div>
               </v-col>

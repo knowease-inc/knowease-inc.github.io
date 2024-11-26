@@ -8,20 +8,19 @@
     </v-row>
 
     <!-- ### Start : Why Service ### -->
-    <v-row justify="center" class="custom-background">
-      <v-col class="d-flex align-center" cols="10" sm="8">
+    <v-row
+      justify="center"
+      :class="smAndUp ? 'bg-color custom-background' : 'bg-color py-16'"
+    >
+      <v-col class="d-flex align-center" cols="12" sm="8">
         <Differentiation />
       </v-col>
     </v-row>
 
     <!-- ### Start :Usage ### -->
-    <v-row
-      justify="center"
-      align="center"
-      style="background-color: #3746fb; height: 250vh"
-    >
-      <v-col cols="10" sm="8">
-        <HowToUseCards />
+    <v-row justify="center" align="center" style="">
+      <v-col cols="12" sm="8">
+        <HowToUseCards :class="smAndUp ? 'usage-bg' : ''" />
       </v-col>
     </v-row>
 
@@ -123,7 +122,6 @@ useHead({
 }
 
 .custom-background {
-  background-color: #e6e9f0;
   height: 120vh;
 
   /* 이미지 관련 */
@@ -132,5 +130,14 @@ useHead({
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: auto 32%;
+}
+
+.bg-color {
+  background-color: #e6e9f0;
+}
+
+.usage-bg {
+  background-color: #3746fb;
+  height: 250vh;
 }
 </style>

@@ -1,6 +1,14 @@
 <template>
-  <v-row align="center" no-gutters style="height: 100vh; font-size: 4rem">
-    <v-col cols="10" class="d-flex align-center justify-center">
+  <v-row
+    align="end"
+    align-sm="center"
+    no-gutters
+    :style="{
+      'font-size': smAndUp ? '4rem' : '1.6rem',
+      height: smAndUp ? '100vh' : '120vh',
+    }"
+  >
+    <v-col v-if="smAndUp" cols="10" class="d-flex align-center justify-center">
       <v-col cols="9" class="mr-n9" style="z-index: 100">
         <div class="d-flex bounce">
           쉬운 조사 보고서
@@ -42,6 +50,32 @@
           muted
           style="max-width: 220%; max-height: 220%"
         />
+      </v-col>
+    </v-col>
+
+    <v-col v-if="xs" cols="12" class="d-flex align-end">
+      <v-col cols="12">
+        <div class="d-flex bounce">
+          쉬운 조사 보고서
+
+          <v-img :src="imgs.logo" max-width="90" class="bounce ml-4" />
+        </div>
+        <div class="bounce">
+          <span class="font-weight-black">자료조사 AI를 소개</span>합니다
+        </div>
+
+        <div style="font-size: 1.2rem; color: #6b7684" class="font-weight-bold">
+          <p class="my-8" v-html="items.text.first"></p>
+          <p class="my-8" v-html="items.text.second"></p>
+        </div>
+
+        <v-btn color="#3746fb" href="https://ko.meaniit.com">
+          서비스 바로가기
+        </v-btn>
+
+        <div class="d-flex justify-center">
+          <video :src="imgs.video" autoplay loop muted style="height: 350px" />
+        </div>
       </v-col>
     </v-col>
   </v-row>
