@@ -25,7 +25,7 @@
       <v-col class="d-flex flex-column align-center">
         <p class="content-title py-16">고객사</p>
 
-        <v-col cols="11" sm="8" class="py-16">
+        <v-col cols="11" sm="10" md="8" class="py-16">
           <Partners />
         </v-col>
       </v-col>
@@ -55,9 +55,9 @@
       justify="center"
       class="pt-16"
       style="background-color: rgba(2, 32, 71, 0.05)"
-      :style="{ height: smAndUp ? '180vh' : '' }"
+      :style="{ height: mdAndUp ? '185vh' : '' }"
     >
-      <v-col class="d-flex flex-column align-center pb-0">
+      <v-col class="d-flex flex-column align-center">
         <p class="content-title">함께하는 사람들</p>
         <div
           class="content-subtitle my-4"
@@ -83,7 +83,7 @@ import TimelineIndex from '@/components/pages.index/Timeline.vue'
 import Partners from '@/components/pages.index/Partners.vue'
 import Carousel from '@/components/layouts.default/Carousel.vue'
 
-const { xs, smAndUp } = useDisplay()
+const { xs, smAndUp, mdAndUp } = useDisplay()
 </script>
 
 <style scoped></style>

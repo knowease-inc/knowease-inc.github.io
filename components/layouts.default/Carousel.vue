@@ -1,45 +1,30 @@
 <template>
-  <v-card flat tile width="100%" style="background-color: black">
-    <v-carousel
-      v-model="currentIndex"
-      hide-delimiters
-      :show-arrows="false"
-      :height="smAndUp ? '105vh' : '105vh'"
+  <v-card
+    width="100%"
+    :height="smAndUp ? '105vh' : '100%'"
+    class="image-container"
+  >
+    <!-- Text Contents -->
+    <v-sheet
+      height="100%"
+      color="rgba(0,0,0,0)"
+      class="d-flex justify-center align-center pa-4"
     >
-      <v-carousel-item
-        v-for="(item, i) in items"
-        :key="i"
-        :reverse-transition="effect.reverse"
-        :transition="effect.transition"
-        :src="item.src"
-      >
-        <!-- Text Contents -->
-        <v-sheet
-          height="100%"
-          color="rgba(0,0,0,0)"
-          class="d-flex justify-center align-center pa-4"
+      <v-col cols="10" sm="9">
+        <v-list-item
+          lines="two"
+          class="pt-12 font-color parent-text-float"
+          :class="xs ? 'pl-0' : 'side-blank'"
         >
-          <v-col cols="9" sm="7">
-            <v-list-item
-              lines="two"
-              class="pt-12 font-color parent-text-float"
-              :class="xs ? 'pl-0' : 'side-blank'"
-            >
-              <p :class="upperTextClass" class="my-4" v-html="upperText" />
-              <p
-                :class="lowerTextClass"
-                class="pt-4"
-                v-html="item.text.lower"
-              />
+          <p :class="upperTextClass" class="my-4" v-html="upperText" />
+          <p :class="lowerTextClass" class="pt-4" v-html="item.text.lower" />
 
-              <div class="scroll-indicator">
-                <v-icon :icon="mdiChevronDown" size="50" class="arrow" />
-              </div>
-            </v-list-item>
-          </v-col>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel>
+          <div class="scroll-indicator">
+            <v-icon :icon="mdiChevronDown" size="50" class="arrow" />
+          </div>
+        </v-list-item>
+      </v-col>
+    </v-sheet>
   </v-card>
 </template>
 
@@ -48,33 +33,20 @@ import { mdiChevronLeft, mdiChevronRight, mdiChevronDown } from '@mdi/js'
 
 const { xs, smAndUp } = useDisplay()
 
-const effect = ref({
-  reverse: undefined, // 예: "fade-transition",
-  transition: undefined, // 예: "fade-transition",
-})
-
-const items = [
-  {
-    src: 'img/temp/main1.jpg',
-    text: {
-      upper:
-        '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
-      upperXsOnly:
-        '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 <br /> 얻을 수 있도록</span> <br /> 정보기술(IT)로 돕습니다',
-      lower:
-        '모든 분야에서 정보 습득 장벽을 낮춰<br />정보 격차로 인한 문제를 줄입니다',
-    },
+const item = {
+  src: 'img/temp/main1.jpg',
+  text: {
+    upper:
+      '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
+    upperXsOnly:
+      '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 <br /> 얻을 수 있도록</span> <br /> 정보기술(IT)로 돕습니다',
+    lower:
+      '모든 분야에서 정보 습득 장벽을 낮춰<br />정보 격차로 인한 문제를 줄입니다',
   },
-]
-
-const currentIndex = ref(0)
-
-const setCarouselHeight = computed(() => {
-  return xs.value ? '350' : '500'
-})
+}
 
 const upperText = computed(() => {
-  const { upperXsOnly, upper } = items[0].text
+  const { upperXsOnly, upper } = item.text
   return xs.value ? upperXsOnly : upper
 })
 
@@ -101,7 +73,7 @@ const lowerTextClass = computed(() => {
 
 .lowerText {
   line-height: 1.4;
-  font-size: 16px;
+  font-size: 1.6rem;
 
   font-weight: 400;
 }
@@ -181,5 +153,12 @@ const lowerTextClass = computed(() => {
     transform: translateY(10px);
     opacity: 0;
   }
+}
+
+.image-container {
+  background: url('img/temp/main1.jpg') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 </style>

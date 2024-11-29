@@ -8,7 +8,9 @@
       v-for="(item, index) in items"
       :key="index"
       cols="12"
-      sm="6"
+      sm="9"
+      md="6"
+      lg="5"
       class="d-flex justify-center"
     >
       <v-card

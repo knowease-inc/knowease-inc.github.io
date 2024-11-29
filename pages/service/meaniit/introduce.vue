@@ -2,7 +2,7 @@
   <v-container class="d-flex flex-column" fluid>
     <!-- ### Start : Top ### -->
     <v-row justify="center">
-      <v-col cols="12" sm="8">
+      <v-col cols="12" sm="10" lg="8">
         <TopIntro />
       </v-col>
     </v-row>
@@ -10,7 +10,7 @@
     <!-- ### Start : Why Service ### -->
     <v-row
       justify="center"
-      :class="smAndUp ? 'bg-color custom-background' : 'bg-color py-16'"
+      :class="smAndUp ? 'bg-color custom-background ' : 'bg-color py-16'"
     >
       <v-col class="d-flex align-center" cols="12" sm="8">
         <Differentiation />
@@ -18,8 +18,8 @@
     </v-row>
 
     <!-- ### Start :Usage ### -->
-    <v-row justify="center" align="center" style="">
-      <v-col cols="12" sm="8">
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="10" md="8">
         <HowToUseCards :class="smAndUp ? 'usage-bg' : ''" />
       </v-col>
     </v-row>
@@ -132,12 +132,34 @@ useHead({
   background-size: auto 32%;
 }
 
+@media (min-width: 600px) {
+  /* smAndUp 기준 */
+  .custom-background {
+    min-height: 200vh;
+  }
+
+  .usage-bg {
+    height: 130vh;
+  }
+}
+
+@media (min-width: 960px) {
+  /* mdAndUp 기준 */
+  .custom-background {
+    height: 150vh;
+  }
+
+  .usage-bg {
+    height: 80vh;
+  }
+}
+
 .bg-color {
   background-color: #e6e9f0;
 }
 
 .usage-bg {
   background-color: #3746fb;
-  height: 250vh;
+  height: 200vh;
 }
 </style>

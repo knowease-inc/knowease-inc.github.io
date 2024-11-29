@@ -3,7 +3,7 @@
   <v-row justify="center">
     <v-col
       cols="auto"
-      :offset="smAndUp ? 6 : ''"
+      :offset="!mdAndUp ? 6 : 4"
       :class="smAndUp ? 'pb-8 pl-16' : 'mb-8'"
     >
       <v-btn
@@ -47,7 +47,8 @@
           v-for="(item, i) in contents"
           :key="i"
           :style="{ transform: `translateX(${-carouselStartIndex * 100}%)` }"
-          cols="4"
+          sm="6"
+          lg="4"
         >
           <div v-show="i >= carouselStartIndex" class="d-flex flex-column">
             <v-col class="white-circle circle-sm">
@@ -60,11 +61,17 @@
                 </div>
               </div>
             </v-col>
-            <v-col class="text-white px-4">
-              <div class="history-title text-nowrap my-4">
+            <v-col class="text-white px-4 pr-md-8">
+              <div
+                class="text-nowrap my-4 font-weight-black"
+                :class="lgAndUp ? 'history-title' : 'text-h6'"
+              >
                 {{ item.title }}
               </div>
-              <div class="history-body text-line-height">
+              <div
+                class="text-line-height font-weight-bold"
+                :class="lgAndUp ? 'history-body' : 'text-body-1'"
+              >
                 {{ item.body }}
               </div>
             </v-col>
@@ -121,7 +128,7 @@
 <script setup>
 import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
-const { smAndUp, xs } = useDisplay()
+const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 
 const contents = [
   {

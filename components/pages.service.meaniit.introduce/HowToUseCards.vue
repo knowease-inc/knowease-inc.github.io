@@ -4,7 +4,7 @@
       <div
         v-for="(htxt, hidx) in howUse"
         :key="hidx"
-        class="content-title text-white text-center"
+        class="content-title text-center pt-8"
       >
         {{ htxt }}
       </div>
@@ -19,12 +19,12 @@
       <v-card
         flat
         :class="smAndUp ? 'rounded-xl' : 'rounded-0'"
-        width="93%"
-        height="300"
-        class="d-flex justify-space-between pa-8 pr-0"
+        :width="smAndUp ? '100%' : '93%'"
+        :height="smAndUp ? '200' : '300'"
+        class="d-flex justify-space-between pa-md-8 pa-sm-4 pr-0"
       >
         <v-col cols="8" class="pt-8">
-          <v-card-title class="card-title py-4">
+          <v-card-title class="card-title py-md-4">
             {{ item.title }}
           </v-card-title>
 
@@ -33,11 +33,8 @@
           </v-card-subtitle>
         </v-col>
 
-        <v-col cols="4">
-          <v-img
-            :src="item.image"
-            contain
-            :width="smAndUp ? imgSize : imgSizeXS"
+        <v-col cols="4" md="3" align-self="center">
+          <v-img :src="item.image" contain width="imgSize"
         /></v-col>
       </v-card>
     </v-col>
@@ -70,7 +67,7 @@
             {{ item.detail }}
           </v-card-subtitle>
 
-          <v-col cols="10">
+          <v-col offset="2" cols="8">
             <v-img :src="item.image" contain width="imgSizeXS" />
           </v-col>
         </v-col>
@@ -136,6 +133,10 @@ const howUse = [
 .contentSubText {
   font-size: 1.4rem;
   font-weight: 400;
+
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .card-title-xs {

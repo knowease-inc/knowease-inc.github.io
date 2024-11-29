@@ -4,26 +4,37 @@
     align-sm="center"
     no-gutters
     :style="{
-      'font-size': smAndUp ? '4rem' : '1.6rem',
-      height: smAndUp ? '100vh' : '120vh',
+      'font-size': lgAndUp
+        ? '4rem'
+        : smAndUp
+          ? '3rem'
+          : mdAndUp
+            ? '3.5rem'
+            : '1.6rem',
+      height: smAndUp ? '100vh' : mdAndUp ? '100vh' : '120vh',
     }"
   >
-    <v-col v-if="smAndUp" cols="10" class="d-flex align-center justify-center">
-      <v-col cols="9" class="mr-n9" style="z-index: 100">
-        <div class="d-flex bounce">
+    <v-col
+      v-if="smAndUp"
+      cols="12"
+      md="10"
+      class="d-md-flex align-center justify-center"
+    >
+      <v-col
+        cols="9"
+        offset-sm="2"
+        offset-md="0"
+        class="mr-n9"
+        style="z-index: 100"
+      >
+        <div class="d-md-flex bounce">
           쉬운 조사 보고서
-          <v-sheet
-            style="background-color: white"
-            class="rounded-lg d-flex align-center ml-sm-4 ml-2 pa-4"
-            width="180"
-            height="80"
-          >
-            <v-img
-              :src="imgs.logo"
-              :width="smAndUp ? '50' : '60'"
-              class="bounce"
-            />
-          </v-sheet>
+          <v-img
+            :src="imgs.logo"
+            :max-width="lgAndUp ? '180' : mdAndUp ? '140' : '120'"
+            min-width="80"
+            class="bounce ml-sm-4 ml-2 my-0 my-sm-4"
+          />
         </div>
         <div class="bounce">
           <span class="font-weight-black">자료조사 AI를 소개</span>합니다
@@ -42,14 +53,15 @@
         </v-btn>
       </v-col>
 
-      <v-col cols="4" class="ml-n6">
-        <video
-          :src="imgs.video"
-          autoplay
-          loop
-          muted
-          style="max-width: 220%; max-height: 220%"
-        />
+      <v-col
+        offset-sm="2"
+        offset-md="0"
+        sm="8"
+        md="4"
+        class="ml-md-n6 mt-sm-n9"
+        align-self="start"
+      >
+        <video :src="imgs.video" autoplay loop muted class="responsive-image" />
       </v-col>
     </v-col>
 
@@ -82,7 +94,7 @@
 </template>
 
 <script setup>
-const { xs, smAndUp } = useDisplay()
+const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 
 const imgs = {
   topIntro: '/img/intro_top.png',
@@ -136,7 +148,29 @@ const items = {
     transform: translateY(-7px);
   }
 }
+
 .bounce {
   animation: bounce 1s ease 1;
+}
+
+/* 기본 크기 설정 */
+.responsive-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (min-width: 600px) {
+  /* smAndUp 기준 */
+  .responsive-image {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 960px) {
+  /* mdAndUp 기준 */
+  .responsive-image {
+    max-width: 220%;
+    max-height: 120%;
+  }
 }
 </style>

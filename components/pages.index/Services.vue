@@ -13,7 +13,7 @@
     </v-col>
 
     <!-- 첫번째 카드 -->
-    <v-col cols="12" sm="5">
+    <v-col cols="12" sm="10" md="6" lg="5" xl="4">
       <v-card
         :height="setContainerHeight"
         flat
@@ -77,7 +77,7 @@
     </v-col>
 
     <!-- 두번째 카드 -->
-    <v-col cols="12" sm="5">
+    <v-col cols="12" sm="10" md="6" lg="5" xl="4">
       <v-card
         :height="setContainerHeight"
         flat

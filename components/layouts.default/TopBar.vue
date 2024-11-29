@@ -7,10 +7,14 @@
     :style="{
       borderBottom: isRootRoute ? '0.5px solid grey' : '1px solid lightgrey',
     }"
-    absolute
   >
     <v-row justify="center">
-      <v-col cols="10" sm="9" class="d-flex justify-space-between align-center">
+      <v-col
+        cols="10"
+        sm="9"
+        lg="8"
+        class="d-flex justify-space-between align-center"
+      >
         <!-- Favicon & Logo -->
         <v-btn
           text
@@ -31,7 +35,7 @@
             :src="appBar.knowease.imgSrc"
             :alt="appBar.knowease.title"
             :height="appBar.height"
-            :width="appBar.maxWidth"
+            :width="sm ? 80 : appBar.maxWidth"
             contain
           />
         </v-btn>
@@ -43,7 +47,7 @@
             :key="i"
             :href="item.to"
             :target="item.to.startsWith('http') ? '_blank' : '_self'"
-            size="large"
+            :size="sm ? 'small' : 'large'"
             variant="text"
             :color="isRootRoute ? 'white' : ''"
             selected-class="no-active"
@@ -101,7 +105,7 @@
 <script setup>
 import { mdiMenu, mdiClose } from '@mdi/js'
 
-const { xs, smAndUp } = useDisplay()
+const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()
 
 const appBar = {
