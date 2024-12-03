@@ -130,6 +130,7 @@ export default defineNuxtConfig({
   modules: [
     // https://vuetify-nuxt-module.netlify.app/guide/
     'vuetify-nuxt-module',
+    '@nuxtjs/i18n',
   ],
 
   /*
@@ -176,7 +177,22 @@ export default defineNuxtConfig({
         mangle: true, // Option to disable name mangling
       },
     },
+    resolve: {
+      alias: {
+        '../i18n/locales': '/locales',
+      },
+    },
   },
 
   compatibilityDate: '2024-10-31',
+
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' },
+      { code: 'ko', iso: 'ko-KR', file: 'ko.json', name: 'Korean' },
+    ],
+    defaultLocale: 'ko', // 기본 언어
+    lazy: true, // JSON 파일 지연 로드
+    langDir: './locales/', // JSON 파일 경로
+  },
 })

@@ -1,0 +1,5 @@
+{
+  "languageSwitcher": "언어 전환",
+  "welcomeMessage": "안녕하세요!",
+  "hello": "안녕하세요, {name}!"
+}
