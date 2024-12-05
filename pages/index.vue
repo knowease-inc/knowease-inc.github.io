@@ -11,7 +11,7 @@
       class="py-8 py-sm-16"
     >
       <v-col class="d-flex flex-column align-center pt-16">
-        <p class="content-title">게타's 서비스</p>
+        <p class="content-title">{{ t('pages.index.pageTitle.service') }}</p>
 
         <!-- ### Start : Our Service ### -->
         <v-col cols="12" sm="8">
@@ -23,7 +23,9 @@
     <!-- ### Start : Partners ### -->
     <v-row class="d-flex justify-center align-center" style="height: 80vh">
       <v-col class="d-flex flex-column align-center">
-        <p class="content-title py-16">고객사</p>
+        <p class="content-title py-16">
+          {{ t('pages.index.pageTitle.partners') }}
+        </p>
 
         <v-col cols="11" sm="10" md="8" class="py-16">
           <Partners />
@@ -39,10 +41,13 @@
       class="mt-16 d-flex"
     >
       <v-col cols="8" sm="8" class="content-subtitle pa-0 text-white">
-        <p class="content-title text-white py-4">연혁</p>
-        <p style="font-size: 1.8rem">
-          게타(GET-A)을 위했던 <span class="font-weight-black">지난 여정</span>
+        <p class="content-title text-white py-4">
+          {{ t('pages.index.pageTitle.history') }}
         </p>
+        <p
+          style="font-size: 1.8rem"
+          v-html="t('pages.index.pageTitle.historySub')"
+        ></p>
       </v-col>
 
       <v-col cols="12" sm="12">
@@ -58,15 +63,12 @@
       :style="{ height: mdAndUp ? '185vh' : '' }"
     >
       <v-col class="d-flex flex-column align-center">
-        <p class="content-title">함께하는 사람들</p>
+        <p class="content-title">{{ t('pages.index.pageTitle.team') }}</p>
         <div
           class="content-subtitle my-4"
           :style="{ 'font-size': smAndUp ? '1.8rem' : '1.4rem' }"
         >
-          <div>
-            게타(GET-A)을 위해 <br v-if="xs" />
-            <span class="font-weight-bold"> 고군분투하는 이들</span>
-          </div>
+          <div v-html="t('pages.index.pageTitle.teamSub')"></div>
         </div>
         <v-col cols="11" sm="8">
           <Founders />
@@ -81,9 +83,10 @@ import Services from '@/components/pages.index/Services.vue'
 import Founders from '@/components/pages.index/Founders.vue'
 import TimelineIndex from '@/components/pages.index/Timeline.vue'
 import Partners from '@/components/pages.index/Partners.vue'
-import Carousel from '@/components/layouts.default/Carousel.vue'
+import Carousel from '~/components/pages.index/Carousel.vue'
 
 const { xs, smAndUp, mdAndUp } = useDisplay()
+const { t } = useI18n()
 </script>
 
 <style scoped></style>

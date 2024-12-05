@@ -6,14 +6,14 @@
           <v-list-item>
             <v-list-item-title class="footer-text">
               <div class="font-weight-bold mb-4" style="color: #b0b8c1">
-                (주)게타
+                {{ t('default.footer.companyName') }}
               </div>
-              <div>대표자: 박성묵</div>
+              <div>{{ t('default.footer.representative') }}</div>
+              <div>{{ t('default.footer.address') }}</div>
               <div>
-                주소: 경기도 성남시 분당구 성남대로43번길 10, 3층 309호(구미동,
-                하나EZ타워)
+                e-mail: {{ t('default.footer.contact.email') }} | Tel:
+                {{ t('default.footer.contact.phone') }}
               </div>
-              <div>e-mail: msp770@gmail.com | Tel: 010-8920-3726</div>
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -37,14 +37,14 @@
           <v-list-item>
             <v-list-item-title class="footer-text">
               <div class="font-weight-bold mb-4" style="color: #b0b8c1">
-                (주)게타
+                {{ t('default.footer.companyName') }}
               </div>
-              <div>대표자: 박성묵</div>
+              <div>{{ t('default.footer.representative') }}</div>
+              <div>{{ t('default.footer.address') }}</div>
               <div>
-                주소: 경기도 성남시 분당구 성남대로43번길 10, 3층 309호(구미동,
-                하나EZ타워)
+                e-mail: {{ t('default.footer.contact.email') }} | Tel:
+                {{ t('default.footer.contact.phone') }}
               </div>
-              <div>e-mail: msp770@gmail.com | Tel: 010-8920-3726</div>
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -67,15 +67,19 @@
 
 <script setup>
 const { smAndUp } = useDisplay()
+const { t } = useI18n()
 
-const menuItems = [
-  { name: '회사 소개', to: '/' },
-  { name: '서비스 소개', to: '/service/meaniit/introduce' },
+const menuItems = computed(() => [
+  { name: t('default.topBar.menuItems.me'), to: '/' },
   {
-    name: '서비스 바로가기',
+    name: t('default.topBar.menuItems.serviceIntro'),
+    to: '/service/meaniit/introduce',
+  },
+  {
+    name: t('default.topBar.menuItems.serviceLink'),
     to: 'https://ko.meaniit.com',
   },
-]
+])
 </script>
 
 <style scoped>

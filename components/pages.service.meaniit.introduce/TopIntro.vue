@@ -28,7 +28,7 @@
         style="z-index: 100"
       >
         <div class="d-md-flex bounce">
-          쉬운 조사 보고서
+          {{ t('pages.introduce.topIntro.heading.main') }}
           <v-img
             :src="imgs.logo"
             :max-width="lgAndUp ? '180' : mdAndUp ? '140' : '120'"
@@ -37,7 +37,9 @@
           />
         </div>
         <div class="bounce">
-          <span class="font-weight-black">자료조사 AI를 소개</span>합니다
+          <span class="font-weight-black">
+            {{ t('pages.introduce.topIntro.heading.sub') }}
+          </span>
         </div>
 
         <v-col
@@ -45,11 +47,15 @@
           style="font-size: 1.4rem; color: #6b7684"
           class="font-weight-bold"
         >
-          <p class="my-8" v-html="items.text.first"></p>
-          <p class="my-8" v-html="items.text.second"></p>
+          <p class="my-8" v-html="t('pages.introduce.topIntro.text.first')" />
+          <p class="my-8" v-html="t('pages.introduce.topIntro.text.second')" />
         </v-col>
-        <v-btn color="#3746fb" size="large" href="https://ko.meaniit.com">
-          서비스 바로가기
+        <v-btn
+          :href="t('pages.introduce.topIntro.button.link')"
+          color="#3746fb"
+          size="large"
+        >
+          {{ t('pages.introduce.topIntro.button.label') }}
         </v-btn>
       </v-col>
 
@@ -68,21 +74,23 @@
     <v-col v-if="xs" cols="12" class="d-flex align-end">
       <v-col cols="12">
         <div class="d-flex bounce">
-          쉬운 조사 보고서
+          {{ t('pages.introduce.topIntro.heading.main') }}
 
           <v-img :src="imgs.logo" max-width="90" class="bounce ml-4" />
         </div>
         <div class="bounce">
-          <span class="font-weight-black">자료조사 AI를 소개</span>합니다
+          <span class="font-weight-black">
+            {{ t('pages.introduce.topIntro.heading.sub') }}
+          </span>
         </div>
 
         <div style="font-size: 1.2rem; color: #6b7684" class="font-weight-bold">
-          <p class="my-8" v-html="items.text.first"></p>
-          <p class="my-8" v-html="items.text.second"></p>
+          <p class="my-8" v-html="t('pages.introduce.topIntro.text.first')" />
+          <p class="my-8" v-html="t('pages.introduce.topIntro.text.second')" />
         </div>
 
         <v-btn color="#3746fb" href="https://ko.meaniit.com">
-          서비스 바로가기
+          {{ t('pages.introduce.topIntro.button.label') }}
         </v-btn>
 
         <div class="d-flex justify-center">
@@ -95,6 +103,7 @@
 
 <script setup>
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
+const { t } = useI18n()
 
 const imgs = {
   topIntro: '/img/intro_top.png',

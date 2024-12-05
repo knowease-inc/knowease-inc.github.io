@@ -17,7 +17,11 @@
           :class="xs ? 'pl-0' : 'side-blank'"
         >
           <p :class="upperTextClass" class="my-4" v-html="upperText" />
-          <p :class="lowerTextClass" class="pt-4" v-html="item.text.lower" />
+          <p
+            :class="lowerTextClass"
+            class="pt-4"
+            v-html="t('pages.index.carousel.lower')"
+          />
 
           <div class="scroll-indicator">
             <v-icon :icon="mdiChevronDown" size="50" class="arrow" />
@@ -32,6 +36,7 @@
 import { mdiChevronLeft, mdiChevronRight, mdiChevronDown } from '@mdi/js'
 
 const { xs, smAndUp } = useDisplay()
+const { t } = useI18n()
 
 const item = {
   src: 'img/temp/main1.jpg',
@@ -46,8 +51,9 @@ const item = {
 }
 
 const upperText = computed(() => {
-  const { upperXsOnly, upper } = item.text
-  return xs.value ? upperXsOnly : upper
+  return xs.value
+    ? t('pages.index.carousel.upperXsOnly')
+    : t('pages.index.carousel.upper')
 })
 
 const upperTextClass = computed(() => {

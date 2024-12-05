@@ -19,7 +19,7 @@
         <v-btn
           text
           to="/"
-          :color="isRootRoute ? 'transparent' : ''"
+          :color="isRootRoute ? 'transparent' : 'transparent'"
           class="px-0"
         >
           <v-img
@@ -97,16 +97,40 @@
             </v-list>
           </v-card>
         </v-menu>
+
+        <v-col cols="1" class="d-flex align-center">
+          <v-icon :icon="mdiWeb" size="x-small" />
+          <v-btn
+            size="x-small"
+            style="font-size: 16px"
+            @click="setLocale('ko')"
+            :color="locale === 'ko' ? 'black' : 'grey'"
+            variant="text"
+          >
+            ko
+          </v-btn>
+
+          <v-btn
+            size="x-small"
+            style="font-size: 16px"
+            @click="setLocale('en')"
+            :color="locale === 'en' ? 'black' : 'grey'"
+            variant="text"
+          >
+            en
+          </v-btn>
+        </v-col>
       </v-col>
     </v-row>
   </v-app-bar>
 </template>
 
 <script setup>
-import { mdiMenu, mdiClose } from '@mdi/js'
+import { mdiMenu, mdiClose, mdiWeb } from '@mdi/js'
 
 const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()
+const { t, setLocale } = useI18n() // 현재 언어(locale)와 언어 변경(setLocale) 가져오기
 
 const appBar = {
   height: '20',
@@ -123,14 +147,18 @@ const appBar = {
   },
 }
 
-const menuItems = [
-  { name: '회사 소개', to: '/' },
-  { name: '서비스 소개', to: '/service/meaniit/introduce' },
+const menuItems = computed(() => [
+  { name: t('default.topBar.menuItems.me'), to: '/' },
   {
-    name: '서비스 바로가기',
+    name: t('default.topBar.menuItems.serviceIntro'),
+    to: '/service/meaniit/introduce',
+  },
+  {
+    name: t('default.topBar.menuItems.serviceLink'),
     to: 'https://ko.meaniit.com',
   },
-]
+])
+
 const isMenuOpen = ref(false)
 
 // const isRootRoute = computed(() => {

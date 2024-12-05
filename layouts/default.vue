@@ -1,8 +1,7 @@
 <template>
   <v-app light>
     <!-- ### Start : Top bar ### -->
-    <Test />
-    <!-- <TopBar /> -->
+    <TopBar />
 
     <!-- ### Start : Main Contents ### -->
     <slot class="pa-0" />
@@ -15,5 +14,4 @@
 <script setup>
 import TopBar from '@/components/layouts.default/TopBar.vue'
 import MainFooter from '@/components/layouts.default/MainFooter.vue'
-import Test from '@/components/layouts.default/Test.vue'
 </script>

@@ -188,11 +188,19 @@ export default defineNuxtConfig({
 
   i18n: {
     locales: [
-      { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' },
-      { code: 'ko', iso: 'ko-KR', file: 'ko.json', name: 'Korean' },
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en.json',
+        name: 'English',
+        dir: 'ltr',
+      },
+      { code: 'ko', iso: 'ko-KR', file: 'ko.json', name: 'Korean', dir: 'ltr' },
     ],
     defaultLocale: 'ko', // 기본 언어
     lazy: true, // JSON 파일 지연 로드
     langDir: './locales/', // JSON 파일 경로
+    legacy: false,
+    fallbackLocale: 'en',
   },
 })
