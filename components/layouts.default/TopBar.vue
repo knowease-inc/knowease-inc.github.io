@@ -130,7 +130,7 @@ import { mdiMenu, mdiClose, mdiWeb } from '@mdi/js'
 
 const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()
-const { t, setLocale } = useI18n() // 현재 언어(locale)와 언어 변경(setLocale) 가져오기
+const { t, locale, setLocale } = useI18n() // 현재 언어(locale)와 언어 변경(setLocale) 가져오기
 
 const appBar = {
   height: '20',
@@ -148,10 +148,16 @@ const appBar = {
 }
 
 const menuItems = computed(() => [
-  { name: t('default.topBar.menuItems.me'), to: '/' },
+  {
+    name: t('default.topBar.menuItems.me'),
+    to: locale.value === 'en' ? `/en/` : `/`,
+  },
   {
     name: t('default.topBar.menuItems.serviceIntro'),
-    to: '/service/meaniit/introduce',
+    to:
+      locale.value === 'en'
+        ? `/en/service/meaniit/introduce`
+        : `/service/meaniit/introduce`,
   },
   {
     name: t('default.topBar.menuItems.serviceLink'),
