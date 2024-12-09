@@ -43,6 +43,7 @@ export default defineVuetifyConfiguration({
     defaultTheme: 'light',
     themes: {
       light: {
+        dark: false,
         background: colors.grey.lighten5,
         primary: '#313de3',
         secondary: '#c5dbff',
@@ -54,6 +55,23 @@ export default defineVuetifyConfiguration({
         success: colors.green.base,
         warning: colors.deepOrange.accent4,
         error: colors.red.base,
+        design: {
+          ...colorsPalettes,
+        },
+      },
+      dark: {
+        dark: true,
+        background: 'red',
+        primary: '#bb86fc',
+        secondary: '#03dac6',
+        barinfo: colors.grey.darken3,
+        ranker: colors.blue.darken3,
+        rankerlower: colors.grey.lighten1,
+        info: colors.grey.lighten1,
+        unactivated: colors.grey.lighten2,
+        success: colors.green.accent3,
+        warning: colors.amber.darken3,
+        error: colors.red.accent3,
         design: {
           ...colorsPalettes,
         },

@@ -3,7 +3,7 @@
     <v-col
       cols="11"
       sm="12"
-      class="text-center pt-12 text-sm-h4 text-h5"
+      class="text-center pt-12 text-sm-h5 text-h5"
       style="line-height: 1.8"
     >
       <div class="font-weight-black">{{ content.header.title }}</div>
@@ -16,6 +16,7 @@
         :height="setContainerHeight"
         flat
         class="px-sm-9 my-sm-7 rounded-xl pt-7 px-1"
+        theme="light"
       >
         <v-card class="my-sm-auto my-0" flat>
           <v-card-title class="font-weight-bold content-title">
@@ -80,6 +81,7 @@
         :height="setContainerHeight"
         flat
         class="px-sm-5 my-sm-7 rounded-xl pt-7 px-1"
+        theme="light"
       >
         <v-card class="my-sm-auto my-0 mr-sm-9 pa-0 pb-3" flat>
           <v-card-title class="font-weight-bold content-title">

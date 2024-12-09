@@ -10,7 +10,13 @@
     <!-- ### Start : Why Service ### -->
     <v-row
       justify="center"
-      :class="smAndUp ? 'bg-color custom-background ' : 'bg-color py-16'"
+      :class="[
+        isDark
+          ? 'bg-color-dark-mode'
+          : smAndUp
+            ? 'bg-color custom-background'
+            : 'bg-color py-16',
+      ]"
     >
       <v-col class="d-flex align-center" cols="12" sm="8">
         <Differentiation />
@@ -20,7 +26,7 @@
     <!-- ### Start :Usage ### -->
     <v-row justify="center" align="center">
       <v-col cols="12" sm="10" md="8">
-        <HowToUseCards :class="smAndUp ? 'usage-bg' : ''" />
+        <HowToUseCards :class="smAndUp ? 'usage-bg px-4' : ''" />
       </v-col>
     </v-row>
 
@@ -75,6 +81,9 @@ import Differentiation from '~/components/pages.service.meaniit.introduce/Differ
 
 const { xs, smAndUp } = useDisplay()
 const { t, locale } = useI18n()
+const { global: theme } = useTheme()
+
+const isDark = computed(() => theme.name.value === 'dark')
 
 const headTitle = computed(() => t('meaniit.meta.title'))
 const description = computed(() => t('meaniit.meta.description'))
@@ -123,7 +132,7 @@ useHead({
 }
 
 .custom-background {
-  height: 120vh;
+  min-height: 120vh;
 
   /* 이미지 관련 */
   position: relative;
@@ -135,7 +144,8 @@ useHead({
 
 @media (min-width: 600px) {
   /* smAndUp 기준 */
-  .custom-background {
+  .custom-background,
+  bg-color-dark-mode {
     min-height: 200vh;
   }
 
@@ -146,8 +156,9 @@ useHead({
 
 @media (min-width: 960px) {
   /* mdAndUp 기준 */
-  .custom-background {
-    height: 150vh;
+  .custom-background,
+  .bg-color-dark-mode {
+    min-height: 100vh;
   }
 
   .usage-bg {
@@ -157,6 +168,10 @@ useHead({
 
 .bg-color {
   background-color: #e6e9f0;
+}
+
+.bg-color-dark-mode {
+  background-color: #5252525c;
 }
 
 .usage-bg {

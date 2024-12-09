@@ -23,6 +23,7 @@
           class="px-0"
         >
           <v-img
+            v-if="false"
             src="/img/temp/favicon.png"
             alt="favicon"
             height="35"
@@ -55,6 +56,12 @@
             {{ item.name }}
           </v-btn>
         </div>
+
+        <v-btn icon @click="$emit('toggle-dark-mode')">
+          <v-icon
+            :icon="isDark ? mdiWhiteBalanceSunny : mdiMoonWaxingCrescent"
+          />
+        </v-btn>
 
         <!-- Start: Menu Btn -->
         <v-menu
@@ -100,11 +107,12 @@
 
         <v-col cols="1" class="d-flex align-center">
           <v-icon :icon="mdiWeb" size="x-small" />
+
           <v-btn
             size="x-small"
             style="font-size: 16px"
             @click="setLocale('ko')"
-            :color="locale === 'ko' ? 'black' : 'grey'"
+            :color="locale === 'ko' ? buttonColor : 'grey'"
             variant="text"
           >
             ko
@@ -114,7 +122,7 @@
             size="x-small"
             style="font-size: 16px"
             @click="setLocale('en')"
-            :color="locale === 'en' ? 'black' : 'grey'"
+            :color="locale === 'en' ? buttonColor : 'grey'"
             variant="text"
           >
             en
@@ -126,11 +134,19 @@
 </template>
 
 <script setup>
-import { mdiMenu, mdiClose, mdiWeb } from '@mdi/js'
+import {
+  mdiMenu,
+  mdiClose,
+  mdiWeb,
+  mdiWhiteBalanceSunny,
+  mdiMoonWaxingCrescent,
+} from '@mdi/js'
 
 const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()
 const { t, locale, setLocale } = useI18n() // 현재 언어(locale)와 언어 변경(setLocale) 가져오기
+
+defineProps(['isDark'])
 
 const appBar = {
   height: '20',

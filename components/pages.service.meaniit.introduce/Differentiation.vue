@@ -25,6 +25,7 @@
       >
         <v-card-title class="d-flex align-center">
           <video
+            ref="videoRefs"
             :src="item.icon"
             autoplay
             loop
@@ -71,6 +72,7 @@
       >
         <v-card-title class="d-flex align-center justify-center">
           <video
+            ref="videoRefs"
             :src="item.icon"
             autoplay
             loop
@@ -105,6 +107,22 @@ const { xs, smAndUp } = useDisplay()
 const { t, tm } = useI18n()
 
 const items = computed(() => tm('pages.introduce.differentiation.items'))
+
+const videoRefs = ref([])
+const isDarkMode = ref(true)
+
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme') || 'light' // 기본값 'light'
+  isDarkMode.value = savedTheme === 'dark'
+
+  videoRefs.value.forEach((video) => {
+    if (video) {
+      video.style.filter = isDarkMode.value
+        ? 'invert(0.8) brightness(0.8)'
+        : 'none'
+    }
+  })
+})
 </script>
 
 <style scoped>

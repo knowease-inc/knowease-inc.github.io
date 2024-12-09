@@ -7,7 +7,11 @@
     <!-- ### Start : Service Link ### -->
     <v-row
       justify="center"
-      style="background-color: rgba(2, 32, 71, 0.05); font-size: 1.8rem"
+      style="
+        background-color: rgba(2, 32, 71, 0.05);
+        font-size: 1.8rem;
+        min-height: 100vh;
+      "
       class="py-8 py-sm-16"
     >
       <v-col class="d-flex flex-column align-center pt-16">
@@ -21,17 +25,19 @@
     </v-row>
 
     <!-- ### Start : Partners ### -->
-    <v-row class="d-flex justify-center align-center" style="height: 80vh">
-      <v-col class="d-flex flex-column align-center">
-        <p class="content-title py-16">
-          {{ t('pages.index.pageTitle.partners') }}
-        </p>
+    <v-theme-provider theme="light" with-background>
+      <v-row class="d-flex justify-center align-center" style="height: 60vh">
+        <v-col class="d-flex flex-column align-center">
+          <p class="content-title py-16">
+            {{ t('pages.index.pageTitle.partners') }}
+          </p>
 
-        <v-col cols="11" sm="10" md="8" class="py-16">
-          <Partners />
+          <v-col cols="11" sm="10" md="8" class="py-16">
+            <Partners />
+          </v-col>
         </v-col>
-      </v-col>
-    </v-row>
+      </v-row>
+    </v-theme-provider>
 
     <!-- ### Start : History ### -->
     <v-row
@@ -45,7 +51,7 @@
           {{ t('pages.index.pageTitle.history') }}
         </p>
         <p
-          style="font-size: 1.8rem"
+          style="font-size: 1.4rem"
           v-html="t('pages.index.pageTitle.historySub')"
         ></p>
       </v-col>
@@ -60,7 +66,7 @@
       justify="center"
       class="pt-16"
       style="background-color: rgba(2, 32, 71, 0.05)"
-      :style="{ height: mdAndUp ? '185vh' : '' }"
+      :style="{ height: mdAndUp ? '145vh' : '' }"
     >
       <v-col class="d-flex flex-column align-center">
         <p class="content-title">{{ t('pages.index.pageTitle.team') }}</p>

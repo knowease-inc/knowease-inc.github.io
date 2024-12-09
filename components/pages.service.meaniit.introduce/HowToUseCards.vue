@@ -23,8 +23,8 @@
         :height="smAndUp ? '200' : '300'"
         class="d-flex justify-space-between pa-md-8 pa-sm-4 pr-0"
       >
-        <v-col cols="8" class="pt-8">
-          <v-card-title class="card-title py-md-4">
+        <v-col cols="8">
+          <v-card-title class="card-title py-md-2">
             {{ item.title }}
           </v-card-title>
 
@@ -98,7 +98,7 @@ const howUse = computed(() => tm('pages.introduce.howToUseCards.howUse'))
 }
 
 .content-title {
-  font-size: 3rem;
+  font-size: 1.6rem;
   font-weight: 800;
 }
 

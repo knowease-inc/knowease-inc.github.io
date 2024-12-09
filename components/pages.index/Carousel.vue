@@ -162,7 +162,7 @@ const lowerTextClass = computed(() => {
 }
 
 .image-container {
-  background: url('img/temp/main1.jpg') no-repeat center center;
+  background: url('img/temp/동영상일부.png') no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;

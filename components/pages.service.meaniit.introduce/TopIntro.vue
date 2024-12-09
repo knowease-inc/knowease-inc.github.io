@@ -67,7 +67,14 @@
         class="ml-md-n6 mt-sm-n9"
         align-self="start"
       >
-        <video :src="imgs.video" autoplay loop muted class="responsive-image" />
+        <video
+          ref="videoRef"
+          :src="imgs.video"
+          autoplay
+          loop
+          muted
+          class="responsive-image"
+        />
       </v-col>
     </v-col>
 
@@ -94,7 +101,14 @@
         </v-btn>
 
         <div class="d-flex justify-center">
-          <video :src="imgs.video" autoplay loop muted style="height: 350px" />
+          <video
+            ref="videoRef"
+            :src="imgs.video"
+            autoplay
+            loop
+            muted
+            style="height: 350px"
+          />
         </div>
       </v-col>
     </v-col>
@@ -113,13 +127,19 @@ const imgs = {
   video: '/img/anaysis.mp4',
 }
 
-const items = {
-  text: {
-    first: '누구든지 쉽고 빠르게<br />AI 기술 통한 자료조사, 보고서 초안 작성',
-    second:
-      '작업은 간소화하고 조사량은 늘리고, 놓치지 않는 자료 출처까지<br />업무 효율을 극대화하세요',
-  },
-}
+const videoRef = ref([])
+const isDarkMode = ref(true)
+
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme') || 'light' // 기본값 'light'
+  isDarkMode.value = savedTheme === 'dark'
+
+  if (videoRef.value) {
+    videoRef.value.style.filter = isDarkMode.value
+      ? 'invert(0.9) brightness(0.8)'
+      : 'none'
+  }
+})
 </script>
 
 <style scoped>
