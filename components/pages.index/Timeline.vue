@@ -63,13 +63,13 @@
             </v-col>
             <v-col class="text-white px-4 pr-md-8">
               <div
-                class="text-nowrap my-4 font-weight-black"
+                class="text-wrap my-4 font-weight-black"
                 :class="lgAndUp ? 'history-title' : 'text-h6'"
               >
                 {{ item.title }}
               </div>
               <div
-                class="text-line-height font-weight-bold"
+                class="text-line-height"
                 :class="lgAndUp ? 'history-body' : 'text-body-1'"
               >
                 {{ item.body }}
@@ -177,13 +177,13 @@ const checkToRenderIndex = (index) => carouselStartIndex.value === index
 .month,
 .history-title {
   font-weight: 900;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .year,
 .history-body {
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .month-xs {

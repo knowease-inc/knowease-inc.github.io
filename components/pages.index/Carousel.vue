@@ -10,16 +10,20 @@
       color="rgba(0,0,0,0)"
       class="d-flex justify-center align-center pa-4"
     >
-      <v-col cols="10" sm="9">
+      <v-col cols="10" sm="8">
         <v-list-item
           lines="two"
-          class="pt-12 font-color parent-text-float"
+          class="pt-12 font-color parent-text-float text-center"
           :class="xs ? 'pl-0' : 'side-blank'"
         >
-          <p :class="upperTextClass" class="my-4" v-html="upperText" />
+          <p
+            :class="upperTextClass"
+            class="my-4 text-h2 font-weight-black"
+            v-html="upperText"
+          />
           <p
             :class="lowerTextClass"
-            class="pt-4"
+            class="pt-4 font-weight-black"
             v-html="t('pages.index.carousel.lower')"
           />
 
@@ -37,18 +41,6 @@ import { mdiChevronLeft, mdiChevronRight, mdiChevronDown } from '@mdi/js'
 
 const { xs, smAndUp } = useDisplay()
 const { t } = useI18n()
-
-const item = {
-  src: 'img/temp/main1.jpg',
-  text: {
-    upper:
-      '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 얻을 수 있도록</span> 정보기술(IT)로 돕습니다',
-    upperXsOnly:
-      '쉽고 신속하게 <br /> <span class="font-weight-black">다양한 정보, 지식을 <br /> 얻을 수 있도록</span> <br /> 정보기술(IT)로 돕습니다',
-    lower:
-      '모든 분야에서 정보 습득 장벽을 낮춰<br />정보 격차로 인한 문제를 줄입니다',
-  },
-}
 
 const upperText = computed(() => {
   return xs.value
@@ -68,7 +60,6 @@ const lowerTextClass = computed(() => {
 <style scoped>
 .upperText {
   line-height: 1.4;
-  font-size: 4rem;
 }
 
 .upperText-xsonly {

@@ -26,13 +26,16 @@
 
     <!-- ### Start : Partners ### -->
     <v-theme-provider theme="light" with-background>
-      <v-row class="d-flex justify-center align-center" style="height: 60vh">
+      <v-row
+        class="d-flex justify-center align-center py-8 py-sm-16"
+        style="height: 60vh"
+      >
         <v-col class="d-flex flex-column align-center">
-          <p class="content-title py-16">
+          <p class="content-title py-4">
             {{ t('pages.index.pageTitle.partners') }}
           </p>
 
-          <v-col cols="11" sm="10" md="8" class="py-16">
+          <v-col cols="11" sm="10" md="8" class="pb-16">
             <Partners />
           </v-col>
         </v-col>
@@ -52,7 +55,8 @@
         </p>
         <p
           style="font-size: 1.4rem"
-          v-html="t('pages.index.pageTitle.historySub')"
+          class="mt-4 font-weight-bold"
+          v-html="t('pages.index.timeline.title')"
         ></p>
       </v-col>
 
@@ -66,7 +70,7 @@
       justify="center"
       class="pt-16"
       style="background-color: rgba(2, 32, 71, 0.05)"
-      :style="{ height: mdAndUp ? '145vh' : '' }"
+      :style="{ minHeight: mdAndUp ? '100vh' : '' }"
     >
       <v-col class="d-flex flex-column align-center">
         <p class="content-title">{{ t('pages.index.pageTitle.team') }}</p>

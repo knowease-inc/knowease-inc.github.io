@@ -1,9 +1,21 @@
 <template>
-  <v-row justify="center" class="mt-sm-4">
+  <v-row justify="center">
+    <v-col
+      cols="11"
+      sm="8"
+      md="12"
+      class="text-center text-sm-h5 text-h5 py-4"
+      style="line-height: 1.8"
+    >
+      <div class="font-weight-bold pt-2 pb-8">
+        {{ t('pages.index.partners.title') }}
+      </div>
+    </v-col>
+
     <v-col
       v-for="{ name, ci, link } in partners"
       :key="link"
-      class="text-center my-4"
+      class="text-center my-8"
     >
       <a :href="link" target="_blank">
         <img
@@ -19,6 +31,7 @@
 
 <script setup>
 const { xs } = useDisplay()
+const { t } = useI18n()
 
 const partners = [
   {

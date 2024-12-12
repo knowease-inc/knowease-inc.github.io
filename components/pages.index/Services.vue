@@ -2,12 +2,12 @@
   <v-row align="center" justify="center">
     <v-col
       cols="11"
-      sm="12"
+      sm="8"
+      md="12"
       class="text-center pt-12 text-sm-h5 text-h5"
       style="line-height: 1.8"
     >
-      <div class="font-weight-black">{{ content.header.title }}</div>
-      <div>{{ content.header.subtitle }}</div>
+      <div class="font-weight-black" v-html="content.header.title"></div>
     </v-col>
 
     <!-- 첫번째 카드 -->
@@ -96,7 +96,6 @@
             <v-btn
               variant="outlined"
               :color="linkBtnColor"
-              :to="content.education.introduce.to"
               :style="{
                 ...btnInServiceCard,
                 ...(xs.value ? { width: '100%' } : {}),
@@ -105,6 +104,7 @@
               rounded
               :class="[smAndUp ? 'px-4' : 'px-7 ml-n1']"
               :disabled="!content.education.introduce.to"
+              @click="openEmail"
             >
               {{ content.education.introduce.name }}
             </v-btn>
@@ -135,7 +135,6 @@ const linkBtnColor = '#3746fb'
 const content = computed(() => ({
   header: {
     title: t('pages.index.service.header.title'),
-    subtitle: t('pages.index.service.header.subtitle'),
   },
   meaniit: {
     name: t('pages.index.service.cards.meaniit.title'),
@@ -154,7 +153,7 @@ const content = computed(() => ({
     description: t('pages.index.service.cards.education.description'),
     introduce: {
       name: t('pages.index.service.cards.education.introduceLabel'),
-      to: '',
+      to: 'knowease.inc@gmail.com',
     },
   },
 }))
@@ -168,6 +167,10 @@ const videos = {
   edu: '/img/temp/teaching.mp4',
 }
 const setContainerHeight = computed(() => (xs.value ? '500' : '500'))
+
+const openEmail = () => {
+  window.location.href = `mailto:${content.value.education.introduce.to}`
+}
 </script>
 
 <style scoped>

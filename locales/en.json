@@ -23,24 +23,22 @@
         "service": "GET-A's Services",
         "partners": "Clients",
         "history": "History",
-        "historySub": "The <span class='font-weight-black'>journey so far</span> for GET-A",
         "team": "Our Team",
         "teamSub": "The <span class='font-weight-bold'>dedicated people</span> behind GET-A"
       },
       "carousel": {
-        "upper": "Quickly and easily <br /> <span class='font-weight-black'>acquire various information and knowledge</span> with IT support",
-        "upperXsOnly": "Quickly and easily <br /> <span class='font-weight-black'>acquire various <br /> information and knowledge</span> <br /> with IT support",
-        "lower": "We lower the barriers to acquiring information in all fields and reduce problems caused by the information gap"
+        "upper": "Beyond complicated technology, <br /> value of simplicity,",
+        "upperXsOnly": "Beyond complicated technology, <br /> value of simplicity",
+        "lower": "Easiest experience with the latest AI technology. <br /> Provides intuitive AI services that anyone can use right out of the box"
       },
       "service": {
         "header": {
-          "title": "Making information and knowledge easily and quickly shared and communicated",
-          "subtitle": "We consider and challenge all technologies."
+          "title": "Develop an AI solution that is simple but can be applied immediately in practice, and <br /> convey the latest technology information and knowledge easily"
         },
         "cards": {
           "meaniit": {
             "title": "Meaniit",
-            "description": "An AI solution service that assists from data research to draft and final report preparation",
+            "description": "AI solution service for practitioners in a specific industry, from research to drafting and completing reports",
             "shortcutLabel": "Go to Service",
             "introduceLabel": "Service Introduction"
           },
@@ -51,7 +49,11 @@
           }
         }
       },
+      "partners": {
+        "title": "We are already breaking down the challenges of the latest technology together."
+      },
       "timeline": {
+        "title": "The journey of challenging to make the not-so-easy continues.",
         "events": [
           {
             "title": "Pilot Program Execution",

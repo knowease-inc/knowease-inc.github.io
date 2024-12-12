@@ -23,24 +23,22 @@
         "service": "게타's 서비스",
         "partners": "고객사",
         "history": "연혁",
-        "historySub": "게타(GET-A)을 위했던 <span class='font-weight-black'>지난 여정</span>",
         "team": "함께하는 사람들",
         "teamSub": "게타(GET-A)을 위해 <span class='font-weight-bold'>고군분투하는 이들</span>"
       },
       "carousel": {
-        "upper": "쉽고 신속하게 <br /> <span class='font-weight-black'>다양한 정보, 지식을 얻을 수 있도록</span> 정보기술(IT)로 돕습니다",
-        "upperXsOnly": "쉽고 신속하게 <br /> <span class='font-weight-black'>다양한 정보, 지식을 <br /> 얻을 수 있도록</span> <br /> 정보기술(IT)로 돕습니다",
-        "lower": "모든 분야에서 정보 습득 장벽을 낮춰<br />정보 격차로 인한 문제를 줄입니다"
+        "upper": "복잡한 기술을 넘어, <br /> 단순함의 가치를 제공합니다",
+        "upperXsOnly": "복잡한 기술을 넘어, <br /> 단순함의 가치를 제공합니다",
+        "lower": "최신 AI 기술을 가장 쉽게 경험해 보세요. <br /> 누구나 바로 사용할 수 있는 직관적인 AI 서비스를 제공합니다"
       },
       "service": {
         "header": {
-          "title": "정보, 지식이 쉽고 빠르게 전달 및 소통 되도록 만드는",
-          "subtitle": "모든 기술을 고민하고 그것들에 도전하고 있습니다."
+          "title": "간단하지만 실무에서 바로 적용 가능한 AI 솔루션을 개발하고,  <br /> 최신 기술 정보, 지식은 쉽게 전합니다"
         },
         "cards": {
           "meaniit": {
             "title": "Meaniit",
-            "description": "자료조사부터 보고서 초안 작성, 완성까지 함께하는 AI 솔루션 서비스",
+            "description": "특정 산업 내 실무자를 위한 자료조사부터 보고서 초안 작성, 완성까지 함께하는 AI 솔루션 서비스",
             "shortcutLabel": "바로가기",
             "introduceLabel": "서비스 소개"
           },
@@ -51,7 +49,11 @@
           }
         }
       },
+      "partners": {
+        "title": "이미 최신 기술에 대한 어려움을 함께 허물고 있습니다."
+      },
       "timeline": {
+        "title": "쉽지 않은 것을 쉽게 만들기 위해 도전하는 여정이 계속되고 있습니다.",
         "events": [
           {
             "title": "파일럿 프로그램 진행",
