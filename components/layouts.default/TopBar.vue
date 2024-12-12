@@ -57,12 +57,6 @@
           </v-btn>
         </div>
 
-        <v-btn icon @click="$emit('toggle-dark-mode')">
-          <v-icon
-            :icon="isDark ? mdiWhiteBalanceSunny : mdiMoonWaxingCrescent"
-          />
-        </v-btn>
-
         <!-- Start: Menu Btn -->
         <v-menu
           v-if="xs"
@@ -70,6 +64,7 @@
           location="bottom"
           transition="slide-y-transition"
           v-model="isMenuOpen"
+          class="d-flex"
         >
           <template v-slot:activator="{ props }">
             <v-app-bar-nav-icon
@@ -102,10 +97,57 @@
                 <v-list-item-title>{{ item.name }}</v-list-item-title>
               </v-list-item>
             </v-list>
+
+            <!-- Start: Language change & DarkMode Switch -->
+            <v-col cols="12" v-if="xs" class="d-flex align-center justify-end">
+              <!-- Start: Language change Btsns -->
+              <div>
+                <v-icon :icon="mdiWeb" size="x-small" />
+
+                <v-btn
+                  size="x-small"
+                  style="font-size: 16px"
+                  @click="setLocale('ko')"
+                  :color="locale === 'ko' ? buttonColor : 'grey'"
+                  variant="text"
+                >
+                  ko
+                </v-btn>
+
+                <v-btn
+                  size="x-small"
+                  style="font-size: 16px"
+                  @click="setLocale('en')"
+                  :color="locale === 'en' ? buttonColor : 'grey'"
+                  variant="text"
+                >
+                  en
+                </v-btn>
+              </div>
+              <!-- End: Language change Btsns -->
+
+              <!-- Start: DarkMode Switch-->
+              <div>
+                <v-btn
+                  icon
+                  size="x-small"
+                  class="ml-6 mr-2"
+                  @click="$emit('toggle-dark-mode')"
+                >
+                  <v-icon
+                    :icon="
+                      isDark ? mdiWhiteBalanceSunny : mdiMoonWaxingCrescent
+                    "
+                  />
+                </v-btn>
+              </div>
+            </v-col>
           </v-card>
         </v-menu>
 
-        <v-col cols="1" class="d-flex align-center">
+        <!-- Start: Language change & DarkMode Switch -->
+        <v-col v-if="smAndUp" cols="3" class="d-flex align-center">
+          <!-- Start: Language change Btsns -->
           <v-icon :icon="mdiWeb" size="x-small" />
 
           <v-btn
@@ -127,6 +169,17 @@
           >
             en
           </v-btn>
+          <!-- End: Language change Btsns -->
+
+          <!-- Start: DarkMode Switch-->
+          <v-switch
+            true-value="isDarkMode"
+            inset
+            class="mt-5 ml-4"
+            :true-icon="mdiWhiteBalanceSunny"
+            :false-icon="mdiMoonWaxingCrescent"
+            @click="$emit('toggle-dark-mode')"
+          />
         </v-col>
       </v-col>
     </v-row>
@@ -141,6 +194,8 @@ import {
   mdiWhiteBalanceSunny,
   mdiMoonWaxingCrescent,
 } from '@mdi/js'
+
+const isDarkMode = ref(false)
 
 const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()
@@ -168,13 +223,13 @@ const menuItems = computed(() => [
     name: t('default.topBar.menuItems.me'),
     to: locale.value === 'en' ? `/en/` : `/`,
   },
-  {
-    name: t('default.topBar.menuItems.serviceIntro'),
-    to:
-      locale.value === 'en'
-        ? `/en/service/meaniit/introduce`
-        : `/service/meaniit/introduce`,
-  },
+  // {
+  //   name: t('default.topBar.menuItems.serviceIntro'),
+  //   to:
+  //     locale.value === 'en'
+  //       ? `/en/service/meaniit/introduce`
+  //       : `/service/meaniit/introduce`,
+  // },
   {
     name: t('default.topBar.menuItems.serviceLink'),
     to: 'https://ko.meaniit.com',

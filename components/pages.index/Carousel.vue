@@ -18,7 +18,7 @@
         >
           <p
             :class="upperTextClass"
-            class="my-4 text-h2 font-weight-black"
+            class="my-4 text-sm-h2 pt-4 pt-sm-0 text-h4 font-weight-black"
             v-html="upperText"
           />
           <p

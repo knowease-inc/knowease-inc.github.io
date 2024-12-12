@@ -4,10 +4,13 @@
       cols="11"
       sm="8"
       md="12"
-      class="text-center pt-12 text-sm-h5 text-h5"
+      class="text-center pt-12 text-sm-h5 text-h6"
       style="line-height: 1.8"
     >
-      <div class="font-weight-black" v-html="content.header.title"></div>
+      <div
+        :class="smAndup ? 'font-weight-black' : 'font-weight-bold'"
+        v-html="content.header.title"
+      ></div>
     </v-col>
 
     <!-- 첫번째 카드 -->
@@ -47,6 +50,7 @@
             </v-btn>
 
             <v-btn
+              disabled
               :color="linkBtnColor"
               :to="content.meaniit.introduce.to"
               :style="{

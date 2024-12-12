@@ -28,7 +28,7 @@
     <v-theme-provider theme="light" with-background>
       <v-row
         class="d-flex justify-center align-center py-8 py-sm-16"
-        style="height: 60vh"
+        style="min-height: 80vh"
       >
         <v-col class="d-flex flex-column align-center">
           <p class="content-title py-4">
@@ -76,7 +76,7 @@
         <p class="content-title">{{ t('pages.index.pageTitle.team') }}</p>
         <div
           class="content-subtitle my-4"
-          :style="{ 'font-size': smAndUp ? '1.8rem' : '1.4rem' }"
+          :style="{ 'font-size': smAndUp ? '1.8rem' : '1.2rem' }"
         >
           <div v-html="t('pages.index.pageTitle.teamSub')"></div>
         </div>
