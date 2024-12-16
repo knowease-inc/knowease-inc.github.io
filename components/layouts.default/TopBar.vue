@@ -71,6 +71,7 @@
               v-bind="props"
               :color="isRootRoute ? 'white' : '#3746fb'"
               :icon="isMenuOpen ? mdiClose : mdiMenu"
+              class="mr-4"
             />
           </template>
 

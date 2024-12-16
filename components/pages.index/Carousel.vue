@@ -2,13 +2,13 @@
   <v-card
     width="100%"
     :height="smAndUp ? '105vh' : '100%'"
-    class="image-container"
+    class="image-container mt-9"
   >
     <!-- Text Contents -->
     <v-sheet
       height="100%"
       color="rgba(0,0,0,0)"
-      class="d-flex justify-center align-center pa-4"
+      class="d-flex justify-center align-center pa-sm-4 px-0"
     >
       <v-col cols="10" sm="8">
         <v-list-item
@@ -18,12 +18,12 @@
         >
           <p
             :class="upperTextClass"
-            class="my-4 text-sm-h2 pt-4 pt-sm-0 text-h4 font-weight-black"
+            class="my-4 text-sm-h3 text-lg-h2 pt-4 pt-sm-0 text-h5 font-weight-black"
             v-html="upperText"
           />
           <p
             :class="lowerTextClass"
-            class="pt-4 font-weight-black"
+            class="pt-4"
             v-html="t('pages.index.carousel.lower')"
           />
 
@@ -70,15 +70,14 @@ const lowerTextClass = computed(() => {
 
 .lowerText {
   line-height: 1.4;
-  font-size: 1.6rem;
-
+  font-size: 1.8rem;
   font-weight: 400;
 }
 
 .lowerText-xsonly {
   line-height: 1.4;
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .font-color {
@@ -153,7 +152,7 @@ const lowerTextClass = computed(() => {
 }
 
 .image-container {
-  background: url('img/temp/동영상일부.png') no-repeat center center;
+  background: url('img/heroIMG.jpg') no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;

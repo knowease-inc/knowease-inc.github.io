@@ -1,8 +1,8 @@
 <template>
-  <v-row justify="center">
+  <v-col cols="12" justify="center">
     <v-row
       justify="center"
-      class="text-sm-h5 text-h6 py-4"
+      class="text-sm-h5 text-h6 pa-4"
       style="line-height: 1.8"
     >
       <div class="font-weight-bold pt-2 pb-8">
@@ -30,7 +30,7 @@
         </a>
       </v-col>
     </v-row>
-  </v-row>
+  </v-col>
 </template>
 
 <script setup>

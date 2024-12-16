@@ -1,10 +1,8 @@
 <template>
   <v-row align="center" justify="center">
     <v-col
-      cols="11"
-      sm="8"
-      md="12"
-      class="text-center pt-12 text-sm-h5 text-h6"
+      cols="12"
+      class="text-center pt-12 text-md-h5 text-h6"
       style="line-height: 1.8"
     >
       <div
@@ -18,7 +16,7 @@
       <v-card
         :height="setContainerHeight"
         flat
-        class="px-sm-9 my-sm-7 rounded-xl pt-7 px-1"
+        class="px-sm-4 px-md-6 px-lg-8 my-sm-7 rounded-xl pt-7 px-1"
         theme="light"
       >
         <v-card class="my-sm-auto my-0" flat>
@@ -31,7 +29,10 @@
           </v-card-subtitle>
 
           <v-card-actions
-            :class="[smAndUp ? 'pt-sm-4  pl-4' : 'd-flex flex-column']"
+            :class="[
+              smAndUp ? 'pt-sm-4  pl-4' : 'd-flex flex-column',
+              locale === 'en' ? 'd-flex flex-column align-start' : '',
+            ]"
           >
             <v-btn
               :disabled="!content.meaniit.shortcut.href"
@@ -84,10 +85,10 @@
       <v-card
         :height="setContainerHeight"
         flat
-        class="px-sm-5 my-sm-7 rounded-xl pt-7 px-1"
+        class="px-sm-4 px-md-6 px-lg-8 my-sm-7 rounded-xl pt-7 px-1"
         theme="light"
       >
-        <v-card class="my-sm-auto my-0 mr-sm-9 pa-0 pb-3" flat>
+        <v-card class="my-sm-auto my-0" flat>
           <v-card-title class="font-weight-bold content-title">
             {{ content.education.name }}
           </v-card-title>
@@ -132,7 +133,8 @@
 
 <script setup>
 const { xs, smAndUp } = useDisplay()
-const { t } = useI18n()
+const { t, locale } = useI18n()
+console.log('locale', locale)
 
 const linkBtnColor = '#3746fb'
 
@@ -167,10 +169,12 @@ const btnInServiceCard = {
   paddingLeft: 0,
 }
 const videos = {
-  meaniit: '/img/temp/report.mp4',
-  edu: '/img/temp/teaching.mp4',
+  meaniit: '/img/report.mp4',
+  edu: '/img/teaching.mp4',
 }
-const setContainerHeight = computed(() => (xs.value ? '500' : '500'))
+const setContainerHeight = computed(() =>
+  xs.value ? (locale.value === 'en' ? '600' : '500') : '600',
+)
 
 const openEmail = () => {
   window.location.href = `mailto:${content.value.education.introduce.to}`
@@ -199,6 +203,7 @@ const openEmail = () => {
 .service-exp {
   font-size: 1.3rem;
   white-space: normal;
+  word-break: break-all;
 }
 
 .video-container {
@@ -206,6 +211,8 @@ const openEmail = () => {
   justify-content: center; /* 가로 정렬 */
   align-items: center; /* 세로 정렬 */
   width: 100%;
+
+  margin-top: -16px;
 }
 
 .meaniit-video {

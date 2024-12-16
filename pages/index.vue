@@ -25,7 +25,7 @@
     </v-row>
 
     <!-- ### Start : Partners ### -->
-    <v-theme-provider theme="light" with-background>
+    <v-theme-provider theme="light" with-background style="width: 100%">
       <v-row
         class="d-flex justify-center align-center py-8 py-sm-16"
         style="min-height: 80vh"
@@ -46,7 +46,7 @@
     <v-row
       justify="center"
       align="center"
-      style="background-color: #3746fb; height: 100vh"
+      style="background-color: #3746fb; height: 80vh"
       class="mt-16 d-flex"
     >
       <v-col cols="8" sm="8" class="content-subtitle pa-0 text-white">
