@@ -134,7 +134,6 @@
 <script setup>
 const { xs, smAndUp } = useDisplay()
 const { t, locale } = useI18n()
-console.log('locale', locale)
 
 const linkBtnColor = '#3746fb'
 

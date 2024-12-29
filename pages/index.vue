@@ -46,8 +46,8 @@
     <v-row
       justify="center"
       align="center"
-      style="background-color: #3746fb; height: 80vh"
-      class="mt-16 d-flex"
+      style="background-color: #3746fb; min-height: 80vh"
+      class="mt-16 d-flex pt-8"
     >
       <v-col cols="8" sm="8" class="content-subtitle pa-0 text-white">
         <p class="content-title text-white py-4">

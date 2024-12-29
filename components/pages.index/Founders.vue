@@ -28,7 +28,8 @@
         class="d-flex justify-center mb-4"
       >
         <v-card
-          class="d-flex justify-space-evenly align-center rounded-xl px-sm-8 pa-md-4 px-4"
+          class="d-flex align-center rounded-xl px-sm-8 pa-md-4 px-4"
+          :class="{'justify-space-evenly':isEnglish}"
           :min-height="smAndUp ? '220' : '230'"
           :width="smAndUp ? '420' : '270'"
         >
@@ -145,10 +146,13 @@
 
 <script setup>
 const { xs, smAndUp, mdAndUp } = useDisplay()
-const { tm } = useI18n()
+const { tm,locale } = useI18n()
 
 const members = computed(() => tm('pages.index.founders.members'))
 const advisors = computed(() => tm('pages.index.founders.advisors'))
+
+const isEnglish = computed(() => locale.value === 'en')
+
 </script>
 
 <style>
