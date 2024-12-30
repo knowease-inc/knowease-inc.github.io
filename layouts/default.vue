@@ -28,6 +28,29 @@ const toggleDarkMode = () => {
   localStorage.setItem('theme', theme.name.value) // 상태 저장
 }
 
+
+if (typeof window !== "undefined") {
+  const script = document.createElement("script");
+
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js";
+  script.onload = () => {
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    window.gtag = gtag; // 전역 함수(gtag) 설정
+
+    gtag("js", new Date());
+
+    console.log("Google Analytics initialized");
+  };
+
+  document.head.appendChild(script);
+}
+
 // 로컬 스토리지에서 테마 상태 복원
 onMounted(() => {
   const savedTheme = localStorage.getItem('theme') || 'light' // 기본값 'light'

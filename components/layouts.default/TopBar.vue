@@ -38,6 +38,7 @@
             :height="appBar.height"
             :width="sm ? 80 : appBar.maxWidth"
             contain
+            @click="openMenu(appBar.knowease.title)"
           />
         </v-btn>
 
@@ -46,12 +47,11 @@
           <v-btn
             v-for="(item, i) in menuItems"
             :key="i"
-            :href="item.to"
-            :target="item.to.startsWith('http') ? '_blank' : '_self'"
             :size="sm ? 'small' : 'large'"
             variant="text"
             :color="isRootRoute ? 'white' : ''"
             selected-class="no-active"
+            @click="navigateWithTracking(item)"
           >
             {{ item.name }}
           </v-btn>
@@ -88,13 +88,7 @@
               style="color: white"
               width="100%"
             >
-              <v-list-item
-                v-for="(item, i) in menuItems"
-                :key="i"
-                :href="item.to"
-                :target="item.to.startsWith('http') ? '_blank' : '_self'"
-                link
-              >
+              <v-list-item  v-for="(item, i) in menuItems" :key="i" @click="navigateWithTracking(item)">
                 <v-list-item-title>{{ item.name }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -108,7 +102,7 @@
                 <v-btn
                   size="x-small"
                   style="font-size: 16px"
-                  @click="setLocale('ko')"
+                  @click="trackAndSetLanguage('ko')"
                   :color="locale === 'ko' ? buttonColor : 'grey'"
                   variant="text"
                 >
@@ -118,7 +112,7 @@
                 <v-btn
                   size="x-small"
                   style="font-size: 16px"
-                  @click="setLocale('en')"
+                  @click="trackAndSetLanguage('en')"
                   :color="locale === 'en' ? buttonColor : 'grey'"
                   variant="text"
                 >
@@ -133,7 +127,7 @@
                   icon
                   size="x-small"
                   class="ml-6 mr-2"
-                  @click="$emit('toggle-dark-mode')"
+                  @click="trackAndToggleDarkMode()"
                 >
                   <v-icon
                     :icon="
@@ -154,7 +148,7 @@
           <v-btn
             size="x-small"
             style="font-size: 16px"
-            @click="setLocale('ko')"
+            @click="trackAndSetLanguage('ko')"
             :color="locale === 'ko' ? buttonColor : 'grey'"
             variant="text"
           >
@@ -164,7 +158,7 @@
           <v-btn
             size="x-small"
             style="font-size: 16px"
-            @click="setLocale('en')"
+            @click="trackAndSetLanguage('en')"
             :color="locale === 'en' ? buttonColor : 'grey'"
             variant="text"
           >
@@ -179,7 +173,7 @@
             class="mt-5 ml-4"
             :true-icon="mdiWhiteBalanceSunny"
             :false-icon="mdiMoonWaxingCrescent"
-            @click="$emit('toggle-dark-mode')"
+            @click="trackAndToggleDarkMode()"
           />
         </v-col>
       </v-col>
@@ -200,9 +194,16 @@ const isDarkMode = ref(false)
 
 const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()
+const router = useRouter();
 const { t, locale, setLocale } = useI18n() // 현재 언어(locale)와 언어 변경(setLocale) 가져오기
+const { trackEvent } = useGA4();
+
 
 defineProps(['isDark'])
+
+const emit = defineEmits([
+  "toggle-dark-mode",
+]);
 
 const appBar = {
   height: '20',
@@ -258,6 +259,56 @@ const isRootRoute = computed(() => {
 const isTransparent = computed(
   () => appBar.color === 'transparent' && isRootRoute.value,
 )
+
+const navigateWithTracking = (item) => {
+  const {name, to} = item
+
+  // GA4 이벤트 전송
+  openMenu(name);
+
+  // 외부 링크와 내부 링크를 구분해 처리
+  if (to?.startsWith('http')) {
+    window.open(to, '_blank'); // 새 창에서 열기
+  } else {
+    router.push(to, '_self'); // 내부 라우트 이동
+  }
+};
+
+
+const openMenu = (menu_title) => {
+  trackEvent("menu_open", {
+    menu_title,
+  });
+}
+
+const trackAndSetLanguage = (newLocale) => {
+  const previousLocale = locale.value;
+
+  // 언어 변경
+  setLocale(newLocale);
+
+  // GA4 이벤트 전송
+  trackEvent('language_change', {
+    previous_locale: previousLocale,
+    new_locale: newLocale,
+  });
+};
+
+const trackAndToggleDarkMode = () => {
+  const newDarkModeStatus = !isDarkMode.value;
+
+  // 모드 변경
+  isDarkMode.value = newDarkModeStatus;
+
+  // GA4 이벤트 전송
+  trackEvent('dark_mode_toggle', {
+    dark_mode_status: isDarkMode.value ? 'enabled' : 'disabled',
+  });
+
+  // 부모 컴포넌트로 다크모드 상태 전달
+  emit('toggle-dark-mode');
+};
+
 </script>
 
 <style scoped>
