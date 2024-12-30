@@ -684,7 +684,7 @@ const contents = [
       },
       {
         type: 'inner-number',
-        text: '이메일: knowease.inc@gmail.com',
+        text: '이메일: get-a@get-a.io',
       },
     ],
   },

@@ -158,7 +158,7 @@ const content = computed(() => ({
     description: t('pages.index.service.cards.education.description'),
     introduce: {
       name: t('pages.index.service.cards.education.introduceLabel'),
-      to: 'knowease.inc@gmail.com',
+      to: 'get-a@get-a.io',
     },
   },
 }))
