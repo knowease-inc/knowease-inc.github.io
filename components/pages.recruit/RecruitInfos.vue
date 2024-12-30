@@ -63,8 +63,7 @@
                 :href="item.registerBtn.url"
                 target="_blank"
                 :color="item.registerBtn.color"
-                dark
-                x-large
+                size="x-large"
                 elevation="0"
                 class="font-weight-black"
               >
@@ -79,24 +78,33 @@
   </v-card>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
-
-@Component({})
-class PagesRecruitRecruitInfos extends Vue {
-  @Prop({ type: Array, default: '' }) parentItems!: Array<{
-    title: string
-    description: string
-    subtitle: Array<{
-      title: string
-      contents: Array<{ title: string; content: Array<string> }>
-    }>
-    registerBtn: {
-      url: string
-      name: string
-      color: string
-    }
-  }>
-}
-export default PagesRecruitRecruitInfos
+<script setup>
+const props = defineProps({
+  parentItems: {
+    type: Array,
+    required: true,
+    default: () => [
+      {
+        title: '',
+        description: '',
+        subtitle: [
+          {
+            title: '',
+            contents: [
+              {
+                title: '',
+                content: [''],
+              },
+            ],
+          },
+        ],
+        registerBtn: {
+          url: '',
+          name: '',
+          color: '',
+        },
+      },
+    ],
+  },
+})
 </script>

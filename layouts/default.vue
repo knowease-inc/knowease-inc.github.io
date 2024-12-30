@@ -1,47 +1,44 @@
 <template>
-  <v-app light>
-    <v-card flat tile class="pb-15">
-      <!-- ### Start : Top bar ### -->
-      <div>
-        <Carousel v-if="checkForIndexPath()">
-          <top-bar />
-        </Carousel>
+  <v-app :class="{ dark: isDark }" :theme="isDark ? 'dark' : 'light'">
+    <!-- ### Start : Top bar ### -->
+    <TopBar @toggle-dark-mode="toggleDarkMode" :is-dark="isDark" />
 
-        <top-bar v-if="!checkForIndexPath()" />
-      </div>
+    <!-- ### Start : Main Contents ### -->
+    <slot class="pa-0" :is-dark="isDark" />
 
-      <!-- ### Start : Main Contents ### -->
-      <v-sheet class="my-15">
-        <nuxt class="pa-0" />
-      </v-sheet>
-
-      <!-- ### Start : Main Footer ### -->
-      <main-footer></main-footer>
-    </v-card>
+    <!-- ### Start : Main Footer ### -->
+    <MainFooter />
   </v-app>
 </template>
 
-<script>
+<script setup>
+import { useTheme } from 'vuetify'
 import TopBar from '@/components/layouts.default/TopBar.vue'
 import MainFooter from '@/components/layouts.default/MainFooter.vue'
-import Carousel from '~/components/layouts.default/Carousel.vue'
 
-export default {
-  components: {
-    TopBar,
-    MainFooter,
-    Carousel,
-  },
+// 다크 모드 상태 관리
+const isDark = ref(false)
 
-  watch: {
-    $route: 'checkForIndexPath',
-  },
+const { global: theme } = useTheme()
 
-  methods: {
-    checkForIndexPath() {
-      const { name } = this.$route
-      return name === 'index'
-    },
-  },
+// 다크 모드 토글 함수
+const toggleDarkMode = () => {
+  isDark.value = !isDark.value
+  theme.name.value = isDark.value ? 'dark' : 'light' // 테마 상태 업데이트
+  localStorage.setItem('theme', theme.name.value) // 상태 저장
 }
+
+// 로컬 스토리지에서 테마 상태 복원
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme') || 'light' // 기본값 'light'
+  isDark.value = savedTheme === 'dark'
+  theme.name.value = savedTheme
+})
 </script>
+
+<style scoped>
+/* 다크 모드에 대한 스타일 */
+.dark {
+  color: white;
+}
+</style>

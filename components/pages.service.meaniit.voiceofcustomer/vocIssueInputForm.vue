@@ -6,36 +6,36 @@
       class="d-flex align-center ma-0 pa-0"
       color="rgba(0, 0, 0, 0)"
     >
-      <v-card :width="cardWidth" flat outlined class="pa-1 pa-sm-3">
+      <v-card :width="cardWidth" flat variant="outlined" class="pa-1 pa-sm-3">
         <!-- ### START: Title ### -->
-        <v-toolbar flat class="d-flex justify-center">
-          <v-toolbar-title>
-            <span class="article-title ma-0">{{ title }}</span>
-          </v-toolbar-title>
-        </v-toolbar>
+        <v-card-title class="d-flex justify-center article-title ma-0">
+          <p>{{ title }}</p>
+        </v-card-title>
 
         <!-- ### START: Input Form ### -->
         <v-card-text class="pb-0">
-          <v-form ref="form" v-model="valid" lazy-validation>
+          <v-form ref="form" model-value="valid" validate-on="submit">
             <v-text-field
               v-model="email"
               :rules="emailRules"
               label="E-mail 주소를 입력해주세요."
               type="text"
-              prepend-icon="mdi-email"
-              required
-              dense
+              :prepend-icon="mdiEmail"
+              density="compact"
               class="mt-2"
-            ></v-text-field>
+              variant="underlined"
+              validate-on="invalid-input"
+            />
 
             <v-select
               v-model="select"
               :items="items"
               :rules="[(v) => !!v || '필수 선택 항목입니다.']"
               label="관련 주제를 선택해주세요."
-              prepend-icon="mdi-cursor-default"
-              required
-            ></v-select>
+              :prepend-icon="mdiCursorDefault"
+              variant="underlined"
+              validate-on="submit"
+            />
 
             <v-textarea
               v-model="question"
@@ -45,8 +45,10 @@
               label="문의/건의 내용을 입력해주세요."
               hint="무관한 내용, 타인에 대한 비난/비방/욕설 등이 포함되는 경우 무통보 삭제될 수 있습니다."
               auto-grow
-              dense
-            ></v-textarea>
+              density="compact"
+              variant="underlined"
+              validate-on="submit"
+            />
 
             <v-checkbox
               v-model="checkbox"
@@ -54,8 +56,8 @@
                 (v) => !!v || '동의하지 않는 경우 내용이 등록되지 않습니다.',
               ]"
               label="메일 주소, 작성 내용을 Github Repository(Knowease-inc.github.io)상 공개에 동의합니다."
-              required
-            ></v-checkbox>
+              validate-on="submit"
+            />
           </v-form>
         </v-card-text>
 
@@ -63,9 +65,9 @@
           <v-btn
             :disabled="!valid"
             color="#313de3"
-            outlined
+            variant="outlined"
             class="mr-4"
-            @click="_summit"
+            @click="summitCustomerVoice"
           >
             등록
           </v-btn>
@@ -75,135 +77,135 @@
   </v-container>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      title: '고객 문의',
-      valid: true,
-      question: '',
-      questionCounter: 1000,
-      questionRules: [
-        (v) => !!v || '내용 입력이 필요합니다.',
-        (v) =>
-          (v && v.length <= 1000) ||
-          'Question must be less than 100 characters',
-      ],
-      email: '',
-      emailRules: [
-        (v) => !!v || '이메일 주소 입력이 필요합니다.',
-        (v) => /.+@.+\..+/.test(v) || '이메일 주소를 입력해야 합니다.',
-      ],
-      select: null,
-      items: ['서비스 이용 문제', '신규 기능 건의', '비즈니스 상담'],
-      checkbox: false,
-    }
-  },
-  head() {
-    return {
-      title: this.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.',
-        },
-      ],
-    }
-  },
+<script setup>
+import { mdiEmail, mdiCursorDefault } from '@mdi/js'
 
-  computed: {
-    cardWidth() {
-      const width =
-        this.$vuetify.breakpoint.width > 800
-          ? 800
-          : this.$vuetify.breakpoint.width
-      return width
-    },
-  },
+const title = '고객 문의'
+const form = ref(null)
+const valid = ref(true)
+const email = ref('')
+const select = ref(null)
+const question = ref('')
+const checkbox = ref(false)
+const questionCounter = 1000
 
-  methods: {
-    _summit() {
-      this.$refs.form.validate()
-      if (this.valid) {
-        this._postIssueCreation()
-          .then(() => {
-            alert(
-              '「' +
-                this.select +
-                ' / ' +
-                this.email +
-                '」를 이슈로 등록하였습니다.'
-            )
-            location.reload()
-          })
-          .catch((err) => {
-            console.log(err)
-          })
-      }
-    },
+const emailRules = [
+  (v) => !!v || '이메일 주소 입력이 필요합니다.',
+  (v) => /.+@.+\..+/.test(v) || '이메일 주소를 입력해야 합니다.',
+]
 
-    _mapVselectToGithubIssuelabels() {
-      switch (this.select) {
-        case '서비스 이용 문제':
-          return ['Domain:UX', 'Task:Bug', 'Communication:VoiceOfCustomer']
-        case '신규 기능 건의':
-          return [
-            'Domain:UX',
-            'Task:Enhancement',
-            'Communication:VoiceOfCustomer',
-          ]
-        case '비즈니스 상담':
-          return [
-            'Domain:Business',
-            'Task:Enhancement',
-            'Communication:VoiceOfCustomer',
-          ]
-        default:
-          return ['Communication:VoiceOfCustomer']
-      }
-    },
+const questionRules = [
+  (v) => !!v || '내용 입력이 필요합니다.',
+  (v) =>
+    (v && v.length <= questionCounter) ||
+    'Question must be less than 1000 characters',
+]
 
-    async _postIssueCreation() {
-      const jwt = await this.$axios.$get(
-        'https://asia-northeast3-knowease-inc.cloudfunctions.net/jwt-creation-app-for-knowease-inc-github-io'
-      )
-      const accessTokens = await this.$axios.$post(
-        'https://api.github.com/app/installations/19408771/access_tokens',
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-            Accept: 'application/vnd.github.v3+json',
-          },
-        }
-      )
-      const creationResult = await this.$axios.$post(
-        'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues',
-        {
-          title: this.select + ' / ' + this.email,
-          labels: this._mapVselectToGithubIssuelabels(),
-          body:
-            '| Email | 항목 | 질문 |\n| -- | -- | -- |\n' +
-            '|' +
-            this.email +
-            '|' +
-            this.select +
-            '|' +
-            this.question +
-            '|',
-        },
-        {
-          headers: {
-            Authorization: `Token ${accessTokens.token}`,
-            Accept: 'application/vnd.github.v3+json',
-          },
-        }
-      )
-      return creationResult // creationResult.url: URL of created Github Issue
+const items = ['서비스 이용 문제', '신규 기능 건의', '비즈니스 상담']
+
+const { width } = useDisplay()
+const cardWidth = computed(() => (width.value > 800 ? 800 : width.value))
+
+useHead({
+  title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.',
     },
-  },
+  ],
+})
+
+const summitCustomerVoice = () => {
+  form.value.validate()
+
+  if (valid.value) {
+    postIssueCreation()
+      .then(() => {
+        alert(`「${select.value} / ${email.value}」를 이슈로 등록하였습니다.`)
+        location.reload()
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+}
+
+const mapVselectToGithubIssuelabels = () => {
+  switch (select.value) {
+    case '서비스 이용 문제':
+      return ['Domain:UX', 'Task:Bug', 'Communication:VoiceOfCustomer']
+    case '신규 기능 건의':
+      return ['Domain:UX', 'Task:Enhancement', 'Communication:VoiceOfCustomer']
+    case '비즈니스 상담':
+      return [
+        'Domain:Business',
+        'Task:Enhancement',
+        'Communication:VoiceOfCustomer',
+      ]
+    default:
+      return ['Communication:VoiceOfCustomer']
+  }
+}
+
+// GitHub 이슈 생성 함수
+const postIssueCreation = async () => {
+  // JWT 가져오기
+  const { data: jwtData, error: jwtError } = await useFetch(
+    'https://asia-northeast3-knowease-inc.cloudfunctions.net/jwt-creation-app-for-knowease-inc-github-io',
+  )
+
+  if (jwtError.value) {
+    console.error('JWT 가져오기 실패:', jwtError.value)
+    return
+  }
+  const jwt = jwtData.value
+
+  // Access Token 가져오기
+  const { data: accessTokensData, error: accessTokensError } = await useFetch(
+    'https://api.github.com/app/installations/19408771/access_tokens',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        Accept: 'application/vnd.github.v3+json',
+      },
+      // 빈 객체를 body로 전달하여 `POST` 요청이 성공적으로 전송되도록 설정
+      body: {},
+    },
+  )
+
+  if (accessTokensError.value) {
+    console.error('Access Token 가져오기 실패:', accessTokensError.value)
+    return
+  }
+  const accessToken = accessTokensData.value.token
+
+  // GitHub 이슈 생성
+  const { data: creationResult, error: creationError } = await useFetch(
+    'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Token ${accessToken}`,
+        Accept: 'application/vnd.github.v3+json',
+      },
+      body: JSON.stringify({
+        title: `${select.value} / ${email.value}`,
+        labels: mapVselectToGithubIssuelabels(),
+        body: `| Email | 항목 | 질문 |\n| -- | -- | -- |\n|${email.value}|${select.value}|${question.value}|`,
+      }),
+    },
+  )
+
+  if (creationError.value) {
+    console.error('GitHub 이슈 생성 실패:', creationError.value)
+    return
+  }
+
+  return creationResult.value
 }
 </script>
 

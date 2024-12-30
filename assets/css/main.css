@@ -1,34 +1,39 @@
 /* Content Title */
-.article-title, .article-title-xs {
-    font-weight: 500;
+.article-title,
+.article-title-xs {
+  font-weight: 500;
 }
 
 .article-title {
-    font-size: 12px !important;
+  font-size: 12px !important;
 }
 
 .article-title-xs {
-    font-size: 10px  !important;
+  font-size: 10px !important;
 }
 
 /* Content Body */
-.article-body, .article-body-inactive, .article-body-explanation {
-    font-size: 11px !important; line-height: 16px !important;
+/* .article-body,
+.article-body-inactive,
+.article-body-explanation {
+  font-size: 11px !important;
+  line-height: 16px !important;
 }
 
-.article-body, .article-body-explanation {
-    color: #212121; 
+.article-body,
+.article-body-explanation {
+  color: #212121;
 }
 
 .article-body-inactive {
-    color: grey; 
-}
+  color: grey;
+} */
 
 /* Content Title */
-.contentTitleCard {
+/* .contentTitleCard {
   margin-top: 95px;
   margin-bottom: 25px;
-}
+} */
 
 .contentTitle {
   font-size: 24px;
@@ -36,11 +41,11 @@
   margin-bottom: 14px !important;
 }
 
-.contentSubTitle {
+/* .contentSubTitle {
   font-size: 12px;
   font-weight: 400;
   line-height: 140% !important;
-}
+} */
 
 .contentText {
   font-size: 14px;
@@ -48,20 +53,20 @@
 }
 
 /* Our Service Card */
-.expCard {
+/* .expCard {
   font-size: 16px !important;
   font-weight: 600 !important;
   color: rgba(76, 76, 76, 1) !important;
 }
 
 .expCardSubTitle {
-  font-size: 12px !important;
+  font-size: 1.5rem !important;
   font-weight: 500 !important;
   line-height: 140%;
-}
+} */
 
 /* Timeline */
-.timelinetitle,
+/* .timelinetitle,
 .timelinetitle-xs {
   font-weight: 600;
   color: #313de3;
@@ -76,4 +81,15 @@
   font-size: 12px !important;
   font-weight: 500 !important;
   line-height: 130% !important;
+} */
+
+.content-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.content-subtitle {
+  font-size: 1.4rem;
+  text-align: center;
 }

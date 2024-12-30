@@ -1,104 +1,121 @@
-import colors from 'vuetify/es5/util/colors'
-
-export default {
+export default defineNuxtConfig({
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'public',
+
   router: {
     base: '/',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    titleTemplate: '%s',
-    title: process.env.npm_package_meta_title,
-    htmlAttrs: {
-      prefix: 'og:http://ogp.me/ns#',
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // * OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
-      // ** Basic
-      {
-        hid: 'og:site_name',
-        property: 'og:site_name',
-        content: process.env.npm_package_meta_title?.toString().toUpperCase(), // temporaliy : https://stackoverflow.com/a/55068662
+  app: {
+    head: {
+      titleTemplate: '%s',
+      title: process.env.npm_package_meta_title, // ?
+      htmlAttrs: {
+        prefix: 'og:http://ogp.me/ns#',
       },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_meta_description,
-      },
-      {
-        hid: 'og:type',
-        property: 'og:type',
-        content: 'website',
-      },
-      {
-        hid: 'og:url',
-        property: 'og:url',
-        content: process.env.npm_package_meta_url,
-      },
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: process.env.npm_package_meta_title,
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: process.env.npm_package_meta_description,
-      },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: process.env.npm_package_meta_image,
-      },
-      // ** For Twitter
-      {
-        hid: 'twitter:card',
-        name: 'twitter:card',
-        content: 'summary',
-      },
-      {
-        hid: 'twitter:url',
-        name: 'twitter:url',
-        content: process.env.npm_package_meta_url,
-      },
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        content: process.env.npm_package_meta_title,
-      },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content: process.env.npm_package_meta_description,
-      },
-      {
-        hid: 'twitter:image',
-        name: 'twitter:image',
-        content: process.env.npm_package_meta_image,
-      },
-      /*
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        // * OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
+        // ** Basic
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: process.env.npm_package_meta_title?.toString().toUpperCase(), // temporaliy : https://stackoverflow.com/a/55068662
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: process.env.npm_package_meta_description,
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: process.env.npm_package_meta_url,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: process.env.npm_package_meta_title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: process.env.npm_package_meta_description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: process.env.npm_package_meta_image,
+        },
+        // ** For Twitter
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary',
+        },
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          content: process.env.npm_package_meta_url,
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: process.env.npm_package_meta_title,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: process.env.npm_package_meta_description,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: process.env.npm_package_meta_image,
+        },
+        /*
       For Google Search Console
       <meta name="google-site-verification" content="NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk" />
       */
-      {
-        name: 'google-site-verification',
-        content: 'NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk',
-      },
-      /* For Naver Web Master
+        {
+          name: 'google-site-verification',
+          content: 'NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk',
+        },
+        /* For Naver Web Master
       <meta name="naver-site-verification" content="b9f47832d1b3a168ae4076e70eb986dd85f0520c" /> */
-      {
-        name: 'naver-site-verification',
-        content: 'b9f47832d1b3a168ae4076e70eb986dd85f0520c',
-      },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+        {
+          name: 'naver-site-verification',
+          content: 'b9f47832d1b3a168ae4076e70eb986dd85f0520c',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+
+      // Pass your Google Analytics ID to id field of googleAnalytics
+      script: [
+        {
+          src: `https://www.googletagmanager.com/gtag/js?id=UA-168397043-2`,
+          async: true,
+        },
+        {
+          children: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-168397043-2');
+          `,
+        },
+      ],
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -107,70 +124,83 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [{ path: '@/components', pathPrefix: false }],
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
-    // for TypeScript
-    '@nuxt/typescript-build',
-    // doc : https://google-analytics.nuxtjs.org/setup
-    '@nuxtjs/google-analytics',
-    // doc : https://www.npmjs.com/package/@nuxtjs/markdownit
-    '@nuxtjs/markdownit',
-    // doc : https://axios.nuxtjs.org/setup
-    '@nuxtjs/axios',
+  // Modules: https://nuxt.com/docs/migration/configuration#modules
+  modules: [
+    // https://vuetify-nuxt-module.netlify.app/guide/
+    'vuetify-nuxt-module',
+    '@nuxtjs/i18n',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  /*
+   ** vuetify-nuxt-module
+   * ref: https://vuetify-nuxt-module.netlify.app/guide/icons/font-icons.html
+   */
+  // @ts-ignore: 다음 줄에서 ts(2353) 에러를 무시합니다.
   vuetify: {
-    theme: {
-      light: true,
-      themes: {
-        light: {
-          background: colors.grey.lighten5,
-          primary: '#313de3',
-          secondary: '#c5dbff',
-          barinfo: colors.shades.white,
-          ranker: colors.blue.accent3,
-          rankerlower: colors.grey.darken2,
-          info: colors.grey.darken2,
-          unactivated: colors.grey.darken1,
-          success: colors.green.base,
-          warning: colors.deepOrange.accent4,
-          error: colors.red.base,
-          chart: {
-            first: colors.blue.darken1,
-            second: colors.blue.lighten1,
-            third: colors.blue.lighten3,
-            fourth: colors.blue.lighten5,
-          },
-        },
+    vuetifyOptions: {
+      icons: {
+        defaultSet: 'mdi-svg', // only need to add @mdi/js
       },
     },
   },
 
-  // [optional] markdownit options
-  // See https://github.com/markdown-it/markdown-it
-  markdownit: {
-    preset: 'default',
-    linkify: true,
-    breaks: true,
-    use: ['markdown-it-div', 'markdown-it-attrs'],
+  /*
+   ** Build configuration
+   ** Doc: https://nuxtjs.org/api/configuration-build
+   */
+
+  build: {
+    analyze: true, // Analyze the build
+
+    // https://vuetify-nuxt-module.netlify.app/, https://vuetifyjs.com/en/getting-started/installation/#using-nuxt-3
+    transpile: ['vuetify'],
   },
 
-  // Pass your Google Analytics ID to id field of googleAnalytics
-  googleAnalytics: {
-    id: 'UA-168397043-2',
+  // Vite configuration
+  vite: {
+    build: {
+      minify: 'terser',
+      // sourcemap: true, // 디버깅용
+      terserOptions: {
+        compress: {
+          drop_console: false,
+          sequences: true,
+          dead_code: true,
+          conditionals: true,
+          booleans: true,
+          unused: true,
+          if_return: true,
+          join_vars: true,
+        },
+        mangle: true, // Option to disable name mangling
+      },
+    },
+    resolve: {
+      alias: {
+        '../i18n/locales': '/locales',
+      },
+    },
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
-}
+  compatibilityDate: '2024-10-31',
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en.json',
+        name: 'English',
+        dir: 'ltr',
+      },
+      { code: 'ko', iso: 'ko-KR', file: 'ko.json', name: 'Korean', dir: 'ltr' },
+    ],
+    defaultLocale: 'ko', // 기본 언어
+    lazy: true, // JSON 파일 지연 로드
+    langDir: './locales/', // JSON 파일 경로
+    legacy: false,
+    fallbackLocale: 'en',
+  },
+})

@@ -1,204 +1,102 @@
 <template>
-  <v-container class="d-flex flex-column" fluid>
+  <v-container class="d-flex flex-column pa-0" fluid>
+    <v-row justify="center" class="px-0">
+      <Carousel />
+    </v-row>
+
     <!-- ### Start : Service Link ### -->
-    <v-row justify="center">
-      <v-col class="d-flex flex-column align-center">
-        <p class="content-title">게타's 서비스</p>
-        <div v-if="$vuetify.breakpoint.smAndUp" class="content-subtitle">
-          <div class="font-weight-bold">
-            정보, 지식이 쉽고 빠르게 전달 및 소통 되도록 만드는
-          </div>
-          <div>모든 기술을 고민하고 그것들에 도전하고 있습니다.</div>
-        </div>
+    <v-row
+      justify="center"
+      style="
+        background-color: rgba(2, 32, 71, 0.05);
+        font-size: 1.8rem;
+        min-height: 100vh;
+      "
+      class="py-8 py-sm-16"
+    >
+      <v-col class="d-flex flex-column align-center pt-16">
+        <p class="content-title">{{ t('pages.index.pageTitle.service') }}</p>
 
         <!-- ### Start : Our Service ### -->
-        <v-col cols="12" sm="9" md="8">
-          <services />
+        <v-col cols="12" sm="8">
+          <Services />
         </v-col>
       </v-col>
     </v-row>
 
     <!-- ### Start : Partners ### -->
-    <v-row justify="center" class="pt-16">
-      <v-col class="d-flex flex-column align-center">
-        <p class="content-title">고객사</p>
-        <v-col cols="11" sm="8">
-          <partners />
+    <v-theme-provider theme="light" with-background style="width: 100%">
+      <v-row
+        class="d-flex justify-center align-center py-8 py-sm-16"
+        style="min-height: 80vh"
+      >
+        <v-col class="d-flex flex-column align-center">
+          <p class="content-title py-4">
+            {{ t('pages.index.pageTitle.partners') }}
+          </p>
+
+          <v-col cols="11" sm="10" md="8" class="pb-16">
+            <Partners />
+          </v-col>
         </v-col>
-      </v-col>
-    </v-row>
+      </v-row>
+    </v-theme-provider>
 
     <!-- ### Start : History ### -->
     <v-row
       justify="center"
-      no-gutters
-      style="background-color: #2979ff"
-      class="mt-16 d-flex flex-column align-center white--text"
+      align="center"
+      style="background-color: #3746fb; min-height: 80vh"
+      class="mt-16 d-flex pt-8"
     >
-      <v-col cols="12" sm="4" class="d-flex flex-column align-center pt-16">
-        <p class="content-title white--text">연혁</p>
-        <v-col class="d-flex">
-          <v-col
-            cols="12"
-            sm="auto"
-            offset-sm="1"
-            class="content-subtitle pa-0 pl-9"
-          >
-            게타(GET-A)을 위했던
-            <span class="font-weight-black">지난 여정</span>
-          </v-col>
-
-          <v-col
-            v-if="$vuetify.breakpoint.smAndUp"
-            cols="auto"
-            offset="4"
-            class="py-0"
-          >
-            <v-btn
-              :disabled="carouselIndex === 0"
-              icon
-              small
-              @click="triggerCarouselAction('left')"
-            >
-              <v-icon size="32" color="white">{{ 'mdi-chevron-left' }}</v-icon>
-            </v-btn>
-            <v-btn icon small @click="triggerCarouselAction('right')">
-              <v-icon size="32" color="white">{{ 'mdi-chevron-right' }}</v-icon>
-            </v-btn>
-          </v-col>
-        </v-col>
+      <v-col cols="8" sm="8" class="content-subtitle pa-0 text-white">
+        <p class="content-title text-white py-4">
+          {{ t('pages.index.pageTitle.history') }}
+        </p>
+        <p
+          style="font-size: 1.4rem"
+          class="mt-4 font-weight-bold"
+          v-html="t('pages.index.timeline.title')"
+        ></p>
       </v-col>
 
-      <timeline @update-carousel-index="updateCarouselIndex" />
-
-      <v-col v-if="$vuetify.breakpoint.xsOnly" cols="auto" class="mb-8">
-        <v-btn
-          :disabled="carouselIndex === 0"
-          icon
-          @click="triggerCarouselAction('left')"
-        >
-          <v-icon size="60" color="white">{{ 'mdi-chevron-left' }}</v-icon>
-        </v-btn>
-        <v-btn icon @click="triggerCarouselAction('right')">
-          <v-icon size="60" color="white">{{ 'mdi-chevron-right' }}</v-icon>
-        </v-btn>
+      <v-col cols="12" sm="12">
+        <TimelineIndex />
       </v-col>
     </v-row>
 
     <!-- ### Start : Linked In Badges ### -->
-    <v-row justify="center" class="pt-16">
+    <v-row
+      justify="center"
+      class="pt-16"
+      style="background-color: rgba(2, 32, 71, 0.05)"
+      :style="{ minHeight: mdAndUp ? '100vh' : '' }"
+    >
       <v-col class="d-flex flex-column align-center">
-        <p class="content-title">함께하는 사람들</p>
-        <div class="content-subtitle">
-          <div>
-            게타(GET-A)을 위해 <br v-if="$vuetify.breakpoint.xsOnly" />
-            <span class="font-weight-bold"> 고군분투하는 이들</span>
-          </div>
+        <p class="content-title">{{ t('pages.index.pageTitle.team') }}</p>
+        <div
+          class="content-subtitle my-4"
+          :style="{ 'font-size': smAndUp ? '1.8rem' : '1.2rem' }"
+        >
+          <div v-html="t('pages.index.pageTitle.teamSub')"></div>
         </div>
         <v-col cols="11" sm="8">
-          <founders />
+          <Founders />
         </v-col>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script>
+<script setup>
 import Services from '@/components/pages.index/Services.vue'
-import Founders from '~/components/pages.index/Founders.vue'
-import Timeline from '~/components/pages.index/Timeline.vue'
-import Partners from '~/components/pages.index/Partners.vue'
+import Founders from '@/components/pages.index/Founders.vue'
+import TimelineIndex from '@/components/pages.index/Timeline.vue'
+import Partners from '@/components/pages.index/Partners.vue'
+import Carousel from '~/components/pages.index/Carousel.vue'
 
-export default {
-  components: {
-    Services,
-    Founders,
-    Timeline,
-    Partners,
-  },
-
-  data() {
-    return {
-      carouselIndex: 0,
-    }
-  },
-
-  /* SEO */
-  // head() {
-  //   const headTitle = '(주)게타'
-  //   const description = '세상 모든 지식 & 정보격차 해소를 위합니다'
-  //   const ogDescription = description
-  //   const ogImgURL =
-  //     'https://dmq1lrjfpg713.cloudfront.net/og_company_20231227.png'
-  //   return {
-  //     title: headTitle,
-  //     meta: [
-  //       /*
-  //        ** OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
-  //        ** Basic
-  //        */
-  //       {
-  //         hid: 'og:title',
-  //         property: 'og:title',
-  //         content: headTitle,
-  //       },
-  //       {
-  //         hid: 'og:description',
-  //         property: 'og:description',
-  //         content: ogDescription,
-  //       },
-  //       {
-  //         hid: 'og:image',
-  //         property: 'og:image',
-  //         content: ogImgURL,
-  //       },
-  //       /* OpenGraph for twitter */
-  //       {
-  //         hid: 'twitter:title',
-  //         name: 'twitter:title',
-  //         content: headTitle,
-  //       },
-  //       {
-  //         hid: 'twitter:description',
-  //         name: 'twitter:description',
-  //         content: ogDescription,
-  //       },
-  //       {
-  //         hid: 'twitter:image',
-  //         name: 'twitter:image',
-  //         content: ogImgURL,
-  //       },
-  //       /*
-  //        ** Etc.
-  //        */
-  //       {
-  //         hid: 'description',
-  //         name: 'description',
-  //         content: description,
-  //       },
-  //     ],
-  //   }
-  // },
-
-  methods: {
-    triggerCarouselAction(direction) {
-      this.$emit('carousel-action', direction)
-    },
-    updateCarouselIndex(newIndex) {
-      this.carouselIndex = newIndex
-    },
-  },
-}
+const { xs, smAndUp, mdAndUp } = useDisplay()
+const { t } = useI18n()
 </script>
 
-<style scoped>
-.content-title {
-  color: #2979ff;
-  font-weight: 700;
-}
-
-.content-subtitle {
-  font-size: 20px;
-  text-align: center;
-}
-</style>
+<style scoped></style>
