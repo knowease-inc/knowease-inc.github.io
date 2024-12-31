@@ -152,7 +152,7 @@ const lowerTextClass = computed(() => {
 }
 
 .image-container {
-  background: url('img/heroIMG.jpg') no-repeat center center;
+  background: url('/img/heroIMG.jpg') no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
