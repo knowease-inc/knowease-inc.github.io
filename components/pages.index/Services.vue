@@ -182,14 +182,14 @@ const trackAndOpenEmail = (item) => {
   window.location.href = `mailto:${item.to}`
 
     // GA4 이벤트 전송
-  trackEvent('button_click', {
+  trackEvent('contact_us_btn', {
     button_name: item.name,
   });
 }
 
 const trackAndNavigate = (item) => {
   // GA4 이벤트 전송
-  trackEvent('button_click', {
+  trackEvent('service_section_nav_btn', {
     button_name: item.name,
   });
 

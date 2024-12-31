@@ -86,8 +86,8 @@ const navigateWithTracking = (item) => {
   const {name, to} = item
 
   // GA4 이벤트 전송
-  trackEvent("menu_open", {
-    menu_title:name,
+  trackEvent("footer_nav_btn", {
+    button_name:name,
   });
 
   // 외부 링크와 내부 링크를 구분해 처리

@@ -275,9 +275,9 @@ const navigateWithTracking = (item) => {
 };
 
 
-const openMenu = (menu_title) => {
-  trackEvent("menu_open", {
-    menu_title,
+const openMenu = (button_name) => {
+  trackEvent("top_bar_nav_btn", {
+    button_name,
   });
 }
 

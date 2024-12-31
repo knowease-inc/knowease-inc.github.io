@@ -156,9 +156,7 @@ const handleCarouselAction = (direction) => {
 
 
   // GA4 이벤트 전송
-  trackEvent('button_click', {
-    button_name: 'carousel',
-  });
+  trackEvent('carousel_click');
 }
 
 const calculateIndexToRight = () => {
