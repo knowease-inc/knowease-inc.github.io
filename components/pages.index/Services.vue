@@ -38,7 +38,6 @@
               :disabled="!content.meaniit.shortcut.href"
               :elevation="0"
               :color="linkBtnColor"
-              :href="content.meaniit.shortcut.href"
               :style="{
                 ...btnInServiceCard,
                 ...(smAndUp ? {} : { width: '100%' }),
@@ -46,6 +45,8 @@
               variant="elevated"
               rounded
               :class="[smAndUp ? 'px-4 ' : 'mb-2']"
+              @click="trackAndNavigate(content.meaniit.shortcut)"
+
             >
               {{ content.meaniit.shortcut.name }}
             </v-btn>
@@ -53,7 +54,6 @@
             <v-btn
               disabled
               :color="linkBtnColor"
-              :to="content.meaniit.introduce.to"
               :style="{
                 ...btnInServiceCard,
                 ...(smAndUp ? {} : { width: '100%' }),
@@ -61,6 +61,7 @@
               variant="outlined"
               rounded
               :class="[smAndUp ? 'px-4' : 'px-7 ml-n1']"
+              @click="trackAndNavigate(content.meaniit.introduce)"
             >
               {{ content.meaniit.introduce.name }}
             </v-btn>
@@ -109,7 +110,7 @@
               rounded
               :class="[smAndUp ? 'px-4' : 'px-7 ml-n1']"
               :disabled="!content.education.introduce.to"
-              @click="openEmail"
+              @click="trackAndOpenEmail(content.education.introduce)"
             >
               {{ content.education.introduce.name }}
             </v-btn>
@@ -134,6 +135,8 @@
 <script setup>
 const { xs, smAndUp } = useDisplay()
 const { t, locale } = useI18n()
+const router = useRouter();
+const { trackEvent } = useGA4();
 
 const linkBtnColor = '#3746fb'
 
@@ -175,9 +178,30 @@ const setContainerHeight = computed(() =>
   xs.value ? (locale.value === 'en' ? '600' : '500') : '600',
 )
 
-const openEmail = () => {
-  window.location.href = `mailto:${content.value.education.introduce.to}`
+const trackAndOpenEmail = (item) => {
+  window.location.href = `mailto:${item.to}`
+
+    // GA4 이벤트 전송
+  trackEvent('contact_us_btn', {
+    button_name: item.name,
+  });
 }
+
+const trackAndNavigate = (item) => {
+  // GA4 이벤트 전송
+  trackEvent('service_section_nav_btn', {
+    button_name: item.name,
+  });
+
+  // 외부 링크 처리
+  if (item.href) {
+    window.open(item.href, '_blank'); // 새 창에서 열기
+  } else {
+    // 내부 링크 처리
+    router.push(item.to);
+  }
+};
+
 </script>
 
 <style scoped>

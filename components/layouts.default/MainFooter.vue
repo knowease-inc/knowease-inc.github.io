@@ -22,12 +22,11 @@
           <v-list-item
             v-for="(item, i) in menuItems"
             :key="i"
-            :href="item.to"
-            :target="item.to.startsWith('http') ? '_blank' : '_self'"
-            link
             class="router-push"
+            :disabled="item.name === '서비스 소개'"
+            @click="navigateWithTracking(item)"
           >
-            <v-list-item-title>{{ item.name }}</v-list-item-title>
+            <v-list-item-title >{{ item.name }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-col>
@@ -53,11 +52,10 @@
           <v-list-item
             v-for="(item, i) in menuItems"
             :key="i"
-            :href="item.to"
-            :target="item.to.startsWith('http') ? '_blank' : '_self'"
-            link
+            :disabled="item.name === '서비스 소개'"
+            @click="navigateWithTracking(item)"
           >
-            <v-list-item-title>{{ item.name }}</v-list-item-title>
+            <v-list-item-title >{{ item.name }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-col>
@@ -68,6 +66,8 @@
 <script setup>
 const { smAndUp } = useDisplay()
 const { t } = useI18n()
+const router = useRouter();
+const { trackEvent } = useGA4();
 
 const menuItems = computed(() => [
   { name: t('default.topBar.menuItems.me'), to: '/' },
@@ -80,6 +80,24 @@ const menuItems = computed(() => [
     to: 'https://ko.meaniit.com',
   },
 ])
+
+
+const navigateWithTracking = (item) => {
+  const {name, to} = item
+
+  // GA4 이벤트 전송
+  trackEvent("footer_nav_btn", {
+    button_name:name,
+  });
+
+  // 외부 링크와 내부 링크를 구분해 처리
+  if (to?.startsWith('http')) {
+    window.open(to, '_blank'); // 새 창에서 열기
+  } else {
+    router.push(to, '_self'); // 내부 라우트 이동
+  }
+};
+
 </script>
 
 <style scoped>

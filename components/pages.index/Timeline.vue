@@ -130,6 +130,7 @@ import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 const { t, tm } = useI18n()
+const { trackEvent } = useGA4();
 
 const contents = computed(() => {
   const events = tm('pages.index.timeline.events')
@@ -152,6 +153,10 @@ const handleCarouselAction = (direction) => {
   } else if (direction === 'right') {
     calculateIndexToRight()
   }
+
+
+  // GA4 이벤트 전송
+  trackEvent('carousel_click');
 }
 
 const calculateIndexToRight = () => {
