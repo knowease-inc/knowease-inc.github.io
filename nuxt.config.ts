@@ -1,13 +1,8 @@
+import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'public',
-
-  router: {
-    base: '/',
-  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   app: {
@@ -99,23 +94,14 @@ export default defineNuxtConfig({
         },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-
-      // Pass your Google Analytics ID to id field of googleAnalytics
-      script: [
-        {
-          src: `https://www.googletagmanager.com/gtag/js?id=UA-168397043-2`,
-          async: true,
-        },
-        {
-          children: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-168397043-2');
-          `,
-        },
-      ],
     },
+  },
+
+  devServer: {
+    // @ts-ignore: 다음 줄에서 ts(2580) 에러를 무시합니다.
+    host: process.env.HOST || '127.0.0.1', // default: localhost
+    // @ts-ignore: 다음 줄에서 ts(2580) 에러를 무시합니다.
+    port: Number(process.env.PORT) || 8080,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -131,6 +117,8 @@ export default defineNuxtConfig({
     // https://vuetify-nuxt-module.netlify.app/guide/
     'vuetify-nuxt-module',
     '@nuxtjs/i18n',
+    // https://nuxt.com/modules/gtag
+    'nuxt-gtag',
   ],
 
   /*
@@ -202,5 +190,11 @@ export default defineNuxtConfig({
     langDir: './locales/', // JSON 파일 경로
     legacy: false,
     fallbackLocale: 'en',
+  },
+
+  gtag: {
+    id: process.env.GA_TRACKING_ID, // 여기에 실제 Google 태그 ID를 입력하세요.
+    debug: true, // 개발, 배포 모든 환경에서 디버그 모드 활성화
+    enabled: true, // process.env.NODE_ENV === 'production', // 배포 환경에서만 활성화  // 개발, 배포 모두: true
   },
 })
