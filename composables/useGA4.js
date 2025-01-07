@@ -7,7 +7,6 @@ export function useGA4() {
   const trackEvent = (eventName, params = {}) => {
     if (typeof gtag === "function") {
       gtag("event", eventName, params,);
-      console.log(`[GA4] Event tracked: ${eventName}`, params);
     } else {
       console.warn("[GA4] gtag is not initialized");
     }
