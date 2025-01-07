@@ -1,0 +1,1 @@
+import{s as e,ah as r}from"./BHZokrLK.js";const t=e({class:[String,Array,Object],style:{type:[String,Array,Object],default:null}},"component");function s(e){r("useRender").render=e}export{t as m,s as u};
