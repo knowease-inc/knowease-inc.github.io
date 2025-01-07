@@ -1,1 +1,0 @@
-import{q as e,ag as r}from"./r_Ez2V8M.js";const t=e({class:[String,Array,Object],style:{type:[String,Array,Object],default:null}},"component");function n(e){r("useRender").render=e}export{t as m,n as u};
