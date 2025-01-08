@@ -1,4 +1,4 @@
-# knowease-inc.github.io
+# https://www.get-a.io/
 
 > GET-A Inc.의 github pages
 

@@ -85,45 +85,42 @@ const { global: theme } = useTheme()
 
 const isDark = computed(() => theme.name.value === 'dark')
 
-const headTitle = computed(() => t('meaniit.meta.title'))
-const description = computed(() => t('meaniit.meta.description'))
+// const headTitle = computed(() => t('meaniit.meta.title'))
+// const description = computed(() => t('meaniit.meta.description'))
 
-const ogDescription = description
-const ogImgURL = 'https://dmq1lrjfpg713.cloudfront.net/og_20231209.png'
+// const ogDescription = description.value
+// const ogImgURL = 'https://dmq1lrjfpg713.cloudfront.net/og_20231209.png'
 
-useHead({
-  title: headTitle,
-  meta: [
-    {
-      name: 'description',
-      content: description,
-    },
-    {
-      property: 'og:title',
-      content: headTitle,
-    },
-    {
-      property: 'og:description',
-      content: ogDescription,
-    },
-    {
-      property: 'og:image',
-      content: ogImgURL,
-    },
-    {
-      name: 'twitter:title',
-      content: headTitle,
-    },
-    {
-      name: 'twitter:description',
-      content: ogDescription,
-    },
-    {
-      name: 'twitter:image',
-      content: ogImgURL,
-    },
-  ],
-})
+// useHead({
+//   title: headTitle.value,
+//   meta: [
+//     // 기본 메타 태그
+//     {
+//       hid: 'description',
+//       name: 'description',
+//       content: description.value,
+//     },
+
+//     // Open Graph 설정
+//     { hid: 'og:title', property: 'og:title', content: headTitle.value, },
+//     {
+//       hid: 'og:description',
+//       property: 'og:description',
+//       content: ogDescription,
+//     },
+//     { hid: "og:url", property: "og:url", content: window.location.href },
+
+//     // Twitter 카드 설정
+//     {
+//       name: 'twitter:title',
+//       content: headTitle.value,
+//     },
+//     {
+//       name: 'twitter:description',
+//       content: ogDescription,
+//     },
+//   ],
+// })
 </script>
 
 <style scoped>

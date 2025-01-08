@@ -8,24 +8,25 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s',
-      title: process.env.npm_package_meta_title, // ?
+      title: process.env.npm_package_meta_title,
       htmlAttrs: {
         prefix: 'og:http://ogp.me/ns#',
       },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        // * OpenGraph(og) ref.https://qiita.com/amishiro/items/b7260116b282d2cf2756
         // ** Basic
-        {
-          hid: 'og:site_name',
-          property: 'og:site_name',
-          content: process.env.npm_package_meta_title?.toString().toUpperCase(), // temporaliy : https://stackoverflow.com/a/55068662
-        },
         {
           hid: 'description',
           name: 'description',
           content: process.env.npm_package_meta_description,
+        },
+
+        // * OpenGraph(og)
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: process.env.npm_package_meta_title,
         },
         {
           hid: 'og:type',
@@ -84,7 +85,7 @@ export default defineNuxtConfig({
       */
         {
           name: 'google-site-verification',
-          content: 'NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk',
+          content: '9SemM0WPDAk9YvlOMKHZLgf8f2R9cSDBGfKu8St_rbA',
         },
         /* For Naver Web Master
       <meta name="naver-site-verification" content="b9f47832d1b3a168ae4076e70eb986dd85f0520c" /> */
@@ -93,7 +94,11 @@ export default defineNuxtConfig({
           content: 'b9f47832d1b3a168ae4076e70eb986dd85f0520c',
         },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'alternate', hreflang: 'en', href: 'https://www.get-a.io/en' },
+        { rel: 'alternate', hreflang: 'ko', href: 'https://www.get-a.io/' },
+      ],
     },
   },
 

@@ -1,11 +1,13 @@
+# 기본적으로 모든 크롤러를 차단
 User-agent: *
 Disallow: /
+
+
+# 주요 검색 엔진 크롤러에 대한 허용 규칙
 User-agent: Googlebot
 User-agent: DAUM
-User-agent: Daumoa
 User-agent: Yeti
-User-agent: NaverBot
 User-agent: ZumBot
 Allow: /
 
-Sitemap: https://knowease-inc.github.io/sitemap.xml
+Sitemap: https://www.get-a.io/sitemap.xml

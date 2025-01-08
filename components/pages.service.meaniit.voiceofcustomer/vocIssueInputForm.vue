@@ -106,14 +106,31 @@ const items = ['서비스 이용 문제', '신규 기능 건의', '비즈니스 
 const { width } = useDisplay()
 const cardWidth = computed(() => (width.value > 800 ? 800 : width.value))
 
+const headDescription = '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.'
+
 useHead({
   title,
   meta: [
     {
       hid: 'description',
       name: 'description',
-      content:
-        '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.',
+      content: headDescription,
+    },
+
+    // Open Graph 메타 태그 (참고: 나머지 속성은 전역 설정 따름_nuxt.config 및 package.json )
+    { hid: 'og:title', property: 'og:title', content: title, },
+    {
+      hid: 'og:description',
+      property: 'og:description',
+      content: headDescription,
+    },
+    { hid: "og:url", property: "og:url", content: window.location.href },
+
+    // Twitter 카드 설정
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: headDescription,
     },
   ],
 })

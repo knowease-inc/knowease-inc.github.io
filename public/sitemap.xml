@@ -6,15 +6,13 @@
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
     xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-        <loc>https://knowease-inc.github.io/</loc>
+        <loc>https://www.get-a.io/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.get-a.io/en" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.get-a.io/" />
     </url>
     <url>
-        <loc>https://knowease-inc.github.io/service/meaniit/introduce</loc>
-    </url>
-    <url>
-        <loc>https://knowease-inc.github.io/service/meaniit/extension-meaniit</loc>
-    </url>
-    <url>
-        <loc>https://knowease-inc.github.io/recruit</loc>
+        <loc>https://www.get-a.io/en</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.get-a.io/en" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.get-a.io/" />
     </url>
 </urlset>

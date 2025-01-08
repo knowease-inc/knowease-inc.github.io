@@ -19,9 +19,9 @@ import RecruitInfos from '@/components/pages.recruit/RecruitInfos.vue'
 
 const { width, height } = useDisplay()
 
-useHead({
-  title: '채용 공고 - (주)게타',
-})
+// useHead({
+//   title: '채용 공고 - (주)게타',
+// })
 
 const WebdeveloperFrontend = [
   {
