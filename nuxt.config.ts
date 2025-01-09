@@ -79,14 +79,7 @@ export default defineNuxtConfig({
           name: 'twitter:image',
           content: process.env.npm_package_meta_image,
         },
-        /*
-      For Google Search Console
-      <meta name="google-site-verification" content="NXprhyX8ZG7MoveZppYftz0xIl5kkkYSK9xJ4tXQPLk" />
-      */
-        {
-          name: 'google-site-verification',
-          content: '9SemM0WPDAk9YvlOMKHZLgf8f2R9cSDBGfKu8St_rbA',
-        },
+
         /* For Naver Web Master
       <meta name="naver-site-verification" content="b9f47832d1b3a168ae4076e70eb986dd85f0520c" /> */
         {
