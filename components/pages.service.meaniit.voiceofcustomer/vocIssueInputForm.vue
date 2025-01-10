@@ -135,20 +135,31 @@ useHead({
   ],
 })
 
-const summitCustomerVoice = () => {
-  form.value.validate()
+
+const summitCustomerVoice = async () => {
+  form.value.validate();
 
   if (valid.value) {
-    postIssueCreation()
-      .then(() => {
-        alert(`「${select.value} / ${email.value}」를 이슈로 등록하였습니다.`)
-        location.reload()
-      })
-      .catch((err) => {
-        console.error(err)
-      })
+    try {
+      // GitHub 이슈 생성
+      await postIssueCreation();
+
+      // 서버에 데이터 저장
+      await sendInquiryToServer({
+        customer_name: select.value,
+        customer_email: email.value,
+        content: question.value,
+      });
+
+      alert(`「${select.value} / ${email.value}」를 이슈로 등록하였습니다.`)
+      location.reload();
+    } catch (err) {
+      console.error(err);
+      alert("문제가 발생했습니다. 다시 시도해주세요.");
+    }
   }
-}
+};
+
 
 const mapVselectToGithubIssuelabels = () => {
   switch (select.value) {
@@ -224,6 +235,47 @@ const postIssueCreation = async () => {
 
   return creationResult.value
 }
+
+const sendInquiryToServer = async (inquiryData = {}) => {
+  const {customer_name, customer_email, content} = inquiryData
+
+
+  try {
+  const apiUrl = "https://ko.api.researcher.meaniit.com";
+
+  // 요청 데이터
+  const requestFormData = new URLSearchParams();
+  requestFormData.append("customer_name", customer_name);
+  requestFormData.append("customer_email", customer_email);
+  requestFormData.append("content", content);
+
+  const { data: response, error } = await useFetch(
+    `${apiUrl}/api/resource/users/inquiry`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'x-api-key': 'T8TK1sIsK84GDltG3H1ei4kWjSkZXqM94cNbzDgm',
+        accept: "application/json",
+      },
+      body: JSON.stringify({
+        customer_name,
+        customer_email,
+        content,
+        customer_phone: "", // opt
+      }),
+    }
+  );
+
+    if (error.value) {
+      console.error("서버에 데이터 저장 실패:", error.value);
+    }
+    return response.value;
+  } catch (err) {
+    console.error("서버 통신 중 오류 발생:", err);
+  }
+};
+
 </script>
 
 <style scoped>
