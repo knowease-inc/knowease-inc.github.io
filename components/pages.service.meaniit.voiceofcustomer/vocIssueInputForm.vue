@@ -241,31 +241,24 @@ const sendInquiryToServer = async (inquiryData = {}) => {
 
 
   try {
-  const apiUrl = "https://ko.api.researcher.meaniit.com";
+    const apiUrl = "https://ko.api.researcher.meaniit.com";
 
-  // 요청 데이터
-  const requestFormData = new URLSearchParams();
-  requestFormData.append("customer_name", customer_name);
-  requestFormData.append("customer_email", customer_email);
-  requestFormData.append("content", content);
+    // 요청 데이터
+    const requestBody = new FormData();
+    requestBody.append("customer_name", customer_name);
+    requestBody.append("customer_email", customer_email);
+    requestBody.append("content", content);
 
-  const { data: response, error } = await useFetch(
-    `${apiUrl}/api/resource/users/inquiry`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        'x-api-key': 'T8TK1sIsK84GDltG3H1ei4kWjSkZXqM94cNbzDgm',
-        accept: "application/json",
-      },
-      body: JSON.stringify({
-        customer_name,
-        customer_email,
-        content,
-        customer_phone: "", // opt
-      }),
-    }
-  );
+    const { data: response, error } = await useFetch(
+      `${apiUrl}/api/resource/users/inquiry`,
+      {
+        method: "POST",
+        headers: {
+          'x-api-key': '2kamERrKtd78e7iXsTxxP3kdkDteXbAM5uN7rWMV',
+        },
+        body: requestBody,
+      }
+    );
 
     if (error.value) {
       console.error("서버에 데이터 저장 실패:", error.value);
