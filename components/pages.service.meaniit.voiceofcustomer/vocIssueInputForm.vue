@@ -27,6 +27,28 @@
               validate-on="invalid-input"
             />
 
+            <v-text-field
+              v-model="customName"
+              :rules="customNameRules"
+              label="성함을 입력해주세요."
+              type="text"
+              :prepend-icon="mdiAccount"
+              density="compact"
+              class="mt-2"
+              variant="underlined"
+              validate-on="invalid-input"
+            />
+
+            <v-text-field
+              v-model="customPhoneNumber"
+              label="(선택사항)핸드폰 번호를 입력해주세요."
+              type="text"
+              :prepend-icon="mdiPhone"
+              density="compact"
+              class="mt-2"
+              variant="underlined"
+            />
+
             <v-select
               v-model="select"
               :items="items"
@@ -78,12 +100,14 @@
 </template>
 
 <script setup>
-import { mdiEmail, mdiCursorDefault } from '@mdi/js'
+import { mdiEmail, mdiCursorDefault, mdiAccount, mdiPhone } from '@mdi/js'
 
 const title = '고객 문의'
 const form = ref(null)
 const valid = ref(true)
 const email = ref('')
+const customName = ref('')
+const customPhoneNumber = ref('')
 const select = ref(null)
 const question = ref('')
 const checkbox = ref(false)
@@ -101,12 +125,15 @@ const questionRules = [
     'Question must be less than 1000 characters',
 ]
 
+const customNameRules = [(v) => !!v || '이름을 입력해주세요.']
+
 const items = ['서비스 이용 문제', '신규 기능 건의', '비즈니스 상담']
 
 const { width } = useDisplay()
 const cardWidth = computed(() => (width.value > 800 ? 800 : width.value))
 
-const headDescription = '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.'
+const headDescription =
+  '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.'
 
 useHead({
   title,
@@ -118,48 +145,47 @@ useHead({
     },
 
     // Open Graph 메타 태그 (참고: 나머지 속성은 전역 설정 따름_nuxt.config 및 package.json )
-    { hid: 'og:title', property: 'og:title', content: title, },
+    { hid: 'og:title', property: 'og:title', content: title },
     {
       hid: 'og:description',
       property: 'og:description',
       content: headDescription,
     },
-    { hid: "og:url", property: "og:url", content: window.location.href },
+    { hid: 'og:url', property: 'og:url', content: window.location.href },
 
     // Twitter 카드 설정
     {
-      hid: "twitter:description",
-      name: "twitter:description",
+      hid: 'twitter:description',
+      name: 'twitter:description',
       content: headDescription,
     },
   ],
 })
 
-
 const summitCustomerVoice = async () => {
-  form.value.validate();
+  form.value.validate()
 
   if (valid.value) {
     try {
       // GitHub 이슈 생성
-      await postIssueCreation();
+      await postIssueCreation()
 
       // 서버에 데이터 저장
       await sendInquiryToServer({
-        customer_name: select.value,
+        customer_name: customName.value,
         customer_email: email.value,
+        customer_phone: customPhoneNumber.value,
         content: question.value,
-      });
+      })
 
       alert(`「${select.value} / ${email.value}」를 이슈로 등록하였습니다.`)
-      location.reload();
+      location.reload()
     } catch (err) {
-      console.error(err);
-      alert("문제가 발생했습니다. 다시 시도해주세요.");
+      console.error(err)
+      alert('문제가 발생했습니다. 다시 시도해주세요.')
     }
   }
-};
-
+}
 
 const mapVselectToGithubIssuelabels = () => {
   switch (select.value) {
@@ -237,38 +263,36 @@ const postIssueCreation = async () => {
 }
 
 const sendInquiryToServer = async (inquiryData = {}) => {
-  const {customer_name, customer_email, content} = inquiryData
-
+  const { customer_name, customer_email, content } = inquiryData
 
   try {
-    const apiUrl = "https://ko.api.researcher.meaniit.com";
+    const apiUrl = 'https://ko.api.researcher.meaniit.com'
 
     // 요청 데이터
-    const requestBody = new FormData();
-    requestBody.append("customer_name", customer_name);
-    requestBody.append("customer_email", customer_email);
-    requestBody.append("content", content);
+    const requestBody = new FormData()
+    requestBody.append('customer_name', customer_name)
+    requestBody.append('customer_email', customer_email)
+    requestBody.append('content', content)
 
     const { data: response, error } = await useFetch(
       `${apiUrl}/api/resource/users/inquiry`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
           'x-api-key': '2kamERrKtd78e7iXsTxxP3kdkDteXbAM5uN7rWMV',
         },
         body: requestBody,
-      }
-    );
+      },
+    )
 
     if (error.value) {
-      console.error("서버에 데이터 저장 실패:", error.value);
+      console.error('서버에 데이터 저장 실패:', error.value)
     }
-    return response.value;
+    return response.value
   } catch (err) {
-    console.error("서버 통신 중 오류 발생:", err);
+    console.error('서버 통신 중 오류 발생:', err)
   }
-};
-
+}
 </script>
 
 <style scoped>
