@@ -26,10 +26,9 @@
         "team": "Our Team",
         "teamSub": "The <span class='font-weight-bold'>dedicated people</span> behind GET-A"
       },
-      "carousel": {
-        "upper": "Beyond complicated technology, <br /> value of simplicity,",
-        "upperXsOnly": "Beyond complicated technology, <br /> value of simplicity",
-        "lower": "Easiest experience with the latest AI technology. <br /> Provides intuitive AI services that anyone can use right out of the box"
+      "hero": {
+        "upper": "Tech Evangelist <br /> in Your Day",
+        "lower": "The latest technology, accessible right at your fingertips"
       },
       "service": {
         "header": {
