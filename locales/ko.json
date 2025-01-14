@@ -26,10 +26,9 @@
         "team": "함께하는 사람들",
         "teamSub": "게타(GET-A)을 위해 <span class='font-weight-bold'>고군분투하는 이들</span>"
       },
-      "carousel": {
-        "upper": "복잡한 기술을 넘어, <br /> 단순함의 가치를 제공합니다",
-        "upperXsOnly": "복잡한 기술을 넘어, <br /> 단순함의 가치 제공",
-        "lower": "최신 AI 기술을 가장 쉽게 경험해 보세요. <br /> 누구나 바로 사용할 수 있는 직관적인 AI 서비스를 제공합니다"
+      "hero": {
+        "upper": "Tech Evangelist <br /> in Your Day",
+        "lower": "당신의 손이 편히 닿는 곳으로 사용 가능한 가장 최신의 기술을"
       },
       "service": {
         "header": {

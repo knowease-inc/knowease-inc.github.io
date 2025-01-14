@@ -1,8 +1,6 @@
 <template>
   <v-container class="d-flex flex-column pa-0" fluid>
-    <v-row justify="center" class="px-0">
-      <Carousel />
-    </v-row>
+    <HeroSection />
 
     <!-- ### Start : Service Link ### -->
     <v-row
@@ -93,7 +91,7 @@ import Services from '@/components/pages.index/Services.vue'
 import Founders from '@/components/pages.index/Founders.vue'
 import TimelineIndex from '@/components/pages.index/Timeline.vue'
 import Partners from '@/components/pages.index/Partners.vue'
-import Carousel from '~/components/pages.index/Carousel.vue'
+import HeroSection from '~/components/pages.index/HeroSection.vue'
 
 const { xs, smAndUp, mdAndUp } = useDisplay()
 const { t } = useI18n()
