@@ -12,11 +12,7 @@
           class="font-weight-black"
           v-html="t('pages.index.hero.upper')"
         />
-        <p
-          :style="lowerTextStyle"
-          class="mt-4 mt-sm-0"
-          v-html="lowerTextContent"
-        />
+        <p :style="lowerTextStyle" class="mt-4" v-html="lowerTextContent" />
       </v-col>
     </v-card>
   </v-row>
@@ -38,7 +34,7 @@ const lowerTextStyle = computed(() => ({
   lineHeight: '1.4',
   fontSize: xs.value ? '0.9rem' : smAndUp.value ? '1.4rem' : '1.8rem',
   fontWeight: xs.value ? '500' : '700',
-  paddingBottom: xs.value ? '30%' : '20%',
+  paddingBottom: xs.value ? '30%' : '10%',
 }))
 
 // Lower Text Content with Specific Breaks

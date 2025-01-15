@@ -1,205 +1,82 @@
 <template>
-  <!-- Start: Carousel buttons -->
-  <v-row justify="center">
-    <v-col
-      cols="auto"
-      :offset="!mdAndUp ? 6 : 4"
-      :class="smAndUp ? 'pb-8 pl-16' : 'mb-8'"
-    >
-      <v-btn
-        :disabled="carouselStartIndex === 0"
-        color="white"
-        variant="text"
-        @click="handleCarouselAction('left')"
-      >
-        <v-icon :icon="mdiChevronLeft" size="60" />
-      </v-btn>
-      <v-btn
-        :disabled="carouselStartIndex === contents.length - 3"
-        color="white"
-        variant="text"
-        @click="handleCarouselAction('right')"
-      >
-        <v-icon :icon="mdiChevronRight" size="60" />
-      </v-btn>
-    </v-col>
-  </v-row>
+  <v-theme-provider theme="light">
+    <v-row justify="center" class="py-8 py-sm-16">
+      <v-col cols="12" offset-lg="1" lg="9" class="d-flex flex-column">
+        <p class="section-title">
+          {{ t('pages.index.pageTitle.history') }}
+        </p>
 
-  <!-- Start: History Contents -->
-  <v-card
-    flat
-    :variant="xs ? 'outlined' : ''"
-    color="#3746fb"
-    class="mt-sm-4 mx-0 pt-16 pb-sm-5"
-  >
-    <v-card-text class="px-0">
-      <div class="history-line"></div>
-
-      <!-- History Contents: smAndUp -->
-      <v-col
-        v-if="smAndUp"
-        id="carouselContainer"
-        cols="9"
-        offset="2"
-        class="d-flex mt-n16 overflow-hidden"
-      >
-        <v-col
-          v-for="(item, i) in contents"
-          :key="i"
-          :style="{ transform: `translateX(${-carouselStartIndex * 100}%)` }"
-          sm="6"
-          lg="4"
-        >
-          <div v-show="i >= carouselStartIndex" class="d-flex flex-column">
-            <v-col class="white-circle circle-sm">
-              <div
-                v-for="(date, index) in splitDate(item.date)"
-                :key="date + index"
-              >
-                <div :class="index ? 'month' : 'year'" class="main-color">
-                  {{ index ? setTwoNumber(date) : date }}
-                </div>
-              </div>
-            </v-col>
-            <v-col class="text-white px-4 pr-md-8">
-              <div
-                class="text-wrap my-4 font-weight-black"
-                :class="lgAndUp ? 'history-title' : 'text-h6'"
-              >
-                {{ item.title }}
-              </div>
-              <div
-                class="text-line-height"
-                :class="lgAndUp ? 'history-body' : 'text-body-1'"
-              >
-                {{ item.body }}
-              </div>
-            </v-col>
-          </div>
-        </v-col>
+        <p class="section-subtitle text-start mt-4">
+          {{ t('pages.index.timeline.title') }}
+        </p>
       </v-col>
 
-      <!-- History Contents: xs -->
-      <v-row v-if="xs" class="mt-n16" justify="center">
-        <v-col cols="12" class="d-flex flex-nowrap overflow-hidden">
-          <v-col
-            v-for="(item, i) in contents"
-            :key="i"
-            cols="12"
-            class="text-center px-0 pt-0"
-            :style="{
-              transform: `translateX(${-carouselStartIndex * 100}%)`,
-            }"
-          >
-            <div
-              v-show="checkToRenderIndex(i)"
-              class="d-flex flex-column align-center"
-              cols="12"
-            >
-              <v-col class="white-circle circle-xs" cols="7">
-                <div
-                  v-for="(date, index) in splitDate(item.date)"
-                  :key="date + index"
-                >
-                  <div
-                    :class="index ? 'month-xs mt-1' : 'year-xs mb-1'"
-                    class="main-color"
-                  >
-                    {{ index ? setTwoNumber(date) : date }}
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="10" class="text-white">
-                <div class="font-weight-bold my-4" style="font-size: 1.4rem">
-                  {{ item.title }}
-                </div>
-                <div class="text-body-1 text-line-height">
-                  {{ item.body }}
-                </div>
-              </v-col>
-            </div>
-          </v-col>
+      <v-col cols="12" offset-sm="1" sm="10" class="d-sm-flex">
+        <v-col cols="12" sm="6">
+          <video
+            ref="videoRef"
+            src="/img/new/history.mp4"
+            autoplay
+            loop
+            muted
+            class="responsive-image"
+          />
         </v-col>
-      </v-row>
-    </v-card-text>
-  </v-card>
+
+        <v-col cols="12" sm="6">
+          <v-row class="d-flex flex-column">
+            <!-- ## Start: Display History Contents (Iterate over grouped events by year) ## -->
+            <div
+              v-for="yearGroup in tm('pages.index.timeline').events"
+              :key="yearGroup.year"
+            >
+              <v-row class="font-weight-bold">
+                <v-col offset="1" cols="3" class="pt-2">
+                  <span style="font-size: 2rem">
+                    {{ yearGroup.year }}
+                  </span>
+                </v-col>
+
+                <!-- ### Iterate over grouped events by months ### -->
+                <v-col cols="8" class="mb-4">
+                  <v-row
+                    v-for="(event, eIdx) in yearGroup.months"
+                    :key="event.title + eIdx"
+                    style="font-size: 1.4rem"
+                  >
+                    <v-col cols="2" class="text-center">
+                      <span class="main-color"
+                        >{{ setTwoNumber(event.month) }}
+                      </span>
+                    </v-col>
+                    <v-col cols="10">
+                      <span>
+                        {{ event.title }}
+                      </span>
+                      <p class="font-weight-regular">
+                        {{ event.body }}
+                      </p>
+                    </v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </div>
+            <!-- ## End: Display History Contents ## -->
+          </v-row>
+        </v-col>
+      </v-col>
+    </v-row>
+  </v-theme-provider>
 </template>
 
 <script setup>
-import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
-
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 const { t, tm } = useI18n()
-const { trackEvent } = useGA4();
 
-const contents = computed(() => {
-  const events = tm('pages.index.timeline.events')
-  return events.map((event) => ({
-    title: t(event.title),
-    date: t(event.date),
-    body: t(event.body),
-  }))
-})
-
-const carouselStartIndex = ref(0)
-
-const splitDate = (date) => date.split('.')
 const setTwoNumber = (num) => (num < 10 ? '0' + num : num)
-
-// Start: Carousel Action Handlers
-const handleCarouselAction = (direction) => {
-  if (direction === 'left') {
-    calculateIndexToLeft()
-  } else if (direction === 'right') {
-    calculateIndexToRight()
-  }
-
-
-  // GA4 이벤트 전송
-  trackEvent('carousel_click');
-}
-
-const calculateIndexToRight = () => {
-  const itemsLength = contents.value.length
-  const maxIndex = smAndUp.value ? itemsLength - 3 : itemsLength - 1
-
-  if (carouselStartIndex.value < maxIndex) {
-    carouselStartIndex.value += 1
-  }
-}
-
-const calculateIndexToLeft = () => {
-  if (carouselStartIndex.value > 0) {
-    carouselStartIndex.value -= 1
-  }
-}
-// End: Carousel Action Handlers
-
-const checkToRenderIndex = (index) => carouselStartIndex.value === index
 </script>
 
 <style scoped>
-.month,
-.history-title {
-  font-weight: 900;
-  font-size: 1.4rem;
-}
-
-.year,
-.history-body {
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.month-xs {
-  font-weight: 600;
-  font-size: 32px;
-}
-
-.year-xs {
-  font-weight: 500;
-  font-size: 20px;
-}
 .main-color {
   color: #3746fb;
 }
@@ -208,41 +85,24 @@ const checkToRenderIndex = (index) => carouselStartIndex.value === index
   line-height: 1.4;
 }
 
-.text-nowrap {
-  white-space: nowrap;
+/* 기본 크기 설정 */
+.responsive-image {
+  width: 100%;
+  height: 90%;
 }
 
-.history-line {
-  border-top: 0.5px solid white;
-}
+/* smAndUp 기준 */
+/* @media (min-width: 600px) {
+  .responsive-image {
+    max-width: 100%;
+  }
+} */
 
-.white-circle {
-  background-color: white;
-  border-radius: 50%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#carouselContainer {
-  transition: transform 0.2s;
-}
-
-.circle-sm {
-  min-width: 90px;
-  min-height: 90px;
-
-  max-width: 90px;
-  max-height: 90px;
-}
-
-.circle-xs {
-  min-width: 110px;
-  min-height: 110px;
-
-  max-width: 110px;
-  max-height: 110px;
-}
+/* mdAndUp 기준 */
+/* @media (min-width: 960px) {
+  .responsive-image {
+    max-width: 220%;
+    max-height: 120%;
+  }
+} */
 </style>
