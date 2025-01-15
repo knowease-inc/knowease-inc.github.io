@@ -83,13 +83,18 @@
   line-height: 130% !important;
 } */
 
-.content-title {
+.section-title {
   font-weight: 700;
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 3rem;
+}
+
+.section-subtitle,
+.content-text {
+  font-size: 1rem;
+  text-align: center;
+  color: #555555;
 }
 
 .content-subtitle {
-  font-size: 1.4rem;
-  text-align: center;
+  font-size: 1.2rem;
 }

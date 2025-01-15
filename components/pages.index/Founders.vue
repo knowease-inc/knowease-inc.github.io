@@ -1,167 +1,149 @@
 <template>
-  <div>
-    <!-- ### Start: LinkedIn Embeding Code ### -->
-    <component
-      :is="'script'"
-      type="text/javascript"
-      src="https://platform.linkedin.com/badges/js/profile.js"
-      async
-      defer
-    >
-    </component>
+  <v-row justify="center" style="background-color: #f5f7f8; padding: 120px 0">
+    <v-col cols="10" offset="1" class="d-flex flex-column align-center">
+      <p class="section-title">{{ t('pages.index.pageTitle.team') }}</p>
+      <p class="section-subtitle my-4">
+        {{ t('pages.index.pageTitle.teamSub') }}
+      </p>
+    </v-col>
 
-    <!-- ### Start: Profiles ### -->
-    <v-row justify="center" class="ma-0 pa-0">
-      <v-col cols="10" class="font-weight-medium text-grey text-h6">
-        Team
-      </v-col>
-
-      <v-col
-        v-for="(
-          { name, headline, avatar, companyAndSchoolInfo, link }, i
-        ) in members"
-        :key="i"
-        cols="12"
-        sm="12"
-        md="6"
-        lg="5"
-        class="d-flex justify-center mb-4"
+    <v-col cols="11" sm="10" offset-lg="1" lg="9">
+      <!-- ### Start: LinkedIn Embeding Code ### -->
+      <component
+        :is="'script'"
+        type="text/javascript"
+        src="https://platform.linkedin.com/badges/js/profile.js"
+        async
+        defer
       >
-        <v-card
-          class="d-flex align-center rounded-xl px-sm-8 pa-md-4 px-4"
-          :class="{'justify-space-evenly':isEnglish}"
-          :min-height="smAndUp ? '220' : '230'"
-          :width="smAndUp ? '420' : '270'"
-        >
-          <v-avatar :size="smAndUp ? '140' : '100'">
-            <v-img :src="avatar" :alt="name" />
-          </v-avatar>
+      </component>
 
-          <div class="flex flex-column ml-3">
-            <div class="text-body-1 font-weight-bold">
-              {{ name }}
-            </div>
-            <div class="headline-color mb-2">
-              {{ headline }}
-            </div>
-            <div class="text-sm--body-1 text-body-2 text-gray mb-sm-2">
-              {{ companyAndSchoolInfo }}
-            </div>
-
-            <v-card-actions class="pa-0">
-              <v-btn
-                rounded
-                variant="outlined"
-                position="absolute"
-                size="small"
-                color="#3746fb"
-                :href="link"
-                class="mt-sm-4 mt-0"
-              >
-                View profile
-              </v-btn>
-            </v-card-actions>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-
-    <!-- ### Start: Adviser ### -->
-    <v-row justify="center" class="ma-0 pa-0">
-      <v-col cols="10" class="font-weight-medium text-grey text-h6">
-        Advisor
-      </v-col>
-
-      <v-col
-        v-for="(
-          { name, headline, avatar, companyAndSchoolInfo, link }, i
-        ) in advisors"
-        :key="i"
-        cols="12"
-        sm="12"
-        md="6"
-        lg="5"
-        class="d-flex justify-center pb-4 mb-sm-4"
-      >
-        <v-card
-          class="d-flex justify-space-evenly align-center rounded-xl px-sm-8 pa-md-4 px-4"
-          :min-height="smAndUp ? '220' : '230'"
-          :width="smAndUp ? '420' : '270'"
-        >
-          <v-avatar :size="smAndUp ? '140' : '100'">
-            <v-img :src="avatar" :alt="name" />
-          </v-avatar>
-
-          <div class="flex flex-column ml-3">
-            <div class="text-body-1 font-weight-bold">
-              {{ name }}
-            </div>
-            <div class="headline-color mb-2">
-              {{ headline }}
-            </div>
-            <div class="text-sm--body-1 text-body-2 text-gray mb-sm-2">
-              {{ companyAndSchoolInfo }}
-            </div>
-
-            <v-card-actions class="pa-0">
-              <v-btn
-                rounded
-                variant="outlined"
-                position="absolute"
-                size="small"
-                color="#3746fb"
-                :href="link"
-                class="mt-sm-4 mt-0"
-              >
-                View profile
-              </v-btn>
-            </v-card-actions>
-          </div>
-        </v-card>
-      </v-col>
-
-      <v-col
-        v-if="mdAndUp"
-        cols="12"
-        md="6"
-        lg="5"
-        class="d-flex justify-center pb-8"
-      >
-        <v-card
-          class="rounded-xl"
-          :max-height="smAndUp ? '100%' : '230'"
-          :width="smAndUp ? '420' : '270'"
-        >
+      <!-- ### Start: CEO ### -->
+      <v-row justify="space-between" class="py-12" no-gutters>
+        <v-col cols="6">
           <v-img
-            src="/img/meeting_img.png"
-            height="100%"
+            aspect-ratio="16/9"
             cover
-            class="rounded-xl"
+            src="/img/new/ceo.jpg"
+            width="750px"
           />
-        </v-card>
-      </v-col>
-    </v-row>
-  </div>
+        </v-col>
+
+        <v-col cols="6" align-self="center">
+          <div style="width: 90%" class="px-16 d-flex flex-column ga-8">
+            <v-chip
+              label
+              color="#3746FB"
+              variant="outlined"
+              class="font-weight-bold rounded-lg"
+              style="width: fit-content"
+            >
+              CEO 박성묵
+            </v-chip>
+
+            <p
+              class="font-weight-black"
+              style="font-size: 1.4rem"
+              v-html="t('pages.index.founders.achievement.main')"
+            ></p>
+
+            <div class="content-text text-start d-flex flex-column ga-6">
+              <p v-html="t('pages.index.founders.achievement.second')"></p>
+              <p v-html="t('pages.index.founders.achievement.third')"></p>
+              <p v-html="t('pages.index.founders.achievement.fourth')"></p>
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+
+      <!-- ### Start: Co-founder ### -->
+      <v-row class="d-flex flex-column justify-center align-center my-12">
+        <v-chip
+          label
+          color="#3746FB"
+          variant="text"
+          class="font-weight-black"
+          size="large"
+        >
+          Co-founder
+        </v-chip>
+
+        <p
+          style="font-size: 2rem"
+          class="text-center font-weight-bold"
+          v-html="t('pages.index.founders.subTitle')"
+        ></p>
+      </v-row>
+
+      <v-row>
+        <v-col
+          cols="6"
+          class="d-flex"
+          v-for="(
+            { name, headline, avatar, companyAndSchoolInfo, link }, i
+          ) in members"
+          :key="i"
+        >
+          <v-card
+            width="100%"
+            variant="flat"
+            class="d-flex align-center rounded-xl pa-sm-8 member-card-shadow"
+          >
+            <!--
+                :class="{ 'justify-space-evenly': isEnglish }"
+                :min-height="smAndUp ? '220' : '230'"
+                :width="smAndUp ? '420' : '270'" -->
+            <v-avatar :size="smAndUp ? '120' : '100'">
+              <v-img :src="avatar" :alt="name" />
+            </v-avatar>
+
+            <div class="flex flex-column ml-12 font-weight-bold">
+              <div class="content-subtitle">
+                {{ name }}
+              </div>
+              <div style="color: #3746fb" class="my-2">
+                {{ headline }}
+              </div>
+              <div class="content-text mb-sm-2 font-weight-medium text-start">
+                {{ companyAndSchoolInfo }}
+              </div>
+
+              <v-card-actions class="pa-0">
+                <v-btn
+                  rounded="lg"
+                  variant="tonal"
+                  position="absolute"
+                  size="small"
+                  :href="link"
+                  :append-icon="mdiChevronRight"
+                  style="background-color: #f5f7f8; color: #555555"
+                  class="mt-sm-4 mt-0"
+                >
+                  View profile
+                </v-btn>
+              </v-card-actions>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>
+import { mdiChevronRight } from '@mdi/js'
+
 const { xs, smAndUp, mdAndUp } = useDisplay()
-const { tm,locale } = useI18n()
+const { t, tm, locale } = useI18n()
 
 const members = computed(() => tm('pages.index.founders.members'))
-const advisors = computed(() => tm('pages.index.founders.advisors'))
 
 const isEnglish = computed(() => locale.value === 'en')
-
 </script>
 
 <style>
 .v-btn__content {
   text-transform: none;
-}
-
-.headline-color {
-  color: #a6a6a6;
 }
 
 .line-change {
@@ -175,7 +157,11 @@ const isEnglish = computed(() => locale.value === 'en')
 }
 
 .profile-img {
-  min-width: 50px;
-  min-height: 50px;
+  min-width: 130px;
+  min-height: 130px;
+}
+
+.member-card-shadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
 </style>

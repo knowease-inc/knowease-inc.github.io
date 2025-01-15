@@ -11,7 +11,8 @@
       <v-col
         cols="10"
         sm="10"
-        lg="8"
+        offset-lg="1"
+        lg="9"
         class="d-flex justify-space-between align-center"
       >
         <!-- Logo -->
