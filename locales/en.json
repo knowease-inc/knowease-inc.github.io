@@ -25,7 +25,7 @@
         "partners": "Client",
         "history": "History",
         "team": "Our Team",
-        "teamSub": "The <span class='font-weight-bold'>dedicated people</span> behind GET-A"
+        "teamSub": "The edicated people behind GET-A"
       },
       "hero": {
         "upper": "Tech Evangelist <br /> in Your Day",
@@ -135,6 +135,7 @@
       },
       "founders": {
         "subTitle": "No More Knowledge Gap is the <br /> reason for our expertise",
+        "ceo": "Sung-Mook Park",
         "members": [
           {
             "name": "SUNGHYUN KIM",
@@ -162,17 +163,17 @@
         "subTitle": "Automation Solutions for Your Workload",
         "proposalText": " What tasks stress you out? <br />Consult with professionals without hesitation.",
         "guideText": "We provide tailored 1:1 consulting on AI solutions, DX (Digital Transformation), and RPA (Robotic Process Automation). <br />We aim to make you realize that the solution is not far away; we are always open.",
-        "required": "* required Item",
+        "required": " required Item",
         "template": {
-          "name": "Name*",
+          "name": "Name",
           "namePlaceholder": "Please enter your name.",
-          "contactInfo": "Contact Info*",
+          "contactInfo": "Contact Info",
           "contactInfoPlaceholder": "Please enter your contact information.",
-          "email": "E-mail*",
+          "email": "E-mail",
           "emailPlaceholder": "Please enter your email address.",
           "companyInfo": "Company",
           "companyInfoPlaceholder": "Please enter your company.",
-          "inquiries": " Inquiry*",
+          "inquiries": " Inquiry",
           "inquiriesPlaceholder": "Please enter your inquiry.",
           "label": "By submitting, you agree to publish your email address and inquiry on our GitHub Repository (Knowease-inc.github.io).",
           "contactBtn": "Submit Inquiry"

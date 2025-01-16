@@ -9,10 +9,9 @@
   >
     <v-row justify="center">
       <v-col
-        cols="10"
+        cols="11"
         sm="10"
-        offset-lg="1"
-        lg="9"
+        lg="10"
         class="d-flex justify-space-between align-center"
       >
         <!-- Logo -->
@@ -61,7 +60,7 @@
           </template>
 
           <!-- Start: Menu Contents -->
-          <v-card class="mx-n5 pa-4 mt-n1" color="black" tile>
+          <v-card class="mx-sm-n5 pa-4 mt-n1" color="black" tile>
             <v-list
               :style="{
                 'background-color': 'transparent',

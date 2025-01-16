@@ -1,34 +1,43 @@
 <template>
   <v-row justify="center" class="py-8 py-sm-16">
     <v-col
-      cols="12"
-      offset-lg="1"
-      lg="9"
-      class="d-flex flex-column align-center pt-16"
+      cols="8"
+      sm="10"
+      class="d-flex flex-column align-center pt-sm-16 pt-8"
     >
-      <p class="section-title">{{ t('pages.index.pageTitle.service') }}</p>
+      <p :class="xs ? 'section-title-xs' : 'section-title'">
+        {{ t('pages.index.pageTitle.service') }}
+      </p>
 
-      <p class="section-subtitle mb-12" v-html="content.header.title"></p>
+      <p
+        class="mb-sm-12"
+        :class="xs ? 'section-subtitle-xs' : 'section-subtitle'"
+        v-html="content.header.title"
+      ></p>
     </v-col>
 
     <!-- ### Start : Our Service ### -->
-    <v-col cols="12" sm="10" offset-lg="1" lg="9" class="d-sm-flex">
+    <v-col cols="10" sm="10" class="d-sm-flex">
       <!-- 첫번째 카드 -->
       <v-card
-        class="mx-auto text-white rounded-xl pa-12 d-flex flex-column justify-space-between"
+        class="my-4 my-sm-0 text-white pa-sm-12 px-4 py-6 d-flex flex-column justify-space-between mr-sm-9"
+        :class="xs ? 'rounded-lg' : 'rounded-xl'"
         :image="cardImgs.meaniit"
-        :width="smAndUp ? 680 : ''"
+        :width="smAndUp ? 730 : ''"
         :height="setContainerHeight"
       >
         <v-card-title>
-          <p class="font-weight-bold text-h4">
+          <p class="font-weight-bold text-sm-h4 text-h5">
             {{ content.meaniit.name }}
           </p>
         </v-card-title>
 
         <div>
           <v-card-text class="px-2">
-            <p class="content-subtitle" v-html="meaniitTextContent"></p>
+            <p
+              :class="xs ? 'content-subtitle-xs' : 'content-subtitle'"
+              v-html="meaniitTextContent"
+            ></p>
           </v-card-text>
 
           <v-card-actions>
@@ -52,23 +61,27 @@
           </v-card-actions>
         </div>
       </v-card>
-      <v-spacer />
+
       <!-- 두번째 카드 -->
       <v-card
-        class="mx-auto text-white rounded-xl pa-12 d-flex flex-column justify-space-between"
+        class="text-white pa-sm-12 px-4 py-6 d-flex flex-column justify-space-between ml-sm-9"
+        :class="xs ? 'rounded-lg' : 'rounded-xl'"
         :image="cardImgs.edu"
-        :width="smAndUp ? 680 : ''"
+        :width="smAndUp ? 730 : ''"
         :height="setContainerHeight"
       >
         <v-card-title>
-          <p class="font-weight-bold text-h4">
+          <p class="font-weight-bold text-sm-h4 text-h5">
             {{ content.education.name }}
           </p>
         </v-card-title>
 
         <div>
           <v-card-text class="px-2">
-            <p class="content-subtitle" v-html="eduTextContent"></p>
+            <p
+              :class="xs ? 'content-subtitle-xs' : 'content-subtitle'"
+              v-html="eduTextContent"
+            ></p>
           </v-card-text>
 
           <v-card-actions>
@@ -127,7 +140,7 @@ const cardImgs = {
   edu: '/img/new/service_edu.jpg',
 }
 const setContainerHeight = computed(() =>
-  xs.value ? (locale.value === 'en' ? '600' : '500') : '640',
+  xs.value ? (locale.value === 'en' ? '300' : '300') : '640',
 )
 
 /* ### Start: Text Content with Specific Breaks */

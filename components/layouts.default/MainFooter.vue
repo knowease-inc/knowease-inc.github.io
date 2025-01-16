@@ -1,51 +1,73 @@
 <template>
   <client-only>
-    <v-footer absolute class="pl-12">
-      <v-col offset="1" cols="1" class="pa-4">
-        <v-img src="/img/GET_A_LOGO.png" width="130" class="mr-4" />
-      </v-col>
+    <v-footer absolute class="pl-sm-12">
+      <v-row class="my-0" align="center">
+        <v-col cols="12" offset-sm="1" sm="1" class="pa-4">
+          <v-img src="/img/GET_A_LOGO.png" width="130" class="mr-4" />
+        </v-col>
 
-      <v-col cols="6" class="pt-16 pl-16 text-body-1">
-        <div>
-          {{ t('default.footer.representative') }}
-          <span class="mx-2">|</span>
-          {{ t('default.footer.address') }}
-        </div>
-        <div>
-          e-mail: {{ t('default.footer.contact.email') }}
-          <span class="mx-2">|</span>
-          Tel: {{ t('default.footer.contact.phone') }}
-        </div>
+        <v-col
+          cols="11"
+          sm="6"
+          class="pt-sm-16 pl-4 pl-sm-16 text-body-1 pb-0 pb-sm-3"
+        >
+          <div v-if="smAndUp">
+            {{ t('default.footer.representative') }}
+            <span class="mx-2">|</span>
+            {{ t('default.footer.address') }}
+          </div>
 
-        <p style="color: #999999" class="pt-4">
-          Copyright @. All rights reserved.
-        </p>
-      </v-col>
+          <div v-if="xs" class="text-body-2">
+            {{ t('default.footer.representative') }}
+            <div class="my-3">
+              {{ t('default.footer.address') }}
+            </div>
+          </div>
 
-      <v-col cols="4">
-        <v-list class="d-flex">
-          <v-list-item
-            v-for="(item, i) in menuItems"
-            :key="i"
-            class="router-push"
-            :disabled="item.name === '서비스 소개'"
-            :class="{
-              'text-decoration-underline': item.to === '/privacy-policy',
-            }"
-            @click="navigateWithTracking(item)"
-          >
-            <v-list-item-title class="font-weight-bold">
-              {{ item.name }}
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-col>
+          <div :class="xs ? 'text-body-2' : ''">
+            e-mail: {{ t('default.footer.contact.email') }}
+            <span class="mx-sm-2">|</span>
+            Tel: {{ t('default.footer.contact.phone') }}
+          </div>
+
+          <p v-if="smAndUp" style="color: #999999" class="pt-4">
+            Copyright @. All rights reserved.
+          </p>
+        </v-col>
+
+        <v-col cols="12" sm="4" class="pt-0">
+          <v-list class="d-flex">
+            <v-list-item
+              v-for="(item, i) in menuItems"
+              :key="i"
+              class="router-push"
+              :disabled="item.name === '서비스 소개'"
+              :class="{
+                'text-decoration-underline': item.to === '/privacy-policy',
+                'px-1': xs,
+              }"
+              @click="navigateWithTracking(item)"
+            >
+              <v-list-item-title
+                class="font-weight-bold"
+                :class="xs ? 'text-body-2 px-0' : ''"
+              >
+                {{ item.name }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+
+          <p v-if="xs" style="color: #999999" class="pl-2">
+            Copyright @. All rights reserved.
+          </p>
+        </v-col>
+      </v-row>
     </v-footer>
   </client-only>
 </template>
 
 <script setup>
-const { smAndUp } = useDisplay()
+const { xs, smAndUp } = useDisplay()
 const { t } = useI18n()
 const router = useRouter()
 const { trackEvent } = useGA4()
