@@ -135,6 +135,7 @@
       },
       "founders": {
         "subTitle": "No More Knowledge Gap이란 <br />말에 모여준 역량들",
+        "ceo": "박성묵",
         "members": [
           {
             "name": "김성현",
@@ -152,27 +153,27 @@
           }
         ],
         "achievement": {
-          "main": " 국내 상장 증권사, SoftBank(Japan)의 <br />Data Architect, Finance Engineering & Analytics, <br />Retail Strategy(CRM) 출신 팀 구성",
+          "main": " 국내 상장 증권사, SoftBank(Japan)의 <br />Data Architect, Finance Engineering & Analytics, Retail Strategy(CRM) 출신 팀 구성",
           "second": "・ Cloud-Native Web Service, AI SaaS 구축",
           "third": "・ 최신 업데이트 기술 활용한 솔루션 개발 및 CX 개선 컨설팅 경험(한국, 일본)",
-          "fourth": "・ AI, GPT, Prompt Engineering, 디지털 전환(DX), 블록체인, 개발 기초 관련,<br />On-Offline 강의 및 세미나 다수 제공"
+          "fourth": "・ AI, GPT, Prompt Engineering, 디지털 전환(DX), 블록체인, 개발 기초 관련, On-Offline 강의 및 세미나 다수 제공"
         }
       },
       "contact": {
         "subTitle": "실무 업무 자동화 솔루션 & 교육",
         "proposalText": " 어떤 업무가 당신의 스트레스인가요? <br />전문가의 상담부터 부담없이 받아보세요",
         "guideText": "  AI솔루션, 디지털 전환(DX), 업무 자동화(RPA)에 대한 최적화된 컨설팅을 1:1 맞춤으로 제공합니다. <br />솔루션이 멀리 있는 것이 아니라는 것을 알리기 위해 우리는 항상 열려있습니다.",
-        "required": "* 필수 항목",
+        "required": " 필수 항목",
         "template": {
-          "name": "이름*",
+          "name": "이름",
           "namePlaceholder": "이름을 입력해주세요.",
-          "contactInfo": "연락처*",
+          "contactInfo": "연락처",
           "contactInfoPlaceholder": "연락처를 입력해주세요.",
-          "email": "E-mail*",
+          "email": "E-mail",
           "emailPlaceholder": "E-mail 주소를 입력해주세요.",
           "companyInfo": "직장",
           "companyInfoPlaceholder": "직장을 입력해주세요.",
-          "inquiries": " 문의 내용*",
+          "inquiries": " 문의 내용",
           "inquiriesPlaceholder": " 문의 내용을 입력해주세요.",
           "label": "메일 주소, 작성 내용을 Github Repository(Knowease-inc.github.io)상 공개에 동의합니다.",
           "contactBtn": "문의하기"

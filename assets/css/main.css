@@ -85,16 +85,36 @@
 
 .section-title {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 3.8rem;
+}
+
+.section-title-xs {
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 .section-subtitle,
 .content-text {
-  font-size: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #555555;
+}
+
+.section-subtitle-xs,
+.content-text-xs {
+  font-size: 0.8rem;
   text-align: center;
   color: #555555;
 }
 
 .content-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+}
+
+.common-pl {
+  padding-left: 5%;
+}
+
+.main-color {
+  color: #3746fb;
 }

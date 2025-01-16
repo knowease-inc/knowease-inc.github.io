@@ -1,26 +1,35 @@
 <template>
   <v-theme-provider theme="light">
     <v-row justify="center" class="py-8 py-sm-16">
-      <v-col cols="12" offset-lg="1" lg="9" class="d-flex flex-column">
-        <p class="section-title">
+      <v-col cols="10" lg="10" class="d-flex flex-column">
+        <p :class="xs ? 'section-title-xs text-center' : 'section-title'">
           {{ t('pages.index.pageTitle.partners') }}
         </p>
 
-        <p class="section-subtitle text-start mt-4">
+        <p
+          class="text-sm-start mt-4"
+          :class="xs ? 'section-subtitle-xs' : 'section-subtitle'"
+        >
           {{ t('pages.index.partners.title') }}
         </p>
 
-        <v-col cols="12" justify="center" class="overflow-x-hidden">
+        <v-col
+          cols="12"
+          justify="center"
+          class="overflow-x-hidden px-sm-3 px-0"
+        >
           <v-row
-            justify="center"
+            justify="start"
             class="py-4"
             style="line-height: 1.8"
-            no-gutters
+            :no-gutters="xs"
           >
             <v-col
               v-for="{ name, ci, link } in partners"
               :key="link"
-              class="my-8"
+              class="my-sm-8 mx-auto"
+              cols="4"
+              sm="auto"
             >
               <a :href="link" target="_blank">
                 <img
@@ -77,7 +86,7 @@ const partners = [
 
 const setSize = computed(() => {
   return xs.value
-    ? { width: '90', height: '30' }
+    ? { width: '105', height: '45' }
     : { width: '282', height: '120' }
 })
 </script>
