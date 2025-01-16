@@ -155,9 +155,9 @@
             <v-sheet class="d-sm-flex align-center rounded-lg px-sm-4">
               <v-col
                 cols="5"
-                sm="1"
+                sm="auto"
                 align-self="start"
-                class="text-body-1 font-weight-black py-4 mr-sm-12"
+                class="text-body-1 font-weight-black py-4 mr-sm-6"
               >
                 {{ t('pages.index.contact.template.inquiries') }}
                 <span class="main-color">*</span>
@@ -209,6 +209,7 @@
             class="mr-4"
             size="x-large"
             block
+            style="z-index: 999"
             @click="summitCustomerVoice"
           >
             {{ t('pages.index.contact.template.contactBtn') }}
@@ -248,6 +249,126 @@ const questionRules = [
     (v && v.length <= questionCounter) ||
     'Question must be less than 1000 characters',
 ]
+
+const summitCustomerVoice = async () => {
+  form.value.validate()
+
+  if (valid.value) {
+    try {
+      // GitHub 이슈 생성
+      await postIssueCreation()
+
+      // 서버에 데이터 저장
+      await sendInquiryToServer({
+        customer_name: customerName.value,
+        customer_email: email.value,
+        customer_phone: contactInfo.value,
+        content: question.value,
+      })
+
+      alert(`문의사항 등록되었습니다.`)
+      location.reload()
+    } catch (err) {
+      console.error(err)
+      alert('문제가 발생했습니다. 다시 시도해주세요.')
+    }
+  }
+}
+
+const mapVselectToGithubIssuelabels = () => {
+  return ['Communication:VoiceOfCustomer']
+}
+
+// GitHub 이슈 생성 함수
+const postIssueCreation = async () => {
+  // JWT 가져오기
+  const { data: jwtData, error: jwtError } = await useFetch(
+    'https://asia-northeast3-knowease-inc.cloudfunctions.net/jwt-creation-app-for-knowease-inc-github-io',
+  )
+
+  if (jwtError.value) {
+    console.error('JWT 가져오기 실패:', jwtError.value)
+    return
+  }
+  const jwt = jwtData.value
+
+  // Access Token 가져오기
+  const { data: accessTokensData, error: accessTokensError } = await useFetch(
+    'https://api.github.com/app/installations/19408771/access_tokens',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        Accept: 'application/vnd.github.v3+json',
+      },
+      // 빈 객체를 body로 전달하여 `POST` 요청이 성공적으로 전송되도록 설정
+      body: {},
+    },
+  )
+
+  if (accessTokensError.value) {
+    console.error('Access Token 가져오기 실패:', accessTokensError.value)
+    return
+  }
+  const accessToken = accessTokensData.value.token
+
+  // GitHub 이슈 생성
+  const { data: creationResult, error: creationError } = await useFetch(
+    'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Token ${accessToken}`,
+        Accept: 'application/vnd.github.v3+json',
+      },
+      body: JSON.stringify({
+        title: `${customerName.value} / ${email.value}`,
+        labels: mapVselectToGithubIssuelabels(),
+        body: `| Email | 항목 | 질문 |\n| -- | -- | -- |\n|${email.value}|${customerName.value}|${question.value}|`,
+      }),
+    },
+  )
+
+  if (creationError.value) {
+    console.error('GitHub 이슈 생성 실패:', creationError.value)
+    return
+  }
+
+  return creationResult.value
+}
+
+const sendInquiryToServer = async (inquiryData = {}) => {
+  const { customer_name, customer_email, content, customer_phone } = inquiryData
+
+  try {
+    const apiUrl = 'https://ko.api.researcher.meaniit.com'
+
+    // 요청 데이터
+    const requestBody = new FormData()
+    requestBody.append('customer_name', customer_name)
+    requestBody.append('customer_email', customer_email)
+    requestBody.append('content', content)
+    requestBody.append('customer_phone', customer_phone)
+
+    const { data: response, error } = await useFetch(
+      `${apiUrl}/api/resource/users/inquiry`,
+      {
+        method: 'POST',
+        headers: {
+          'x-api-key': '2kamERrKtd78e7iXsTxxP3kdkDteXbAM5uN7rWMV',
+        },
+        body: requestBody,
+      },
+    )
+
+    if (error.value) {
+      console.error('서버에 데이터 저장 실패:', error.value)
+    }
+    return response.value
+  } catch (err) {
+    console.error('서버 통신 중 오류 발생:', err)
+  }
+}
 </script>
 
 <style scoped>
