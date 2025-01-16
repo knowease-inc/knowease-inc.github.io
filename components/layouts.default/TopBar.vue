@@ -114,9 +114,9 @@
                 rounded="lg"
                 color="white"
                 variant="outlined"
-                @click.prevent="trackAndToggleDarkMode()"
+                @click.prevent="toggleDarkMode()"
               >
-                {{ isDarkMode ? 'Dark' : 'Light' }}
+                {{ isDark ? 'Light' : 'Dark' }}
               </v-btn>
             </v-col>
           </v-card>
@@ -155,9 +155,9 @@
             color="white"
             size="large"
             variant="outlined"
-            @click.prevent="trackAndToggleDarkMode()"
+            @click.prevent="toggleDarkMode()"
           >
-            {{ isDarkMode ? 'Dark' : 'Light' }}
+            {{ isDark ? 'Light' : 'Dark' }}
           </v-btn>
         </v-col>
       </v-col>
@@ -167,8 +167,6 @@
 
 <script setup>
 import { mdiMenu, mdiClose, mdiWeb, mdiLaptop } from '@mdi/js'
-
-const isDarkMode = ref(false)
 
 const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()
@@ -247,17 +245,7 @@ const trackAndSetLanguage = (newLocale) => {
   })
 }
 
-const trackAndToggleDarkMode = () => {
-  const newDarkModeStatus = !isDarkMode.value
-
-  // 모드 변경
-  isDarkMode.value = newDarkModeStatus
-
-  // GA4 이벤트 전송
-  trackEvent('dark_mode_toggle', {
-    dark_mode_status: isDarkMode.value ? 'enabled' : 'disabled',
-  })
-
+const toggleDarkMode = () => {
   // 부모 컴포넌트로 다크모드 상태 전달
   emit('toggle-dark-mode')
 }
