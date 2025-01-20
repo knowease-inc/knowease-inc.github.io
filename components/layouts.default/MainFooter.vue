@@ -78,14 +78,6 @@ const menuItems = computed(() => [
     name: t('default.footer.privacyPolicy'),
     to: '/privacy-policy',
   },
-  {
-    name: t('default.topBar.menuItems.serviceIntro'),
-    to: '/service/meaniit/introduce',
-  },
-  {
-    name: t('default.topBar.menuItems.serviceLink'),
-    to: 'https://ko.meaniit.com',
-  },
 ])
 
 const navigateWithTracking = (item) => {
