@@ -16,12 +16,10 @@
 
       <v-col cols="12" sm="10" class="d-sm-flex py-0 py-sm-3">
         <v-col cols="12" sm="6" :class="xs ? 'd-flex justify-center pt-0' : ''">
-          <video
-            ref="videoRef"
-            src="/img/new/history.mp4"
-            autoplay
-            loop
-            muted
+          <v-img
+            src="/img/new/history.gif"
+            alt="history gif"
+            contain
             class="responsive-image"
           />
         </v-col>

@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="d-flex justify-center mt-10 mx-0 px-0 px-sm-3">
+  <v-container
+    fluid
+    class="d-flex justify-center mt-10 mx-0 px-0 px-sm-3 pt-16"
+  >
     <v-card
       flat
       max-width="800"
@@ -77,7 +80,7 @@
               :rules="[
                 (v) => !!v || '동의하지 않는 경우 내용이 등록되지 않습니다.',
               ]"
-              label="메일 주소, 작성 내용을 Github Repository(Knowease-inc.github.io)상 공개에 동의합니다."
+              label="문의 등록 시, 제공하신 이메일 주소와 작성 내용은 서비스 개선 및 연구 목적으로 활용될 수 있습니다."
               validate-on="submit"
             />
           </v-form>

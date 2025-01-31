@@ -209,6 +209,7 @@
             class="mr-4"
             size="x-large"
             block
+            variant="flat"
             style="z-index: 999"
             @click="summitCustomerVoice"
           >

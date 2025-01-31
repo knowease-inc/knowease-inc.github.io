@@ -28,6 +28,7 @@
             cover
             src="/img/new/ceo.jpg"
             :width="xs ? '335' : '750'"
+            class="rounded-xl"
           />
         </v-col>
 
@@ -101,10 +102,6 @@
             variant="flat"
             class="d-flex align-sm-center rounded-xl pa-sm-8 pa-4 member-card-shadow"
           >
-            <!--
-                :class="{ 'justify-space-evenly': isEnglish }"
-                :min-height="smAndUp ? '220' : '230'"
-                :width="smAndUp ? '420' : '270'" -->
             <v-avatar :size="smAndUp ? '120' : '60'">
               <v-img :src="avatar" :alt="name" />
             </v-avatar>

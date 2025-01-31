@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row justify="center" align="center" class="mt-10 pt-10">
     <v-card
       flat
       :max-width="mainCardMaxWidth"

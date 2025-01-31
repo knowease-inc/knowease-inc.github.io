@@ -25,6 +25,7 @@
         :image="cardImgs.meaniit"
         :width="smAndUp ? 730 : ''"
         :height="setContainerHeight"
+        variant="flat"
       >
         <v-card-title>
           <p class="font-weight-bold text-sm-h4 text-h5">
@@ -69,6 +70,7 @@
         :image="cardImgs.edu"
         :width="smAndUp ? 730 : ''"
         :height="setContainerHeight"
+        variant="flat"
       >
         <v-card-title>
           <p class="font-weight-bold text-sm-h4 text-h5">
@@ -208,9 +210,5 @@ const trackAndNavigate = (item) => {
   font-size: 1.3rem;
   white-space: normal;
   word-break: break-all;
-}
-
-.service-text {
-  text-shadow: 2px 2px 3px rgba(34, 34, 34, 0.8);
 }
 </style>
