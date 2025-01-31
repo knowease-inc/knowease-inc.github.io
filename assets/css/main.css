@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Wanted+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'Wanted Sans', sans-serif !important;
+}
+
 /* Content Title */
 .article-title,
 .article-title-xs {
