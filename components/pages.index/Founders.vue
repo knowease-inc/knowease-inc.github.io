@@ -24,10 +24,7 @@
       <v-row justify="center" justify-sm="space-between" class="py-sm-12">
         <v-col cols="12" sm="6">
           <v-img
-            aspect-ratio="16/9"
-            cover
-            src="/img/new/ceo.jpg"
-            :width="xs ? '335' : '750'"
+            src="https://dmq1lrjfpg713.cloudfront.net/img/ceo_horizontal_1024x576.jpg"
             class="rounded-xl"
           />
         </v-col>
