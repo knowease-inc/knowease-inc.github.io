@@ -211,4 +211,8 @@ const trackAndNavigate = (item) => {
   white-space: normal;
   word-break: break-all;
 }
+
+.content-subtitle-xs {
+  font-weight: 600;
+}
 </style>

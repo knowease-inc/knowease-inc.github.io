@@ -51,7 +51,7 @@
         <v-row justify="center">
           <v-col cols="10" sm="5">
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
-              <v-col cols="3" sm="3" class="text-body-1 font-weight-black">
+              <v-col cols="3" sm="3" class="text-body-1 font-w-800">
                 {{ t('pages.index.contact.template.name') }}
                 <span class="main-color">*</span>
               </v-col>
@@ -74,7 +74,7 @@
 
           <v-col cols="10" sm="5">
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
-              <v-col cols="auto" sm="3" class="text-body-1 font-weight-black">
+              <v-col cols="auto" sm="3" class="text-body-1 font-w-800">
                 {{ t('pages.index.contact.template.contactInfo') }}
                 <span class="main-color">*</span>
               </v-col>
@@ -103,7 +103,7 @@
               <v-col
                 cols="3"
                 sm="3"
-                class="text-body-1 font-weight-black pr-1 pr-sm-3"
+                class="text-body-1 font-w-800 pr-1 pr-sm-3"
               >
                 {{ t('pages.index.contact.template.email') }}
                 <span class="main-color">*</span>
@@ -129,7 +129,7 @@
 
           <v-col cols="10" sm="5">
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
-              <v-col cols="3" sm="3" class="text-body-1 font-weight-black">
+              <v-col cols="3" sm="3" class="text-body-1 font-w-800">
                 {{ t('pages.index.contact.template.companyInfo') }}
               </v-col>
 
@@ -157,7 +157,7 @@
                 cols="5"
                 sm="auto"
                 align-self="start"
-                class="text-body-1 font-weight-black py-4 mr-sm-6"
+                class="text-body-1 font-w-800 py-4 mr-sm-6"
               >
                 {{ t('pages.index.contact.template.inquiries') }}
                 <span class="main-color">*</span>
@@ -195,7 +195,7 @@
               ]"
               :label="t('pages.index.contact.template.label')"
               validate-on="submit"
-              class="font-weight-black"
+              class="font-w-600"
             />
           </v-col>
         </v-row>
@@ -220,7 +220,7 @@
     </v-col>
 
     <v-col v-if="smAndUp">
-      <p class="bg-text">Tect Evangelistin Your Day</p>
+      <p class="bg-text">Tech Evangelistin Your Day</p>
     </v-col>
   </v-row>
 </template>
@@ -392,5 +392,13 @@ const sendInquiryToServer = async (inquiryData = {}) => {
 
 .v-textarea:deep(.v-field__input) {
   padding-top: 4px;
+}
+
+.font-w-800 {
+  font-weight: 800;
+}
+
+.font-w-600 {
+  font-weight: 800;
 }
 </style>

@@ -9,7 +9,7 @@
         <v-col
           cols="11"
           sm="6"
-          class="pt-sm-16 pl-4 pl-sm-16 text-body-1 pb-0 pb-sm-3"
+          class="pt-sm-16 pl-4 pl-sm-16 text-body-1 pb-0 pb-sm-3 font-w-500"
         >
           <div v-if="smAndUp">
             {{ t('default.footer.representative') }}
@@ -110,5 +110,9 @@ const navigateWithTracking = (item) => {
 .router-push:hover {
   cursor: pointer;
   color: #3746fb;
+}
+
+.font-w-500 {
+  font-weight: 500;
 }
 </style>
