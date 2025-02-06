@@ -46,7 +46,7 @@
             </v-chip>
 
             <p
-              class="font-weight-black"
+              class="font-weight-bold"
               :style="{ fontSize: xs ? '1rem' : '1.5rem' }"
               v-html="t('pages.index.founders.achievement.main')"
             ></p>
@@ -72,7 +72,7 @@
           color="#3746FB"
           variant="text"
           size="x-large"
-          class="font-weight-black"
+          class="font-weight-bold"
         >
           Co-founder
         </v-chip>
