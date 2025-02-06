@@ -74,7 +74,7 @@
 
           <v-col cols="10" sm="5">
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
-              <v-col cols="3" sm="3" class="text-body-1 font-weight-black">
+              <v-col cols="auto" sm="3" class="text-body-1 font-weight-black">
                 {{ t('pages.index.contact.template.contactInfo') }}
                 <span class="main-color">*</span>
               </v-col>
