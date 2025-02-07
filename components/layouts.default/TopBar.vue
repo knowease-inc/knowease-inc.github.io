@@ -114,6 +114,7 @@
                 rounded="lg"
                 :color="textColor"
                 variant="outlined"
+                style="font-weight: 700"
                 @click.prevent="toggleDarkMode()"
               >
                 {{ props.isDark ? 'Light' : 'Dark' }}
@@ -197,7 +198,9 @@ const appBar = {
 }
 const isMenuOpen = ref(false)
 
-const isIndexPage = computed(() => route.path === '/')
+const isIndexPage = computed(() => {
+  return route.path === '/' || route.path === `/en`
+})
 
 // "텍스트 색" (다크모드 & index 페이지 여부 반영)
 const textColor = computed(() => {
