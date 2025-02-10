@@ -9,28 +9,35 @@
         <v-col
           cols="11"
           sm="6"
+          style="color: #555555"
           class="pt-sm-16 pl-4 pl-sm-16 text-body-1 pb-0 pb-sm-3 font-w-500"
+          :style="{ fontSize: xs ? '0.9rem' : '0.95rem' }"
         >
-          <div v-if="smAndUp">
+          <div v-if="smAndUp" :style="{ fontSize: xs ? '' : '0.95rem' }">
             {{ t('default.footer.representative') }}
             <span class="mx-2">|</span>
             {{ t('default.footer.address') }}
           </div>
 
-          <div v-if="xs" class="text-body-2">
+          <div v-if="xs" :style="{ fontSize: xs ? '0.85rem' : '' }">
             {{ t('default.footer.representative') }}
             <div class="my-3">
               {{ t('default.footer.address') }}
             </div>
           </div>
 
-          <div :class="xs ? 'text-body-2' : ''">
+          <div :style="{ fontSize: xs ? '0.85rem' : '' }">
             e-mail: {{ t('default.footer.contact.email') }}
             <span class="mx-sm-2">|</span>
             Tel: {{ t('default.footer.contact.phone') }}
           </div>
 
-          <p v-if="smAndUp" style="color: #999999" class="pt-4">
+          <p
+            v-if="smAndUp"
+            style="color: #999999"
+            :style="{ fontSize: xs ? '' : '0.9rem', fontWeight: '400' }"
+            class="pt-4"
+          >
             Copyright @. All rights reserved.
           </p>
         </v-col>
@@ -57,7 +64,12 @@
             </v-list-item>
           </v-list>
 
-          <p v-if="xs" style="color: #999999" class="pl-2">
+          <p
+            v-if="xs"
+            style="color: #999999"
+            class="pl-2"
+            :style="{ fontSize: xs ? '0.8rem' : '', fontWeight: '400' }"
+          >
             Copyright @. All rights reserved.
           </p>
         </v-col>

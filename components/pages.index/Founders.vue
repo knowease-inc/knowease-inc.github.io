@@ -1,7 +1,10 @@
 <template>
   <v-row justify="center" class="bg-color bg-p">
     <v-col cols="10" sm="10" class="d-flex flex-column align-center">
-      <p :class="xs ? 'section-title-xs' : 'section-title'">
+      <p
+        :class="xs ? 'section-title-xs' : 'section-title'"
+        :style="{ fontSize: xs ? '2.3rem' : '' }"
+      >
         {{ t('pages.index.pageTitle.team') }}
       </p>
       <p class="my-4" :class="xs ? 'section-subtitle-xs' : 'section-subtitle'">
@@ -9,7 +12,7 @@
       </p>
     </v-col>
 
-    <v-col cols="10" sm="10">
+    <v-col cols="11" sm="10">
       <!-- ### Start: LinkedIn Embeding Code ### -->
       <component
         :is="'script'"
@@ -39,8 +42,8 @@
               color="#3746FB"
               variant="outlined"
               :size="xs ? 'large' : 'x-large'"
-              class="font-weight-bold rounded-lg pt-1 mt-2 mt-sm-0"
-              style="width: fit-content"
+              class="font-weight-bold pt-sm-1 my-2 my-sm-0"
+              style="width: fit-content; border-radius: 10px"
             >
               CEO {{ t('pages.index.founders.ceo') }}
             </v-chip>
@@ -53,7 +56,7 @@
 
             <div
               class="text-start d-flex flex-column ga-sm-6 ga-2"
-              :class="xs ? 'content-text-xs' : 'content-text'"
+              :style="{ fontSize: xs ? '0.9rem' : '1.15rem' }"
             >
               <p v-html="t('pages.index.founders.achievement.second')"></p>
               <p v-html="t('pages.index.founders.achievement.third')"></p>
@@ -67,18 +70,21 @@
       <v-row
         class="d-flex flex-column justify-center align-center my-sm-12 my-8"
       >
-        <v-chip
-          label
-          color="#3746FB"
-          variant="text"
-          size="x-large"
-          class="font-weight-bold"
-        >
-          Co-founder
+        <v-chip label color="#3746FB" variant="text" size="x-large">
+          <span
+            :class="
+              xs
+                ? 'section-subtitle-xs font-weight-bold'
+                : 'section-subtitle font-weight-bold'
+            "
+            style="color: inherit"
+          >
+            Co-founder
+          </span>
         </v-chip>
 
         <p
-          :style="{ fontSize: xs ? '1.2rem' : '2.5rem' }"
+          :style="{ fontSize: xs ? '1.3rem' : '2.5rem' }"
           class="text-center font-weight-bold"
           v-html="t('pages.index.founders.subTitle')"
         ></p>
@@ -104,15 +110,22 @@
             </v-avatar>
 
             <div class="flex flex-column ml-sm-12 ml-4 font-weight-bold">
-              <div :class="xs ? 'content-subtitle-xs' : 'content-subtitle'">
+              <div
+                :class="xs ? 'content-subtitle-xs' : 'content-subtitle'"
+                :style="{ fontSize: xs ? '1.15rem' : '' }"
+              >
                 {{ name }}
               </div>
-              <div style="color: #3746fb" class="my-2">
+              <div
+                style="color: #3746fb"
+                class="my-2"
+                :style="{ fontSize: xs ? '0.9rem' : '' }"
+              >
                 {{ headline }}
               </div>
               <div
-                :class="xs ? 'content-text-xs' : 'content-text'"
                 class="mb-sm-2 font-weight-medium text-start"
+                :style="{ fontSize: xs ? '0.9rem' : '' }"
               >
                 {{ companyAndSchoolInfo }}
               </div>
@@ -122,13 +135,16 @@
                   rounded="lg"
                   variant="tonal"
                   position="absolute"
-                  size="small"
                   :href="link"
                   :append-icon="mdiChevronRight"
-                  style="background-color: #f5f7f8; color: #555555"
-                  class="mt-sm-4 mt-0"
+                  style="
+                    background-color: #f5f7f8;
+                    color: #555555;
+                    font-weight: 400;
+                  "
+                  class="mt-sm-4 mt-2"
                 >
-                  View profile
+                  View Profile
                 </v-btn>
               </v-card-actions>
             </div>
@@ -180,6 +196,11 @@ const isEnglish = computed(() => locale.value === 'en')
 
 .bg-p {
   padding: 120px 0;
+}
+
+.content-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 @media (max-width: 480px) {

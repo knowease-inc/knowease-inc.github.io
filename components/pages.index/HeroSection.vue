@@ -6,9 +6,13 @@
       class="image-container d-flex flex-column justify-end"
     >
       <!-- Text Contents -->
-      <v-col cols="11" sm="10" lg="9" offset="1" class="px-sm-4 text-box">
+      <v-col cols="11" sm="10" lg="10" offset="1" class="px-sm-4 text-box">
         <p :style="upperTextStyle" v-html="t('pages.index.hero.upper')" />
-        <p :style="lowerTextStyle" class="mt-4" v-html="lowerTextContent" />
+        <p
+          :style="lowerTextStyle"
+          class="mt-sm-8 mt-4"
+          v-html="lowerTextContent"
+        />
       </v-col>
     </v-card>
   </v-row>
@@ -21,16 +25,16 @@ const { t, locale } = useI18n()
 // Upper Text Style
 const upperTextStyle = computed(() => ({
   lineHeight: xs.value ? '1.4' : '1.2',
-  fontSize: xs.value ? '1.8rem' : lgAndUp.value ? '6rem' : '3.5rem',
+  fontSize: xs.value ? '2.5rem' : '5.6rem',
   fontWeight: '700',
 }))
 
 // Lower Text Style
 const lowerTextStyle = computed(() => ({
   lineHeight: '1.4',
-  fontSize: xs.value ? '0.9rem' : smAndUp.value ? '1.4rem' : '1.8rem',
+  fontSize: xs.value ? '1.15rem' : '2rem',
   fontWeight: '700',
-  paddingBottom: xs.value ? '30%' : '12%',
+  paddingBottom: xs.value ? '30%' : '11%',
 }))
 
 // Lower Text Content with Specific Breaks

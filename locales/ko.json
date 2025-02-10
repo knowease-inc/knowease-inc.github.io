@@ -170,11 +170,11 @@
           "contactInfo": "연락처",
           "contactInfoPlaceholder": "연락처를 입력해주세요.",
           "email": "E-mail",
-          "emailPlaceholder": "E-mail 주소를 입력해주세요.",
+          "emailPlaceholder": "ex) get-a@get-a.io",
           "companyInfo": "직장",
           "companyInfoPlaceholder": "직장을 입력해주세요.",
           "inquiries": " 문의 내용",
-          "inquiriesPlaceholder": " 문의 내용을 입력해주세요.",
+          "inquiriesPlaceholder": " 문의 내용을 상세하게 입력해주세요.",
           "label": "메일 주소, 작성 내용을 Github Repository(Knowease-inc.github.io)상 공개에 동의합니다.",
           "contactBtn": "문의하기"
         }
