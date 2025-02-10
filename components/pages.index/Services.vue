@@ -1,144 +1,116 @@
 <template>
-  <v-row align="center" justify="center">
+  <v-row justify="center" class="py-8 py-sm-16">
     <v-col
-      cols="12"
-      class="text-center pt-12 text-md-h5 text-h6"
-      style="line-height: 1.8"
+      cols="9"
+      sm="10"
+      class="d-flex flex-column align-center pt-sm-16 pt-8"
     >
-      <div
-        :class="smAndup ? 'font-weight-black' : 'font-weight-bold'"
+      <p :class="xs ? 'section-title-xs' : 'section-title'">
+        {{ t('pages.index.pageTitle.service') }}
+      </p>
+
+      <p
+        class="mb-sm-12"
+        :class="xs ? 'section-subtitle-xs' : 'section-subtitle'"
+        :style="{ fontSize: xs ? '0.9rem' : '' }"
         v-html="content.header.title"
-      ></div>
+      ></p>
     </v-col>
 
-    <!-- 첫번째 카드 -->
-    <v-col cols="12" sm="10" md="6" lg="5" xl="4">
+    <!-- ### Start : Our Service ### -->
+    <v-col cols="10" sm="10" class="d-sm-flex">
+      <!-- 첫번째 카드 -->
       <v-card
+        class="my-4 my-sm-0 text-white pa-sm-12 px-4 py-6 d-flex flex-column justify-space-between mr-sm-9"
+        :class="xs ? 'rounded-lg' : 'rounded-xl'"
+        :image="cardImgs.meaniit"
+        :width="smAndUp ? 730 : ''"
         :height="setContainerHeight"
-        flat
-        class="px-sm-4 px-md-6 px-lg-8 my-sm-7 rounded-xl pt-7 px-1"
-        theme="light"
+        variant="flat"
       >
-        <v-card class="my-sm-auto my-0" flat>
-          <v-card-title class="font-weight-bold content-title">
+        <v-card-title>
+          <p class="font-weight-bold service-title">
             {{ content.meaniit.name }}
-          </v-card-title>
+          </p>
+        </v-card-title>
 
-          <v-card-subtitle class="service-exp">
-            {{ content.meaniit.description }}
-          </v-card-subtitle>
+        <div>
+          <v-card-text class="px-2">
+            <p
+              :class="xs ? 'content-subtitle-xs' : 'content-subtitle'"
+              v-html="meaniitTextContent"
+            ></p>
+          </v-card-text>
 
-          <v-card-actions
-            :class="[
-              smAndUp ? 'pt-sm-4  pl-4' : 'd-flex flex-column',
-              locale === 'en' ? 'd-flex flex-column align-start' : '',
-            ]"
-          >
+          <v-card-actions>
             <v-btn
               :disabled="!content.meaniit.shortcut.href"
-              :elevation="0"
-              :color="linkBtnColor"
-              :style="{
-                ...btnInServiceCard,
-                ...(smAndUp ? {} : { width: '100%' }),
-              }"
-              variant="elevated"
-              rounded
-              :class="[smAndUp ? 'px-4 ' : 'mb-2']"
+              :append-icon="mdiTextBoxOutline"
+              color="white"
+              :text="content.meaniit.shortcut.name"
+              variant="outlined"
               @click="trackAndNavigate(content.meaniit.shortcut)"
-
-            >
-              {{ content.meaniit.shortcut.name }}
-            </v-btn>
+            />
 
             <v-btn
               disabled
-              :color="linkBtnColor"
-              :style="{
-                ...btnInServiceCard,
-                ...(smAndUp ? {} : { width: '100%' }),
-              }"
-              variant="outlined"
               rounded
-              :class="[smAndUp ? 'px-4' : 'px-7 ml-n1']"
+              :text="content.meaniit.introduce.name"
               @click="trackAndNavigate(content.meaniit.introduce)"
             >
               {{ content.meaniit.introduce.name }}
             </v-btn>
           </v-card-actions>
-
-          <!-- Start: Image -->
-          <div class="video-container">
-            <video
-              :src="videos.meaniit"
-              autoplay
-              loop
-              muted
-              :class="smAndUp ? 'meaniit-video' : 'meaniit-video-xs'"
-            />
-          </div>
-        </v-card>
+        </div>
       </v-card>
-    </v-col>
 
-    <!-- 두번째 카드 -->
-    <v-col cols="12" sm="10" md="6" lg="5" xl="4">
+      <!-- 두번째 카드 -->
       <v-card
+        class="text-white pa-sm-12 px-4 py-6 d-flex flex-column justify-space-between ml-sm-9"
+        :class="xs ? 'rounded-lg' : 'rounded-xl'"
+        :image="cardImgs.edu"
+        :width="smAndUp ? 730 : ''"
         :height="setContainerHeight"
-        flat
-        class="px-sm-4 px-md-6 px-lg-8 my-sm-7 rounded-xl pt-7 px-1"
-        theme="light"
+        variant="flat"
       >
-        <v-card class="my-sm-auto my-0" flat>
-          <v-card-title class="font-weight-bold content-title">
+        <v-card-title>
+          <p class="font-weight-bold service-title">
             {{ content.education.name }}
-          </v-card-title>
+          </p>
+        </v-card-title>
 
-          <v-card-subtitle class="service-exp">
-            {{ content.education.description }}
-          </v-card-subtitle>
+        <div>
+          <v-card-text class="px-2">
+            <p
+              :class="xs ? 'content-subtitle-xs' : 'content-subtitle'"
+              v-html="eduTextContent"
+            ></p>
+          </v-card-text>
 
-          <v-card-actions :class="[smAndUp ? 'pt-4 pl-4' : 'full-width']">
+          <v-card-actions>
             <v-btn
+              :append-icon="mdiEmailArrowRightOutline"
+              color="white"
+              :text="content.education.introduce.name"
               variant="outlined"
-              :color="linkBtnColor"
-              :style="{
-                ...btnInServiceCard,
-                ...(xs.value ? { width: '100%' } : {}),
-              }"
-              :block="!smAndUp"
-              rounded
-              :class="[smAndUp ? 'px-4' : 'px-7 ml-n1']"
+              rounded="lg"
               :disabled="!content.education.introduce.to"
               @click="trackAndOpenEmail(content.education.introduce)"
-            >
-              {{ content.education.introduce.name }}
-            </v-btn>
-          </v-card-actions>
-
-          <!-- Start: Image -->
-          <div class="video-container">
-            <video
-              :src="videos.edu"
-              autoplay
-              loop
-              muted
-              :class="smAndUp ? 'edu-video' : 'edu-video-xs'"
             />
-          </div>
-        </v-card>
+          </v-card-actions>
+        </div>
       </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script setup>
-const { xs, smAndUp } = useDisplay()
-const { t, locale } = useI18n()
-const router = useRouter();
-const { trackEvent } = useGA4();
+import { mdiTextBoxOutline, mdiEmailArrowRightOutline } from '@mdi/js'
 
-const linkBtnColor = '#3746fb'
+const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
+const { t, locale } = useI18n()
+const router = useRouter()
+const { trackEvent } = useGA4()
 
 const content = computed(() => ({
   header: {
@@ -166,42 +138,63 @@ const content = computed(() => ({
   },
 }))
 
-const btnInServiceCard = {
-  minWidth: 0,
-  paddingLeft: 0,
-}
-const videos = {
-  meaniit: '/img/report.mp4',
-  edu: '/img/teaching.mp4',
+const cardImgs = {
+  meaniit: '/img/new/service_meaniit.jpg',
+  edu: '/img/new/service_edu.jpg',
 }
 const setContainerHeight = computed(() =>
-  xs.value ? (locale.value === 'en' ? '600' : '500') : '600',
+  xs.value ? (locale.value === 'en' ? '300' : '300') : '640',
 )
+
+/* ### Start: Text Content with Specific Breaks */
+const meaniitTextContent = computed(() => {
+  const text = content.value.meaniit.description
+
+  if (xs.value) {
+    return locale.value === 'EN'
+      ? text.replace('technology,', 'technology,<br />')
+      : text.replace('까지', '까지<br />').replace('서비스', '서비스<br />')
+  }
+
+  return text.replace('까지', '까지<br />')
+})
+
+const eduTextContent = computed(() => {
+  const text = content.value.education.description
+
+  if (xs.value) {
+    return locale.value === 'EN'
+      ? text.replace('technology,', 'technology,<br />')
+      : text.replace('(DX)', '(DX)<br />')
+  }
+
+  return text.replace('(DX)', '(DX)<br />')
+})
+/* End: Text Content with Specific Breaks */
 
 const trackAndOpenEmail = (item) => {
   window.location.href = `mailto:${item.to}`
 
-    // GA4 이벤트 전송
+  // GA4 이벤트 전송
   trackEvent('contact_us_btn', {
     button_name: item.name,
-  });
+  })
 }
 
 const trackAndNavigate = (item) => {
   // GA4 이벤트 전송
   trackEvent('service_section_nav_btn', {
     button_name: item.name,
-  });
+  })
 
   // 외부 링크 처리
   if (item.href) {
-    window.open(item.href, '_blank'); // 새 창에서 열기
+    window.open(item.href, '_blank') // 새 창에서 열기
   } else {
     // 내부 링크 처리
-    router.push(item.to);
+    router.push(item.to)
   }
-};
-
+}
 </script>
 
 <style scoped>
@@ -214,47 +207,23 @@ const trackAndNavigate = (item) => {
   top: 22%;
 }
 
-.full-width {
-  width: 100%;
-}
-
-.content-title {
-  font-weight: 700;
-  font-size: 1.7rem;
-}
-
 .service-exp {
   font-size: 1.3rem;
   white-space: normal;
   word-break: break-all;
 }
 
-.video-container {
-  display: flex;
-  justify-content: center; /* 가로 정렬 */
-  align-items: center; /* 세로 정렬 */
-  width: 100%;
-
-  margin-top: -16px;
+.content-subtitle-xs {
+  font-weight: 600;
 }
 
-.meaniit-video {
-  height: 295px;
+.service-title {
+  font-size: 2.5rem;
 }
 
-.meaniit-video-xs {
-  height: 200px;
-}
-
-.edu-video {
-  height: 270px;
-}
-
-.edu-video-xs {
-  height: 200px;
-}
-
-.service-text {
-  text-shadow: 2px 2px 3px rgba(34, 34, 34, 0.8);
+@media (max-width: 480px) {
+  .service-title {
+    font-size: 1.5rem;
+  }
 }
 </style>
