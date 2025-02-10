@@ -2,13 +2,17 @@
   <v-theme-provider theme="light">
     <v-row justify="center" class="py-8 py-sm-16">
       <v-col cols="10" lg="10" class="d-flex flex-column">
-        <p :class="xs ? 'section-title-xs text-center' : 'section-title'">
+        <p
+          :class="xs ? 'section-title-xs text-center' : 'section-title'"
+          :style="{ fontSize: xs ? '2.3rem' : '' }"
+        >
           {{ t('pages.index.pageTitle.partners') }}
         </p>
 
         <p
           class="text-sm-start mt-4"
           :class="xs ? 'section-subtitle-xs' : 'section-subtitle'"
+          :style="{ fontSize: xs ? '0.9rem' : '' }"
         >
           {{ t('pages.index.partners.title') }}
         </p>

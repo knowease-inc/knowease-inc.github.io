@@ -14,25 +14,26 @@
 
       <p
         class="font-weight-bold my-4 d-flex flex-column flex-sm-row align-center"
-        :style="{ fontSize: xs ? '1rem' : '2rem' }"
+        :style="{ fontSize: xs ? '1.3rem' : '2.5rem' }"
       >
         <v-img
           src="/img/GET_A_LOGO.png"
           :width="xs ? 80 : 200"
-          class="mr-sm-4 mb-0 mb-2"
+          class="mr-sm-4 mb-sm-0 mb-2"
         />
         <span>{{ t('pages.index.contact.subTitle') }}</span>
       </p>
 
       <p
         class="font-weight-bold my-4"
-        :style="{ fontSize: xs ? '0.9rem' : '1.4rem' }"
+        :style="{ fontSize: xs ? '1.15rem' : '1.5rem' }"
         v-html="t('pages.index.contact.proposalText')"
       ></p>
 
       <p
         class="mb-sm-12"
         :class="xs ? 'section-subtitle-xs' : 'section-subtitle'"
+        :style="{ fontSize: xs ? '0.92rem' : '' }"
         v-html="t('pages.index.contact.guideText')"
       ></p>
     </v-col>
@@ -51,7 +52,7 @@
         <v-row justify="center">
           <v-col cols="10" sm="5">
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
-              <v-col cols="3" sm="3" class="text-body-1 font-w-800">
+              <v-col cols="3" sm="3" class="input-label font-w-800">
                 {{ t('pages.index.contact.template.name') }}
                 <span class="main-color">*</span>
               </v-col>
@@ -74,7 +75,7 @@
 
           <v-col cols="10" sm="5">
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
-              <v-col cols="auto" sm="3" class="text-body-1 font-w-800">
+              <v-col cols="auto" sm="3" class="input-label font-w-800">
                 {{ t('pages.index.contact.template.contactInfo') }}
                 <span class="main-color">*</span>
               </v-col>
@@ -103,7 +104,7 @@
               <v-col
                 cols="3"
                 sm="3"
-                class="text-body-1 font-w-800 pr-1 pr-sm-3"
+                class="input-label font-w-800 pr-1 pr-sm-3"
               >
                 {{ t('pages.index.contact.template.email') }}
                 <span class="main-color">*</span>
@@ -129,7 +130,7 @@
 
           <v-col cols="10" sm="5">
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
-              <v-col cols="3" sm="3" class="text-body-1 font-w-800">
+              <v-col cols="3" sm="3" class="input-label font-w-800">
                 {{ t('pages.index.contact.template.companyInfo') }}
               </v-col>
 
@@ -157,13 +158,13 @@
                 cols="5"
                 sm="auto"
                 align-self="start"
-                class="text-body-1 font-w-800 py-4 mr-sm-6"
+                class="input-label font-w-800 py-4 mr-sm-12"
               >
                 {{ t('pages.index.contact.template.inquiries') }}
                 <span class="main-color">*</span>
               </v-col>
 
-              <v-col cols="10" sm="10" class="pt-0 py-sm-3">
+              <v-col cols="10" sm="9" class="pt-0 py-sm-3">
                 <v-textarea
                   v-model="question"
                   :counter="questionCounter"
@@ -211,6 +212,7 @@
             block
             variant="flat"
             style="z-index: 999"
+            :style="{ fontSize: xs ? '1.3rem' : '1.3rem', fontWeight: '700' }"
             @click="summitCustomerVoice"
           >
             {{ t('pages.index.contact.template.contactBtn') }}
@@ -399,6 +401,16 @@ const sendInquiryToServer = async (inquiryData = {}) => {
 }
 
 .font-w-600 {
-  font-weight: 800;
+  font-weight: 600;
+}
+
+.input-label {
+  font-size: 1.15rem;
+}
+
+@media (max-width: 480px) {
+  .input-label {
+    font-size: 1rem;
+  }
 }
 </style>

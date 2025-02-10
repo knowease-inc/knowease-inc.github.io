@@ -2,7 +2,10 @@
   <v-theme-provider theme="light">
     <v-row justify="center" class="py-8 py-sm-16">
       <v-col cols="12" lg="10" class="d-flex flex-column pb-0 pb-sm-3">
-        <p :class="xs ? 'section-title-xs text-center' : 'section-title'">
+        <p
+          :class="xs ? 'section-title-xs text-center' : 'section-title'"
+          :style="{ fontSize: xs ? '2.3rem' : '' }"
+        >
           {{ t('pages.index.pageTitle.history') }}
         </p>
 
@@ -31,8 +34,8 @@
             :key="yearGroup.year"
           >
             <v-row class="font-weight-bold">
-              <v-col offset="1" cols="2" sm="3" class="pt-sm-2">
-                <span :style="{ fontSize: xs ? '1.2rem' : '2rem' }">
+              <v-col cols="2" sm="3" class="pt-sm-2 ml-sm-8 ml-4">
+                <span :style="{ fontSize: xs ? '1.15rem' : '1.9rem' }">
                   {{ yearGroup.year }}
                 </span>
               </v-col>
@@ -42,20 +45,23 @@
                 <v-row
                   v-for="(event, eIdx) in yearGroup.months"
                   :key="event.title + eIdx"
-                  :style="{ fontSize: xs ? '1rem' : '1.4rem' }"
+                  :style="{ fontSize: xs ? '1rem' : '1.3rem' }"
                 >
                   <v-col cols="2" class="text-center">
-                    <span class="main-color"
-                      >{{ setTwoNumber(event.month) }}
+                    <span class="main-color">
+                      {{ setTwoNumber(event.month) }}
                     </span>
                   </v-col>
-                  <v-col cols="10" sm="8">
-                    <span>
+                  <v-col cols="10" sm="8" class="pl-sm-3 pl-1">
+                    <span :style="{ fontSize: xs ? '1rem' : '1.3rem' }">
                       {{ event.title }}
                     </span>
                     <p
                       class="font-weight-regular text-start"
-                      :class="xs ? 'content-text-xs' : 'content-text'"
+                      :style="{
+                        fontSize: xs ? '0.95rem' : '1.25rem',
+                        color: '#555555',
+                      }"
                     >
                       {{ event.body }}
                     </p>

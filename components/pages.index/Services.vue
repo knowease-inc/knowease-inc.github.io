@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" class="py-8 py-sm-16">
     <v-col
-      cols="8"
+      cols="9"
       sm="10"
       class="d-flex flex-column align-center pt-sm-16 pt-8"
     >
@@ -12,6 +12,7 @@
       <p
         class="mb-sm-12"
         :class="xs ? 'section-subtitle-xs' : 'section-subtitle'"
+        :style="{ fontSize: xs ? '0.9rem' : '' }"
         v-html="content.header.title"
       ></p>
     </v-col>
@@ -28,7 +29,7 @@
         variant="flat"
       >
         <v-card-title>
-          <p class="font-weight-bold text-sm-h4 text-h5">
+          <p class="font-weight-bold service-title">
             {{ content.meaniit.name }}
           </p>
         </v-card-title>
@@ -73,7 +74,7 @@
         variant="flat"
       >
         <v-card-title>
-          <p class="font-weight-bold text-sm-h4 text-h5">
+          <p class="font-weight-bold service-title">
             {{ content.education.name }}
           </p>
         </v-card-title>
@@ -214,5 +215,15 @@ const trackAndNavigate = (item) => {
 
 .content-subtitle-xs {
   font-weight: 600;
+}
+
+.service-title {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 480px) {
+  .service-title {
+    font-size: 1.5rem;
+  }
 }
 </style>
