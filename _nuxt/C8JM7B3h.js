@@ -1,0 +1,1 @@
+import{p as e,O as r}from"./CuJ0mbYI.js";const t=e({class:[String,Array,Object],style:{type:[String,Array,Object],default:null}},"component");function n(e){r("useRender").render=e}export{t as m,n as u};
