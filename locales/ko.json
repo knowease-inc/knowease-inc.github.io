@@ -175,7 +175,7 @@
           "companyInfoPlaceholder": "직장을 입력해주세요.",
           "inquiries": " 문의 내용",
           "inquiriesPlaceholder": " 문의 내용을 상세하게 입력해주세요.",
-          "label": "메일 주소, 작성 내용을 Github Repository(Knowease-inc.github.io)상 공개에 동의합니다.",
+          "label": "문의 등록 시, 제공하신 이메일 주소와 작성 내용은 서비스 개선 및 연구 목적으로 활용될 수 있습니다.",
           "contactBtn": "문의하기"
         }
       }
