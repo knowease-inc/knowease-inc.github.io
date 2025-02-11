@@ -19,12 +19,10 @@
 
       <v-col cols="12" sm="10" class="d-sm-flex py-0 py-sm-3">
         <v-col cols="12" sm="6" :class="xs ? 'd-flex justify-center pt-0' : ''">
-          <v-img
-            src="/img/new/history.gif"
-            alt="history gif"
-            contain
-            class="responsive-image"
-          />
+          <video :width="xs ? 350 : 700" autoplay muted loop>
+            <source src="/img/new/history.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </v-col>
 
         <!-- ## Start: Display History Contents (Iterate over grouped events by year) ## -->
@@ -87,18 +85,6 @@ const setTwoNumber = (num) => (num < 10 ? '0' + num : num)
 <style scoped>
 .text-line-height {
   line-height: 1.4;
-}
-
-/* 기본 크기 설정 */
-.responsive-image {
-  width: 100%;
-  height: 90%;
-}
-
-@media (max-width: 480px) {
-  .responsive-image {
-    width: 80%;
-  }
 }
 
 /* smAndUp 기준 */

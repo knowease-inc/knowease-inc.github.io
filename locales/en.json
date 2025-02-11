@@ -175,7 +175,7 @@
           "companyInfoPlaceholder": "Please enter your company.",
           "inquiries": " Inquiry",
           "inquiriesPlaceholder": "Please enter your inquiry.",
-          "label": "By submitting, you agree to publish your email address and inquiry on our GitHub Repository (Knowease-inc.github.io).",
+          "label": "When registering for inquiries, the email address and contents provided can be used for service improvement and research purposes.",
           "contactBtn": "Submit Inquiry"
         }
       }
