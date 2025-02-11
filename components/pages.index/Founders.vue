@@ -1,167 +1,174 @@
 <template>
-  <div>
-    <!-- ### Start: LinkedIn Embeding Code ### -->
-    <component
-      :is="'script'"
-      type="text/javascript"
-      src="https://platform.linkedin.com/badges/js/profile.js"
-      async
-      defer
-    >
-    </component>
-
-    <!-- ### Start: Profiles ### -->
-    <v-row justify="center" class="ma-0 pa-0">
-      <v-col cols="10" class="font-weight-medium text-grey text-h6">
-        Team
-      </v-col>
-
-      <v-col
-        v-for="(
-          { name, headline, avatar, companyAndSchoolInfo, link }, i
-        ) in members"
-        :key="i"
-        cols="12"
-        sm="12"
-        md="6"
-        lg="5"
-        class="d-flex justify-center mb-4"
+  <v-row justify="center" class="bg-color bg-p">
+    <v-col cols="10" sm="10" class="d-flex flex-column align-center">
+      <p
+        :class="xs ? 'section-title-xs' : 'section-title'"
+        :style="{ fontSize: xs ? '2.3rem' : '' }"
       >
-        <v-card
-          class="d-flex align-center rounded-xl px-sm-8 pa-md-4 px-4"
-          :class="{'justify-space-evenly':isEnglish}"
-          :min-height="smAndUp ? '220' : '230'"
-          :width="smAndUp ? '420' : '270'"
-        >
-          <v-avatar :size="smAndUp ? '140' : '100'">
-            <v-img :src="avatar" :alt="name" />
-          </v-avatar>
+        {{ t('pages.index.pageTitle.team') }}
+      </p>
+      <p class="my-4" :class="xs ? 'section-subtitle-xs' : 'section-subtitle'">
+        {{ t('pages.index.pageTitle.teamSub') }}
+      </p>
+    </v-col>
 
-          <div class="flex flex-column ml-3">
-            <div class="text-body-1 font-weight-bold">
-              {{ name }}
-            </div>
-            <div class="headline-color mb-2">
-              {{ headline }}
-            </div>
-            <div class="text-sm--body-1 text-body-2 text-gray mb-sm-2">
-              {{ companyAndSchoolInfo }}
-            </div>
-
-            <v-card-actions class="pa-0">
-              <v-btn
-                rounded
-                variant="outlined"
-                position="absolute"
-                size="small"
-                color="#3746fb"
-                :href="link"
-                class="mt-sm-4 mt-0"
-              >
-                View profile
-              </v-btn>
-            </v-card-actions>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-
-    <!-- ### Start: Adviser ### -->
-    <v-row justify="center" class="ma-0 pa-0">
-      <v-col cols="10" class="font-weight-medium text-grey text-h6">
-        Advisor
-      </v-col>
-
-      <v-col
-        v-for="(
-          { name, headline, avatar, companyAndSchoolInfo, link }, i
-        ) in advisors"
-        :key="i"
-        cols="12"
-        sm="12"
-        md="6"
-        lg="5"
-        class="d-flex justify-center pb-4 mb-sm-4"
+    <v-col cols="11" sm="10">
+      <!-- ### Start: LinkedIn Embeding Code ### -->
+      <component
+        :is="'script'"
+        type="text/javascript"
+        src="https://platform.linkedin.com/badges/js/profile.js"
+        async
+        defer
       >
-        <v-card
-          class="d-flex justify-space-evenly align-center rounded-xl px-sm-8 pa-md-4 px-4"
-          :min-height="smAndUp ? '220' : '230'"
-          :width="smAndUp ? '420' : '270'"
-        >
-          <v-avatar :size="smAndUp ? '140' : '100'">
-            <v-img :src="avatar" :alt="name" />
-          </v-avatar>
+      </component>
 
-          <div class="flex flex-column ml-3">
-            <div class="text-body-1 font-weight-bold">
-              {{ name }}
-            </div>
-            <div class="headline-color mb-2">
-              {{ headline }}
-            </div>
-            <div class="text-sm--body-1 text-body-2 text-gray mb-sm-2">
-              {{ companyAndSchoolInfo }}
-            </div>
-
-            <v-card-actions class="pa-0">
-              <v-btn
-                rounded
-                variant="outlined"
-                position="absolute"
-                size="small"
-                color="#3746fb"
-                :href="link"
-                class="mt-sm-4 mt-0"
-              >
-                View profile
-              </v-btn>
-            </v-card-actions>
-          </div>
-        </v-card>
-      </v-col>
-
-      <v-col
-        v-if="mdAndUp"
-        cols="12"
-        md="6"
-        lg="5"
-        class="d-flex justify-center pb-8"
-      >
-        <v-card
-          class="rounded-xl"
-          :max-height="smAndUp ? '100%' : '230'"
-          :width="smAndUp ? '420' : '270'"
-        >
+      <!-- ### Start: CEO ### -->
+      <v-row justify="center" justify-sm="space-between" class="py-sm-12">
+        <v-col cols="12" sm="6">
           <v-img
-            src="/img/meeting_img.png"
-            height="100%"
-            cover
+            src="https://dmq1lrjfpg713.cloudfront.net/img/ceo_horizontal_1024x576.jpg"
             class="rounded-xl"
           />
-        </v-card>
-      </v-col>
-    </v-row>
-  </div>
+        </v-col>
+
+        <v-col cols="12" sm="6" align-self="center">
+          <div
+            :style="{ width: xs ? '100%' : '90%' }"
+            class="px-sm-16 d-flex flex-column ga-sm-8 ga-4"
+          >
+            <v-chip
+              label
+              color="#3746FB"
+              variant="outlined"
+              :size="xs ? 'large' : 'x-large'"
+              class="font-weight-bold pt-sm-1 my-2 my-sm-0"
+              style="width: fit-content; border-radius: 10px"
+            >
+              CEO {{ t('pages.index.founders.ceo') }}
+            </v-chip>
+
+            <p
+              class="font-weight-bold"
+              :style="{ fontSize: xs ? '1rem' : '1.5rem' }"
+              v-html="t('pages.index.founders.achievement.main')"
+            ></p>
+
+            <div
+              class="text-start d-flex flex-column ga-sm-6 ga-2"
+              :style="{ fontSize: xs ? '0.9rem' : '1.15rem' }"
+            >
+              <p v-html="t('pages.index.founders.achievement.second')"></p>
+              <p v-html="t('pages.index.founders.achievement.third')"></p>
+              <p v-html="t('pages.index.founders.achievement.fourth')"></p>
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+
+      <!-- ### Start: Co-founder ### -->
+      <v-row
+        class="d-flex flex-column justify-center align-center my-sm-12 my-8"
+      >
+        <v-chip label color="#3746FB" variant="text" size="x-large">
+          <span
+            :class="
+              xs
+                ? 'section-subtitle-xs font-weight-bold'
+                : 'section-subtitle font-weight-bold'
+            "
+            style="color: inherit"
+          >
+            Co-founder
+          </span>
+        </v-chip>
+
+        <p
+          :style="{ fontSize: xs ? '1.3rem' : '2.5rem' }"
+          class="text-center font-weight-bold"
+          v-html="t('pages.index.founders.subTitle')"
+        ></p>
+      </v-row>
+
+      <v-row>
+        <v-col
+          cols="12"
+          sm="6"
+          class="d-flex"
+          v-for="(
+            { name, headline, avatar, companyAndSchoolInfo, link }, i
+          ) in members"
+          :key="i"
+        >
+          <v-card
+            width="100%"
+            variant="flat"
+            class="d-flex align-sm-center rounded-xl pa-sm-8 pa-4 member-card-shadow"
+          >
+            <v-avatar :size="smAndUp ? '120' : '60'">
+              <v-img :src="avatar" :alt="name" />
+            </v-avatar>
+
+            <div class="flex flex-column ml-sm-12 ml-4 font-weight-bold">
+              <div
+                :class="xs ? 'content-subtitle-xs' : 'content-subtitle'"
+                :style="{ fontSize: xs ? '1.15rem' : '' }"
+              >
+                {{ name }}
+              </div>
+              <div
+                style="color: #3746fb"
+                class="my-2"
+                :style="{ fontSize: xs ? '0.9rem' : '' }"
+              >
+                {{ headline }}
+              </div>
+              <div
+                class="mb-sm-2 font-weight-medium text-start"
+                :style="{ fontSize: xs ? '0.9rem' : '' }"
+              >
+                {{ companyAndSchoolInfo }}
+              </div>
+
+              <v-card-actions class="pa-0">
+                <v-btn
+                  rounded="lg"
+                  variant="tonal"
+                  position="absolute"
+                  :href="link"
+                  :append-icon="mdiChevronRight"
+                  style="
+                    background-color: #f5f7f8;
+                    color: #555555;
+                    font-weight: 400;
+                  "
+                  class="mt-sm-4 mt-2"
+                >
+                  View Profile
+                </v-btn>
+              </v-card-actions>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>
+import { mdiChevronRight } from '@mdi/js'
+
 const { xs, smAndUp, mdAndUp } = useDisplay()
-const { tm,locale } = useI18n()
+const { t, tm, locale } = useI18n()
 
 const members = computed(() => tm('pages.index.founders.members'))
-const advisors = computed(() => tm('pages.index.founders.advisors'))
 
 const isEnglish = computed(() => locale.value === 'en')
-
 </script>
 
 <style>
 .v-btn__content {
   text-transform: none;
-}
-
-.headline-color {
-  color: #a6a6a6;
 }
 
 .line-change {
@@ -175,7 +182,30 @@ const isEnglish = computed(() => locale.value === 'en')
 }
 
 .profile-img {
-  min-width: 50px;
-  min-height: 50px;
+  min-width: 130px;
+  min-height: 130px;
+}
+
+.member-card-shadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bg-color {
+  background-color: #f5f7f8;
+}
+
+.bg-p {
+  padding: 120px 0;
+}
+
+.content-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .bg-p {
+    padding: 60px 0;
+  }
 }
 </style>

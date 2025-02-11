@@ -1,3 +1,9 @@
+@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+
+body {
+  font-family: 'Wanted Sans Variable', sans-serif !important;
+}
+
 /* Content Title */
 .article-title,
 .article-title-xs {
@@ -83,13 +89,40 @@
   line-height: 130% !important;
 } */
 
-.content-title {
+.section-title {
   font-weight: 700;
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 3.8rem;
+}
+
+.section-title-xs {
+  font-weight: 700;
+  font-size: 2.15rem;
+}
+
+.section-subtitle,
+.content-text {
+  font-size: 1.25rem;
+  text-align: center;
+  color: #555555;
+}
+
+.section-subtitle-xs,
+.content-text-xs {
+  font-size: 0.95rem;
+  text-align: center;
+  color: #555555;
+  font-weight: 400;
 }
 
 .content-subtitle {
-  font-size: 1.4rem;
-  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.common-pl {
+  padding-left: 5%;
+}
+
+.main-color {
+  color: #3746fb;
 }

@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="d-flex justify-center mt-10 mx-0 px-0 px-sm-3">
+  <v-container
+    fluid
+    class="d-flex justify-center mt-10 mx-0 px-0 px-sm-3 pt-16"
+  >
     <v-card
       flat
       max-width="800"
@@ -55,7 +58,7 @@
               :rules="[
                 (v) => !!v || '동의하지 않는 경우 내용이 등록되지 않습니다.',
               ]"
-              label="메일 주소, 작성 내용을 Github Repository(Knowease-inc.github.io)상 공개에 동의합니다."
+              label="문의 등록 시, 제공하신 이메일 주소와 작성 내용은 서비스 개선 및 연구 목적으로 활용될 수 있습니다."
               validate-on="submit"
             />
           </v-form>
@@ -106,7 +109,8 @@ const items = ['서비스 이용 문제', '신규 기능 건의', '비즈니스 
 const { width } = useDisplay()
 const cardWidth = computed(() => (width.value > 800 ? 800 : width.value))
 
-const headDescription = '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.'
+const headDescription =
+  '고객 문의 페이지입니다. 서비스 이용 문제, 신규 기능 건의, 비즈니스 상담 요청 등이 가능합니다.'
 
 useHead({
   title,
@@ -118,18 +122,18 @@ useHead({
     },
 
     // Open Graph 메타 태그 (참고: 나머지 속성은 전역 설정 따름_nuxt.config 및 package.json )
-    { hid: 'og:title', property: 'og:title', content: title, },
+    { hid: 'og:title', property: 'og:title', content: title },
     {
       hid: 'og:description',
       property: 'og:description',
       content: headDescription,
     },
-    { hid: "og:url", property: "og:url", content: window.location.href },
+    { hid: 'og:url', property: 'og:url', content: window.location.href },
 
     // Twitter 카드 설정
     {
-      hid: "twitter:description",
-      name: "twitter:description",
+      hid: 'twitter:description',
+      name: 'twitter:description',
       content: headDescription,
     },
   ],

@@ -10,41 +10,41 @@
     "footer": {
       "companyName": "(주)게타",
       "representative": "대표자: 박성묵",
-      "address": "주소: 경기도 성남시 분당구 성남대로43번길 10, 3층 309호(구미동, 하나EZ타워)",
+      "address": "경기도 성남시 분당구 성남대로43번길 10, 3층 309호(구미동, 하나EZ타워)",
       "contact": {
         "email": "get-a{'@'}get-a.io",
         "phone": "+82-10-8920-3726"
-      }
+      },
+      "privacyPolicy": "개인정보 처리방침"
     }
   },
   "pages": {
     "index": {
       "pageTitle": {
-        "service": "게타's 서비스",
-        "partners": "고객사",
-        "history": "연혁",
-        "team": "함께하는 사람들",
-        "teamSub": "게타(GET-A)을 위해 <span class='font-weight-bold'>고군분투하는 이들</span>"
+        "service": "Service",
+        "partners": "Client",
+        "history": "History",
+        "team": "Our Team",
+        "teamSub": "정보기술로 세상의 간극을 메꾸려는 사람들입니다."
       },
-      "carousel": {
-        "upper": "복잡한 기술을 넘어, <br /> 단순함의 가치를 제공합니다",
-        "upperXsOnly": "복잡한 기술을 넘어, <br /> 단순함의 가치 제공",
-        "lower": "최신 AI 기술을 가장 쉽게 경험해 보세요. <br /> 누구나 바로 사용할 수 있는 직관적인 AI 서비스를 제공합니다"
+      "hero": {
+        "upper": "Tech Evangelist <br /> in Your Day",
+        "lower": "당신의 손이 편히 닿는 곳으로 사용 가능한 가장 최신의 기술을"
       },
       "service": {
         "header": {
-          "title": "간단하지만 실무에서 바로 적용 가능한 AI 솔루션을 개발하고,  <br /> 최신 기술 정보, 지식은 쉽게 전합니다"
+          "title": "실무 중심의 AI 솔루션을 개발 및 제공하며 <br /> 가장 쉬운 단어 선택 기반으로 AI 활용, DX 역량 교육을 지원합니다."
         },
         "cards": {
           "meaniit": {
             "title": "Meaniit",
-            "description": "특정 산업 내 실무자를 위한 자료조사부터 보고서 초안 작성, 완성까지 함께하는 AI 솔루션 서비스",
+            "description": "자료조사부터 보고서 작성, 기획안 완성까지 함께하는 실무자용 AI 솔루션 서비스 1:1 맞춤형 개발",
             "shortcutLabel": "바로가기",
             "introduceLabel": "서비스 소개"
           },
           "education": {
             "title": "교육 서비스",
-            "description": "알기 쉬운 AI, 디지털 전환(DX, Digital Transformation) 온·오프라인 교육, 세미나, 컨설팅 제공",
+            "description": "알기 쉬운 AI, 디지털 전환(DX) 온·오프라인 교육, 세미나, 컨설팅 제공",
             "introduceLabel": "Contact"
           }
         }
@@ -52,52 +52,90 @@
       "partners": {
         "title": "이미 최신 기술에 대한 어려움을 함께 허물고 있습니다."
       },
+
       "timeline": {
-        "title": "쉽지 않은 것을 쉽게 만들기 위해 도전하는 여정이 계속되고 있습니다.",
+        "title": "게타(GET-A)을 위했던 지난 여정",
         "events": [
           {
-            "title": "파일럿 프로그램 진행",
-            "date": "2024.4",
-            "body": "상장/대기업 실무자 대상 맞춤형 트렌드 브리핑 작성 AI 테스트 참여 제공 및 AI 개선 실시"
+            "year": "2024",
+            "months": [
+              {
+                "month": "11",
+                "title": "투자 유치 (엔젤 투자)",
+                "body": "투자가치 평가 약 28억 수준"
+              },
+              {
+                "month": "4",
+                "title": "파일럿 프로그램 진행",
+                "body": "상장/대기업 실무자 대상 맞춤형 트렌드 브리핑 작성 AI 테스트 참여 제공 및 AI 개선 실시"
+              }
+            ]
           },
           {
-            "title": "'자료조사AI(가칭)' 내부 테스트",
-            "date": "2023.12",
-            "body": "AI 발전에 따른, 빠른 정보 습득 및 쉬운 정리 GPT 기능 서비스화"
+            "year": "2023",
+            "months": [
+              {
+                "month": "12",
+                "title": "'자료조사AI(가칭)' 내부 테스트",
+                "body": "AI 발전에 따른, 빠른 정보 습득 및 쉬운 정리 GPT 기능 서비스화"
+              }
+            ]
           },
           {
-            "title": "투자 유치 (엔젤 투자)",
-            "date": "2022.12",
-            "body": "투자가치 평가 약 40억 수준"
+            "year": "2022",
+            "months": [
+              {
+                "month": "12",
+                "title": "투자 유치 (엔젤 투자)",
+                "body": "투자가치 평가 약 40억 수준"
+              },
+              {
+                "month": "10",
+                "title": "GET-A Inc 설립 (전 쉬운지식 LLC)",
+                "body": "법인 형태 변경(모든 멤버 유지): 유한책임회사 -> 주식회사"
+              }
+            ]
           },
           {
-            "title": "GET-A Inc 설립 (전 쉬운지식 LLC)",
-            "date": "2022.10",
-            "body": "법인 형태 변경(모든 멤버 유지): 유한책임회사 -> 주식회사"
+            "year": "2021",
+            "months": [
+              {
+                "month": "9",
+                "title": "'쉬운 설명 플랫폼' Beta Test",
+                "body": "클라우드 서비스(AWS)를 활용한 대량 이용 대비 서비스 인프라 최적화 완료 후 두 번째 공개 테스트를 했습니다. (Market/Infra Test)"
+              }
+            ]
           },
           {
-            "title": "'쉬운 설명 플랫폼' Beta Test",
-            "date": "2021.9",
-            "body": "클라우드 서비스(AWS)를 활용한 대량 이용 대비 서비스 인프라 최적화 완료 후 두 번째 공개 테스트를 했습니다. (Market/Infra Test)"
+            "year": "2020",
+            "months": [
+              {
+                "month": "10",
+                "title": "'쉬운 설명 플랫폼' Alpha Test",
+                "body": "미닛 최소 작동 모델(MVP) 완성 후, 고객지향적인 기능 개발을 위해 고객 대상 최초 테스트가 이루어졌습니다."
+              }
+            ]
           },
           {
-            "title": "'쉬운 설명 플랫폼' Alpha Test",
-            "date": "2020.10",
-            "body": "미닛 최소 작동 모델(MVP) 완성 후, 고객지향적인 기능 개발을 위해 고객 대상 최초 테스트가 이루어졌습니다."
-          },
-          {
-            "title": "창립 멤버 구성",
-            "date": "2019.7",
-            "body": "총 4명으로 구성된 창립 멤버로, 우수한 개발 능력을 갖춘 멤버가 합류함으로써 본격적인 서비스 개발에 착수했습니다."
-          },
-          {
-            "title": "'쉬운 설명 플랫폼' 최초 개발",
-            "date": "2019.4",
-            "body": "아이디어 상태였던 미닛 아이템을 직접 개발하기 시작했습니다."
+            "year": "2019",
+            "months": [
+              {
+                "month": "7",
+                "title": "창립 멤버 구성",
+                "body": "총 4명으로 구성된 창립 멤버로, 우수한 개발 능력을 갖춘 멤버가 합류함으로써 본격적인 서비스 개발에 착수했습니다."
+              },
+              {
+                "month": "4",
+                "title": "'쉬운 설명 플랫폼' 최초 개발",
+                "body": "아이디어 상태였던 미닛 아이템을 직접 개발하기 시작했습니다."
+              }
+            ]
           }
         ]
       },
       "founders": {
+        "subTitle": "No More Knowledge Gap이란 <br />말에 모여준 역량들",
+        "ceo": "박성묵",
         "members": [
           {
             "name": "김성현",
@@ -112,45 +150,34 @@
             "headline": "Financial Data Engineering & Analytics",
             "companyAndSchoolInfo": "교보증권 | 한국외국어대학교",
             "link": "https://kr.linkedin.com/in/ys0101?trk=public-profile-badge-profile-badge-view-profile-cta"
-          },
-          {
-            "name": "박성묵",
-            "avatar": "https://media.licdn.com/dms/image/D5603AQHeaxjIDJz5kQ/profile-displayphoto-shrink_200_200/0/1666582082157?e=2147483647&v=beta&t=8QqaIh8F0Mp6KkaJ7VWXReu6Yax6BjIuE0p-D4k0DfA",
-            "headline": "GET-A Inc CEO & Founder / 개발",
-            "companyAndSchoolInfo": "(주)게타 스타트업 경영 및 '미닛' 서비스 개발 전략",
-            "link": "https://kr.linkedin.com/in/%EC%84%B1%EB%AC%B5-%EB%B0%95-34a0a2135?trk=public-profile-badge-profile-badge-view-profile-cta"
-          },
-          {
-            "name": "구본승",
-            "avatar": "https://static.licdn.com/sc/h/244xhbkr7g40x6bsu4gi6q4ry",
-            "headline": "GET-A 투자자 / 전략",
-            "companyAndSchoolInfo": "(주)게타 '미닛' 서비스 전략 설정 및 시장 조사",
-            "link": ""
-          },
-          {
-            "name": "이세영",
-            "avatar": "/img/linkedin/linkedin_seyoung.jpeg",
-            "headline": "GET-A / 프론트엔드",
-            "companyAndSchoolInfo": "'미닛' 서비스 개발 전략",
-            "link": "https://kr.linkedin.com/in/%EC%84%B8%EC%98%81-%EC%9D%B4-00a55825a?trk=profile-badge"
-          },
-          {
-            "name": "오지나",
-            "avatar": "/img/linkedin/linkedin_jina.jpeg",
-            "headline": "GET-A / 백엔드",
-            "companyAndSchoolInfo": "'미닛' 서비스 개발 전략",
-            "link": "https://kr.linkedin.com/in/jina5?trk=profile-badge"
           }
         ],
-        "advisors": [
-          {
-            "name": "신현철",
-            "avatar": "https://static.licdn.com/sc/h/244xhbkr7g40x6bsu4gi6q4ry",
-            "headline": "Derivatives Quant / Algorithmic Trader",
-            "companyAndSchoolInfo": "'미닛' 서비스 개발 자문",
-            "link": "https://www.linkedin.com/in/hyuncheol-shin-asdf123123/?trk=public-profile-badge-profile-badge-view-profile-cta&originalSubdomain=kr"
-          }
-        ]
+        "achievement": {
+          "main": " 국내 상장 증권사, SoftBank(Japan)의 <br />Data Architect, Finance Engineering & Analytics, Retail Strategy(CRM) 출신 팀 구성",
+          "second": "・ Cloud-Native Web Service, AI SaaS 구축",
+          "third": "・ 최신 업데이트 기술 활용한 솔루션 개발 및 CX 개선 컨설팅 경험(한국, 일본)",
+          "fourth": "・ AI, GPT, Prompt Engineering, 디지털 전환(DX), 블록체인, 개발 기초 관련, On-Offline 강의 및 세미나 다수 제공"
+        }
+      },
+      "contact": {
+        "subTitle": "실무 업무 자동화 솔루션 & 교육",
+        "proposalText": " 어떤 업무가 당신의 스트레스인가요? <br />전문가의 상담부터 부담없이 받아보세요",
+        "guideText": "  AI솔루션, 디지털 전환(DX), 업무 자동화(RPA)에 대한 최적화된 컨설팅을 1:1 맞춤으로 제공합니다. <br />솔루션이 멀리 있는 것이 아니라는 것을 알리기 위해 우리는 항상 열려있습니다.",
+        "required": " 필수 항목",
+        "template": {
+          "name": "이름",
+          "namePlaceholder": "이름을 입력해주세요.",
+          "contactInfo": "연락처",
+          "contactInfoPlaceholder": "연락처를 입력해주세요.",
+          "email": "E-mail",
+          "emailPlaceholder": "ex) get-a@get-a.io",
+          "companyInfo": "직장",
+          "companyInfoPlaceholder": "직장을 입력해주세요.",
+          "inquiries": " 문의 내용",
+          "inquiriesPlaceholder": " 문의 내용을 상세하게 입력해주세요.",
+          "label": "메일 주소, 작성 내용을 Github Repository(Knowease-inc.github.io)상 공개에 동의합니다.",
+          "contactBtn": "문의하기"
+        }
       }
     },
     "introduce": {
