@@ -27,14 +27,14 @@
       <p
         class="font-weight-bold my-4"
         :style="{ fontSize: xs ? '1.15rem' : '1.5rem' }"
-        v-html="t('pages.index.contact.proposalText')"
+        v-html="proposalText"
       ></p>
 
       <p
         class="mb-sm-12"
         :class="xs ? 'section-subtitle-xs' : 'section-subtitle'"
         :style="{ fontSize: xs ? '0.92rem' : '' }"
-        v-html="t('pages.index.contact.guideText')"
+        v-html="guideText"
       ></p>
     </v-col>
 
@@ -47,7 +47,7 @@
       </v-col>
 
       <!-- ### START: Input Form ### -->
-      <v-form ref="form" model-value="valid" validate-on="submit">
+      <v-form ref="form" :v-model="valid" validate-on="submit">
         <!-- 이름 / 연락처 -->
         <v-row justify="center">
           <v-col cols="10" sm="5">
@@ -228,7 +228,7 @@
 </template>
 
 <script setup>
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 
 const form = ref(null)
@@ -252,6 +252,27 @@ const questionRules = [
     (v && v.length <= questionCounter) ||
     'Question must be less than 1000 characters',
 ]
+
+// Text Specific Breaks
+const proposalText = computed(() => {
+  const proposal = t('pages.index.contact.proposalText')
+
+  if (locale.value === 'en') {
+    return proposal.replace('out? ', 'out? <br />')
+  }
+
+  return proposal.replace('요? ', '요? <br />')
+})
+
+const guideText = computed(() => {
+  const proposal = t('pages.index.contact.guideText')
+
+  if (locale.value === 'en') {
+    return proposal.replace('Automation). ', 'Automation). <br />')
+  }
+
+  return proposal.replace('제공합니다. ', '제공합니다. <br />')
+})
 
 const summitCustomerVoice = async () => {
   form.value.validate()

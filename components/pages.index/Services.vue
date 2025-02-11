@@ -114,7 +114,7 @@ const { trackEvent } = useGA4()
 
 const content = computed(() => ({
   header: {
-    title: t('pages.index.service.header.title'),
+    title: headerTitle.value,
   },
   meaniit: {
     name: t('pages.index.service.cards.meaniit.title'),
@@ -142,6 +142,18 @@ const cardImgs = {
   meaniit: '/img/new/service_meaniit.jpg',
   edu: '/img/new/service_edu.jpg',
 }
+
+// Text Specific Breaks
+const headerTitle = computed(() => {
+  const text = t('pages.index.service.header.title')
+
+  if (locale.value === 'en') {
+    return text.replace(', and', ', and <br />')
+  }
+
+  return text.replace('제공하며 ', '제공하며 <br />')
+})
+
 const setContainerHeight = computed(() =>
   xs.value ? (locale.value === 'en' ? '300' : '300') : '640',
 )

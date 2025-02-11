@@ -7,7 +7,7 @@
     >
       <!-- Text Contents -->
       <v-col cols="11" sm="10" lg="10" offset="1" class="px-sm-4 text-box">
-        <p :style="upperTextStyle" v-html="t('pages.index.hero.upper')" />
+        <p :style="upperTextStyle" v-html="upperTextContent" />
         <p
           :style="lowerTextStyle"
           class="mt-sm-8 mt-4"
@@ -36,6 +36,13 @@ const lowerTextStyle = computed(() => ({
   fontWeight: '700',
   paddingBottom: xs.value ? '30%' : '11%',
 }))
+
+// Lower Text Content with Specific Breaks
+const upperTextContent = computed(() => {
+  const text = t('pages.index.hero.upper')
+
+  return text.replace('st ', 'st<br />')
+})
 
 // Lower Text Content with Specific Breaks
 const lowerTextContent = computed(() => {
