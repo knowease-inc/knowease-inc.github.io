@@ -28,12 +28,12 @@
         "teamSub": "The edicated people behind GET-A"
       },
       "hero": {
-        "upper": "Tech Evangelist <br /> in Your Day",
+        "upper": "Tech Evangelist in Your Day",
         "lower": "The latest technology, accessible right at your fingertips"
       },
       "service": {
         "header": {
-          "title": "Develop an AI solution that is simple but can be applied immediately in practice, and <br /> convey the latest technology information and knowledge easily"
+          "title": "Develop an AI solution that is simple but can be applied immediately in practice, and convey the latest technology information and knowledge easily"
         },
         "cards": {
           "meaniit": {
@@ -134,7 +134,7 @@
         ]
       },
       "founders": {
-        "subTitle": "No More Knowledge Gap is the <br /> reason for our expertise",
+        "subTitle": "No More Knowledge Gap is the reason for our expertise",
         "ceo": "Sung-Mook Park",
         "members": [
           {
@@ -161,8 +161,8 @@
       },
       "contact": {
         "subTitle": "Automation Solutions for Your Workload",
-        "proposalText": " What tasks stress you out? <br />Consult with professionals without hesitation.",
-        "guideText": "We provide tailored 1:1 consulting on AI solutions, DX (Digital Transformation), and RPA (Robotic Process Automation). <br />We aim to make you realize that the solution is not far away; we are always open.",
+        "proposalText": " What tasks stress you out? Consult with professionals without hesitation.",
+        "guideText": "We provide tailored 1:1 consulting on AI solutions, DX (Digital Transformation), and RPA (Robotic Process Automation). We aim to make you realize that the solution is not far away; we are always open.",
         "required": " required Item",
         "template": {
           "name": "Name",

@@ -8,7 +8,7 @@
         {{ t('pages.index.pageTitle.team') }}
       </p>
       <p class="my-4" :class="xs ? 'section-subtitle-xs' : 'section-subtitle'">
-        {{ t('pages.index.pageTitle.teamSub') }}
+        {{ subTitle }}
       </p>
     </v-col>
 
@@ -51,7 +51,7 @@
             <p
               class="font-weight-bold"
               :style="{ fontSize: xs ? '1rem' : '1.5rem' }"
-              v-html="t('pages.index.founders.achievement.main')"
+              v-html="mainAchievement"
             ></p>
 
             <div
@@ -164,6 +164,23 @@ const { t, tm, locale } = useI18n()
 const members = computed(() => tm('pages.index.founders.members'))
 
 const isEnglish = computed(() => locale.value === 'en')
+
+// Text Specific Breaks
+const subTitle = computed(() => {
+  const teamSubTitle = t('pages.index.pageTitle.teamSub')
+
+  if (locale.value === 'en') {
+    return teamSubTitle.replace('is the ', 'is the <br />')
+  }
+
+  return teamSubTitle.replace('이란 ', '이란 <br />')
+})
+
+const mainAchievement = computed(() => {
+  const achievement = t('pages.index.founders.achievement.main')
+
+  return achievement.replace('(Japan)의 ', '(Japan)의 <br />')
+})
 </script>
 
 <style>
