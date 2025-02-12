@@ -279,9 +279,6 @@ const summitCustomerVoice = async () => {
 
   if (valid.value) {
     try {
-      // GitHub 이슈 생성
-      await postIssueCreation()
-
       // 서버에 데이터 저장
       await sendInquiryToServer({
         customer_name: customerName.value,
@@ -297,68 +294,6 @@ const summitCustomerVoice = async () => {
       alert('문제가 발생했습니다. 다시 시도해주세요.')
     }
   }
-}
-
-const mapVselectToGithubIssuelabels = () => {
-  return ['Communication:VoiceOfCustomer']
-}
-
-// GitHub 이슈 생성 함수
-const postIssueCreation = async () => {
-  // JWT 가져오기
-  const { data: jwtData, error: jwtError } = await useFetch(
-    'https://asia-northeast3-knowease-inc.cloudfunctions.net/jwt-creation-app-for-knowease-inc-github-io',
-  )
-
-  if (jwtError.value) {
-    console.error('JWT 가져오기 실패:', jwtError.value)
-    return
-  }
-  const jwt = jwtData.value
-
-  // Access Token 가져오기
-  const { data: accessTokensData, error: accessTokensError } = await useFetch(
-    'https://api.github.com/app/installations/19408771/access_tokens',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-        Accept: 'application/vnd.github.v3+json',
-      },
-      // 빈 객체를 body로 전달하여 `POST` 요청이 성공적으로 전송되도록 설정
-      body: {},
-    },
-  )
-
-  if (accessTokensError.value) {
-    console.error('Access Token 가져오기 실패:', accessTokensError.value)
-    return
-  }
-  const accessToken = accessTokensData.value.token
-
-  // GitHub 이슈 생성
-  const { data: creationResult, error: creationError } = await useFetch(
-    'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Token ${accessToken}`,
-        Accept: 'application/vnd.github.v3+json',
-      },
-      body: JSON.stringify({
-        title: `${customerName.value} / ${email.value}`,
-        labels: mapVselectToGithubIssuelabels(),
-        body: `| Email | 항목 | 질문 |\n| -- | -- | -- |\n|${email.value}|${customerName.value}|${question.value}|`,
-      }),
-    },
-  )
-
-  if (creationError.value) {
-    console.error('GitHub 이슈 생성 실패:', creationError.value)
-    return
-  }
-
-  return creationResult.value
 }
 
 const sendInquiryToServer = async (inquiryData = {}) => {
