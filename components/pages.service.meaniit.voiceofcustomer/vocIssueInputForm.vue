@@ -30,6 +30,28 @@
               validate-on="invalid-input"
             />
 
+            <v-text-field
+              v-model="customName"
+              :rules="customNameRules"
+              label="성함을 입력해주세요."
+              type="text"
+              :prepend-icon="mdiAccount"
+              density="compact"
+              class="mt-2"
+              variant="underlined"
+              validate-on="invalid-input"
+            />
+
+            <v-text-field
+              v-model="customPhoneNumber"
+              label="(선택사항)핸드폰 번호를 입력해주세요."
+              type="text"
+              :prepend-icon="mdiPhone"
+              density="compact"
+              class="mt-2"
+              variant="underlined"
+            />
+
             <v-select
               v-model="select"
               :items="items"
@@ -81,12 +103,14 @@
 </template>
 
 <script setup>
-import { mdiEmail, mdiCursorDefault } from '@mdi/js'
+import { mdiEmail, mdiCursorDefault, mdiAccount, mdiPhone } from '@mdi/js'
 
 const title = '고객 문의'
 const form = ref(null)
 const valid = ref(true)
 const email = ref('')
+const customName = ref('')
+const customPhoneNumber = ref('')
 const select = ref(null)
 const question = ref('')
 const checkbox = ref(false)
@@ -103,6 +127,8 @@ const questionRules = [
     (v && v.length <= questionCounter) ||
     'Question must be less than 1000 characters',
 ]
+
+const customNameRules = [(v) => !!v || '이름을 입력해주세요.']
 
 const items = ['서비스 이용 문제', '신규 기능 건의', '비즈니스 상담']
 
@@ -139,94 +165,58 @@ useHead({
   ],
 })
 
-const summitCustomerVoice = () => {
+const summitCustomerVoice = async () => {
   form.value.validate()
 
   if (valid.value) {
-    postIssueCreation()
-      .then(() => {
-        alert(`「${select.value} / ${email.value}」를 이슈로 등록하였습니다.`)
-        location.reload()
+    try {
+      // 서버에 데이터 저장
+      await sendInquiryToServer({
+        customer_name: customName.value,
+        customer_email: email.value,
+        customer_phone: customPhoneNumber.value,
+        content: question.value,
       })
-      .catch((err) => {
-        console.error(err)
-      })
+
+      alert(`「${select.value} / ${email.value}」를 이슈로 등록하였습니다.`)
+      location.reload()
+    } catch (err) {
+      console.error(err)
+      alert('문제가 발생했습니다. 다시 시도해주세요.')
+    }
   }
 }
 
-const mapVselectToGithubIssuelabels = () => {
-  switch (select.value) {
-    case '서비스 이용 문제':
-      return ['Domain:UX', 'Task:Bug', 'Communication:VoiceOfCustomer']
-    case '신규 기능 건의':
-      return ['Domain:UX', 'Task:Enhancement', 'Communication:VoiceOfCustomer']
-    case '비즈니스 상담':
-      return [
-        'Domain:Business',
-        'Task:Enhancement',
-        'Communication:VoiceOfCustomer',
-      ]
-    default:
-      return ['Communication:VoiceOfCustomer']
-  }
-}
+const sendInquiryToServer = async (inquiryData = {}) => {
+  const { customer_name, customer_email, content } = inquiryData
 
-// GitHub 이슈 생성 함수
-const postIssueCreation = async () => {
-  // JWT 가져오기
-  const { data: jwtData, error: jwtError } = await useFetch(
-    'https://asia-northeast3-knowease-inc.cloudfunctions.net/jwt-creation-app-for-knowease-inc-github-io',
-  )
+  try {
+    const apiUrl = 'https://ko.api.researcher.meaniit.com'
 
-  if (jwtError.value) {
-    console.error('JWT 가져오기 실패:', jwtError.value)
-    return
-  }
-  const jwt = jwtData.value
+    // 요청 데이터
+    const requestBody = new FormData()
+    requestBody.append('customer_name', customer_name)
+    requestBody.append('customer_email', customer_email)
+    requestBody.append('content', content)
 
-  // Access Token 가져오기
-  const { data: accessTokensData, error: accessTokensError } = await useFetch(
-    'https://api.github.com/app/installations/19408771/access_tokens',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-        Accept: 'application/vnd.github.v3+json',
+    const { data: response, error } = await useFetch(
+      `${apiUrl}/api/resource/users/inquiry`,
+      {
+        method: 'POST',
+        headers: {
+          'x-api-key': '2kamERrKtd78e7iXsTxxP3kdkDteXbAM5uN7rWMV',
+        },
+        body: requestBody,
       },
-      // 빈 객체를 body로 전달하여 `POST` 요청이 성공적으로 전송되도록 설정
-      body: {},
-    },
-  )
+    )
 
-  if (accessTokensError.value) {
-    console.error('Access Token 가져오기 실패:', accessTokensError.value)
-    return
+    if (error.value) {
+      console.error('서버에 데이터 저장 실패:', error.value)
+    }
+    return response.value
+  } catch (err) {
+    console.error('서버 통신 중 오류 발생:', err)
   }
-  const accessToken = accessTokensData.value.token
-
-  // GitHub 이슈 생성
-  const { data: creationResult, error: creationError } = await useFetch(
-    'https://api.github.com/repos/knowease-inc/knowease-inc.github.io/issues',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Token ${accessToken}`,
-        Accept: 'application/vnd.github.v3+json',
-      },
-      body: JSON.stringify({
-        title: `${select.value} / ${email.value}`,
-        labels: mapVselectToGithubIssuelabels(),
-        body: `| Email | 항목 | 질문 |\n| -- | -- | -- |\n|${email.value}|${select.value}|${question.value}|`,
-      }),
-    },
-  )
-
-  if (creationError.value) {
-    console.error('GitHub 이슈 생성 실패:', creationError.value)
-    return
-  }
-
-  return creationResult.value
 }
 </script>
 
