@@ -28,6 +28,7 @@
             ref="videoRefs"
             :src="item.icon"
             autoplay
+            playsinline
             loop
             muted
             style="width: 60px; height: 60px"
@@ -75,6 +76,7 @@
             ref="videoRefs"
             :src="item.icon"
             autoplay
+            playsinline
             loop
             muted
             style="width: 60px; height: 60px"
