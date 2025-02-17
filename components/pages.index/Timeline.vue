@@ -19,7 +19,7 @@
 
       <v-col cols="12" sm="10" class="d-sm-flex py-0 py-sm-3">
         <v-col cols="12" sm="6" :class="xs ? 'd-flex justify-center pt-0' : ''">
-          <video :width="xs ? 350 : 700" autoplay muted loop>
+          <video :width="xs ? 350 : 700" autoplay playsinline muted loop>
             <source src="/img/new/history.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>

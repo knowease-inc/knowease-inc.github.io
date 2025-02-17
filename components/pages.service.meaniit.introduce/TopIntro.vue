@@ -71,6 +71,7 @@
           ref="videoRef"
           :src="imgs.video"
           autoplay
+          playsinline
           loop
           muted
           class="responsive-image"
@@ -105,6 +106,7 @@
             ref="videoRef"
             :src="imgs.video"
             autoplay
+            playsinline
             loop
             muted
             style="height: 350px"
