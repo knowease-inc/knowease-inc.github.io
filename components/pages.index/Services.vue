@@ -42,7 +42,7 @@
             ></p>
           </v-card-text>
 
-          <v-card-actions>
+          <v-card-actions class="d-flex flex-wrap">
             <v-btn
               :disabled="!content.meaniit.shortcut.href"
               :append-icon="mdiTextBoxOutline"
@@ -99,7 +99,7 @@
             ></p>
           </v-card-text>
 
-          <v-card-actions>
+          <v-card-actions class="d-flex flex-wrap">
             <v-btn
               :disabled="!content.education.introduce.href"
               :append-icon="mdiVideo"
@@ -185,7 +185,7 @@ const headerTitle = computed(() => {
 })
 
 const setContainerHeight = computed(() =>
-  xs.value ? (locale.value === 'en' ? '300' : '300') : '640',
+  xs.value ? (locale.value === 'en' ? '360' : '360') : '640',
 )
 
 /* ### Start: Text Content with Specific Breaks */
