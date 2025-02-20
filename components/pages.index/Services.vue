@@ -49,16 +49,28 @@
               color="white"
               :text="content.meaniit.shortcut.name"
               variant="outlined"
+              rounded="lg"
               @click="trackAndNavigate(content.meaniit.shortcut)"
             />
 
             <v-btn
-              disabled
-              rounded
+              variant="outlined"
+              rounded="lg"
               :text="content.meaniit.introduce.name"
+              :append-icon="mdiRobot"
               @click="trackAndNavigate(content.meaniit.introduce)"
             >
               {{ content.meaniit.introduce.name }}
+            </v-btn>
+
+            <v-btn
+              variant="outlined"
+              rounded="lg"
+              :text="content.meaniit.contact.name"
+              :append-icon="mdiEmailArrowRightOutline"
+              @click="trackAndOpenEmail(content.meaniit.contact)"
+            >
+              {{ content.meaniit.contact.name }}
             </v-btn>
           </v-card-actions>
         </div>
@@ -89,13 +101,23 @@
 
           <v-card-actions>
             <v-btn
-              :append-icon="mdiEmailArrowRightOutline"
+              :disabled="!content.education.introduce.href"
+              :append-icon="mdiVideo"
               color="white"
               :text="content.education.introduce.name"
               variant="outlined"
               rounded="lg"
-              :disabled="!content.education.introduce.to"
-              @click="trackAndOpenEmail(content.education.introduce)"
+              @click="trackAndNavigate(content.education.introduce)"
+            />
+
+            <v-btn
+              :append-icon="mdiEmailArrowRightOutline"
+              color="white"
+              :text="content.education.contact.name"
+              variant="outlined"
+              rounded="lg"
+              :disabled="!content.education.contact.to"
+              @click="trackAndOpenEmail(content.education.contact)"
             />
           </v-card-actions>
         </div>
@@ -105,7 +127,7 @@
 </template>
 
 <script setup>
-import { mdiTextBoxOutline, mdiEmailArrowRightOutline } from '@mdi/js'
+import { mdiTextBoxOutline, mdiEmailArrowRightOutline, mdiRobot, mdiVideo } from '@mdi/js'
 
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 const { t, locale } = useI18n()
@@ -125,7 +147,11 @@ const content = computed(() => ({
     },
     introduce: {
       name: t('pages.index.service.cards.meaniit.introduceLabel'),
-      to: '/service/meaniit/introduce',
+      href: 'https://ko.meaniit.com/reporter',
+    },
+    contact: {
+      name: t('pages.index.service.cards.meaniit.contactLabel'),
+      to: 'meaniit@get-a.io',
     },
   },
   education: {
@@ -133,6 +159,10 @@ const content = computed(() => ({
     description: t('pages.index.service.cards.education.description'),
     introduce: {
       name: t('pages.index.service.cards.education.introduceLabel'),
+      href: 'https://t-mook.github.io/',
+    },
+    contact: {
+      name: t('pages.index.service.cards.education.contactLabel'),
       to: 'get-a@get-a.io',
     },
   },

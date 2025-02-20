@@ -4,7 +4,7 @@
       "menuItems": {
         "me": "회사 소개",
         "serviceIntro": "서비스 소개",
-        "serviceLink": "서비스 바로가기"
+        "serviceLink": "서비스"
       }
     },
     "footer": {
@@ -33,19 +33,21 @@
       },
       "service": {
         "header": {
-          "title": "실무 중심의 AI 솔루션을 개발 및 제공하며 가장 쉬운 단어 선택 기반으로 AI 활용, DX 역량 교육을 지원합니다."
+          "title": "실무자가 진짜 사용하는 솔루션을, 수강자가 정말 이해하는 서비스를 제공합니다"
         },
         "cards": {
           "meaniit": {
             "title": "Meaniit",
-            "description": "자료조사부터 보고서 작성, 기획안 완성까지 함께하는 실무자용 AI 솔루션 서비스 1:1 맞춤형 개발",
+            "description": "복잡함 없이! 1:1 컨설팅을 통해<br />맞춤형 AI Agent를 개발·제공하는 SaaS 서비스",
             "shortcutLabel": "바로가기",
-            "introduceLabel": "서비스 소개"
+            "introduceLabel": "AI Agent 공개 활동",
+            "contactLabel": "Contact"
           },
           "education": {
             "title": "교육 서비스",
             "description": "알기 쉬운 AI, 디지털 전환(DX) 온·오프라인 교육, 세미나, 컨설팅 제공",
-            "introduceLabel": "Contact"
+            "introduceLabel": "주요 이력",
+            "contactLabel": "Contact"
           }
         }
       },
@@ -161,20 +163,20 @@
       },
       "contact": {
         "subTitle": "실무 업무 자동화 솔루션 & 교육",
-        "proposalText": " 어떤 업무가 당신의 스트레스인가요? 전문가의 상담부터 부담없이 받아보세요",
-        "guideText": "  AI솔루션, 디지털 전환(DX), 업무 자동화(RPA)에 대한 최적화된 컨설팅을 1:1 맞춤으로 제공합니다. 솔루션이 멀리 있는 것이 아니라는 것을 알리기 위해 우리는 항상 열려있습니다.",
+        "proposalText": " 어떤 업무가 당신에게 반복적인 스트레스인가요? 전문가의 상담부터 부담없이 받아보세요",
+        "guideText": "  AI솔루션, 디지털 전환(DX), 업무 자동화(RPA)에 대한 최적화된 컨설팅을 1:1 맞춤으로 제공합니다. 솔루션은 가까이에 있습니다. 연락주세요!",
         "required": " 필수 항목",
         "template": {
           "name": "이름",
-          "namePlaceholder": "이름을 입력해주세요.",
+          "namePlaceholder": "이름을 입력해주세요",
           "contactInfo": "연락처",
-          "contactInfoPlaceholder": "연락처를 입력해주세요.",
+          "contactInfoPlaceholder": "전화번호를 입력해주세요",
           "email": "E-mail",
           "emailPlaceholder": "ex) get-a{'@'}get-a.io",
           "companyInfo": "직장",
-          "companyInfoPlaceholder": "직장을 입력해주세요.",
+          "companyInfoPlaceholder": "직장을 입력해주세요",
           "inquiries": " 문의 내용",
-          "inquiriesPlaceholder": " 문의 내용을 상세하게 입력해주세요.",
+          "inquiriesPlaceholder": " 문의 내용을 상세하게 입력해주세요",
           "label": "문의 등록 시, 제공하신 이메일 주소와 작성 내용은 서비스 개선 및 연구 목적으로 활용될 수 있습니다.",
           "contactBtn": "문의하기"
         }

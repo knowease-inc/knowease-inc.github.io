@@ -4,7 +4,7 @@
       "menuItems": {
         "me": "About Us",
         "serviceIntro": "Service Introduction",
-        "serviceLink": "Go to Service"
+        "serviceLink": "Service"
       }
     },
     "footer": {
@@ -38,14 +38,16 @@
         "cards": {
           "meaniit": {
             "title": "Meaniit",
-            "description": "A practical AI solution service tailored for professionals, offering 1:1 customized development from research to report creation and proposal completion",
+            "description": "Seamless & Personalized! A SaaS service that develops and delivers custom AI Agents through 1:1 consulting",
             "shortcutLabel": "Go to Service",
-            "introduceLabel": "Service Introduction"
+            "introduceLabel": "AI Agent Public Activity",
+            "contactLabel": "Contact"
           },
           "education": {
             "title": "Education Service",
             "description": "Providing easy-to-understand AI, digital transformation (DX) online/offline education, seminars, and consulting services",
-            "introduceLabel": "Contact"
+            "introduceLabel": "Lecture History",
+            "contactLabel": "Contact"
           }
         }
       },
@@ -161,20 +163,20 @@
       },
       "contact": {
         "subTitle": "Automation Solutions for Your Workload",
-        "proposalText": " What tasks stress you out? Consult with professionals without hesitation.",
-        "guideText": "We provide tailored 1:1 consulting on AI solutions, DX (Digital Transformation), and RPA (Robotic Process Automation). We aim to make you realize that the solution is not far away; we are always open.",
+        "proposalText": " What routine tasks stress you out? Consult with professionals without hesitation",
+        "guideText": "We provide tailored 1:1 consulting on AI solutions, DX (Digital Transformation), and RPA (Robotic Process Automation). We aim to make you realize that the solution is not far away; we are always open",
         "required": " required Item",
         "template": {
           "name": "Name",
-          "namePlaceholder": "Please enter your name.",
-          "contactInfo": "Contact Info",
-          "contactInfoPlaceholder": "Please enter your contact information.",
+          "namePlaceholder": "Please enter your name",
+          "contactInfo": "Tel.",
+          "contactInfoPlaceholder": "Please enter your phone number",
           "email": "E-mail",
-          "emailPlaceholder": "Please enter your email address.",
+          "emailPlaceholder": "Please enter your email address",
           "companyInfo": "Company",
-          "companyInfoPlaceholder": "Please enter your company.",
-          "inquiries": " Inquiry",
-          "inquiriesPlaceholder": "Please enter your inquiry.",
+          "companyInfoPlaceholder": "Please enter your company",
+          "inquiries": "Inquiry",
+          "inquiriesPlaceholder": "Please enter your inquiry details",
           "label": "When registering for inquiries, the email address and contents provided can be used for service improvement and research purposes.",
           "contactBtn": "Submit Inquiry"
         }
