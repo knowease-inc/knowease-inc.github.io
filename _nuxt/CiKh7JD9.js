@@ -1,0 +1,1 @@
+import{m as e,O as r}from"./3OHx2_pV.js";const t=e({class:[String,Array,Object],style:{type:[String,Array,Object],default:null}},"component");function n(e){r("useRender").render=e}export{t as m,n as u};
