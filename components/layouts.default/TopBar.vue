@@ -72,14 +72,15 @@
               <v-list-item
                 v-for="(item, i) in menuItems"
                 :key="i"
+                class="text-end"
                 @click="navigateWithTracking(item)"
               >
-                <v-list-item-title>{{ item.name }}</v-list-item-title>
+                <v-list-item-title class="pr-4">{{ item.name }}</v-list-item-title>
               </v-list-item>
             </v-list>
 
             <!-- Start: Language change & DarkMode Switch -->
-            <v-col cols="12" class="pb-0">
+            <v-col cols="12" class="d-flex justify-end pb-0">
               <!-- Start: Language change Btsns -->
               <v-icon :icon="mdiWeb" :color="textColor" size="small" />
 
@@ -108,9 +109,9 @@
             </v-col>
 
             <!-- Start: DarkMode Switch-->
-            <v-col cols="12">
+            <v-col cols="12" class="d-flex justify-end pr-6">
               <v-btn
-                :prepend-icon="mdiLaptop"
+                :prepend-icon="mdiThemeLightDark"
                 rounded="lg"
                 :color="textColor"
                 variant="outlined"
@@ -151,7 +152,7 @@
 
           <!-- Start: DarkMode Switch-->
           <v-btn
-            :prepend-icon="mdiLaptop"
+            :prepend-icon="mdiThemeLightDark"
             rounded="lg"
             :color="textColor"
             size="large"
@@ -167,7 +168,7 @@
 </template>
 
 <script setup>
-import { mdiMenu, mdiClose, mdiWeb, mdiLaptop } from '@mdi/js'
+import { mdiMenu, mdiClose, mdiWeb, mdiThemeLightDark } from '@mdi/js'
 
 const { xs, sm, smAndUp } = useDisplay()
 const route = useRoute()

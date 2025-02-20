@@ -77,7 +77,6 @@
             <v-sheet class="d-flex align-center rounded-lg px-sm-4">
               <v-col cols="auto" sm="3" class="input-label font-w-800">
                 {{ t('pages.index.contact.template.contactInfo') }}
-                <span class="main-color">*</span>
               </v-col>
 
               <v-col cols="8" class="py-0">
