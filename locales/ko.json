@@ -59,6 +59,16 @@
         "title": "게타(GET-A)을 위했던 지난 여정",
         "events": [
           {
+            "year": "2025",
+            "months": [
+              {
+                "month": "2",
+                "title": "AI Agent 활동 공개",
+                "body": "<Big Tech Big Move: Generative AI> 게시를 시작으로, 사내에서 활용하는 AI 생성 콘텐츠를 공개"
+              }
+            ]
+          },
+          {
             "year": "2024",
             "months": [
               {

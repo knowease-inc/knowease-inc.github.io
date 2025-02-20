@@ -59,6 +59,16 @@
         "title": "The Journey Towards GET-A",
         "events": [
           {
+            "year": "2025",
+            "months": [
+              {
+                "month": "2",
+                "title": "AI Agent Activity Unveiled",
+                "body": "Uploading AI-generated content used internally, starting with the article <Big Tech Big Move: Generative AI>"
+              }
+            ]
+          },
+          {
             "year": "2024",
             "months": [
               {
