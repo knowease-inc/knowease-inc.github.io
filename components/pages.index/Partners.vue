@@ -1,6 +1,6 @@
 <template>
   <v-theme-provider theme="light">
-    <v-row justify="center" class="py-8 py-sm-16">
+    <v-row justify="center" class="py-8 py-sm-16" data-section="Partners">
       <v-col cols="10" lg="10" class="d-flex flex-column">
         <p
           :class="xs ? 'section-title-xs text-center' : 'section-title'"
@@ -54,6 +54,7 @@
 <script setup>
 const { xs } = useDisplay()
 const { t } = useI18n()
+const { trackSectionView } = useGA4()
 
 const partners = [
   {
@@ -93,6 +94,8 @@ const setSize = computed(() => {
     ? { width: '105', height: '45' }
     : { width: '282', height: '120' }
 })
+
+trackSectionView('Partners')
 </script>
 
 <style></style>

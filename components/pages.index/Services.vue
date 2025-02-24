@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" class="py-8 py-sm-16">
+  <v-row justify="center" class="py-8 py-sm-16" data-section="Services">
     <v-col
       cols="9"
       sm="10"
@@ -127,12 +127,17 @@
 </template>
 
 <script setup>
-import { mdiTextBoxOutline, mdiEmailArrowRightOutline, mdiRobot, mdiVideo } from '@mdi/js'
+import {
+  mdiTextBoxOutline,
+  mdiEmailArrowRightOutline,
+  mdiRobot,
+  mdiVideo,
+} from '@mdi/js'
 
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 const { t, locale } = useI18n()
 const router = useRouter()
-const { trackEvent } = useGA4()
+const { trackEvent, trackSectionView } = useGA4()
 
 const content = computed(() => ({
   header: {
@@ -237,6 +242,8 @@ const trackAndNavigate = (item) => {
     router.push(item.to)
   }
 }
+
+trackSectionView('Services')
 </script>
 
 <style scoped>

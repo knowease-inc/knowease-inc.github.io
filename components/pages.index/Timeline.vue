@@ -1,6 +1,6 @@
 <template>
   <v-theme-provider theme="light">
-    <v-row justify="center" class="py-8 py-sm-16">
+    <v-row justify="center" class="py-8 py-sm-16" data-section="Timeline">
       <v-col cols="12" lg="10" class="d-flex flex-column pb-0 pb-sm-3">
         <p
           :class="xs ? 'section-title-xs text-center' : 'section-title'"
@@ -78,8 +78,11 @@
 <script setup>
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 const { t, tm } = useI18n()
+const { trackSectionView } = useGA4()
 
 const setTwoNumber = (num) => (num < 10 ? '0' + num : num)
+
+trackSectionView('Timeline')
 </script>
 
 <style scoped>

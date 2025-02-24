@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" class="px-0">
+  <v-row justify="center" class="px-0" data-section="HeroSection">
     <v-card
       width="100%"
       height="100vh"
@@ -21,6 +21,7 @@
 <script setup>
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 const { t, locale } = useI18n()
+const { trackSectionView } = useGA4()
 
 // Upper Text Style
 const upperTextStyle = computed(() => ({
@@ -58,6 +59,8 @@ const lowerTextContent = computed(() => {
 
   return text
 })
+
+trackSectionView('HeroSection')
 </script>
 
 <style scoped>
