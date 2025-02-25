@@ -53,7 +53,6 @@ export function useGA4() {
      */
     const initializeObserver = () => {
       const section = document.querySelector(`[data-section="${sectionName}"]`)
-      console.log('sectionName', sectionName)
       if (section) {
         const observer = new IntersectionObserver(observerCallback, {
           rootMargin: '0px',
