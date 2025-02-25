@@ -293,6 +293,27 @@ watch(checkbox, (newValue) => {
   validateForm()
 })
 
+// Text Specific Breaks
+const proposalText = computed(() => {
+  const proposal = t('pages.index.contact.proposalText')
+
+  if (locale.value === 'en') {
+    return proposal.replace('out? ', 'out? <br />')
+  }
+
+  return proposal.replace('요? ', '요? <br />')
+})
+
+const guideText = computed(() => {
+  const proposal = t('pages.index.contact.guideText')
+
+  if (locale.value === 'en') {
+    return proposal.replace('Automation). ', 'Automation). <br />')
+  }
+
+  return proposal.replace('제공합니다. ', '제공합니다. <br />')
+})
+
 /** 필수 필드 검증 */
 const validateForm = () => {
   let isValid = true
@@ -340,27 +361,6 @@ const resetForm = () => {
   questionErrorMessage.value = ''
   checkboxErrorMessage.value = ''
 }
-
-// Text Specific Breaks
-const proposalText = computed(() => {
-  const proposal = t('pages.index.contact.proposalText')
-
-  if (locale.value === 'en') {
-    return proposal.replace('out? ', 'out? <br />')
-  }
-
-  return proposal.replace('요? ', '요? <br />')
-})
-
-const guideText = computed(() => {
-  const proposal = t('pages.index.contact.guideText')
-
-  if (locale.value === 'en') {
-    return proposal.replace('Automation). ', 'Automation). <br />')
-  }
-
-  return proposal.replace('제공합니다. ', '제공합니다. <br />')
-})
 
 const submitInquiry = async () => {
   if (!validateForm()) {
