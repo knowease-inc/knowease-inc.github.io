@@ -47,7 +47,7 @@
       </v-col>
 
       <!-- ### START: Input Form ### -->
-      <v-form ref="form" :v-model="valid" validate-on="submit">
+      <v-form ref="form" validate-on="submit">
         <!-- 이름 / 연락처 -->
         <v-row justify="center">
           <v-col cols="10" sm="5">
@@ -112,7 +112,6 @@
               <v-col cols="8" class="py-0">
                 <v-text-field
                   v-model="email"
-                  :rules="emailRules"
                   :placeholder="
                     t('pages.index.contact.template.emailPlaceholder')
                   "
@@ -123,6 +122,10 @@
                   type="text"
                   validate-on="invalid-input"
                 />
+
+                <p v-if="emailErrorMessage" class="error-message">
+                  {{ emailErrorMessage }}
+                </p>
               </v-col>
             </v-sheet>
           </v-col>
@@ -167,7 +170,6 @@
                 <v-textarea
                   v-model="question"
                   :counter="questionCounter"
-                  :rules="questionRules"
                   name="question"
                   :placeholder="
                     t('pages.index.contact.template.inquiriesPlaceholder')
@@ -180,6 +182,10 @@
                   auto-grow
                   validate-on="submit"
                 />
+
+                <p v-if="questionErrorMessage" class="error-message">
+                  {{ questionErrorMessage }}
+                </p>
               </v-col>
             </v-sheet>
           </v-col>
@@ -190,21 +196,31 @@
           <v-col cols="10" sm="11" offset-sm="1" class="pl-3 pl-sm-0">
             <v-checkbox
               v-model="checkbox"
-              :rules="[
-                (v) => !!v || '동의하지 않는 경우 내용이 등록되지 않습니다.',
-              ]"
               :label="t('pages.index.contact.template.label')"
               validate-on="submit"
               class="font-w-600"
             />
+            <p v-if="checkboxErrorMessage" class="error-message">
+              {{ checkboxErrorMessage }}
+            </p>
           </v-col>
         </v-row>
       </v-form>
 
       <v-row justify="center">
+        <p v-if="successMessage" class="success-message">
+          <v-icon :icon="mdiCheckCircle" color="success" />
+          {{ successMessage }}
+        </p>
+        <p v-if="errorMessage" class="error-message">
+          <v-icon :icon="mdiAlertCircle" color="error" />
+          {{ errorMessage }}
+        </p>
+      </v-row>
+
+      <v-row justify="center">
         <v-col cols="10" sm="2">
           <v-btn
-            :disabled="!valid"
             color="#3746fb"
             class="mr-4"
             size="x-large"
@@ -212,7 +228,7 @@
             variant="flat"
             style="z-index: 999"
             :style="{ fontSize: xs ? '1.3rem' : '1.3rem', fontWeight: '700' }"
-            @click="summitCustomerVoice"
+            @click="submitInquiry"
           >
             {{ t('pages.index.contact.template.contactBtn') }}
           </v-btn>
@@ -227,11 +243,12 @@
 </template>
 
 <script setup>
+import { mdiCheckCircle, mdiAlertCircle } from '@mdi/js'
+
 const { t, locale } = useI18n()
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
 
 const form = ref(null)
-const valid = ref(true)
 const customerName = ref('')
 const contactInfo = ref('')
 const companyInfo = ref('')
@@ -240,17 +257,41 @@ const question = ref('')
 const checkbox = ref(false)
 const questionCounter = 1000
 
-const emailRules = [
-  (v) => !!v || '이메일 주소 입력이 필요합니다.',
-  (v) => /.+@.+\..+/.test(v) || '이메일 주소를 입력해야 합니다.',
-]
+const successMessage = ref('')
+const errorMessage = ref('')
+const emailErrorMessage = ref('')
+const questionErrorMessage = ref('')
+const checkboxErrorMessage = ref('')
 
-const questionRules = [
-  (v) => !!v || '내용 입력이 필요합니다.',
-  (v) =>
-    (v && v.length <= questionCounter) ||
-    'Question must be less than 1000 characters',
-]
+watch(email, (newValue) => {
+  if (!newValue) {
+    emailErrorMessage.value = ''
+    return
+  }
+  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(newValue)) {
+    emailErrorMessage.value = '유효한 이메일을 입력해주세요.'
+  } else {
+    emailErrorMessage.value = ''
+  }
+
+  validateForm()
+})
+
+watch(question, (newValue) => {
+  if (newValue) {
+    questionErrorMessage.value = ''
+  }
+
+  validateForm()
+})
+
+watch(checkbox, (newValue) => {
+  if (newValue) {
+    checkboxErrorMessage.value = ''
+  }
+
+  validateForm()
+})
 
 // Text Specific Breaks
 const proposalText = computed(() => {
@@ -273,34 +314,86 @@ const guideText = computed(() => {
   return proposal.replace('제공합니다. ', '제공합니다. <br />')
 })
 
-const summitCustomerVoice = async () => {
-  form.value.validate()
+/** 필수 필드 검증 */
+const validateForm = () => {
+  let isValid = true
 
-  if (valid.value) {
-    try {
-      // 서버에 데이터 저장
-      await sendInquiryToServer({
-        customer_name: customerName.value,
-        customer_email: email.value,
-        customer_phone: contactInfo.value,
-        content: question.value,
-      })
+  if (!email.value) {
+    emailErrorMessage.value = '이메일을 입력해주세요.'
+    isValid = false
+  }
 
-      alert(`문의사항 등록되었습니다.`)
-      location.reload()
-    } catch (err) {
-      console.error(err)
-      alert('문제가 발생했습니다. 다시 시도해주세요.')
-    }
+  if (!question.value) {
+    questionErrorMessage.value = '문의 내용을 입력해주세요.'
+    isValid = false
+  }
+
+  if (question.value && question.value.length > questionCounter) {
+    questionErrorMessage.value = '문의 내용은 1000자 이하로 입력해주세요.'
+    isValid = false
+  }
+
+  if (!checkbox.value) {
+    checkboxErrorMessage.value = '동의하지 않으면 문의를 등록할 수 없습니다.'
+    isValid = false
+  }
+
+  if (isValid) {
+    errorMessage.value = ''
+  }
+
+  return isValid
+}
+
+/** 초기화 함수 */
+const resetForm = () => {
+  customerName.value = ''
+  contactInfo.value = ''
+  companyInfo.value = ''
+  email.value = ''
+  question.value = ''
+  checkbox.value = false
+
+  successMessage.value = ''
+  errorMessage.value = ''
+
+  emailErrorMessage.value = ''
+  questionErrorMessage.value = ''
+  checkboxErrorMessage.value = ''
+}
+
+const submitInquiry = async () => {
+  if (!validateForm()) {
+    errorMessage.value = '입력한 내용을 다시 확인해주세요.'
+    return
+  }
+
+  try {
+    // 서버에 데이터 전송
+    await sendInquiryToServer({
+      customer_name: customerName.value,
+      customer_email: email.value,
+      customer_phone: contactInfo.value,
+      content: question.value,
+    })
+
+    successMessage.value = '문의가 정상적으로 접수되었습니다.'
+
+    // 성공 시 폼 초기화
+    setTimeout(() => {
+      resetForm()
+    }, 3000)
+  } catch (err) {
+    console.error('서버 오류:', err)
+    errorMessage.value = '오류가 발생했습니다. 다시 시도해주세요.'
   }
 }
 
 const sendInquiryToServer = async (inquiryData = {}) => {
   const { customer_name, customer_email, content, customer_phone } = inquiryData
+  const apiUrl = 'https://ko.api.researcher.meaniit.com' // 'http://localhost:8000'
 
   try {
-    const apiUrl = 'https://ko.api.researcher.meaniit.com'
-
     // 요청 데이터
     const requestBody = new FormData()
     requestBody.append('customer_name', customer_name)
@@ -308,23 +401,37 @@ const sendInquiryToServer = async (inquiryData = {}) => {
     requestBody.append('content', content)
     requestBody.append('customer_phone', customer_phone)
 
-    const { data: response, error } = await useFetch(
-      `${apiUrl}/api/resource/users/inquiry`,
-      {
-        method: 'POST',
-        headers: {
-          'x-api-key': '2kamERrKtd78e7iXsTxxP3kdkDteXbAM5uN7rWMV',
-        },
-        body: requestBody,
+    const response = await $fetch(`${apiUrl}/api/resource/users/inquiry`, {
+      method: 'POST',
+      headers: {
+        'x-api-key': '2kamERrKtd78e7iXsTxxP3kdkDteXbAM5uN7rWMV',
       },
-    )
+      body: requestBody,
+    })
 
-    if (error.value) {
-      console.error('서버에 데이터 저장 실패:', error.value)
+    return response
+  } catch (error) {
+    if (error?.data?.type === 'ValidationError') {
+      // 입력 검증 오류
+      errorMessage.value = '입력 데이터가 유효하지 않습니다.'
+    } else if (error?.data?.message) {
+      // 기타 오류
+      errorMessage.value = error.data.message
+    } else if (error?.message) {
+      //  네트워크 오류, DB 연결 오류 등
+      if (error.message.includes('Lost connection to MySQL')) {
+        errorMessage.value =
+          '서버 연결 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
+      } else if (error.message.includes('Failed to fetch')) {
+        errorMessage.value =
+          '네트워크 오류가 발생했습니다. 인터넷 연결을 확인해주세요.'
+      } else {
+        errorMessage.value = error.message
+      }
+    } else {
+      // 서버 응답 실패 등
+      errorMessage.value = '알 수 없는 오류가 발생했습니다. 다시 시도해주세요.'
     }
-    return response.value
-  } catch (err) {
-    console.error('서버 통신 중 오류 발생:', err)
   }
 }
 </script>
@@ -361,6 +468,15 @@ const sendInquiryToServer = async (inquiryData = {}) => {
 
 .input-label {
   font-size: 1.15rem;
+}
+
+.error-message {
+  color: rgb(176, 0, 32);
+  font-size: 1.2rem;
+}
+.success-message {
+  font-size: 1.5rem;
+  color: green;
 }
 
 @media (max-width: 480px) {

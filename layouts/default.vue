@@ -29,7 +29,7 @@ const toggleDarkMode = () => {
   localStorage.setItem('theme', theme.name.value) // 상태 저장
 
   // GA4 이벤트 전송
-  trackEvent('dark_mode_toggle', {
+  trackEvent('dark_mode_toggle_btn', {
     dark_mode_status: isDark.value ? 'enabled' : 'disabled',
   })
 }

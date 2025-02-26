@@ -85,19 +85,20 @@ const router = useRouter()
 const { trackEvent } = useGA4()
 
 const menuItems = computed(() => [
-  { name: t('default.topBar.menuItems.me'), to: '/' },
+  { name: t('default.topBar.menuItems.me'), to: '/', gaLabel: 'home' },
   {
     name: t('default.footer.privacyPolicy'),
     to: '/privacy-policy',
+    gaLabel: 'privacy_policy',
   },
 ])
 
 const navigateWithTracking = (item) => {
-  const { name, to } = item
+  const { to, gaLabel } = item
 
   // GA4 이벤트 전송
   trackEvent('footer_nav_btn', {
-    button_name: name,
+    button_name: gaLabel,
   })
 
   // 외부 링크와 내부 링크를 구분해 처리

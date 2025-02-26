@@ -75,7 +75,9 @@
                 class="text-end"
                 @click="navigateWithTracking(item)"
               >
-                <v-list-item-title class="pr-4">{{ item.name }}</v-list-item-title>
+                <v-list-item-title class="pr-4">{{
+                  item.name
+                }}</v-list-item-title>
               </v-list-item>
             </v-list>
 
@@ -223,6 +225,7 @@ const menuItems = computed(() => [
   {
     name: t('default.topBar.menuItems.me'),
     to: locale.value === 'en' ? `/en/` : `/`,
+    gaLabel: 'home',
   },
   // {
   //   name: t('default.topBar.menuItems.serviceIntro'),
@@ -234,14 +237,15 @@ const menuItems = computed(() => [
   {
     name: t('default.topBar.menuItems.serviceLink'),
     to: 'https://ko.meaniit.com',
+    gaLabel: 'service',
   },
 ])
 
 const navigateWithTracking = (item) => {
-  const { name, to } = item
+  const { to, gaLabel } = item
 
   // GA4 이벤트 전송
-  openMenu(name)
+  openMenu(gaLabel)
 
   // 외부 링크와 내부 링크를 구분해 처리
   if (to?.startsWith('http')) {

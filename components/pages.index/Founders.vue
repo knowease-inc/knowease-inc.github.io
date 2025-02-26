@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" class="bg-color bg-p">
+  <v-row justify="center" class="bg-color bg-p" data-section="Founders">
     <v-col cols="10" sm="10" class="d-flex flex-column align-center">
       <p
         :class="xs ? 'section-title-xs' : 'section-title'"
@@ -160,6 +160,7 @@ import { mdiChevronRight } from '@mdi/js'
 
 const { xs, smAndUp, mdAndUp } = useDisplay()
 const { t, tm, locale } = useI18n()
+const { trackSectionView } = useGA4()
 
 const members = computed(() => tm('pages.index.founders.members'))
 
@@ -181,6 +182,8 @@ const mainAchievement = computed(() => {
 
   return achievement.replace('(Japan)의 ', '(Japan)의 <br />')
 })
+
+trackSectionView('Founders')
 </script>
 
 <style>
