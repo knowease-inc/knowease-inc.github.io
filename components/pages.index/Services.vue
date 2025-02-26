@@ -149,14 +149,17 @@ const content = computed(() => ({
     shortcut: {
       name: t('pages.index.service.cards.meaniit.shortcutLabel'),
       href: 'https://ko.meaniit.com/',
+      gaLabel: 'meaniit_shortcut',
     },
     introduce: {
       name: t('pages.index.service.cards.meaniit.introduceLabel'),
       href: 'https://ko.meaniit.com/reporter',
+      gaLabel: 'meaniit_introduce',
     },
     contact: {
       name: t('pages.index.service.cards.meaniit.contactLabel'),
       to: 'meaniit@get-a.io',
+      gaLabel: 'meaniit_contact',
     },
   },
   education: {
@@ -165,10 +168,12 @@ const content = computed(() => ({
     introduce: {
       name: t('pages.index.service.cards.education.introduceLabel'),
       href: 'https://t-mook.github.io/',
+      gaLabel: 'edu_introduce',
     },
     contact: {
       name: t('pages.index.service.cards.education.contactLabel'),
       to: 'get-a@get-a.io',
+      gaLabel: 'edu_contact',
     },
   },
 }))
@@ -224,14 +229,14 @@ const trackAndOpenEmail = (item) => {
 
   // GA4 이벤트 전송
   trackEvent('contact_us_btn', {
-    button_name: item.name,
+    button_name: item.gaLabel,
   })
 }
 
 const trackAndNavigate = (item) => {
   // GA4 이벤트 전송
   trackEvent('service_section_nav_btn', {
-    button_name: item.name,
+    button_name: item.gaLabel,
   })
 
   // 외부 링크 처리
