@@ -18,7 +18,7 @@
     </v-col>
 
     <!-- ### Start : Our Service ### -->
-    <v-col cols="10" sm="10" class="d-sm-flex">
+    <v-col cols="10" sm="10" class="d-sm-flex justify-sm-center">
       <!-- 첫번째 카드 -->
       <v-card
         class="my-4 my-sm-0 text-white pa-sm-12 px-4 py-6 d-flex flex-column justify-space-between mr-sm-9"

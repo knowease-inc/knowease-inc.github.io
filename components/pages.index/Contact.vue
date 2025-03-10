@@ -356,7 +356,7 @@ const validateForm = () => {
   }
 
   if (!checkbox.value) {
-    checkboxErrorMessage.value = '동의하지 않으면 문의를 등록할 수 없습니다.'
+    checkboxErrorMessage.value = '미동의 시 문의를 등록할 수 없습니다.'
     isValid = false
   }
 
