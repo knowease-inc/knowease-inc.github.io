@@ -193,6 +193,6 @@ export default defineNuxtConfig({
   gtag: {
     id: 'G-BPVZV9J1PC', // 여기에 실제 Google 태그 ID를 입력하세요.
     debug: true, // 개발, 배포 모든 환경에서 디버그 모드 활성화
-    enabled: true, // process.env.NODE_ENV === 'production', // 배포 환경에서만 활성화  // 개발, 배포 모두: true
+    enabled: process.env.NODE_ENV === 'production', // = 배포 환경에서만 활성화  // 개발, 배포 모두: true
   },
 })

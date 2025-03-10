@@ -1,5 +1,9 @@
 <template>
-  <v-row justify="center" class="gradient-background pb-12 pb-sm-0">
+  <v-row
+    justify="center"
+    class="gradient-background pb-12 pb-sm-0"
+    data-section="Contact"
+  >
     <v-col
       cols="10"
       lg="10"
@@ -198,9 +202,14 @@
               v-model="checkbox"
               :label="t('pages.index.contact.template.label')"
               validate-on="submit"
+              hide-details
               class="font-w-600"
             />
-            <p v-if="checkboxErrorMessage" class="error-message">
+            <p
+              v-if="checkboxErrorMessage"
+              class="error-message"
+              style="padding-left: 40px"
+            >
               {{ checkboxErrorMessage }}
             </p>
           </v-col>
@@ -230,7 +239,16 @@
             :style="{ fontSize: xs ? '1.3rem' : '1.3rem', fontWeight: '700' }"
             @click="submitInquiry"
           >
-            {{ t('pages.index.contact.template.contactBtn') }}
+            <v-progress-circular
+              v-if="isLoading"
+              indeterminate
+              color="white"
+              size="24"
+            />
+
+            <span v-else>
+              {{ t('pages.index.contact.template.contactBtn') }}
+            </span>
           </v-btn>
         </v-col>
       </v-row>
@@ -247,6 +265,7 @@ import { mdiCheckCircle, mdiAlertCircle } from '@mdi/js'
 
 const { t, locale } = useI18n()
 const { xs, smAndUp, mdAndUp, lgAndUp } = useDisplay()
+const { trackEvent, trackSectionView } = useGA4()
 
 const form = ref(null)
 const customerName = ref('')
@@ -254,7 +273,10 @@ const contactInfo = ref('')
 const companyInfo = ref('')
 const email = ref('')
 const question = ref('')
+
 const checkbox = ref(false)
+const isLoading = ref(false)
+
 const questionCounter = 1000
 
 const successMessage = ref('')
@@ -368,39 +390,34 @@ const submitInquiry = async () => {
     return
   }
 
-  try {
-    // 서버에 데이터 전송
-    await sendInquiryToServer({
-      customer_name: customerName.value,
-      customer_email: email.value,
-      customer_phone: contactInfo.value,
-      content: question.value,
-    })
+  // 서버에 데이터 전송
+  await sendInquiryToServer({
+    customer_name: customerName.value,
+    customer_email: email.value,
+    customer_phone: contactInfo.value,
+    content: question.value,
+  })
 
-    successMessage.value = '문의가 정상적으로 접수되었습니다.'
-
-    // 성공 시 폼 초기화
-    setTimeout(() => {
-      resetForm()
-    }, 3000)
-  } catch (err) {
-    console.error('서버 오류:', err)
-    errorMessage.value = '오류가 발생했습니다. 다시 시도해주세요.'
-  }
+  // 성공 시 폼 초기화
+  setTimeout(() => {
+    resetForm()
+  }, 3000)
 }
 
 const sendInquiryToServer = async (inquiryData = {}) => {
+  isLoading.value = true // 로딩 시작
+
   const { customer_name, customer_email, content, customer_phone } = inquiryData
   const apiUrl = 'https://ko.api.researcher.meaniit.com' // 'http://localhost:8000'
 
-  try {
-    // 요청 데이터
-    const requestBody = new FormData()
-    requestBody.append('customer_name', customer_name)
-    requestBody.append('customer_email', customer_email)
-    requestBody.append('content', content)
-    requestBody.append('customer_phone', customer_phone)
+  // 요청 데이터
+  const requestBody = new FormData()
+  requestBody.append('customer_name', customer_name)
+  requestBody.append('customer_email', customer_email)
+  requestBody.append('content', content)
+  requestBody.append('customer_phone', customer_phone)
 
+  try {
     const response = await $fetch(`${apiUrl}/api/resource/users/inquiry`, {
       method: 'POST',
       headers: {
@@ -409,16 +426,31 @@ const sendInquiryToServer = async (inquiryData = {}) => {
       body: requestBody,
     })
 
-    return response
+    if (response?.message) {
+      successMessage.value = response.message
+
+      trackEvent('registration_success')
+    }
   } catch (error) {
-    if (error?.data?.type === 'ValidationError') {
-      // 입력 검증 오류
-      errorMessage.value = '입력 데이터가 유효하지 않습니다.'
+    console.error('문의 접수 중 오류:', {
+      status: error?.response?.status,
+      message: error?.message,
+      data: error?.data,
+    })
+
+    if (error?.response?.status === 422) {
+      // FastAPI에서 자동으로 발생하는 Validation Error 처리
+      errorMessage.value =
+        '입력 데이터가 유효하지 않습니다. 모든 필수 항목을 입력해주세요.'
+    } else if (error?.response?.status === 500) {
+      // DB 오류 가능성 (중복 입력 포함)
+      errorMessage.value =
+        '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
     } else if (error?.data?.message) {
-      // 기타 오류
+      // 백엔드에서 반환한 오류 메시지 사용
       errorMessage.value = error.data.message
     } else if (error?.message) {
-      //  네트워크 오류, DB 연결 오류 등
+      // 네트워크 오류, DB 연결 오류 등
       if (error.message.includes('Lost connection to MySQL')) {
         errorMessage.value =
           '서버 연결 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
@@ -432,8 +464,14 @@ const sendInquiryToServer = async (inquiryData = {}) => {
       // 서버 응답 실패 등
       errorMessage.value = '알 수 없는 오류가 발생했습니다. 다시 시도해주세요.'
     }
+
+    trackEvent('registration_failed', { error_message: errorMessage.value })
   }
+
+  isLoading.value = false
 }
+
+trackSectionView('Contact')
 </script>
 
 <style scoped>
@@ -472,7 +510,7 @@ const sendInquiryToServer = async (inquiryData = {}) => {
 
 .error-message {
   color: rgb(176, 0, 32);
-  font-size: 1.2rem;
+  font-weight: 500;
 }
 .success-message {
   font-size: 1.5rem;
