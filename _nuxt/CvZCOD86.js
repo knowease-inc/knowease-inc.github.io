@@ -1,0 +1,1 @@
+import{m as e,Z as r}from"./5QDDuktD.js";const t=e({class:[String,Array,Object],style:{type:[String,Array,Object],default:null}},"component");function n(e){r("useRender").render=e}export{t as m,n as u};
