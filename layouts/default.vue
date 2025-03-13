@@ -56,6 +56,24 @@ if (typeof window !== 'undefined') {
   document.head.appendChild(script)
 }
 
+useHead({
+  script: [
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=AW-11494161709',
+      async: true,
+    }, // Google Ads Snippet
+    {
+      children: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-11494161709');
+      `,
+      type: 'text/javascript'
+    } // Google Ads Snippet
+  ]
+})
+
 // 로컬 스토리지에서 테마 상태 복원
 onMounted(() => {
   const savedTheme = localStorage.getItem('theme') || 'light' // 기본값 'light'
