@@ -92,6 +92,29 @@ export default defineNuxtConfig({
         { rel: 'alternate', hreflang: 'en', href: 'https://www.get-a.io/en' },
         { rel: 'alternate', hreflang: 'ko', href: 'https://www.get-a.io/' },
       ],
+      script: [
+        {
+          innerHTML: `
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-11494161709/uJAXCN7Djf0ZEK366-gq',
+                  'value': 1.0,
+                  'currency': 'KRW',
+                  'event_callback': callback
+              });
+              return false;
+            }
+          `,
+          type: 'text/javascript'
+        }
+      ],
+      // 인라인 스크립트 사용을 위해 sanitize 옵션 비활성화
+      __dangerouslyDisableSanitizers: ['script']
     },
   },
 
